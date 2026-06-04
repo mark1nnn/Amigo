@@ -245,44 +245,13 @@
       <div class="container">
         <div class="section-header reveal">
           <p data-i18n="portfolio.eyebrow" class="eyebrow">Portfolio</p>
-          <h2 data-i18n="portfolio.title">Projekty, które wyglądają profesjonalnie i działają szybko</h2>
-          <p data-i18n="portfolio.description">Przykładowe formaty: landing sprzedażowy, strona internetowa dla firm oraz indywidualny interfejs dla zgłoszeń lub usługi.</p>
+          <h2 data-i18n="portfolio.title">Przykłady projektów</h2>
+          <p data-i18n="portfolio.description">Strony demonstracyjne pokazujące podejście Amigo do struktury, designu, wersji mobilnej i zdobywania zapytań.</p>
         </div>
 
-        <div class="portfolio-grid">
-          <article class="portfolio-card reveal">
-            <div class="project-media">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" data-i18n-alt="portfolio.card1Alt" alt="Podgląd landing page'a dla produktu SaaS">
-              <span data-i18n="portfolio.card1Tag" class="project-tag project-tag-blue">Landing</span>
-            </div>
-            <div class="card-body">
-              <h3 data-i18n="portfolio.card1Title">Landing dla usługi</h3>
-              <p data-i18n="portfolio.card1Text">Struktura pod reklamy, mocny pierwszy ekran, zgłoszenia przez formularz i komunikatory.</p>
-            </div>
-          </article>
+        <div id="portfolio-grid" class="portfolio-grid" aria-live="polite"></div>
 
-          <article class="portfolio-card reveal">
-            <div class="project-media">
-              <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" data-i18n-alt="portfolio.card2Alt" alt="Podgląd strony internetowej dla firm studia">
-              <span data-i18n="portfolio.card2Tag" class="project-tag project-tag-green">Firmowa</span>
-            </div>
-            <div class="card-body">
-              <h3 data-i18n="portfolio.card2Title">Strona internetowa dla firmy</h3>
-              <p data-i18n="portfolio.card2Text">Kilka podstron, czytelna nawigacja, sekcje usług, case studies i bloki budujące zaufanie.</p>
-            </div>
-          </article>
-
-          <article class="portfolio-card reveal">
-            <div class="project-media">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" data-i18n-alt="portfolio.card3Alt" alt="Podgląd interfejsu webowego z analityką">
-              <span data-i18n="portfolio.card3Tag" class="project-tag project-tag-gold">Custom</span>
-            </div>
-            <div class="card-body">
-              <h3 data-i18n="portfolio.card3Title">Indywidualny interfejs</h3>
-              <p data-i18n="portfolio.card3Text">Panel klienta, kalkulator, katalog lub inny scenariusz dopasowany do celu biznesowego.</p>
-            </div>
-          </article>
-        </div>
+        <p data-i18n="portfolio.note" class="portfolio-note reveal">Część projektów jest przedstawiona jako koncepcje demonstracyjne. Pokazują możliwą strukturę, design i funkcjonalność strony przed adaptacją pod realny biznes.</p>
       </div>
     </section>
 
@@ -499,5 +468,15 @@
       </a>
     </div>
   </footer>
+
+  <div id="portfolio-modal" class="portfolio-modal" role="dialog" aria-modal="true" aria-labelledby="portfolio-modal-title" data-i18n-aria="portfolio.modalLabel" aria-label="Opis projektu" hidden>
+    <div class="portfolio-modal-backdrop" data-portfolio-close></div>
+    <article class="portfolio-modal-panel" tabindex="-1">
+      <button id="portfolio-modal-close" class="portfolio-modal-close" type="button" data-portfolio-close data-i18n-aria="portfolio.closeModal" aria-label="Zamknij opis projektu">
+        <i data-lucide="x" class="icon"></i>
+      </button>
+      <div id="portfolio-modal-content" class="portfolio-modal-content"></div>
+    </article>
+  </div>
 </body>
 </html>
