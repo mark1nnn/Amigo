@@ -423,26 +423,33 @@
         <div class="field-row">
           <label>
             <span data-i18n="contacts.formName">Imię</span>
-            <input type="text" name="name" autocomplete="name" required data-i18n-placeholder="contacts.formNamePlaceholder" placeholder="Jan">
+            <input type="text" name="name" autocomplete="name" required minlength="2" maxlength="80" data-i18n-placeholder="contacts.formNamePlaceholder" placeholder="Jan" aria-describedby="name-error">
+            <small id="name-error" class="field-error" data-error-for="name"></small>
           </label>
           <label>
             <span data-i18n="contacts.formContact">Kontakt</span>
-            <input type="text" name="contact" required data-i18n-placeholder="contacts.formContactPlaceholder" placeholder="Telegram, WhatsApp albo email">
+            <input type="text" name="contact" required minlength="3" maxlength="120" data-i18n-placeholder="contacts.formContactPlaceholder" placeholder="Telegram, WhatsApp albo email" aria-describedby="contact-error">
+            <small id="contact-error" class="field-error" data-error-for="contact"></small>
           </label>
         </div>
 
         <label>
           <span data-i18n="contacts.formProject">Typ projektu</span>
-          <select name="project">
+          <select name="project" maxlength="120" aria-describedby="project-error">
             <option data-i18n="contacts.optionLanding">Landing Page</option>
             <option data-i18n="contacts.optionCorporate">Strona internetowa wielostronicowa</option>
             <option data-i18n="contacts.optionCustom">Rozwiązanie indywidualne</option>
           </select>
+          <small id="project-error" class="field-error" data-error-for="project"></small>
         </label>
 
         <label>
-          <span data-i18n="contacts.formMessage">O zadaniu</span>
-          <textarea name="message" rows="5" required data-i18n-placeholder="contacts.formMessagePlaceholder" placeholder="Co trzeba zrobić, jaki jest termin i cel strony internetowej?"></textarea>
+          <span class="field-label-line">
+            <span data-i18n="contacts.formMessage">O zadaniu</span>
+            <span id="message-counter" class="field-counter">0/2000</span>
+          </span>
+          <textarea name="message" rows="5" required minlength="10" maxlength="2000" data-i18n-placeholder="contacts.formMessagePlaceholder" placeholder="Co trzeba zrobić, jaki jest termin i cel strony internetowej?" aria-describedby="message-error"></textarea>
+          <small id="message-error" class="field-error" data-error-for="message"></small>
         </label>
 
         <input

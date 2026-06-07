@@ -1041,17 +1041,33 @@ body.modal-open {
 .field-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 1.25rem;
 }
 
 label {
   display: grid;
+  align-content: start;
   gap: 0.5rem;
 }
 
 label span {
   color: var(--muted);
   font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.field-label-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+label .field-counter {
+  flex: 0 0 auto;
+  color: var(--subtle);
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
@@ -1080,6 +1096,36 @@ textarea::placeholder {
 input:focus,
 select:focus,
 textarea:focus {
+  border-color: var(--blue);
+}
+
+.field-error {
+  display: block;
+  min-height: 1.1rem;
+  margin-top: 0.35rem;
+  color: #f87171;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.form-field-invalid input,
+.form-field-invalid select,
+.form-field-invalid textarea {
+  border-color: #f87171;
+}
+
+.form-field-valid input,
+.form-field-valid select,
+.form-field-valid textarea {
+  border-color: rgba(52, 211, 153, 0.7);
+}
+
+.form-field-invalid input:focus,
+.form-field-invalid select:focus,
+.form-field-invalid textarea:focus,
+.form-field-valid input:focus,
+.form-field-valid select:focus,
+.form-field-valid textarea:focus {
   border-color: var(--blue);
 }
 
