@@ -1,4 +1,4 @@
-# Amigo website222
+# Amigo website
 
 ## Deploy target
 
