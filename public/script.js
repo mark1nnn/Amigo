@@ -139,7 +139,14 @@ const translations = {
       submit: "Отправить заявку",
       status: "Спасибо! Заявка принята, мы свяжемся с вами в ближайшее время.",
       sendingStatus: "Отправляем заявку...",
-      errorStatus: "Заявку не удалось отправить. Попробуйте еще раз или напишите нам напрямую."
+      errorStatus: "Заявку не удалось отправить. Попробуйте еще раз или напишите нам напрямую.",
+      validationName: "Введите имя от 2 до 80 символов.",
+      validationContact: "Введите контакт от 3 до 120 символов: email, Telegram или WhatsApp.",
+      validationProject: "Тип проекта не должен быть длиннее 120 символов.",
+      validationMessage: "Опишите задачу подробнее: минимум 10 символов, максимум 2000.",
+      validationTurnstile: "Подтвердите, что вы не бот.",
+      messageHint: "Минимум 10 символов.",
+      messageCounter: "{count}/2000"
     },
     footer: {
       copyright: " Amigo. Все права защищены.",
@@ -286,7 +293,14 @@ const translations = {
       submit: "Send request",
       status: "Thank you! Your request has been received, and we will contact you soon.",
       sendingStatus: "Sending your request...",
-      errorStatus: "The request could not be sent. Please try again or message us directly."
+      errorStatus: "The request could not be sent. Please try again or message us directly.",
+      validationName: "Enter a name between 2 and 80 characters.",
+      validationContact: "Enter a contact between 3 and 120 characters: email, Telegram or WhatsApp.",
+      validationProject: "Project type must be no longer than 120 characters.",
+      validationMessage: "Describe the project in more detail: minimum 10 characters, maximum 2000.",
+      validationTurnstile: "Please confirm that you are not a bot.",
+      messageHint: "Minimum 10 characters.",
+      messageCounter: "{count}/2000"
     },
     footer: {
       copyright: " Amigo. All rights reserved.",
@@ -433,7 +447,14 @@ const translations = {
       submit: "Wyślij zapytanie",
       status: "Dziękujemy! Zgłoszenie zostało przyjęte, skontaktujemy się wkrótce.",
       sendingStatus: "Wysyłamy zapytanie...",
-      errorStatus: "Nie udało się wysłać zapytania. Spróbuj ponownie albo napisz do nas bezpośrednio."
+      errorStatus: "Nie udało się wysłać zapytania. Spróbuj ponownie albo napisz do nas bezpośrednio.",
+      validationName: "Wpisz imię od 2 do 80 znaków.",
+      validationContact: "Wpisz kontakt od 3 do 120 znaków: e-mail, Telegram albo WhatsApp.",
+      validationProject: "Typ projektu nie może mieć więcej niż 120 znaków.",
+      validationMessage: "Opisz zadanie dokładniej: minimum 10 znaków, maksimum 2000.",
+      validationTurnstile: "Potwierdź, że nie jesteś botem.",
+      messageHint: "Minimum 10 znaków.",
+      messageCounter: "{count}/2000"
     },
     footer: {
       copyright: " Amigo. Wszelkie prawa zastrzeżone.",
@@ -580,7 +601,14 @@ const translations = {
       submit: "Надіслати заявку",
       status: "Дякуємо! Заявку прийнято, ми зв'яжемося з вами найближчим часом.",
       sendingStatus: "Надсилаємо заявку...",
-      errorStatus: "Заявку не вдалося надіслати. Спробуйте ще раз або напишіть нам напряму."
+      errorStatus: "Заявку не вдалося надіслати. Спробуйте ще раз або напишіть нам напряму.",
+      validationName: "Введіть ім'я від 2 до 80 символів.",
+      validationContact: "Введіть контакт від 3 до 120 символів: email, Telegram або WhatsApp.",
+      validationProject: "Тип проєкту не має бути довшим за 120 символів.",
+      validationMessage: "Опишіть задачу детальніше: мінімум 10 символів, максимум 2000.",
+      validationTurnstile: "Підтвердіть, що ви не бот.",
+      messageHint: "Мінімум 10 символів.",
+      messageCounter: "{count}/2000"
     },
     footer: {
       copyright: " Amigo. Усі права захищені.",
@@ -732,6 +760,7 @@ const mobileMenu = document.getElementById("mobile-menu");
 const languageSelects = document.querySelectorAll(".language-select");
 const form = document.getElementById("contact-form");
 const formStatus = document.getElementById("form-status");
+const messageCounter = document.getElementById("message-counter");
 const metaDescription = document.getElementById("meta-description");
 const portfolioGrid = document.getElementById("portfolio-grid");
 const portfolioModal = document.getElementById("portfolio-modal");
@@ -765,6 +794,226 @@ const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (character
   '"': "&quot;",
   "'": "&#39;"
 }[character]));
+
+const CONTACT_FIELD_RULES = {
+  name: {
+    min: 2,
+    max: 80,
+    errorKey: "contacts.validationName"
+  },
+  contact: {
+    min: 3,
+    max: 120,
+    errorKey: "contacts.validationContact"
+  },
+  project: {
+    max: 120,
+    errorKey: "contacts.validationProject"
+  },
+  message: {
+    min: 10,
+    max: 2000,
+    errorKey: "contacts.validationMessage"
+  }
+};
+
+const CONTACT_FIELD_NAMES = Object.keys(CONTACT_FIELD_RULES);
+
+const BACKEND_ERROR_MAP = {
+  "Invalid name": {
+    fieldName: "name",
+    messageKey: "contacts.validationName"
+  },
+  "Invalid contact": {
+    fieldName: "contact",
+    messageKey: "contacts.validationContact"
+  },
+  "Invalid project type": {
+    fieldName: "project",
+    messageKey: "contacts.validationProject"
+  },
+  "Invalid message": {
+    fieldName: "message",
+    messageKey: "contacts.validationMessage"
+  },
+  "Anti-spam check failed": {
+    messageKey: "contacts.validationTurnstile"
+  },
+  "Email sending failed": {
+    messageKey: "contacts.errorStatus"
+  }
+};
+
+const getContactField = (name) => {
+  if (!form) {
+    return null;
+  }
+
+  const field = form.elements.namedItem(name);
+  return field instanceof HTMLElement ? field : null;
+};
+
+const getFieldValue = (name) => {
+  const field = getContactField(name);
+  return field && "value" in field ? String(field.value).trim() : "";
+};
+
+const getFieldLabel = (fieldName) => {
+  const field = getContactField(fieldName);
+  return field ? field.closest("label") : null;
+};
+
+const setFormStatus = (messageKey, isError = false) => {
+  if (!formStatus) {
+    return;
+  }
+
+  formStatus.dataset.statusKey = messageKey;
+  formStatus.classList.remove("hidden");
+  formStatus.classList.toggle("is-error", isError);
+  formStatus.textContent = translate(messageKey);
+};
+
+const setFieldError = (fieldName, messageKey) => {
+  if (!form) {
+    return;
+  }
+
+  const errorElement = form.querySelector(`[data-error-for="${fieldName}"]`);
+  const label = getFieldLabel(fieldName);
+
+  if (errorElement) {
+    errorElement.dataset.errorKey = messageKey;
+    errorElement.textContent = translate(messageKey);
+  }
+
+  if (label) {
+    label.classList.add("form-field-invalid");
+    label.classList.remove("form-field-valid");
+  }
+};
+
+const clearFieldError = (fieldName) => {
+  if (!form) {
+    return;
+  }
+
+  const errorElement = form.querySelector(`[data-error-for="${fieldName}"]`);
+  const label = getFieldLabel(fieldName);
+
+  if (errorElement) {
+    delete errorElement.dataset.errorKey;
+    errorElement.textContent = "";
+  }
+
+  if (label) {
+    label.classList.remove("form-field-invalid");
+    label.classList.add("form-field-valid");
+  }
+};
+
+const resetContactFormValidation = () => {
+  if (!form) {
+    return;
+  }
+
+  form.querySelectorAll("[data-error-for]").forEach((errorElement) => {
+    delete errorElement.dataset.errorKey;
+    errorElement.textContent = "";
+  });
+
+  form.querySelectorAll(".form-field-invalid, .form-field-valid").forEach((fieldWrapper) => {
+    fieldWrapper.classList.remove("form-field-invalid", "form-field-valid");
+  });
+
+  delete form.dataset.validationStatusKey;
+};
+
+const validateContactField = (fieldName) => {
+  const rule = CONTACT_FIELD_RULES[fieldName];
+
+  if (!rule) {
+    return true;
+  }
+
+  const value = getFieldValue(fieldName);
+  const isTooShort = rule.min !== undefined && value.length < rule.min;
+  const isTooLong = rule.max !== undefined && value.length > rule.max;
+
+  if (isTooShort || isTooLong) {
+    setFieldError(fieldName, rule.errorKey);
+    return false;
+  }
+
+  clearFieldError(fieldName);
+  return true;
+};
+
+const isTurnstileRequired = () => (
+  Boolean(form && form.querySelector(".cf-turnstile")) && window.location.protocol !== "file:"
+);
+
+const hasTurnstileResponse = () => Boolean(getFieldValue("cf-turnstile-response"));
+
+const validateContactForm = () => {
+  if (!form) {
+    return true;
+  }
+
+  resetContactFormValidation();
+  let isValid = true;
+
+  CONTACT_FIELD_NAMES.forEach((fieldName) => {
+    if (!validateContactField(fieldName)) {
+      isValid = false;
+    }
+  });
+
+  if (isTurnstileRequired() && !hasTurnstileResponse()) {
+    form.dataset.validationStatusKey = "contacts.validationTurnstile";
+    return false;
+  }
+
+  form.dataset.validationStatusKey = isValid ? "" : "contacts.errorStatus";
+  return isValid;
+};
+
+const updateMessageCounter = () => {
+  if (!messageCounter) {
+    return;
+  }
+
+  const count = getFieldValue("message").length;
+  messageCounter.textContent = translate("contacts.messageCounter").replace("{count}", String(count));
+};
+
+const refreshContactValidationLanguage = () => {
+  if (!form) {
+    return;
+  }
+
+  form.querySelectorAll("[data-error-key]").forEach((errorElement) => {
+    errorElement.textContent = translate(errorElement.dataset.errorKey);
+  });
+
+  updateMessageCounter();
+
+  if (formStatus && !formStatus.classList.contains("hidden") && formStatus.dataset.statusKey) {
+    formStatus.textContent = translate(formStatus.dataset.statusKey);
+  }
+};
+
+const handleBackendContactError = (errorCode) => {
+  const mappedError = BACKEND_ERROR_MAP[errorCode] || {
+    messageKey: "contacts.errorStatus"
+  };
+
+  if (mappedError.fieldName) {
+    setFieldError(mappedError.fieldName, mappedError.messageKey);
+  }
+
+  setFormStatus(mappedError.messageKey, true);
+};
 
 const iconTemplates = {
   "arrow-right": '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
@@ -1367,6 +1616,7 @@ const applyLanguage = (language) => {
   }
 
   renderPricing(currentPricingMarket, { persist: false });
+  refreshContactValidationLanguage();
 };
 
 const getSavedLanguage = () => {
@@ -1572,15 +1822,44 @@ if ("IntersectionObserver" in window) {
 }
 
 if (form && formStatus) {
+  ["name", "contact", "message"].forEach((fieldName) => {
+    const field = getContactField(fieldName);
+
+    if (!field) {
+      return;
+    }
+
+    field.addEventListener("input", () => {
+      validateContactField(fieldName);
+
+      if (fieldName === "message") {
+        updateMessageCounter();
+      }
+    });
+  });
+
+  const projectField = getContactField("project");
+
+  if (projectField) {
+    projectField.addEventListener("change", () => {
+      validateContactField("project");
+    });
+  }
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const submitButton = form.querySelector('button[type="submit"]');
+
+    if (!validateContactForm()) {
+      setFormStatus(form.dataset.validationStatusKey || "contacts.errorStatus", true);
+      return;
+    }
+
     const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
 
-    formStatus.classList.remove("hidden", "is-error");
-    formStatus.textContent = translate("contacts.sendingStatus");
+    setFormStatus("contacts.sendingStatus");
 
     if (submitButton) {
       submitButton.disabled = true;
@@ -1599,20 +1878,22 @@ if (form && formStatus) {
         const result = await response.json();
 
         if (!response.ok || !result.ok) {
-          throw new Error(result.error || "Form submission failed");
+          handleBackendContactError(result.error);
+          return;
         }
       }
 
-      formStatus.textContent = translate("contacts.status");
       form.reset();
+      resetContactFormValidation();
+      updateMessageCounter();
+      setFormStatus("contacts.status");
 
       if (window.turnstile) {
         window.turnstile.reset();
       }
     } catch (error) {
       console.error("Contact form error:", error);
-      formStatus.classList.add("is-error");
-      formStatus.textContent = translate("contacts.errorStatus");
+      setFormStatus("contacts.errorStatus", true);
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
