@@ -642,7 +642,86 @@ const extraTranslations = {
     faqContent: { eyebrow: "FAQ", title: "Часті питання про розробку сайтів", description: "Короткі відповіді перед першою розмовою про корпоративний сайт, лендинг, інтернет-магазин або оновлення поточної сторінки.", q1: "Скільки коштує сайт?", a1: "Ціна залежить від кількості сторінок, мов, інтеграцій і складності дизайну. Після короткого брифу ви отримуєте зрозумілий обсяг робіт, фіксовану ціну і строки.", q2: "Скільки часу займає створення сайту?", a2: "Простий лендинг зазвичай можна підготувати швидше, ніж багатосторінковий сайт або інтернет-магазин. Після брифу ви отримуєте реалістичний графік дизайну, розробки, тестів і публікації.", q3: "Чи буде сайт видимий у Google?", a3: "Сайт отримує логічну структуру заголовків, базову SEO-оптимізацію, швидке завантаження і підготовку до Google Search Console. Подальша видимість залежить від конкуренції, контенту і розвитку сайту.", q4: "Чи створюєте ви лендинги?", a4: "Так. Лендинг можна зробити під рекламну кампанію, послугу, продукт, локальний бізнес або перевірку нової ідеї. Важливі ясне повідомлення, форма і швидкий контакт.", q5: "Чи підключаєте контактну форму?", a5: "Так. Форма може збирати заявки з базовими полями, а залежно від проєкту можна додати email-сповіщення, Telegram або інтеграцію з CRM.", q6: "Чи можна зробити сайт кількома мовами?", a6: "Так. Сайт може мати польську, англійську, українську або російську версію. Найкраще рішення залежить від того, чи потрібні окремі URL для SEO.", q7: "Чи допомагаєте з доменом і хостингом?", a7: "Так. Ми можемо допомогти вибрати простий хостинг, підключити домен, налаштувати SSL і підготувати сайт до публікації на Netlify або іншому статичному хостингу.", q8: "Чи можна потім розвивати сайт?", a8: "Так. Сайт можна розширювати новими сторінками, мовними версіями, статтями, інтеграціями, покращеними продаючими текстами і елементами для отримання заявок." }
   }
 };
+
+const portfolioTranslations = {
+  ru: {
+    portfolio: {
+      eyebrow: "Портфолио",
+      title: "Примеры проектов",
+      description: "Демонстрационные сайты, которые показывают подход Amigo к структуре, дизайну, адаптации под телефон и получению заявок.",
+      note: "Часть проектов представлена как демонстрационные концепты. Они показывают возможную структуру, дизайн и функциональность сайта перед адаптацией под реальный бизнес.",
+      detailsButton: "Подробнее",
+      demoButton: "Смотреть демо",
+      taskTitle: "Задача",
+      workTitle: "Что сделано",
+      featuresTitle: "Ключевые функции",
+      sectionsTitle: "Блоки сайта",
+      modalLabel: "Описание проекта",
+      closeModal: "Закрыть описание проекта",
+      detailsAria: "Открыть подробности проекта",
+      demoAria: "Открыть демо проекта"
+    }
+  },
+  pl: {
+    portfolio: {
+      eyebrow: "Portfolio",
+      title: "Przykłady projektów",
+      description: "Strony demonstracyjne pokazujące podejście Amigo do struktury, designu, wersji mobilnej i zdobywania zapytań.",
+      note: "Część projektów jest przedstawiona jako koncepcje demonstracyjne. Pokazują możliwą strukturę, design i funkcjonalność strony przed adaptacją pod realny biznes.",
+      detailsButton: "Szczegóły",
+      demoButton: "Zobacz demo",
+      taskTitle: "Zadanie",
+      workTitle: "Co zostało zrobione",
+      featuresTitle: "Kluczowe funkcje",
+      sectionsTitle: "Bloki strony",
+      modalLabel: "Opis projektu",
+      closeModal: "Zamknij opis projektu",
+      detailsAria: "Otwórz szczegóły projektu",
+      demoAria: "Otwórz demo projektu"
+    }
+  },
+  en: {
+    portfolio: {
+      eyebrow: "Portfolio",
+      title: "Project Examples",
+      description: "Demo websites that show Amigo's approach to structure, design, mobile adaptation, and lead generation.",
+      note: "Some projects are presented as demonstration concepts. They show a possible website structure, design, and functionality before adaptation to a real business.",
+      detailsButton: "Details",
+      demoButton: "View demo",
+      taskTitle: "Task",
+      workTitle: "What was done",
+      featuresTitle: "Key features",
+      sectionsTitle: "Website blocks",
+      modalLabel: "Project description",
+      closeModal: "Close project description",
+      detailsAria: "Open project details",
+      demoAria: "Open project demo"
+    }
+  },
+  uk: {
+    portfolio: {
+      eyebrow: "Портфоліо",
+      title: "Приклади проєктів",
+      description: "Демонстраційні сайти, які показують підхід Amigo до структури, дизайну, адаптації під телефон і отримання заявок.",
+      note: "Частина проєктів представлена як демонстраційні концепти. Вони показують можливу структуру, дизайн і функціональність сайту перед адаптацією під реальний бізнес.",
+      detailsButton: "Докладніше",
+      demoButton: "Дивитися демо",
+      taskTitle: "Задача",
+      workTitle: "Що зроблено",
+      featuresTitle: "Ключові функції",
+      sectionsTitle: "Блоки сайту",
+      modalLabel: "Опис проєкту",
+      closeModal: "Закрити опис проєкту",
+      detailsAria: "Відкрити подробиці проєкту",
+      demoAria: "Відкрити демо проєкту"
+    }
+  }
+};
+
 Object.entries(extraTranslations).forEach(([language, values]) => {
+  Object.assign(translations[language], values);
+});
+Object.entries(portfolioTranslations).forEach(([language, values]) => {
   Object.assign(translations[language], values);
 });
 
@@ -654,6 +733,10 @@ const languageSelects = document.querySelectorAll(".language-select");
 const form = document.getElementById("contact-form");
 const formStatus = document.getElementById("form-status");
 const metaDescription = document.getElementById("meta-description");
+const portfolioGrid = document.getElementById("portfolio-grid");
+const portfolioModal = document.getElementById("portfolio-modal");
+const portfolioModalPanel = portfolioModal ? portfolioModal.querySelector(".portfolio-modal-panel") : null;
+const portfolioModalContent = document.getElementById("portfolio-modal-content");
 const pricingGrid = document.getElementById("pricing-grid");
 const pricingSupport = document.getElementById("pricing-support");
 const pricingNote = document.getElementById("pricing-note");
@@ -663,6 +746,8 @@ const DEFAULT_PRICING_MARKET = "poland";
 const DEFAULT_PREFERENCES_VERSION = "pl-first-v1";
 let currentLanguage = DEFAULT_LANGUAGE;
 let currentPricingMarket = DEFAULT_PRICING_MARKET;
+let activePortfolioProjectId = null;
+let lastFocusedPortfolioElement = null;
 let revealObserver = null;
 
 const getNestedValue = (source, path) => (
@@ -673,10 +758,19 @@ const translate = (key) => (
   getNestedValue(translations[currentLanguage], key) ?? getNestedValue(translations.ru, key) ?? ""
 );
 
+const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;"
+}[character]));
+
 const iconTemplates = {
   "arrow-right": '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
   "arrow-up": '<path d="m5 12 7-7 7 7"/><path d="M12 19V5"/>',
   check: '<path d="M20 6 9 17l-5-5"/>',
+  "external-link": '<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
   facebook: '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
   instagram: '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/>',
   "code-2": '<path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/>',
@@ -887,6 +981,131 @@ const pricingData = {
   }
 };
 
+const portfolioProjects = [
+  {
+    id: "sto-landing",
+    image: "assets/portfolio/sto-landing-cover.jpg",
+    fullImage: "assets/portfolio/sto-landing-full.jpg",
+    url: "https://landingwebsite.markin4097.workers.dev/",
+    accent: "blue",
+    copy: {
+      ru: {
+        title: "Лендинг для СТО",
+        type: "Landing page",
+        status: "Демонстрационный проект",
+        imageAlt: "Скриншот лендинга для автосервиса",
+        shortDescription: "Одностраничный сайт для автосервиса с услугами, преимуществами, FAQ, контактами и формой заявки.",
+        fullDescription: "Демонстрационный landing page для автосервиса. Проект показывает, как можно быстро презентовать услуги СТО, вызвать доверие у клиента и привести посетителя к заявке через форму или быстрые кнопки связи.",
+        task: "Показать услуги автосервиса, объяснить преимущества, упростить контакт и подготовить структуру сайта под рекламный трафик.",
+        work: "Собрана структура лендинга с сильным первым экраном, блоками услуг, преимуществами, FAQ и быстрыми сценариями связи.",
+        highlights: ["Адаптивный первый экран", "Форма заявки", "Быстрые кнопки связи"],
+        features: ["Адаптивный первый экран", "Блок услуг", "Преимущества компании", "Форма заявки", "Быстрые кнопки связи", "FAQ", "Контакты"],
+        sections: ["Главный экран", "Услуги", "Преимущества", "Процесс работы", "Отзывы", "FAQ", "Контакты"]
+      },
+      pl: {
+        title: "Landing page dla serwisu samochodowego",
+        type: "Landing page",
+        status: "Projekt demonstracyjny",
+        imageAlt: "Zrzut landing page'a dla serwisu samochodowego",
+        shortDescription: "Jednostronicowa witryna dla serwisu samochodowego z usługami, zaletami, FAQ, kontaktem i formularzem zgłoszenia.",
+        fullDescription: "Demonstracyjny landing page dla serwisu samochodowego. Projekt pokazuje, jak szybko zaprezentować usługi, zbudować zaufanie klienta i doprowadzić odwiedzającego do zgłoszenia przez formularz albo szybkie przyciski kontaktu.",
+        task: "Pokazać usługi serwisu, wyjaśnić przewagi, uprościć kontakt i przygotować strukturę pod ruch reklamowy.",
+        work: "Powstała struktura landing page'a z mocnym pierwszym ekranem, usługami, przewagami, FAQ i szybkimi ścieżkami kontaktu.",
+        highlights: ["Responsywny pierwszy ekran", "Formularz zgłoszenia", "Szybkie przyciski kontaktu"],
+        features: ["Responsywny pierwszy ekran", "Blok usług", "Przewagi firmy", "Formularz zgłoszenia", "Szybkie przyciski kontaktu", "FAQ", "Kontakty"],
+        sections: ["Pierwszy ekran", "Usługi", "Przewagi", "Proces pracy", "Opinie", "FAQ", "Kontakty"]
+      },
+      en: {
+        title: "Auto Service Landing Page",
+        type: "Landing page",
+        status: "Demo project",
+        imageAlt: "Screenshot of an auto service landing page",
+        shortDescription: "A one-page website for an auto service business with services, benefits, FAQ, contacts, and a lead form.",
+        fullDescription: "A demonstration landing page for an auto service business. The project shows how to present service offers quickly, build client trust, and guide visitors toward an inquiry through a form or fast contact buttons.",
+        task: "Show the auto service offer, explain the benefits, simplify contact, and prepare the site structure for paid traffic.",
+        work: "A conversion-oriented landing structure was built with a strong hero, service blocks, benefits, FAQ, and quick contact paths.",
+        highlights: ["Responsive hero section", "Lead form", "Fast contact buttons"],
+        features: ["Responsive hero section", "Services block", "Company benefits", "Lead form", "Fast contact buttons", "FAQ", "Contacts"],
+        sections: ["Hero", "Services", "Benefits", "Work process", "Reviews", "FAQ", "Contacts"]
+      },
+      uk: {
+        title: "Лендинг для СТО",
+        type: "Landing page",
+        status: "Демонстраційний проєкт",
+        imageAlt: "Скриншот лендингу для автосервісу",
+        shortDescription: "Односторінковий сайт для автосервісу з послугами, перевагами, FAQ, контактами і формою заявки.",
+        fullDescription: "Демонстраційний landing page для автосервісу. Проєкт показує, як швидко презентувати послуги СТО, викликати довіру клієнта і привести відвідувача до заявки через форму або швидкі кнопки зв'язку.",
+        task: "Показати послуги автосервісу, пояснити переваги, спростити контакт і підготувати структуру сайту під рекламний трафік.",
+        work: "Зібрана структура лендингу з сильним першим екраном, блоками послуг, перевагами, FAQ і швидкими сценаріями зв'язку.",
+        highlights: ["Адаптивний перший екран", "Форма заявки", "Швидкі кнопки зв'язку"],
+        features: ["Адаптивний перший екран", "Блок послуг", "Переваги компанії", "Форма заявки", "Швидкі кнопки зв'язку", "FAQ", "Контакти"],
+        sections: ["Головний екран", "Послуги", "Переваги", "Процес роботи", "Відгуки", "FAQ", "Контакти"]
+      }
+    }
+  },
+  {
+    id: "sto-multipage",
+    image: "assets/portfolio/sto-multipage-cover.jpg",
+    fullImage: "assets/portfolio/sto-multipage-full.jpg",
+    url: "https://multipagewebsiteexample.markin4097.workers.dev/",
+    accent: "green",
+    copy: {
+      ru: {
+        title: "Многостраничный сайт для СТО",
+        type: "Multi-page website",
+        status: "Демонстрационный проект",
+        imageAlt: "Скриншот многостраничного сайта для автосервиса",
+        shortDescription: "Многостраничный сайт для автосервиса с отдельными страницами услуг, информацией о компании и контактами.",
+        fullDescription: "Демонстрационный многостраничный сайт в похожем стиле. Подходит для бизнеса, которому важно продвигать отдельные услуги, улучшить SEO-структуру и дать клиенту больше информации перед обращением.",
+        task: "Создать понятную структуру многостраничного сайта для локального бизнеса с отдельными страницами услуг и удобным контактом.",
+        work: "Подготовлена логика сайта с главной страницей, страницами услуг, блоком о компании, контактами и заявкой.",
+        highlights: ["Отдельные страницы услуг", "SEO-структура", "Адаптация под телефон"],
+        features: ["Главная страница", "Отдельные страницы услуг", "Страница о компании", "Контакты", "Форма заявки", "SEO-структура", "Адаптация под телефон"],
+        sections: ["Главная", "Услуги", "О компании", "Контакты", "Форма заявки"]
+      },
+      pl: {
+        title: "Wielostronicowa strona dla serwisu samochodowego",
+        type: "Multi-page website",
+        status: "Projekt demonstracyjny",
+        imageAlt: "Zrzut wielostronicowej strony dla serwisu samochodowego",
+        shortDescription: "Wielostronicowa witryna dla serwisu samochodowego z osobnymi stronami usług, informacją o firmie i kontaktem.",
+        fullDescription: "Demonstracyjna strona wielostronicowa w spójnym stylu. Dobrze pasuje do biznesu, który chce promować oddzielne usługi, poprawić strukturę SEO i przekazać klientowi więcej informacji przed kontaktem.",
+        task: "Stworzyć czytelną strukturę wielostronicowej strony dla lokalnego biznesu z oddzielnymi stronami usług i wygodnym kontaktem.",
+        work: "Przygotowano logikę strony z główną podstroną, usługami, sekcją o firmie, kontaktem i formularzem zgłoszenia.",
+        highlights: ["Osobne strony usług", "Struktura SEO", "Adaptacja do telefonu"],
+        features: ["Strona główna", "Osobne strony usług", "Strona o firmie", "Kontakty", "Formularz zgłoszenia", "Struktura SEO", "Adaptacja do telefonu"],
+        sections: ["Strona główna", "Usługi", "O firmie", "Kontakty", "Formularz zgłoszenia"]
+      },
+      en: {
+        title: "Auto Service Multi-page Website",
+        type: "Multi-page website",
+        status: "Demo project",
+        imageAlt: "Screenshot of a multi-page auto service website",
+        shortDescription: "A multi-page website for an auto service business with separate service pages, company information, and contacts.",
+        fullDescription: "A demonstration multi-page website in a similar style. It fits businesses that need to promote individual services, improve SEO structure, and give clients more information before they make contact.",
+        task: "Create a clear multi-page website structure for a local business with separate service pages and convenient contact paths.",
+        work: "The website logic was prepared with a home page, service pages, about section, contacts, and a lead form.",
+        highlights: ["Separate service pages", "SEO structure", "Mobile adaptation"],
+        features: ["Home page", "Separate service pages", "About page", "Contacts", "Lead form", "SEO structure", "Mobile adaptation"],
+        sections: ["Home", "Services", "About", "Contacts", "Lead form"]
+      },
+      uk: {
+        title: "Багатосторінковий сайт для СТО",
+        type: "Multi-page website",
+        status: "Демонстраційний проєкт",
+        imageAlt: "Скриншот багатосторінкового сайту для автосервісу",
+        shortDescription: "Багатосторінковий сайт для автосервісу з окремими сторінками послуг, інформацією про компанію і контактами.",
+        fullDescription: "Демонстраційний багатосторінковий сайт у схожому стилі. Підходить для бізнесу, якому важливо просувати окремі послуги, покращити SEO-структуру і дати клієнту більше інформації перед зверненням.",
+        task: "Створити зрозумілу структуру багатосторінкового сайту для локального бізнесу з окремими сторінками послуг і зручним контактом.",
+        work: "Підготовлена логіка сайту з головною сторінкою, сторінками послуг, блоком про компанію, контактами і заявкою.",
+        highlights: ["Окремі сторінки послуг", "SEO-структура", "Адаптація під телефон"],
+        features: ["Головна сторінка", "Окремі сторінки послуг", "Сторінка про компанію", "Контакти", "Форма заявки", "SEO-структура", "Адаптація під телефон"],
+        sections: ["Головна", "Послуги", "Про компанію", "Контакти", "Форма заявки"]
+      }
+    }
+  }
+];
+
 const setBrowserTabIcon = () => {
   document.querySelectorAll('link[rel~="icon"]').forEach((link) => {
     link.setAttribute("href", "assets/amigo-mark.png");
@@ -917,6 +1136,154 @@ const refreshIcons = () => {
     svg.innerHTML = template;
     element.replaceWith(svg);
   });
+};
+
+const getPortfolioProject = (projectId) => portfolioProjects.find((project) => project.id === projectId);
+
+const getPortfolioCopy = (project) => (
+  project.copy[currentLanguage] || project.copy.ru || Object.values(project.copy)[0]
+);
+
+const hasDemoUrl = (url) => Boolean(url && url !== "#" && url !== "#REPLACE_WITH_MULTIPAGE_DEMO_URL");
+
+const renderListItems = (items) => (items || [])
+  .map((item) => `<li><i data-lucide="check" class="icon icon-check"></i><span>${escapeHtml(item)}</span></li>`)
+  .join("");
+
+const renderPortfolioDemoLink = (project, copy, className = "portfolio-action-button") => {
+  if (!hasDemoUrl(project.url)) {
+    return "";
+  }
+
+  return `
+    <a href="${escapeHtml(project.url)}" class="button button-ghost ${className}" target="_blank" rel="noopener" data-project-demo aria-label="${escapeHtml(`${translate("portfolio.demoAria")}: ${copy.title}`)}">
+      <span>${escapeHtml(translate("portfolio.demoButton"))}</span>
+      <i data-lucide="external-link" class="icon"></i>
+    </a>
+  `;
+};
+
+const renderPortfolio = () => {
+  if (!portfolioGrid) {
+    return;
+  }
+
+  portfolioGrid.innerHTML = portfolioProjects.map((project) => {
+    const copy = getPortfolioCopy(project);
+    const detailsLabel = `${translate("portfolio.detailsAria")}: ${copy.title}`;
+
+    return `
+      <article class="portfolio-card reveal" tabindex="0" data-project-id="${escapeHtml(project.id)}" aria-label="${escapeHtml(detailsLabel)}">
+        <div class="project-media">
+          <img src="${escapeHtml(project.image)}" alt="${escapeHtml(copy.imageAlt)}" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="portfolio-tags">
+            <span class="project-tag project-tag-inline project-tag-${escapeHtml(project.accent)}">${escapeHtml(copy.type)}</span>
+            <span class="project-tag project-tag-inline project-tag-muted">${escapeHtml(copy.status)}</span>
+          </div>
+          <h3>${escapeHtml(copy.title)}</h3>
+          <p>${escapeHtml(copy.shortDescription)}</p>
+          <ul class="portfolio-points">
+            ${renderListItems(copy.highlights)}
+          </ul>
+          <div class="portfolio-actions">
+            <button class="button button-primary portfolio-action-button" type="button" data-project-details data-project-id="${escapeHtml(project.id)}">
+              <span>${escapeHtml(translate("portfolio.detailsButton"))}</span>
+              <i data-lucide="arrow-right" class="icon"></i>
+            </button>
+            ${renderPortfolioDemoLink(project, copy)}
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  portfolioGrid.querySelectorAll(".reveal").forEach((element, index) => {
+    prepareRevealElement(element, index);
+  });
+
+  refreshIcons();
+};
+
+const renderPortfolioModal = (project) => {
+  if (!portfolioModal || !portfolioModalContent) {
+    return;
+  }
+
+  const copy = getPortfolioCopy(project);
+  portfolioModal.setAttribute("aria-label", `${translate("portfolio.modalLabel")}: ${copy.title}`);
+
+  portfolioModalContent.innerHTML = `
+    <div class="portfolio-modal-media">
+      <img src="${escapeHtml(project.fullImage)}" alt="${escapeHtml(copy.imageAlt)}">
+    </div>
+    <div class="portfolio-modal-body">
+      <div class="portfolio-tags">
+        <span class="project-tag project-tag-inline project-tag-${escapeHtml(project.accent)}">${escapeHtml(copy.type)}</span>
+        <span class="project-tag project-tag-inline project-tag-muted">${escapeHtml(copy.status)}</span>
+      </div>
+      <h3 id="portfolio-modal-title">${escapeHtml(copy.title)}</h3>
+      <p class="portfolio-modal-description">${escapeHtml(copy.fullDescription)}</p>
+
+      <div class="portfolio-modal-block portfolio-modal-block-accent">
+        <h4>${escapeHtml(translate("portfolio.taskTitle"))}</h4>
+        <p>${escapeHtml(copy.task)}</p>
+      </div>
+
+      <div class="portfolio-modal-block">
+        <h4>${escapeHtml(translate("portfolio.workTitle"))}</h4>
+        <p>${escapeHtml(copy.work)}</p>
+      </div>
+
+      <div class="portfolio-modal-lists">
+        <div class="portfolio-modal-block">
+          <h4>${escapeHtml(translate("portfolio.featuresTitle"))}</h4>
+          <ul class="feature-list portfolio-modal-list">${renderListItems(copy.features)}</ul>
+        </div>
+        <div class="portfolio-modal-block">
+          <h4>${escapeHtml(translate("portfolio.sectionsTitle"))}</h4>
+          <ul class="feature-list portfolio-modal-list">${renderListItems(copy.sections)}</ul>
+        </div>
+      </div>
+
+      <div class="portfolio-modal-actions">
+        ${renderPortfolioDemoLink(project, copy, "portfolio-modal-demo")}
+      </div>
+    </div>
+  `;
+
+  refreshIcons();
+};
+
+const openPortfolioModal = (projectId) => {
+  const project = getPortfolioProject(projectId);
+
+  if (!project || !portfolioModal || !portfolioModalPanel) {
+    return;
+  }
+
+  activePortfolioProjectId = project.id;
+  lastFocusedPortfolioElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  renderPortfolioModal(project);
+
+  portfolioModal.hidden = false;
+  document.body.classList.add("modal-open");
+  portfolioModalPanel.focus({ preventScroll: true });
+};
+
+const closePortfolioModal = () => {
+  if (!portfolioModal || portfolioModal.hidden) {
+    return;
+  }
+
+  portfolioModal.hidden = true;
+  document.body.classList.remove("modal-open");
+  activePortfolioProjectId = null;
+
+  if (lastFocusedPortfolioElement) {
+    lastFocusedPortfolioElement.focus({ preventScroll: true });
+  }
 };
 
 const renderMenuButton = () => {
@@ -990,6 +1357,15 @@ const applyLanguage = (language) => {
   }
 
   renderMenuButton();
+  renderPortfolio();
+
+  if (activePortfolioProjectId && portfolioModal && !portfolioModal.hidden) {
+    const activeProject = getPortfolioProject(activePortfolioProjectId);
+    if (activeProject) {
+      renderPortfolioModal(activeProject);
+    }
+  }
+
   renderPricing(currentPricingMarket, { persist: false });
 };
 
@@ -1120,6 +1496,44 @@ pricingMarketButtons.forEach((button) => {
   button.addEventListener("click", () => {
     renderPricing(button.dataset.pricingMarket);
   });
+});
+
+if (portfolioGrid) {
+  portfolioGrid.addEventListener("click", (event) => {
+    if (event.target.closest("[data-project-demo]")) {
+      return;
+    }
+
+    const trigger = event.target.closest("[data-project-id]");
+    if (trigger) {
+      openPortfolioModal(trigger.dataset.projectId);
+    }
+  });
+
+  portfolioGrid.addEventListener("keydown", (event) => {
+    const card = event.target.closest(".portfolio-card[data-project-id]");
+
+    if (!card || event.target !== card || (event.key !== "Enter" && event.key !== " ")) {
+      return;
+    }
+
+    event.preventDefault();
+    openPortfolioModal(card.dataset.projectId);
+  });
+}
+
+if (portfolioModal) {
+  portfolioModal.addEventListener("click", (event) => {
+    if (event.target.closest("[data-portfolio-close]")) {
+      closePortfolioModal();
+    }
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closePortfolioModal();
+  }
 });
 
 if (menuToggle && mobileMenu) {
