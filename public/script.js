@@ -1577,7 +1577,7 @@ if (form && formStatus) {
 
     const submitButton = form.querySelector('button[type="submit"]');
     const formData = new FormData(form);
-    const encodedData = new URLSearchParams(formData).toString();
+    const payload = Object.fromEntries(formData.entries());
 
     formStatus.classList.remove("hidden", "is-error");
     formStatus.textContent = translate("contacts.sendingStatus");
@@ -1588,20 +1588,29 @@ if (form && formStatus) {
 
     try {
       if (window.location.protocol !== "file:") {
-        const response = await fetch("/", {
+        const response = await fetch("/api/contact", {
           method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encodedData
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
         });
 
-        if (!response.ok) {
-          throw new Error("Netlify form submission failed");
+        const result = await response.json();
+
+        if (!response.ok || !result.ok) {
+          throw new Error(result.error || "Form submission failed");
         }
       }
 
       formStatus.textContent = translate("contacts.status");
       form.reset();
+
+      if (window.turnstile) {
+        window.turnstile.reset();
+      }
     } catch (error) {
+      console.error("Contact form error:", error);
       formStatus.classList.add("is-error");
       formStatus.textContent = translate("contacts.errorStatus");
     } finally {
