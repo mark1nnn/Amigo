@@ -419,11 +419,7 @@
         </div>
       </div>
 
-      <form id="contact-form" class="contact-card reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact">
-        <p class="visually-hidden">
-          <label>Nie wypełniaj tego pola: <input name="bot-field"></label>
-        </p>
+      <form id="contact-form" class="contact-card reveal" novalidate>
         <div class="field-row">
           <label>
             <span data-i18n="contacts.formName">Imię</span>
@@ -448,6 +444,16 @@
           <span data-i18n="contacts.formMessage">O zadaniu</span>
           <textarea name="message" rows="5" required data-i18n-placeholder="contacts.formMessagePlaceholder" placeholder="Co trzeba zrobić, jaki jest termin i cel strony internetowej?"></textarea>
         </label>
+
+        <input
+          type="text"
+          name="website"
+          class="form-honeypot"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        >
+        <div class="cf-turnstile" data-sitekey="REPLACE_WITH_TURNSTILE_SITE_KEY"></div>
 
         <button type="submit" class="button button-green button-large form-button">
           <span data-i18n="contacts.submit">Wyślij zapytanie</span>
@@ -478,5 +484,6 @@
       <div id="portfolio-modal-content" class="portfolio-modal-content"></div>
     </article>
   </div>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

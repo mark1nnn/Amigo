@@ -1093,6 +1093,17 @@ textarea:focus {
   font-size: 0.875rem;
 }
 
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cf-turnstile {
+  min-height: 65px;
+}
+
 .form-status.is-error {
   border-color: rgba(248, 113, 113, 0.35);
   color: #fca5a5;
