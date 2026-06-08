@@ -110,9 +110,6 @@ export async function onRequestPost({ request, env }) {
   const name = String(data.name || "").trim();
   const contact = String(data.contact || "").trim();
   const project = String(data.project || "").trim();
-  const budget = String(data.budget || "").trim();
-  const deadline = String(data.deadline || "").trim();
-  const domain = String(data.domain || "").trim();
   const message = String(data.message || "").trim();
   const website = String(data.website || "").trim();
   const turnstileToken = String(data["cf-turnstile-response"] || "").trim();
@@ -129,20 +126,8 @@ export async function onRequestPost({ request, env }) {
     return jsonResponse({ ok: false, error: "Invalid contact" }, 400, origin);
   }
 
-  if (project.length < 1 || project.length > 120) {
+  if (project.length > 120) {
     return jsonResponse({ ok: false, error: "Invalid project type" }, 400, origin);
-  }
-
-  if (budget.length < 1 || budget.length > 80) {
-    return jsonResponse({ ok: false, error: "Invalid budget" }, 400, origin);
-  }
-
-  if (deadline.length < 1 || deadline.length > 80) {
-    return jsonResponse({ ok: false, error: "Invalid deadline" }, 400, origin);
-  }
-
-  if (domain.length < 1 || domain.length > 40) {
-    return jsonResponse({ ok: false, error: "Invalid domain status" }, 400, origin);
   }
 
   if (message.length < 10 || message.length > 2000) {
@@ -157,10 +142,7 @@ export async function onRequestPost({ request, env }) {
 
   const safeName = escapeHtml(name);
   const safeContact = escapeHtml(contact);
-  const safeProject = escapeHtml(project);
-  const safeBudget = escapeHtml(budget);
-  const safeDeadline = escapeHtml(deadline);
-  const safeDomain = escapeHtml(domain);
+  const safeProject = escapeHtml(project || "Nie wskazano");
   const safeMessage = escapeHtml(message).replaceAll("\n", "<br>");
 
   const subject = `Nowe zapytanie z Amigo - ${name}`;
@@ -170,10 +152,7 @@ Nowe zapytanie z formularza Amigo
 
 Imie: ${name}
 Kontakt: ${contact}
-Typ projektu: ${project}
-Budzet: ${budget}
-Termin: ${deadline}
-Domena: ${domain}
+Typ projektu: ${project || "Nie wskazano"}
 
 Wiadomosc:
 ${message}
@@ -184,9 +163,6 @@ ${message}
     <p><strong>Imie:</strong> ${safeName}</p>
     <p><strong>Kontakt:</strong> ${safeContact}</p>
     <p><strong>Typ projektu:</strong> ${safeProject}</p>
-    <p><strong>Budzet:</strong> ${safeBudget}</p>
-    <p><strong>Termin:</strong> ${safeDeadline}</p>
-    <p><strong>Domena:</strong> ${safeDomain}</p>
     <p><strong>Wiadomosc:</strong></p>
     <p>${safeMessage}</p>
   `;
