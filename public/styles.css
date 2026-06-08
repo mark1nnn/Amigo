@@ -1446,6 +1446,21 @@ textarea:focus {
   margin-top: 0.35rem;
 }
 
+.premium-mobile-links .mobile-cta {
+  color: #09130f;
+  border-color: rgba(52, 211, 153, 0.54);
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.94), rgba(56, 189, 248, 0.88));
+  box-shadow: 0 14px 34px rgba(45, 212, 191, 0.14);
+}
+
+.premium-mobile-links .mobile-cta:hover {
+  color: #030807;
+  border-color: rgba(56, 189, 248, 0.72);
+  background: linear-gradient(135deg, rgba(110, 231, 183, 0.96), rgba(125, 211, 252, 0.92));
+  box-shadow: 0 0 26px rgba(45, 212, 191, 0.18);
+  transform: translateY(-1px);
+}
+
 .hero-premium {
   min-height: 96svh;
   padding-top: 7.75rem;
