@@ -1,9 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://amigostudio.pl/</loc>
-    <lastmod>2026-05-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/about.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/about.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/about.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/about.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/about.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/about.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/about.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/about.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/about.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/about.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/about.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/about.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/portfolio.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/portfolio.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/portfolio.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/portfolio.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/portfolio.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/portfolio.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/portfolio.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/portfolio.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/portfolio.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/portfolio.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/portfolio.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/portfolio.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/portfolio.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/portfolio.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/portfolio.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/services.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/services.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/services.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/services.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/services.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/services.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/services.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/services.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/services.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/services.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/services.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/services.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/services.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/services.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/services.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/reviews.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/reviews.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/reviews.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/reviews.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/reviews.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/reviews.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/reviews.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/reviews.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/reviews.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/reviews.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/reviews.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/reviews.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/reviews.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/reviews.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/reviews.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/blog.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/blog.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/blog.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/contact.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/contact.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/contact.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/contact.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/contact.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/contact.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/contact.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/contact.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/contact.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/contact.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/contact.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/contact.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/contact.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/contact.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/contact.html" />
   </url>
 </urlset>

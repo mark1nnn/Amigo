@@ -13,6 +13,22 @@ Cloudflare Pages settings:
 * Build output directory: public
 * Production branch: main
 
+## Site structure
+
+The live static site is served from `public/`.
+
+Primary Polish pages live at the root of `public/`:
+
+* `/`
+* `/about.html`
+* `/portfolio.html`
+* `/services.html`
+* `/reviews.html`
+* `/blog.html`
+* `/contact.html`
+
+Ukrainian and English versions live in `public/uk/` and `public/en/`.
+
 ## Contact form
 
 The contact form sends JSON POST requests to:
@@ -52,7 +68,7 @@ In Cloudflare Dashboard -> Turnstile -> Add widget:
 
 After creating the widget:
 
-1. Add the public Site Key to `public/index.html` in place of `REPLACE_WITH_TURNSTILE_SITE_KEY`.
+1. Add the public Site Key to every contact form page if the key changes: `public/index.html`, `public/contact.html`, `public/uk/index.html`, `public/uk/contact.html`, `public/en/index.html`, and `public/en/contact.html`.
 2. Add the Secret Key to Cloudflare Pages Environment Variables as `TURNSTILE_SECRET_KEY`.
 
 Server-side Turnstile verification is implemented in `functions/api/contact.js` through:
@@ -76,7 +92,7 @@ Do not use a sender from an unverified domain.
 1. Create and verify domain in Resend.
 2. Create Resend API key.
 3. Create Turnstile widget in Cloudflare.
-4. Add Turnstile Site Key to `public/index.html`.
+4. Add Turnstile Site Key to the six pages that contain the form.
 5. Add Turnstile Secret Key to Cloudflare Pages Environment Variables.
 6. Add all required environment variables in Cloudflare Pages.
 7. Deploy to Cloudflare Pages.

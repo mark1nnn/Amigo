@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Amigo створює сайти та landing page для малого бізнесу в Польщі й Україні з простою структурою, формою заявки та SEO-основою.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#090d12">
+  <link rel="canonical" href="https://amigostudio.pl/uk/">
+  <link rel="alternate" hreflang="pl" href="https://amigostudio.pl/">
+  <link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/">
+  <link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/">
+  <link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/">
+  <meta property="og:title" content="Amigo | Сайти та landing page для малого бізнесу">
+  <meta property="og:description" content="Amigo створює сайти та landing page для малого бізнесу в Польщі й Україні з простою структурою, формою заявки та SEO-основою.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Amigo">
+  <meta property="og:url" content="https://amigostudio.pl/uk/">
+  <meta property="og:image" content="https://amigostudio.pl/assets/amigo-logo.png">
+  <meta property="og:locale" content="uk_UA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Amigo | Сайти та landing page для малого бізнесу">
+  <meta name="twitter:description" content="Amigo створює сайти та landing page для малого бізнесу в Польщі й Україні з простою структурою, формою заявки та SEO-основою.">
+  <meta name="twitter:image" content="https://amigostudio.pl/assets/amigo-logo.png">
+  <title>Amigo | Сайти та landing page для малого бізнесу</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" type="image/png" href="../assets/favicon.png" sizes="512x512">
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="../assets/amigo-mark.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://amigostudio.pl/#organization",
+      "name": "Amigo",
+      "url": "https://amigostudio.pl/",
+      "logo": "https://amigostudio.pl/assets/favicon.png",
+      "image": "https://amigostudio.pl/assets/amigo-logo.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://amigostudio.pl/#website",
+      "url": "https://amigostudio.pl/",
+      "name": "Amigo",
+      "inLanguage": "uk",
+      "publisher": {
+        "@id": "https://amigostudio.pl/#organization"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://amigostudio.pl/#web-development-service",
+      "name": "Послуги та ціни",
+      "serviceType": "website development, landing pages, business websites",
+      "areaServed": [
+        "Poland",
+        "Ukraine",
+        "Europe",
+        "Worldwide"
+      ],
+      "provider": {
+        "@id": "https://amigostudio.pl/#organization"
+      },
+      "description": "Amigo створює сайти та landing page для малого бізнесу в Польщі й Україні з простою структурою, формою заявки та SEO-основою."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://amigostudio.pl/uk/#faq",
+      "inLanguage": "uk",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Скільки коштує сайт?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Вартість залежить від кількості сторінок, мов, інтеграцій і контенту. Після короткого брифу ви отримуєте зрозумілий обсяг і оцінку."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Landing page чи сайт компанії?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Landing page підходить для однієї послуги або кампанії. Сайт компанії кращий, коли потрібно показати кілька напрямків."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи буде сайт підготовлений під SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Так. Базові теги, заголовки, URL-структура, швидкість і sitemap готуються з самого початку."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи працює контактна форма?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Так. Форма надсилає дані до Cloudflare Pages Function за адресою /api/contact і зберігає CORS та Turnstile."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script src="../script.js" defer></script>
+</head>
+<body data-page="home" data-language="uk">
+  
+  <a class="skip-link" href="#main">Перейти до контенту</a>
+  <header id="site-header" class="site-header">
+    <nav class="nav container" aria-label="Головна навігація">
+      <a href="/uk/" class="brand brand-logo" aria-label="Amigo">
+        <img src="../assets/amigo-logo.png" alt="Amigo" class="brand-logo-image" width="214" height="58">
+      </a>
+      <div class="nav-links">
+        <a href="/uk/" aria-current="page" data-page-link="home">Головна</a>
+        <a href="/uk/about.html" data-page-link="about">Про нас</a>
+        <a href="/uk/portfolio.html" data-page-link="portfolio">Портфоліо</a>
+        <a href="/uk/services.html" data-page-link="services">Послуги</a>
+        <a href="/uk/reviews.html" data-page-link="reviews">Відгуки</a>
+        <a href="/uk/blog.html" data-page-link="blog">Блог</a>
+        <a href="/uk/contact.html" data-page-link="contact">Контакти</a>
+      </div>
+      <div class="header-actions">
+        <div class="language-switcher" aria-label="Мовні версії">
+        <a href="/">PL</a>
+        <a href="/uk/" aria-current="true">UA</a>
+        <a href="/en/">EN</a>
+        </div>
+        <a href="/uk/contact.html" class="button button-primary header-cta">Обговорити проєкт</a>
+        <button id="menu-toggle" type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Відкрити меню" data-open-label="Відкрити меню" data-close-label="Закрити меню">
+          <i data-lucide="menu" class="icon"></i>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-panel">
+      <div class="mobile-links container">
+        <a href="/uk/" aria-current="page" data-page-link="home">Головна</a>
+        <a href="/uk/about.html" data-page-link="about">Про нас</a>
+        <a href="/uk/portfolio.html" data-page-link="portfolio">Портфоліо</a>
+        <a href="/uk/services.html" data-page-link="services">Послуги</a>
+        <a href="/uk/reviews.html" data-page-link="reviews">Відгуки</a>
+        <a href="/uk/blog.html" data-page-link="blog">Блог</a>
+        <a href="/uk/contact.html" data-page-link="contact">Контакти</a>
+        <div class="mobile-language language-switcher">
+        <a href="/">PL</a>
+        <a href="/uk/" aria-current="true">UA</a>
+        <a href="/en/">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <div id="top"></div>
+    
+
+    <section class="hero hero-bg">
+      <div class="grid-mask" aria-hidden="true"></div>
+      <div class="hero-inner container">
+        <div class="hero-copy reveal">
+          <p class="kicker"><i data-lucide="zap" class="icon icon-sm"></i> <span>Сайти для малого бізнесу в Польщі й Україні</span></p>
+          <h1>Сайти та landing page для малого бізнесу в Польщі й Україні</h1>
+          <p>Amigo допомагає підприємцям запускати зрозумілі сторінки, які пояснюють пропозицію, збирають заявки та готові до розвитку.</p>
+          <div class="hero-actions">
+            <a href="/uk/contact.html" class="button button-primary button-large">Обговорити проєкт <i data-lucide="arrow-right" class="icon"></i></a>
+            <a href="/uk/portfolio.html" class="button button-ghost button-large">Переглянути портфоліо <i data-lucide="layout-dashboard" class="icon"></i></a>
+          </div>
+          
+        </div>
+        <div class="hero-stats reveal">
+          <div class="stat-card"><strong>90+</strong><span>орієнтир PageSpeed</span></div><div class="stat-card"><strong>7</strong><span>типів сторінок у структурі</span></div><div class="stat-card"><strong>PL/UA/EN</strong><span>мовні версії для SEO</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal"><p class="eyebrow">Що є у базі</p><h2>Що є у базі</h2></div>
+        
+        <div class="cards-grid">
+
+          <article class="info-card reveal">
+            <div class="icon-box"><i data-lucide="clipboard-check" class="icon icon-lg"></i></div>
+            <h2>Зрозуміла пропозиція</h2>
+            <p>Структура допомагає клієнту швидко зрозуміти послуги, процес і наступний крок.</p>
+          </article>
+          <article class="info-card reveal">
+            <div class="icon-box"><i data-lucide="zap" class="icon icon-lg"></i></div>
+            <h2>Швидкий сайт</h2>
+            <p>Легкий HTML, CSS і JavaScript без фреймворків та зайвих етапів збірки.</p>
+          </article>
+          <article class="info-card reveal">
+            <div class="icon-box"><i data-lucide="send" class="icon icon-lg"></i></div>
+            <h2>Форма заявки</h2>
+            <p>Повідомлення приходять через існуючу логіку форми з базовим антиспам-захистом.</p>
+          </article>
+          <article class="info-card reveal">
+            <div class="icon-box"><i data-lucide="search" class="icon icon-lg"></i></div>
+            <h2>SEO-основа</h2>
+            <p>Title, description, canonical, hreflang, заголовки і JSON-LD записані статично в HTML.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal"><p class="eyebrow">Послуги</p><h2>Формати співпраці</h2><p>Можна почати з landing page або одразу створити багатосторінковий сайт компанії.</p></div>
+        
+        <div class="service-grid">
+
+          <article class="service-card reveal">
+            <div class="service-topline">
+              <h2>Landing Page</h2>
+              <p class="price">від 900 zl</p>
+            </div>
+            <p>Односторінковий сайт для послуги, кампанії або швидкого старту бізнесу.</p>
+            <ul class="feature-list">
+              <li><i data-lucide="check" class="icon icon-check"></i><span>hero</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>пропозиція</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>форма</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>mobile-first</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>SEO-основа</span></li>
+            </ul>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-topline">
+              <h2>Сайт компанії</h2>
+              <p class="price">від 1800 zl</p>
+            </div>
+            <p>Багатосторінковий сайт для бізнесу, який хоче зрозуміло показати послуги, процес і контакт.</p>
+            <ul class="feature-list">
+              <li><i data-lucide="check" class="icon icon-check"></i><span>кілька сторінок</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>навігація</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>FAQ</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>контакти</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>SEO-структура</span></li>
+            </ul>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-topline">
+              <h2>Індивідуальне рішення</h2>
+              <p class="price">індивідуальна оцінка</p>
+            </div>
+            <p>Для проєктів з інтеграціями, каталогом, розширеною логікою або нестандартною структурою.</p>
+            <ul class="feature-list">
+              <li><i data-lucide="check" class="icon icon-check"></i><span>інтеграції</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>каталог</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>нестандартні секції</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>план розвитку</span></li>
+            </ul>
+          </article>
+        </div>
+        <div class="section-action reveal"><a href="/uk/services.html" class="button button-ghost">Послуги <i data-lucide="arrow-right" class="icon"></i></a></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal"><p class="eyebrow">Портфоліо</p><h2>Приклади напрямку</h2></div>
+        
+        <div class="portfolio-grid">
+
+          <article class="portfolio-card reveal">
+            <div class="project-media">
+              <img src="../assets/portfolio/sto-landing-cover.jpg" alt="Скриншот landing page для автосервісу" width="720" height="450" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="portfolio-tags">
+                <span class="project-tag project-tag-blue">Landing page для автосервісу</span>
+                <span class="project-tag project-tag-muted">Демонстраційний проєкт</span>
+              </div>
+              <h2>AutoHouse</h2>
+              <p>Контактна форма, секція послуг, CTA, mobile-first і підготовка під SEO.</p>
+            </div>
+          </article>
+          <article class="portfolio-card reveal">
+            <div class="project-media">
+              <img src="../assets/portfolio/sto-landing-full.jpg" alt="Скриншот демонстраційного landing page" width="720" height="450" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="portfolio-tags">
+                <span class="project-tag project-tag-blue">Демонстраційний проєкт</span>
+                <span class="project-tag project-tag-muted">Демонстраційний проєкт</span>
+              </div>
+              <h2>Landing Website Example</h2>
+              <p>Hero, пропозиція, процес, форма і адаптивний layout для швидкого старту.</p>
+            </div>
+          </article>
+          <article class="portfolio-card reveal">
+            <div class="project-media">
+              <img src="../assets/portfolio/sto-multipage-cover.jpg" alt="Скриншот демонстраційного багатосторінкового сайту" width="720" height="450" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="portfolio-tags">
+                <span class="project-tag project-tag-blue">Демонстраційний проєкт</span>
+                <span class="project-tag project-tag-muted">Демонстраційний проєкт</span>
+              </div>
+              <h2>Multi-page Business Website</h2>
+              <p>Кілька сторінок, SEO-структура, FAQ і контакт для розвитку бізнесу.</p>
+            </div>
+          </article>
+        </div>
+        <div class="section-action reveal"><a href="/uk/portfolio.html" class="button button-ghost">Переглянути портфоліо <i data-lucide="arrow-right" class="icon"></i></a></div>
+      </div>
+    </section>
+    <section class="section section-alt section-bordered">
+      <div class="container">
+        <div class="section-header reveal"><p class="eyebrow">Процес без хаосу</p><h2>Процес без хаосу</h2></div>
+        <div class="process-grid">
+          <article class="process-card reveal"><span class="step-index">01</span><h2>Бриф</h2><p>Уточнюємо ціль сайту, аудиторію, пропозицію, контент і термін.</p></article><article class="process-card reveal"><span class="step-index">02</span><h2>Структура</h2><p>Плануємо секції, навігацію та основні шляхи до заявки.</p></article><article class="process-card reveal"><span class="step-index">03</span><h2>Розробка</h2><p>Верстаємо адаптивно, підключаємо форму і перевіряємо швидкість.</p></article><article class="process-card reveal"><span class="step-index">04</span><h2>Публікація</h2><p>Готуємо сайт до запуску, індексації і подальшого розвитку.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container split-grid">
+        <div class="section-header reveal"><p class="eyebrow">Чому Amigo</p><h2>Чому Amigo</h2></div>
+        <div class="rich-text reveal"><p>Amigo працює просто і практично: сайт має бути зрозумілим, швидким, зручним на телефоні та легким у підтримці. Ми не вигадуємо результати без даних, а будуємо основу під контакт, рекламу і SEO.</p><p>Добре структурований сайт допомагає клієнту зрозуміти послугу, порівняти пакети, залишити заявку і повернутися пізніше. Тому кожна сторінка має мету, унікальні meta-теги і місце для розвитку контенту.</p></div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        
+        <div class="section-header reveal"><p class="eyebrow">FAQ</p><h2>Короткі відповіді перед розмовою</h2></div>
+        <div class="faq-list">
+
+          <details class="faq-item reveal" open>
+            <summary>Скільки коштує сайт?</summary>
+            <p>Вартість залежить від кількості сторінок, мов, інтеграцій і контенту. Після короткого брифу ви отримуєте зрозумілий обсяг і оцінку.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Landing page чи сайт компанії?</summary>
+            <p>Landing page підходить для однієї послуги або кампанії. Сайт компанії кращий, коли потрібно показати кілька напрямків.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Чи буде сайт підготовлений під SEO?</summary>
+            <p>Так. Базові теги, заголовки, URL-структура, швидкість і sitemap готуються з самого початку.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Чи працює контактна форма?</summary>
+            <p>Так. Форма надсилає дані до Cloudflare Pages Function за адресою /api/contact і зберігає CORS та Turnstile.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Контакти</p>
+          <h2>Є ідея для сайту?</h2>
+          <p>Опишіть проєкт коротко, і ми підготуємо питання, діапазон робіт та наступний крок.</p>
+        </div>
+        
+        <form class="contact-card contact-form reveal" novalidate data-language="uk" data-success="Дякуємо! Заявку надіслано. Ми зв'яжемося з вами щодо наступного кроку." data-error="Не вдалося надіслати заявку. Спробуйте ще раз або напишіть напряму." data-sending="Надсилаємо заявку..." data-validation-name="Введіть ім'я від 2 до 80 символів." data-validation-contact="Введіть контакт від 3 до 120 символів." data-validation-message="Опишіть завдання детальніше: мінімум 10 символів." data-validation-turnstile="Підтвердіть, що ви не бот.">
+          <div class="form-heading">
+            <h2>Розкажіть про проєкт</h2>
+            <p>Достатньо кількох деталей. Ми відповімо з питаннями та наступним кроком.</p>
+          </div>
+          <div class="field-row">
+            <label>
+              <span>Ім'я</span>
+              <input type="text" name="name" autocomplete="name" required minlength="2" maxlength="80" placeholder="Іван">
+              <small class="field-error" data-error-for="name"></small>
+            </label>
+            <label>
+              <span>Контакт</span>
+              <input type="text" name="contact" required minlength="3" maxlength="120" placeholder="Telegram, WhatsApp або email">
+              <small class="field-error" data-error-for="contact"></small>
+            </label>
+          </div>
+          <div class="field-row">
+            <label>
+              <span>Тип проєкту</span>
+              <select name="projectType">
+                <option>Landing Page</option><option>Сайт компанії</option><option>Індивідуальне рішення</option><option>Підтримка сайту</option>
+              </select>
+            </label>
+            <label>
+              <span>Бюджет</span>
+              <select name="budget">
+                <option>Поки не знаю</option><option>до 1000 zl</option><option>1000-2500 zł</option><option>2500-5000 zł</option><option>5000+ zł</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label>
+              <span>Термін</span>
+              <input type="text" name="deadline" maxlength="120" placeholder="наприклад, 2-4 тижні">
+            </label>
+            <label>
+              <span>Домен</span>
+              <select name="hasDomain">
+                <option>Поки не знаю</option><option>У мене є домен</option><option>Потрібен домен</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            <span class="field-label-line">
+              <span>Про завдання</span>
+              <span class="field-counter" data-counter>0/2000</span>
+            </span>
+            <textarea name="message" rows="5" required minlength="10" maxlength="2000" placeholder="Що потрібно зробити, яка мета сайту і що вже підготовлено?"></textarea>
+            <small class="field-error" data-error-for="message"></small>
+          </label>
+          <input type="hidden" name="language" value="uk">
+          <input type="hidden" name="sourcePage" value="">
+          <input type="text" name="website" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAADgXp5W-mlnPn-ya"></div>
+          <button type="submit" class="button button-green button-large form-button">
+            <span>Надіслати заявку</span>
+            <i data-lucide="send-horizontal" class="icon"></i>
+          </button>
+          <p class="form-status hidden" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="/uk/" class="footer-brand" aria-label="Amigo">
+          <img src="../assets/amigo-mark.png" alt="Amigo" class="footer-brand-mark" width="64" height="64">
+          <span>Amigo</span>
+        </a>
+        <p>Швидкі та зрозумілі сайти для малого бізнесу, з формою заявки і простою підтримкою після запуску.</p>
+      </div>
+      <div>
+        <h2>Мовні версії</h2>
+        <div class="footer-links">
+          <a href="/">PL</a>
+          <a href="/uk/">UA</a>
+          <a href="/en/">EN</a>
+        </div>
+      </div>
+      <div>
+        <h2>Головна навігація</h2>
+        <div class="footer-links"><a href="/uk/">Головна</a><a href="/uk/about.html">Про нас</a><a href="/uk/portfolio.html">Портфоліо</a><a href="/uk/services.html">Послуги</a><a href="/uk/reviews.html">Відгуки</a><a href="/uk/blog.html">Блог</a><a href="/uk/contact.html">Контакти</a></div>
+      </div>
+      <div>
+        <h2>Швидкий контакт</h2>
+        <div class="messenger-links footer-social">
+          <a href="https://t.me/amigowebstudio" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="send" class="icon"></i> Telegram</a>
+          <a href="https://wa.me/+48511326741" target="_blank" rel="noopener" class="messenger-link messenger-link-green"><i data-lucide="message-circle" class="icon"></i> WhatsApp</a>
+          <a href="https://www.instagram.com/amigowebstudio/" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="instagram" class="icon"></i> Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61590617216468" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="facebook" class="icon"></i> Facebook</a>
+        </div>
+        <p class="email-note">E-mail після надсилання форми</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p><span>© </span><span data-year></span><span> Amigo. Усі права захищені.</span></p>
+      <a href="#top" class="back-top">Нагору <i data-lucide="arrow-up" class="icon icon-sm"></i></a>
+    </div>
+  </footer>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</body>
+</html>
