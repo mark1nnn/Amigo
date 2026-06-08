@@ -90,11 +90,21 @@ languageMenus.forEach((menu) => {
   const toggle = menu.querySelector(".language-toggle");
   if (!toggle) return;
 
+  menu.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
   toggle.addEventListener("click", (event) => {
     event.stopPropagation();
     const isOpen = menu.classList.toggle("is-open");
     toggle.setAttribute("aria-expanded", String(isOpen));
     closeLanguageMenus(menu);
+  });
+
+  menu.querySelectorAll(".language-option").forEach((option) => {
+    option.addEventListener("click", () => {
+      closeLanguageMenus();
+    });
   });
 });
 

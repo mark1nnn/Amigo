@@ -1351,8 +1351,7 @@ textarea:focus {
   backdrop-filter: blur(18px);
 }
 
-.premium-language-menu.is-open .language-popover,
-.premium-language-menu:focus-within .language-popover {
+.premium-language-menu.is-open .language-popover {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
