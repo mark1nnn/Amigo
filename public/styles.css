@@ -1282,20 +1282,40 @@ textarea:focus {
 }
 
 .premium-nav-links a {
+  position: relative;
   border: 1px solid transparent;
-  border-radius: 6px;
   padding: 0.64rem 0.82rem;
   color: rgba(226, 232, 240, 0.82);
+  background: transparent;
   font-size: 0.86rem;
   letter-spacing: 0;
 }
 
+.premium-nav-links a::after {
+  position: absolute;
+  left: 0.82rem;
+  right: 0.82rem;
+  bottom: 0.28rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--green), var(--blue), transparent);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0.46);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
 .premium-nav-links a:hover,
 .premium-nav-links a[aria-current="page"] {
-  border-color: rgba(52, 211, 153, 0.18);
-  color: #fff;
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-color: transparent;
+  color: var(--green);
+  background: transparent;
+  box-shadow: none;
+}
+
+.premium-nav-links a:hover::after,
+.premium-nav-links a[aria-current="page"]::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .premium-header-actions {
@@ -1316,19 +1336,34 @@ textarea:focus {
 }
 
 .nav-cta,
-.mobile-cta,
-.hero-primary-cta {
-  color: #03110e;
-  border-color: rgba(52, 211, 153, 0.35);
-  background: linear-gradient(135deg, #34d399 0%, #22e6b4 42%, #38bdf8 100%);
-  box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.2), 0 18px 40px rgba(45, 212, 191, 0.18);
+.mobile-cta {
+  color: #09130f;
+  border-color: rgba(52, 211, 153, 0.54);
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.94), rgba(56, 189, 248, 0.88));
+  box-shadow: 0 14px 34px rgba(45, 212, 191, 0.14);
 }
 
 .nav-cta:hover,
-.mobile-cta:hover,
+.mobile-cta:hover {
+  color: #030807;
+  border-color: rgba(56, 189, 248, 0.72);
+  background: linear-gradient(135deg, rgba(110, 231, 183, 0.96), rgba(125, 211, 252, 0.92));
+  box-shadow: 0 0 26px rgba(45, 212, 191, 0.18);
+  transform: translateY(-1px);
+}
+
+.hero-primary-cta {
+  color: #8fffdc;
+  border-color: rgba(52, 211, 153, 0.62);
+  background: rgba(52, 211, 153, 0.035);
+  box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.08);
+}
+
 .hero-primary-cta:hover {
-  color: #020807;
-  background: linear-gradient(135deg, #6ee7b7 0%, #4adecc 45%, #7dd3fc 100%);
+  color: #b9ffe9;
+  border-color: rgba(56, 189, 248, 0.72);
+  background: rgba(45, 212, 191, 0.08);
+  box-shadow: 0 0 28px rgba(45, 212, 191, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transform: translateY(-1px);
 }
 
@@ -1358,15 +1393,15 @@ textarea:focus {
 }
 
 .premium-mobile-links > a {
-  border: 1px solid rgba(148, 163, 184, 0.12);
-  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid transparent;
+  background: transparent;
 }
 
 .premium-mobile-links > a:hover,
 .premium-mobile-links > a[aria-current="page"] {
-  border-color: rgba(52, 211, 153, 0.28);
-  color: #fff;
-  background: rgba(52, 211, 153, 0.1);
+  border-bottom-color: rgba(52, 211, 153, 0.36);
+  color: var(--green);
+  background: transparent;
 }
 
 .mobile-cta {
@@ -1451,6 +1486,9 @@ textarea:focus {
   max-width: 980px;
   margin-inline: auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-badge {
@@ -1488,29 +1526,34 @@ textarea:focus {
 }
 
 .hero-lead {
+  width: 100%;
   max-width: 790px;
-  margin: 1.35rem auto 0;
+  margin: 1.35rem auto 0 !important;
   color: rgba(226, 232, 240, 0.82);
   font-size: clamp(1.02rem, 2vw, 1.22rem);
   line-height: 1.75;
+  text-align: center;
 }
 
 .hero-actions-centered {
+  width: 100%;
   justify-content: center;
+  align-items: center;
   margin-top: 2rem;
 }
 
 .hero-secondary-cta {
   border-color: rgba(148, 163, 184, 0.22);
   color: rgba(248, 250, 252, 0.94);
-  background: rgba(255, 255, 255, 0.045);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background: transparent;
+  box-shadow: none;
 }
 
 .hero-secondary-cta:hover {
   border-color: rgba(56, 189, 248, 0.38);
   color: #fff;
-  background: rgba(56, 189, 248, 0.1);
+  background: rgba(56, 189, 248, 0.055);
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.12);
   transform: translateY(-1px);
 }
 
