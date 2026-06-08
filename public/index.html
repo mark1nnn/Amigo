@@ -116,46 +116,45 @@
 <body data-page="home" data-language="pl">
   
   <a class="skip-link" href="#main">Przejdź do treści</a>
-  <header id="site-header" class="site-header">
-    <nav class="nav container" aria-label="Główne menu">
-      <a href="/" class="brand brand-logo" aria-label="Amigo">
+  <header id="site-header" class="site-header premium-header">
+    <nav class="nav premium-nav container" aria-label="Główne menu">
+      <a href="/" class="brand brand-logo premium-brand" aria-label="Amigo">
         <img src="assets/amigo-logo.png" alt="Amigo" class="brand-logo-image" width="214" height="58">
       </a>
-      <div class="nav-links">
-        <a href="/" aria-current="page" data-page-link="home">Home</a>
-        <a href="/about" data-page-link="about">O nas</a>
-        <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
-        <a href="/services" data-page-link="services">Usługi</a>
-        <a href="/reviews" data-page-link="reviews">Opinie</a>
-        <a href="/blog" data-page-link="blog">Blog</a>
-        <a href="/contact" data-page-link="contact">Kontakt</a>
-      </div>
-      <div class="header-actions">
-        <div class="language-switcher" aria-label="Wersje językowe">
-        <a href="/" aria-current="true">PL</a>
-        <a href="/uk/">UA</a>
-        <a href="/en/">EN</a>
+      <div class="nav-shell" aria-hidden="false">
+        <div class="nav-links premium-nav-links">
+          <a href="/services" data-page-link="services">Usługi</a>
+          <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
+          <a href="/about" data-page-link="about">O nas</a>
+          <a href="/blog" data-page-link="blog">Blog</a>
+          <a href="/contact" data-page-link="contact">Kontakt</a>
         </div>
-        <a href="/contact" class="button button-primary header-cta">Omów projekt</a>
-        <button id="menu-toggle" type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otwórz menu" data-open-label="Otwórz menu" data-close-label="Zamknij menu">
+      </div>
+      <div class="header-actions premium-header-actions">
+        <div class="language-switcher premium-language-switcher" aria-label="Wersje językowe">
+            <a href="/" aria-current="true">PL</a>
+            <a href="/uk/">UA</a>
+            <a href="/en/">EN</a>
+        </div>
+        <a href="/contact" class="button button-primary header-cta nav-cta">Omów projekt</a>
+        <button id="menu-toggle" type="button" class="menu-toggle nav-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otwórz menu" data-open-label="Otwórz menu" data-close-label="Zamknij menu">
           <i data-lucide="menu" class="icon"></i>
         </button>
       </div>
     </nav>
-    <div id="mobile-menu" class="mobile-panel">
-      <div class="mobile-links container">
-        <a href="/" aria-current="page" data-page-link="home">Home</a>
-        <a href="/about" data-page-link="about">O nas</a>
-        <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
-        <a href="/services" data-page-link="services">Usługi</a>
-        <a href="/reviews" data-page-link="reviews">Opinie</a>
-        <a href="/blog" data-page-link="blog">Blog</a>
-        <a href="/contact" data-page-link="contact">Kontakt</a>
-        <div class="mobile-language language-switcher">
-        <a href="/" aria-current="true">PL</a>
-        <a href="/uk/">UA</a>
-        <a href="/en/">EN</a>
+    <div id="mobile-menu" class="mobile-panel premium-mobile-panel">
+      <div class="mobile-links premium-mobile-links container">
+          <a href="/services" data-page-link="services">Usługi</a>
+          <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
+          <a href="/about" data-page-link="about">O nas</a>
+          <a href="/blog" data-page-link="blog">Blog</a>
+          <a href="/contact" data-page-link="contact">Kontakt</a>
+        <div class="mobile-language language-switcher premium-language-switcher">
+            <a href="/" aria-current="true">PL</a>
+            <a href="/uk/">UA</a>
+            <a href="/en/">EN</a>
         </div>
+        <a href="/contact" class="button button-primary mobile-cta">Omów projekt</a>
       </div>
     </div>
   </header>
@@ -163,21 +162,27 @@
     <div id="top"></div>
     
 
-    <section class="hero hero-bg">
-      <div class="grid-mask" aria-hidden="true"></div>
-      <div class="hero-inner container">
-        <div class="hero-copy reveal">
-          <p class="kicker"><i data-lucide="zap" class="icon icon-sm"></i> <span>Szybki start, czysty kod, jasna oferta</span></p>
-          <h1>Strony internetowe i landing page'e dla małych firm - szybko, jasno i bez chaosu</h1>
-          <p>Amigo pomaga małym firmom w Polsce uruchamiać strony, które tłumaczą ofertę, ułatwiają kontakt i są gotowe do dalszego rozwoju SEO.</p>
-          <div class="hero-actions">
-            <a href="/contact" class="button button-primary button-large">Omów projekt <i data-lucide="arrow-right" class="icon"></i></a>
-            <a href="/portfolio" class="button button-ghost button-large">Zobacz portfolio <i data-lucide="layout-dashboard" class="icon"></i></a>
+    <section class="hero hero-premium" aria-labelledby="home-hero-title">
+      <div class="hero-tech-grid" aria-hidden="true"></div>
+      <div class="hero-light-sweep" aria-hidden="true"></div>
+      <div class="hero-inner hero-premium-inner container">
+        <div class="hero-copy hero-copy-centered reveal">
+          <p class="kicker hero-badge"><i data-lucide="zap" class="icon icon-sm"></i> <span>Nowoczesne strony dla firm</span></p>
+          <h1 id="home-hero-title">Tworzymy nowoczesne strony internetowe dla małych firm</h1>
+          <p class="hero-lead">Projektujemy szybkie, przejrzyste i skuteczne strony internetowe, które pomagają firmom lepiej prezentować ofertę i zdobywać więcej zapytań online.</p>
+          <div class="hero-actions hero-actions-centered">
+            <a href="/contact" class="button button-primary button-large hero-primary-cta">Omów projekt <i data-lucide="arrow-right" class="icon"></i></a>
+            <a href="/portfolio" class="button button-ghost button-large hero-secondary-cta">Zobacz portfolio <i data-lucide="layout-dashboard" class="icon"></i></a>
           </div>
-          <div class="language-banner"><a href="/uk/">Ukraińska wersja strony jest dostępna tutaj</a><a href="/en/">English version available here</a></div>
         </div>
-        <div class="hero-stats reveal">
-          <div class="stat-card"><strong>90+</strong><span>docelowy wynik PageSpeed</span></div><div class="stat-card"><strong>7</strong><span>typów podstron w strukturze</span></div><div class="stat-card"><strong>PL/UA/EN</strong><span>wersje językowe gotowe do SEO</span></div>
+        <div class="hero-tech-stage reveal" aria-hidden="true">
+          <div class="tech-floor"></div>
+          <div class="tech-panel tech-panel-1"></div>
+          <div class="tech-panel tech-panel-2"></div>
+          <div class="tech-panel tech-panel-3"></div>
+          <div class="tech-line tech-line-1"></div>
+          <div class="tech-line tech-line-2"></div>
+          <div class="tech-line tech-line-3"></div>
         </div>
       </div>
     </section>

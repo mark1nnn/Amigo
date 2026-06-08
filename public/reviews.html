@@ -95,46 +95,45 @@
 <body data-page="reviews" data-language="pl">
   
   <a class="skip-link" href="#main">Przejdź do treści</a>
-  <header id="site-header" class="site-header">
-    <nav class="nav container" aria-label="Główne menu">
-      <a href="/" class="brand brand-logo" aria-label="Amigo">
+  <header id="site-header" class="site-header premium-header">
+    <nav class="nav premium-nav container" aria-label="Główne menu">
+      <a href="/" class="brand brand-logo premium-brand" aria-label="Amigo">
         <img src="assets/amigo-logo.png" alt="Amigo" class="brand-logo-image" width="214" height="58">
       </a>
-      <div class="nav-links">
-        <a href="/" data-page-link="home">Home</a>
-        <a href="/about" data-page-link="about">O nas</a>
-        <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
-        <a href="/services" data-page-link="services">Usługi</a>
-        <a href="/reviews" aria-current="page" data-page-link="reviews">Opinie</a>
-        <a href="/blog" data-page-link="blog">Blog</a>
-        <a href="/contact" data-page-link="contact">Kontakt</a>
-      </div>
-      <div class="header-actions">
-        <div class="language-switcher" aria-label="Wersje językowe">
-        <a href="/reviews" aria-current="true">PL</a>
-        <a href="/uk/reviews">UA</a>
-        <a href="/en/reviews">EN</a>
+      <div class="nav-shell" aria-hidden="false">
+        <div class="nav-links premium-nav-links">
+          <a href="/services" data-page-link="services">Usługi</a>
+          <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
+          <a href="/about" data-page-link="about">O nas</a>
+          <a href="/blog" data-page-link="blog">Blog</a>
+          <a href="/contact" data-page-link="contact">Kontakt</a>
         </div>
-        <a href="/contact" class="button button-primary header-cta">Omów projekt</a>
-        <button id="menu-toggle" type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otwórz menu" data-open-label="Otwórz menu" data-close-label="Zamknij menu">
+      </div>
+      <div class="header-actions premium-header-actions">
+        <div class="language-switcher premium-language-switcher" aria-label="Wersje językowe">
+            <a href="/reviews" aria-current="true">PL</a>
+            <a href="/uk/reviews">UA</a>
+            <a href="/en/reviews">EN</a>
+        </div>
+        <a href="/contact" class="button button-primary header-cta nav-cta">Omów projekt</a>
+        <button id="menu-toggle" type="button" class="menu-toggle nav-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otwórz menu" data-open-label="Otwórz menu" data-close-label="Zamknij menu">
           <i data-lucide="menu" class="icon"></i>
         </button>
       </div>
     </nav>
-    <div id="mobile-menu" class="mobile-panel">
-      <div class="mobile-links container">
-        <a href="/" data-page-link="home">Home</a>
-        <a href="/about" data-page-link="about">O nas</a>
-        <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
-        <a href="/services" data-page-link="services">Usługi</a>
-        <a href="/reviews" aria-current="page" data-page-link="reviews">Opinie</a>
-        <a href="/blog" data-page-link="blog">Blog</a>
-        <a href="/contact" data-page-link="contact">Kontakt</a>
-        <div class="mobile-language language-switcher">
-        <a href="/reviews" aria-current="true">PL</a>
-        <a href="/uk/reviews">UA</a>
-        <a href="/en/reviews">EN</a>
+    <div id="mobile-menu" class="mobile-panel premium-mobile-panel">
+      <div class="mobile-links premium-mobile-links container">
+          <a href="/services" data-page-link="services">Usługi</a>
+          <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
+          <a href="/about" data-page-link="about">O nas</a>
+          <a href="/blog" data-page-link="blog">Blog</a>
+          <a href="/contact" data-page-link="contact">Kontakt</a>
+        <div class="mobile-language language-switcher premium-language-switcher">
+            <a href="/reviews" aria-current="true">PL</a>
+            <a href="/uk/reviews">UA</a>
+            <a href="/en/reviews">EN</a>
         </div>
+        <a href="/contact" class="button button-primary mobile-cta">Omów projekt</a>
       </div>
     </div>
   </header>
