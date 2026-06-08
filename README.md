@@ -17,17 +17,19 @@ Cloudflare Pages settings:
 
 The live static site is served from `public/`.
 
-Primary Polish pages live at the root of `public/`:
+Primary Polish page files live at the root of `public/`:
 
 * `/`
-* `/about.html`
-* `/portfolio.html`
-* `/services.html`
-* `/reviews.html`
-* `/blog.html`
-* `/contact.html`
+* `public/about.html`
+* `public/portfolio.html`
+* `public/services.html`
+* `public/reviews.html`
+* `public/blog.html`
+* `public/contact.html`
 
 Ukrainian and English versions live in `public/uk/` and `public/en/`.
+
+Cloudflare Pages serves `.html` files through clean URLs such as `/about`, `/services`, `/uk/about`, and `/en/about`. Do not add `_redirects` rules that rewrite `/about` to `/about.html`; that can create a self-redirect loop with Cloudflare's pretty URL handling.
 
 ## Contact form
 
