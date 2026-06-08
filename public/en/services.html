@@ -149,10 +149,16 @@
         </div>
       </div>
       <div class="header-actions premium-header-actions">
-        <div class="language-switcher premium-language-switcher" aria-label="Language versions">
-            <a href="/services">PL</a>
-            <a href="/uk/services">UA</a>
-            <a href="/en/services" aria-current="true">EN</a>
+        <div class="language-menu premium-language-menu" aria-label="Language versions" data-language-menu>
+          <button type="button" class="language-toggle" aria-expanded="false" aria-haspopup="true">
+            <span class="language-current">EN</span>
+            <span class="language-caret" aria-hidden="true"></span>
+          </button>
+          <div class="language-popover" role="menu">
+            <a href="/services" class="language-option" role="menuitem">PL</a>
+            <a href="/uk/services" class="language-option" role="menuitem">UA</a>
+            <a href="/en/services" class="language-option" role="menuitem" aria-current="true">EN</a>
+          </div>
         </div>
         <a href="/en/contact" class="button button-primary header-cta nav-cta">Discuss a project</a>
         <button id="menu-toggle" type="button" class="menu-toggle nav-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-open-label="Open menu" data-close-label="Close menu">
@@ -167,11 +173,6 @@
           <a href="/en/about" data-page-link="about">About</a>
           <a href="/en/blog" data-page-link="blog">Blog</a>
           <a href="/en/contact" data-page-link="contact">Contact</a>
-        <div class="mobile-language language-switcher premium-language-switcher">
-            <a href="/services">PL</a>
-            <a href="/uk/services">UA</a>
-            <a href="/en/services" aria-current="true">EN</a>
-        </div>
         <a href="/en/contact" class="button button-primary mobile-cta">Discuss a project</a>
       </div>
     </div>

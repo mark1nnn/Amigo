@@ -131,10 +131,16 @@
         </div>
       </div>
       <div class="header-actions premium-header-actions">
-        <div class="language-switcher premium-language-switcher" aria-label="Мовні версії">
-            <a href="/">PL</a>
-            <a href="/uk/" aria-current="true">UA</a>
-            <a href="/en/">EN</a>
+        <div class="language-menu premium-language-menu" aria-label="Мовні версії" data-language-menu>
+          <button type="button" class="language-toggle" aria-expanded="false" aria-haspopup="true">
+            <span class="language-current">UA</span>
+            <span class="language-caret" aria-hidden="true"></span>
+          </button>
+          <div class="language-popover" role="menu">
+            <a href="/" class="language-option" role="menuitem">PL</a>
+            <a href="/uk/" class="language-option" role="menuitem" aria-current="true">UA</a>
+            <a href="/en/" class="language-option" role="menuitem">EN</a>
+          </div>
         </div>
         <a href="/uk/contact" class="button button-primary header-cta nav-cta">Обговорити проєкт</a>
         <button id="menu-toggle" type="button" class="menu-toggle nav-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Відкрити меню" data-open-label="Відкрити меню" data-close-label="Закрити меню">
@@ -149,11 +155,6 @@
           <a href="/uk/about" data-page-link="about">Про нас</a>
           <a href="/uk/blog" data-page-link="blog">Блог</a>
           <a href="/uk/contact" data-page-link="contact">Контакти</a>
-        <div class="mobile-language language-switcher premium-language-switcher">
-            <a href="/">PL</a>
-            <a href="/uk/" aria-current="true">UA</a>
-            <a href="/en/">EN</a>
-        </div>
         <a href="/uk/contact" class="button button-primary mobile-cta">Обговорити проєкт</a>
       </div>
     </div>
