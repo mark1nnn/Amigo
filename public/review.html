@@ -11,11 +11,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="assets/favicon.png" sizes="512x512">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="assets/amigo-mark.png">
-  <script src="script.js" defer></script>
+  <link rel="preload" as="image" href="/assets/amigo-logo.png">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png?v=2" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/favicon-192.png?v=2" sizes="192x192">
+  <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2" sizes="180x180">
+  <script src="/script.js" defer></script>
 </head>
 
 <body data-page="review" data-language="pl">
@@ -23,7 +26,7 @@
   <header id="site-header" class="site-header premium-header">
     <nav class="nav premium-nav container" aria-label="Główne menu">
       <a href="/" class="brand brand-logo premium-brand" aria-label="Amigo">
-        <img src="assets/amigo-logo.png" alt="Amigo" class="brand-logo-image" width="214" height="58">
+        <img src="/assets/amigo-logo.png" alt="Amigo" class="brand-logo-image" width="214" height="58" decoding="async" fetchpriority="high">
       </a>
       <div class="nav-shell" aria-hidden="false">
         <div class="nav-links premium-nav-links">
@@ -129,7 +132,7 @@
     <div class="footer-grid footer-grid-premium">
       <div class="footer-panel footer-brand-panel">
         <a href="/" class="footer-brand" aria-label="Amigo">
-          <img src="assets/amigo-mark.png" alt="Amigo" class="footer-brand-mark" width="64" height="64">
+          <img src="/assets/amigo-mark.png" alt="Amigo" class="footer-brand-mark" width="64" height="64">
           <span>Amigo</span>
         </a>
         <p>Szybkie i czytelne strony oraz landing page'e dla małych firm. Tworzone z myślą o kontakcie, SEO i dalszym rozwoju.</p>

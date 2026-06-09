@@ -121,9 +121,14 @@ select {
   font-weight: 800;
 }
 
+.brand-logo {
+  min-height: 58px;
+}
+
 .brand-logo-image {
-  width: auto;
-  height: 2.3rem;
+  width: 214px;
+  height: auto;
+  max-width: 100%;
   object-fit: contain;
 }
 
@@ -2006,10 +2011,6 @@ textarea:focus {
 }
 
 @media (max-width: 520px) {
-  .brand-logo-image {
-    height: 2rem;
-  }
-
   .portfolio-filter-bar {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2099,8 +2100,9 @@ textarea:focus {
 }
 
 .premium-brand .brand-logo-image {
-  height: 2.45rem;
-  filter: drop-shadow(0 0 20px rgba(52, 211, 153, 0.18));
+  width: 214px;
+  height: auto;
+  max-width: 100%;
 }
 
 .nav-shell {
@@ -2652,8 +2654,14 @@ textarea:focus {
 }
 
 @media (max-width: 520px) {
+  .brand-logo {
+    min-height: 44px;
+  }
+
+  .brand-logo-image,
   .premium-brand .brand-logo-image {
-    height: 2.08rem;
+    width: 160px;
+    height: auto;
   }
 
   .premium-header {

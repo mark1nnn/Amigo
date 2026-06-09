@@ -27,10 +27,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="icon" type="image/png" href="../assets/favicon.png" sizes="512x512">
-  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="../assets/amigo-mark.png">
+  <link rel="preload" as="image" href="/assets/amigo-logo.png">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png?v=2" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/favicon-192.png?v=2" sizes="192x192">
+  <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2" sizes="180x180">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -90,7 +93,7 @@
   ]
 }
   </script>
-  <script src="../script.js" defer></script>
+  <script src="/script.js" defer></script>
 </head>
 <body data-page="reviews" data-language="en">
   
@@ -98,7 +101,7 @@
   <header id="site-header" class="site-header premium-header">
     <nav class="nav premium-nav container" aria-label="Main navigation">
       <a href="/en/" class="brand brand-logo premium-brand" aria-label="Amigo">
-        <img src="../assets/amigo-logo.png" alt="Amigo" class="brand-logo-image" width="214" height="58">
+        <img src="/assets/amigo-logo.png" alt="Amigo" class="brand-logo-image" width="214" height="58" decoding="async" fetchpriority="high">
       </a>
       <div class="nav-shell" aria-hidden="false">
         <div class="nav-links premium-nav-links">
@@ -210,7 +213,7 @@
     <div class="footer-grid footer-grid-premium">
       <div class="footer-panel footer-brand-panel">
         <a href="/en/" class="footer-brand" aria-label="Amigo">
-          <img src="../assets/amigo-mark.png" alt="Amigo" class="footer-brand-mark" width="64" height="64">
+          <img src="/assets/amigo-mark.png" alt="Amigo" class="footer-brand-mark" width="64" height="64">
           <span>Amigo</span>
         </a>
         <p>Fast, clear websites and landing pages for small businesses. Built for contact, SEO and future growth.</p>
