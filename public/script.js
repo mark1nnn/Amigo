@@ -974,96 +974,229 @@ const initReviewsPage = () => {
   }).join("");
 };
 
-function initHeroScrollVideo() {
-  const hero = document.querySelector("[data-hero-scroll-video]");
+function initHeroFrameScroll() {
+  const hero = document.querySelector("[data-hero-frame-scroll]");
   if (!hero) return;
 
-  const video = hero.querySelector(".hero-scroll-video");
+  const canvas = hero.querySelector(".hero-frame-canvas");
   const visual = hero.querySelector(".scroll-hero-visual");
 
-  if (!video || !visual) return;
+  if (!canvas || !visual) return;
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const mobileQuery = window.matchMedia("(max-width: 768px)");
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-  if (reduceMotion || mobileQuery.matches) {
-    video.pause();
-    visual.style.transform = "";
-    return;
-  }
+  const frameCount = 120;
+  const priorityFrameCount = 16;
+  const frameBasePath = "/assets/hero-globe-frames/";
+  const framePath = (index) => `${frameBasePath}frame-${String(index).padStart(3, "0")}.webp`;
 
-  let ticking = false;
-  let ready = false;
+  const images = new Array(frameCount);
+  const framePromises = new Array(frameCount);
+  const loaded = new Array(frameCount).fill(false);
 
-  video.pause();
-  video.muted = true;
-  video.playsInline = true;
-  video.preload = "auto";
+  let targetProgress = 0;
+  let currentProgress = 0;
+  let rafId = null;
+  let lastFrameIndex = -1;
+  let requestedFrameIndex = 0;
+  let hasStartedLoadingRest = false;
+
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = "high";
 
   function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
   }
 
-  function getScrollProgress() {
-    const heroTop = hero.offsetTop;
-    const heroHeight = hero.offsetHeight || window.innerHeight;
-    const scrollY = window.scrollY || window.pageYOffset;
-    const start = heroTop;
-    const end = heroTop + heroHeight * 0.85;
+  function loadFrame(index) {
+    if (loaded[index]) return Promise.resolve(images[index]);
+    if (framePromises[index]) return framePromises[index];
 
-    return clamp((scrollY - start) / (end - start), 0, 1);
+    framePromises[index] = new Promise((resolve) => {
+      const img = new Image();
+      img.decoding = "async";
+
+      img.onload = () => {
+        images[index] = img;
+        loaded[index] = true;
+        resolve(img);
+      };
+
+      img.onerror = () => {
+        resolve(null);
+      };
+
+      img.src = framePath(index);
+    });
+
+    return framePromises[index];
   }
 
-  function updateHeroVideo() {
-    if (!ready || !video.duration) {
-      ticking = false;
+  function drawCoverImage(img) {
+    if (!img || !img.complete) return;
+
+    const canvasRatio = canvas.width / canvas.height;
+    const imageRatio = img.naturalWidth / img.naturalHeight;
+
+    let sx = 0;
+    let sy = 0;
+    let sw = img.naturalWidth;
+    let sh = img.naturalHeight;
+
+    if (imageRatio > canvasRatio) {
+      sw = img.naturalHeight * canvasRatio;
+      sx = (img.naturalWidth - sw) / 2;
+    } else {
+      sh = img.naturalWidth / canvasRatio;
+      sy = (img.naturalHeight - sh) / 2;
+    }
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+  }
+
+  function drawFrame(index, force = false) {
+    requestedFrameIndex = index;
+
+    if (!force && index === lastFrameIndex) return;
+
+    const img = images[index];
+
+    if (!img || !loaded[index]) {
+      loadFrame(index).then(() => {
+        if (requestedFrameIndex === index) {
+          drawFrame(index);
+        }
+      });
       return;
     }
 
-    const progress = getScrollProgress();
-    const duration = video.duration;
-    const targetTime = progress * duration;
+    drawCoverImage(img);
+    lastFrameIndex = index;
+  }
 
-    try {
-      video.currentTime = targetTime;
-    } catch (error) {
-      console.warn("Hero video currentTime update failed:", error);
+  function preloadPriorityFrames() {
+    const promises = [];
+
+    for (let i = 0; i < priorityFrameCount; i += 1) {
+      promises.push(loadFrame(i));
     }
 
-    const translateY = progress * 48;
-    const translateX = progress * -12;
-    const scale = 1.02 + progress * 0.065;
+    return Promise.all(promises).then(() => {
+      drawFrame(lastFrameIndex >= 0 ? lastFrameIndex : 0, true);
+    });
+  }
+
+  function preloadRestFrames() {
+    if (hasStartedLoadingRest) return;
+    hasStartedLoadingRest = true;
+
+    let index = priorityFrameCount;
+
+    function schedule(callback) {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(callback, { timeout: 800 });
+      } else {
+        window.setTimeout(callback, 80);
+      }
+    }
+
+    function loadNextBatch() {
+      const batchSize = 6;
+      const batch = [];
+
+      for (let i = 0; i < batchSize && index < frameCount; i += 1) {
+        batch.push(loadFrame(index));
+        index += 1;
+      }
+
+      Promise.all(batch).then(() => {
+        if (index < frameCount) {
+          schedule(loadNextBatch);
+        }
+      });
+    }
+
+    schedule(loadNextBatch);
+  }
+
+  function getProgress() {
+    const rect = hero.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    return clamp(-rect.top / (viewportHeight * 0.9), 0, 1);
+  }
+
+  function updateTarget() {
+    targetProgress = getProgress();
+
+    if (!rafId) {
+      rafId = window.requestAnimationFrame(animate);
+    }
+  }
+
+  function animate() {
+    const smoothFactor = 0.11;
+
+    currentProgress += (targetProgress - currentProgress) * smoothFactor;
+
+    const frameIndex = Math.round(currentProgress * (frameCount - 1));
+    drawFrame(frameIndex);
+
+    const translateY = currentProgress * 72;
+    const translateX = currentProgress * -18;
+    const scale = 1.04 + currentProgress * 0.09;
 
     visual.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
 
-    hero.dataset.videoProgress = progress.toFixed(3);
-    hero.dataset.videoTime = targetTime.toFixed(2);
+    hero.dataset.frameProgress = currentProgress.toFixed(3);
+    hero.dataset.frameTarget = targetProgress.toFixed(3);
+    hero.dataset.frameIndex = String(frameIndex);
 
-    ticking = false;
-  }
-
-  function requestTick() {
-    if (!ticking) {
-      window.requestAnimationFrame(updateHeroVideo);
-      ticking = true;
+    if (Math.abs(targetProgress - currentProgress) > 0.001) {
+      rafId = window.requestAnimationFrame(animate);
+    } else {
+      currentProgress = targetProgress;
+      rafId = null;
     }
   }
 
-  function onReady() {
-    ready = true;
-    video.currentTime = 0;
-    requestTick();
+  function resizeCanvas() {
+    canvas.width = 1600;
+    canvas.height = 900;
+
+    if (lastFrameIndex >= 0) {
+      drawFrame(lastFrameIndex, true);
+    } else {
+      drawFrame(0, true);
+    }
   }
 
-  if (video.readyState >= 1) {
-    onReady();
-  } else {
-    video.addEventListener("loadedmetadata", onReady, { once: true });
+  resizeCanvas();
+  loadFrame(0).then(() => drawFrame(0, true));
+
+  if (reduceMotion || isMobile) {
+    visual.style.transform = "";
+    return;
   }
+
+  preloadPriorityFrames().then(preloadRestFrames);
 
   window.addEventListener("scroll", requestTick, { passive: true });
-  window.addEventListener("resize", requestTick);
-  requestTick();
+  window.addEventListener("resize", () => {
+    resizeCanvas();
+    updateTarget();
+  });
+
+  function requestTick() {
+    updateTarget();
+  }
+
+  updateTarget();
 }
 
 document.querySelectorAll("[data-year]").forEach((element) => {
@@ -1073,9 +1206,9 @@ document.querySelectorAll("[data-year]").forEach((element) => {
 initPortfolioSections();
 initReviewsPage();
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initHeroScrollVideo);
+  document.addEventListener("DOMContentLoaded", initHeroFrameScroll);
 } else {
-  initHeroScrollVideo();
+  initHeroFrameScroll();
 }
 refreshIcons();
 renderMenuButton();
