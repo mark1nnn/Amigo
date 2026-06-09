@@ -974,84 +974,88 @@ const initReviewsPage = () => {
   }).join("");
 };
 
-const initHeroScrollVideo = () => {
-  const hero = document.querySelector(".hero-premium, .hero, .premium-hero, .hero-section");
-  const visual = document.querySelector(".scroll-hero-visual");
-  const video = document.querySelector(".hero-scroll-video");
-  if (!hero || !visual || !video) return;
+function initHeroScrollVideo() {
+  const hero = document.querySelector("[data-hero-scroll-video]");
+  if (!hero) return;
 
-  const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const video = hero.querySelector(".hero-scroll-video");
+  const visual = hero.querySelector(".scroll-hero-visual");
+
+  if (!video || !visual) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const mobileQuery = window.matchMedia("(max-width: 768px)");
-  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-  let ticking = false;
-  let ready = video.readyState >= 1 && Number.isFinite(video.duration) && video.duration > 0;
-  let disabledSettled = false;
 
-  const resetVisual = () => {
+  if (reduceMotion || mobileQuery.matches) {
+    video.pause();
     visual.style.transform = "";
-    try {
-      video.pause();
-      video.currentTime = 0;
-    } catch {
-      // Some browsers reject currentTime before metadata is available.
-    }
-  };
+    return;
+  }
 
-  const shouldDisable = () => reduceMotionQuery.matches || mobileQuery.matches;
-
-  const update = () => {
-    ticking = false;
-
-    if (shouldDisable()) {
-      if (!disabledSettled) {
-        resetVisual();
-        disabledSettled = true;
-      }
-      return;
-    }
-
-    disabledSettled = false;
-
-    if (!ready || !video.duration) return;
-
-    const rect = hero.getBoundingClientRect();
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    const progress = clamp(-rect.top / (viewportHeight * 0.95), 0, 1);
-    const targetTime = progress * video.duration;
-    const translateY = progress * 36;
-    const scale = 1.02 + progress * 0.045;
-
-    try {
-      video.currentTime = targetTime;
-    } catch {
-      return;
-    }
-
-    visual.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
-  };
-
-  const requestTick = () => {
-    if (!ticking) {
-      window.requestAnimationFrame(update);
-      ticking = true;
-    }
-  };
+  let ticking = false;
+  let ready = false;
 
   video.pause();
   video.muted = true;
   video.playsInline = true;
+  video.preload = "auto";
 
-  const onReady = () => {
-    ready = true;
-    try {
-      video.currentTime = 0;
-    } catch {
-      // Some browsers reject currentTime before metadata is available.
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function getScrollProgress() {
+    const heroTop = hero.offsetTop;
+    const heroHeight = hero.offsetHeight || window.innerHeight;
+    const scrollY = window.scrollY || window.pageYOffset;
+    const start = heroTop;
+    const end = heroTop + heroHeight * 0.85;
+
+    return clamp((scrollY - start) / (end - start), 0, 1);
+  }
+
+  function updateHeroVideo() {
+    if (!ready || !video.duration) {
+      ticking = false;
+      return;
     }
-    requestTick();
-  };
 
-  if (ready) {
+    const progress = getScrollProgress();
+    const duration = video.duration;
+    const targetTime = progress * duration;
+
+    try {
+      video.currentTime = targetTime;
+    } catch (error) {
+      console.warn("Hero video currentTime update failed:", error);
+    }
+
+    const translateY = progress * 48;
+    const translateX = progress * -12;
+    const scale = 1.02 + progress * 0.065;
+
+    visual.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
+
+    hero.dataset.videoProgress = progress.toFixed(3);
+    hero.dataset.videoTime = targetTime.toFixed(2);
+
+    ticking = false;
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeroVideo);
+      ticking = true;
+    }
+  }
+
+  function onReady() {
+    ready = true;
+    video.currentTime = 0;
+    requestTick();
+  }
+
+  if (video.readyState >= 1) {
     onReady();
   } else {
     video.addEventListener("loadedmetadata", onReady, { once: true });
@@ -1059,17 +1063,8 @@ const initHeroScrollVideo = () => {
 
   window.addEventListener("scroll", requestTick, { passive: true });
   window.addEventListener("resize", requestTick);
-
-  [reduceMotionQuery, mobileQuery].forEach((query) => {
-    if (query.addEventListener) {
-      query.addEventListener("change", requestTick);
-    } else if (query.addListener) {
-      query.addListener(requestTick);
-    }
-  });
-
   requestTick();
-};
+}
 
 document.querySelectorAll("[data-year]").forEach((element) => {
   element.textContent = new Date().getFullYear();
@@ -1077,6 +1072,10 @@ document.querySelectorAll("[data-year]").forEach((element) => {
 
 initPortfolioSections();
 initReviewsPage();
-initHeroScrollVideo();
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initHeroScrollVideo);
+} else {
+  initHeroScrollVideo();
+}
 refreshIcons();
 renderMenuButton();

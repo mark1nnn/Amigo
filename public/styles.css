@@ -2352,6 +2352,13 @@ textarea:focus {
     var(--carbon);
 }
 
+.premium-hero,
+[data-hero-scroll-video] {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
 .hero-premium::before,
 .hero-premium::after {
   position: absolute;
@@ -2409,7 +2416,7 @@ textarea:focus {
 
 .hero-premium-inner {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   display: grid;
   min-height: calc(96svh - 7.75rem);
   align-content: center;
@@ -2425,6 +2432,14 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.hero-inner,
+.hero-content,
+.hero-copy,
+[data-hero-scroll-video] .container {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-badge {
@@ -2520,7 +2535,7 @@ textarea:focus {
 .hero-video-overlay {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 1;
   background:
     radial-gradient(circle at 50% 48%, rgba(31, 220, 180, 0.16), transparent 34%),
     linear-gradient(180deg, rgba(5, 8, 12, 0.72) 0%, rgba(5, 8, 12, 0.52) 38%, rgba(5, 8, 12, 0.88) 100%),
@@ -2531,7 +2546,7 @@ textarea:focus {
 .hero-video-glow {
   position: absolute;
   inset: auto 8% -22% 8%;
-  z-index: 2;
+  z-index: 1;
   height: 45%;
   background:
     radial-gradient(circle at 50% 50%, rgba(30, 220, 180, 0.22), transparent 58%),
@@ -2698,6 +2713,10 @@ textarea:focus {
   .hero-video-bg {
     transform: none !important;
     will-change: auto;
+  }
+
+  .hero-scroll-video {
+    opacity: 0.42;
   }
 
   .hero-tech-stage {
