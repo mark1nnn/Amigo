@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Amigo reviews page. Client reviews will appear here after the first commercial projects are completed.">
+  <meta name="description" content="Amigo client reviews. We publish only verified reviews after client permission.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#090d12">
   <link rel="canonical" href="https://amigostudio.pl/en/reviews">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/reviews">
   <link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/reviews">
   <meta property="og:title" content="Reviews | Amigo">
-  <meta property="og:description" content="Amigo reviews page. Client reviews will appear here after the first commercial projects are completed.">
+  <meta property="og:description" content="Amigo client reviews. We publish only verified reviews after client permission.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Amigo">
   <meta property="og:url" content="https://amigostudio.pl/en/reviews">
@@ -21,7 +21,7 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Reviews | Amigo">
-  <meta name="twitter:description" content="Amigo reviews page. Client reviews will appear here after the first commercial projects are completed.">
+  <meta name="twitter:description" content="Amigo client reviews. We publish only verified reviews after client permission.">
   <meta name="twitter:image" content="https://amigostudio.pl/assets/amigo-logo.png">
   <title>Reviews | Amigo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,8 +102,10 @@
       </a>
       <div class="nav-shell" aria-hidden="false">
         <div class="nav-links premium-nav-links">
+          <a href="/en/" data-page-link="home">Home</a>
           <a href="/en/services" data-page-link="services">Services</a>
           <a href="/en/portfolio" data-page-link="portfolio">Portfolio</a>
+          <a href="/en/reviews" aria-current="page" data-page-link="reviews">Reviews</a>
           <a href="/en/about" data-page-link="about">About</a>
           <a href="/en/blog" data-page-link="blog">Blog</a>
           <a href="/en/contact" data-page-link="contact">Contact</a>
@@ -129,8 +131,10 @@
     </nav>
     <div id="mobile-menu" class="mobile-panel premium-mobile-panel">
       <div class="mobile-links premium-mobile-links container">
+          <a href="/en/" data-page-link="home">Home</a>
           <a href="/en/services" data-page-link="services">Services</a>
           <a href="/en/portfolio" data-page-link="portfolio">Portfolio</a>
+          <a href="/en/reviews" aria-current="page" data-page-link="reviews">Reviews</a>
           <a href="/en/about" data-page-link="about">About</a>
           <a href="/en/blog" data-page-link="blog">Blog</a>
           <a href="/en/contact" data-page-link="contact">Contact</a>
@@ -140,29 +144,62 @@
   </header>
   <main id="main">
     <div id="top"></div>
-    
+
     <nav class="breadcrumbs container" aria-label="Breadcrumb">
       <a href="/en/">Home</a>
       <span aria-hidden="true">/</span>
       <span>Reviews</span>
     </nav>
 
-    
     <section class="page-hero">
       <div class="grid-mask" aria-hidden="true"></div>
       <div class="container page-hero-inner reveal">
         <p class="eyebrow">Reviews</p>
         <h1>Client reviews</h1>
-        <p>Client reviews will appear here after the first commercial projects are completed.</p>
+        <p>This page will contain reviews from clients Amigo has worked with on websites, landing pages, inquiry forms and post-launch support.</p>
       </div>
     </section>
+
+    <section class="section">
+      <div class="container reviews-shell">
+        <div class="reviews-grid" data-reviews-list hidden></div>
+        <article class="empty-state reveal" data-reviews-empty>
+          <i data-lucide="message-square-text" class="icon empty-icon"></i>
+          <h2>No published reviews yet</h2>
+          <p>We do not add fake reviews or ratings. When verified client reviews are available, they will be published here.</p>
+          <div class="review-actions">
+            <a href="/en/portfolio" class="button button-primary">View portfolio <i data-lucide="arrow-right" class="icon"></i></a>
+            <a href="/en/contact" class="button button-ghost">Discuss project</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Verification</p>
+          <h2>How we verify reviews</h2>
+        </div>
+        <div class="verification-grid">
+          <article class="verification-item reveal"><span>1</span><p>A review is submitted by a client after the project is completed.</p></article>
+          <article class="verification-item reveal"><span>2</span><p>We publish it only after the client gives permission.</p></article>
+          <article class="verification-item reveal"><span>3</span><p>If the client agrees, we add the project name or website link.</p></article>
+          <article class="verification-item reveal"><span>4</span><p>Reviews are not published automatically without review.</p></article>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
-        <article class="empty-state reveal">
-          <i data-lucide="message-square-text" class="icon empty-icon"></i>
-          <h2>No reviews yet</h2>
-          <p>We do not add fake reviews or ratings. Confirmed feedback will be published here when it exists.</p>
-          <a href="/en/portfolio" class="button button-primary">View portfolio <i data-lucide="arrow-right" class="icon"></i></a>
+        <article class="cta-band reveal">
+          <p class="eyebrow">Portfolio</p>
+          <h2>Want to become the next Amigo project?</h2>
+          <p>Tell us about your project — we will suggest the website format that best fits your business.</p>
+          <div class="review-cta-actions">
+            <a href="/en/portfolio" class="button button-ghost">View portfolio</a>
+            <a href="/en/contact" class="button button-primary">Discuss project <i data-lucide="arrow-right" class="icon"></i></a>
+          </div>
         </article>
       </div>
     </section>

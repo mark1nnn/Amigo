@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Strona opinii Amigo. Opinie klientów pojawią się tutaj po zakończeniu pierwszych projektów komercyjnych.">
+  <meta name="description" content="Opinie klientów Amigo. Publikujemy wyłącznie potwierdzone opinie po zgodzie klienta.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#090d12">
   <link rel="canonical" href="https://amigostudio.pl/reviews">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/reviews">
   <link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/reviews">
   <meta property="og:title" content="Opinie | Amigo">
-  <meta property="og:description" content="Strona opinii Amigo. Opinie klientów pojawią się tutaj po zakończeniu pierwszych projektów komercyjnych.">
+  <meta property="og:description" content="Opinie klientów Amigo. Publikujemy wyłącznie potwierdzone opinie po zgodzie klienta.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Amigo">
   <meta property="og:url" content="https://amigostudio.pl/reviews">
@@ -21,7 +21,7 @@
   <meta property="og:locale" content="pl_PL">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Opinie | Amigo">
-  <meta name="twitter:description" content="Strona opinii Amigo. Opinie klientów pojawią się tutaj po zakończeniu pierwszych projektów komercyjnych.">
+  <meta name="twitter:description" content="Opinie klientów Amigo. Publikujemy wyłącznie potwierdzone opinie po zgodzie klienta.">
   <meta name="twitter:image" content="https://amigostudio.pl/assets/amigo-logo.png">
   <title>Opinie | Amigo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,8 +102,10 @@
       </a>
       <div class="nav-shell" aria-hidden="false">
         <div class="nav-links premium-nav-links">
+          <a href="/" data-page-link="home">Strona główna</a>
           <a href="/services" data-page-link="services">Usługi</a>
           <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
+          <a href="/reviews" aria-current="page" data-page-link="reviews">Opinie</a>
           <a href="/about" data-page-link="about">O nas</a>
           <a href="/blog" data-page-link="blog">Blog</a>
           <a href="/contact" data-page-link="contact">Kontakt</a>
@@ -129,8 +131,10 @@
     </nav>
     <div id="mobile-menu" class="mobile-panel premium-mobile-panel">
       <div class="mobile-links premium-mobile-links container">
+          <a href="/" data-page-link="home">Strona główna</a>
           <a href="/services" data-page-link="services">Usługi</a>
           <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
+          <a href="/reviews" aria-current="page" data-page-link="reviews">Opinie</a>
           <a href="/about" data-page-link="about">O nas</a>
           <a href="/blog" data-page-link="blog">Blog</a>
           <a href="/contact" data-page-link="contact">Kontakt</a>
@@ -140,29 +144,62 @@
   </header>
   <main id="main">
     <div id="top"></div>
-    
+
     <nav class="breadcrumbs container" aria-label="Breadcrumb">
-      <a href="/">Home</a>
+      <a href="/">Strona główna</a>
       <span aria-hidden="true">/</span>
       <span>Opinie</span>
     </nav>
 
-    
     <section class="page-hero">
       <div class="grid-mask" aria-hidden="true"></div>
       <div class="container page-hero-inner reveal">
         <p class="eyebrow">Opinie</p>
         <h1>Opinie klientów</h1>
-        <p>Opinie klientów pojawią się tutaj po zakończeniu pierwszych projektów komercyjnych.</p>
+        <p>Tutaj będą publikowane opinie klientów, z którymi Amigo pracował nad stronami internetowymi, landing page, formularzami zapytań i wsparciem po publikacji.</p>
       </div>
     </section>
+
+    <section class="section">
+      <div class="container reviews-shell">
+        <div class="reviews-grid" data-reviews-list hidden></div>
+        <article class="empty-state reveal" data-reviews-empty>
+          <i data-lucide="message-square-text" class="icon empty-icon"></i>
+          <h2>Na razie bez opublikowanych opinii</h2>
+          <p>Nie dodajemy wymyślonych opinii ani ocen. Gdy pojawią się potwierdzone opinie od klientów, zostaną opublikowane tutaj.</p>
+          <div class="review-actions">
+            <a href="/portfolio" class="button button-primary">Zobacz portfolio <i data-lucide="arrow-right" class="icon"></i></a>
+            <a href="/contact" class="button button-ghost">Omów projekt</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Weryfikacja</p>
+          <h2>Jak weryfikujemy opinie</h2>
+        </div>
+        <div class="verification-grid">
+          <article class="verification-item reveal"><span>1</span><p>Opinię zostawia klient po zakończeniu projektu.</p></article>
+          <article class="verification-item reveal"><span>2</span><p>Publikujemy ją tylko po zgodzie klienta.</p></article>
+          <article class="verification-item reveal"><span>3</span><p>Jeśli klient pozwala, dodajemy nazwę projektu lub link do strony.</p></article>
+          <article class="verification-item reveal"><span>4</span><p>Opinie nie są publikowane automatycznie bez sprawdzenia.</p></article>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
-        <article class="empty-state reveal">
-          <i data-lucide="message-square-text" class="icon empty-icon"></i>
-          <h2>Jeszcze bez opinii</h2>
-          <p>Nie dodajemy fikcyjnych recenzji ani ocen. Gdy pojawią się potwierdzone opinie, zostana opublikowane w tym miejscu.</p>
-          <a href="/portfolio" class="button button-primary">Zobacz portfolio <i data-lucide="arrow-right" class="icon"></i></a>
+        <article class="cta-band reveal">
+          <p class="eyebrow">Portfolio</p>
+          <h2>Chcesz zostać kolejnym projektem Amigo?</h2>
+          <p>Opisz swój projekt — podpowiemy, który format strony najlepiej pasuje do Twojego biznesu.</p>
+          <div class="review-cta-actions">
+            <a href="/portfolio" class="button button-ghost">Zobacz portfolio</a>
+            <a href="/contact" class="button button-primary">Omów projekt <i data-lucide="arrow-right" class="icon"></i></a>
+          </div>
         </article>
       </div>
     </section>

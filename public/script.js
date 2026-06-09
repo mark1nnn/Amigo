@@ -16,8 +16,48 @@ const iconTemplates = {
   "search": '<circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path>',
   "send": '<path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path>',
   "send-horizontal": '<path d="m3 3 3 9-3 9 19-9Z"></path><path d="M6 12h16"></path>',
+  "shield-check": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path>',
   "x": '<path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>',
   "zap": '<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>'
+};
+
+const reviewsData = [
+  // Do not publish fake reviews.
+  // Add real client reviews only after approval and permission to publish.
+  // Example pending structure for future use:
+  // {
+  //   id: "autohouse",
+  //   status: "pending",
+  //   lang: "uk",
+  //   name: "",
+  //   company: "AutoHouse",
+  //   projectName: "AutoHouse",
+  //   projectType: "Landing Page",
+  //   websiteUrl: "https://autohouse.dp.ua/",
+  //   rating: null,
+  //   text: "",
+  //   verified: true,
+  //   permissionToPublish: false,
+  //   date: ""
+  // }
+];
+
+const reviewUi = {
+  pl: {
+    verified: "Zweryfikowany klient",
+    projectLink: "Otwórz projekt",
+    rating: "Ocena"
+  },
+  en: {
+    verified: "Verified client",
+    projectLink: "Open project",
+    rating: "Rating"
+  },
+  uk: {
+    verified: "Перевірений клієнт",
+    projectLink: "Відкрити проєкт",
+    rating: "Оцінка"
+  }
 };
 
 const portfolioUi = {
@@ -553,6 +593,11 @@ const getValue = (form, name) => {
   return field && "value" in field ? String(field.value).trim() : "";
 };
 
+const getChecked = (form, name) => {
+  const field = getField(form, name);
+  return field instanceof HTMLInputElement && field.type === "checkbox" ? field.checked : false;
+};
+
 const contactValidationMessages = {
   pl: {
     name: "Wpisz imię - minimum 2 znaki.",
@@ -586,10 +631,55 @@ const contactValidationMessages = {
   }
 };
 
+const reviewValidationMessages = {
+  pl: {
+    name: "Wpisz imię - minimum 2 znaki.",
+    projectName: "Wpisz nazwę projektu.",
+    reviewText: "Treść opinii powinna mieć od 30 do 1000 znaków.",
+    websiteUrl: "Podaj poprawny adres URL albo zostaw pole puste.",
+    permissionToPublish: "Zgoda na publikację opinii jest wymagana.",
+    turnstile: "Potwierdź weryfikację bezpieczeństwa i spróbuj ponownie."
+  },
+  en: {
+    name: "Enter your name - at least 2 characters.",
+    projectName: "Enter the project name.",
+    reviewText: "Review text must be between 30 and 1000 characters.",
+    websiteUrl: "Enter a valid URL or leave the field empty.",
+    permissionToPublish: "Permission to publish the review is required.",
+    turnstile: "Complete the security check and try again."
+  },
+  uk: {
+    name: "Вкажіть ім'я - мінімум 2 символи.",
+    projectName: "Вкажіть назву проєкту.",
+    reviewText: "Текст відгуку має містити від 30 до 1000 символів.",
+    websiteUrl: "Вкажіть коректний URL або залиште поле порожнім.",
+    permissionToPublish: "Згода на публікацію відгуку є обов'язковою.",
+    turnstile: "Підтвердіть перевірку безпеки та спробуйте ще раз."
+  }
+};
+
 const getValidationMessage = (form, key) => {
   const language = form.dataset.language || "pl";
-  return contactValidationMessages[language]?.[key] || contactValidationMessages.pl[key] || "";
+  const messages = getValue(form, "formType") === "review" ? reviewValidationMessages : contactValidationMessages;
+  return messages[language]?.[key] || messages.pl[key] || "";
 };
+
+const isValidUrl = (value) => {
+  if (!value) return true;
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+};
+
+const escapeMarkup = (value = "") => String(value)
+  .replaceAll("&", "&amp;")
+  .replaceAll("<", "&lt;")
+  .replaceAll(">", "&gt;")
+  .replaceAll('"', "&quot;")
+  .replaceAll("'", "&#039;");
 
 const isPlausibleContact = (value) => {
   const contact = value.trim();
@@ -700,27 +790,83 @@ const validateForm = (form) => {
   return isValid;
 };
 
+const validateReviewForm = (form) => {
+  let isValid = true;
+  const name = getValue(form, "name");
+  const projectName = getValue(form, "projectName");
+  const reviewText = getValue(form, "reviewText");
+  const websiteUrl = getValue(form, "websiteUrl");
+
+  if (name.length < 2 || name.length > 80) {
+    setFieldError(form, "name", getValidationMessage(form, "name"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "name");
+  }
+
+  if (projectName.length < 2 || projectName.length > 120) {
+    setFieldError(form, "projectName", getValidationMessage(form, "projectName"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "projectName");
+  }
+
+  if (reviewText.length < 30 || reviewText.length > 1000) {
+    setFieldError(form, "reviewText", getValidationMessage(form, "reviewText"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "reviewText");
+  }
+
+  if (!isValidUrl(websiteUrl)) {
+    setFieldError(form, "websiteUrl", getValidationMessage(form, "websiteUrl"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "websiteUrl");
+  }
+
+  if (!getChecked(form, "permissionToPublish")) {
+    setFieldError(form, "permissionToPublish", getValidationMessage(form, "permissionToPublish"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "permissionToPublish");
+  }
+
+  if (requiresTurnstile(form) && !hasTurnstileResponse(form)) {
+    setFormStatus(form, getValidationMessage(form, "turnstile"), true);
+    isValid = false;
+  }
+
+  return isValid;
+};
+
 const updateCounter = (form) => {
-  const textarea = getField(form, "message");
+  const textarea = getField(form, "reviewText") || getField(form, "message");
   const counter = form.querySelector("[data-counter]");
   if (textarea && counter) {
     const length = String(textarea.value || "").length;
-    counter.textContent = `${length}/2000`;
-    counter.classList.toggle("is-error", length > 2000);
+    const max = Number(textarea.getAttribute("maxlength")) || 2000;
+    counter.textContent = `${length}/${max}`;
+    counter.classList.toggle("is-error", length > max);
   }
 };
 
 document.querySelectorAll(".contact-form").forEach((form) => {
+  const isReviewForm = getValue(form, "formType") === "review";
   const sourcePage = getField(form, "sourcePage");
   if (sourcePage) {
     sourcePage.value = window.location.href;
   }
 
-  ["name", "contact", "projectType", "message"].forEach((name) => {
+  const fieldsToWatch = isReviewForm
+    ? ["name", "company", "projectName", "projectType", "websiteUrl", "rating", "reviewText", "permissionToPublish", "allowProjectName"]
+    : ["name", "contact", "projectType", "message"];
+
+  fieldsToWatch.forEach((name) => {
     const field = getField(form, name);
     if (!field) return;
     field.addEventListener("input", () => {
-      if (name === "message") updateCounter(form);
+      if (name === "message" || name === "reviewText") updateCounter(form);
       clearFieldError(form, name);
     });
     field.addEventListener("change", () => clearFieldError(form, name));
@@ -732,7 +878,9 @@ document.querySelectorAll(".contact-form").forEach((form) => {
     event.preventDefault();
     const submitButton = form.querySelector('button[type="submit"]');
 
-    if (!validateForm(form)) {
+    const isValid = isReviewForm ? validateReviewForm(form) : validateForm(form);
+
+    if (!isValid) {
       if (!form.querySelector(".form-status").textContent) {
         setFormStatus(form, form.dataset.error, true);
       }
@@ -774,10 +922,63 @@ document.querySelectorAll(".contact-form").forEach((form) => {
   });
 });
 
+const initReviewsPage = () => {
+  const list = document.querySelector("[data-reviews-list]");
+  const empty = document.querySelector("[data-reviews-empty]");
+  if (!list || !empty) return;
+
+  const language = document.body.dataset.language || "pl";
+  const ui = reviewUi[language] || reviewUi.pl;
+  const visibleReviews = reviewsData.filter((review) => {
+    const status = String(review.status || "").toLowerCase();
+    return review.lang === language
+      && (status === "published" || status === "approved")
+      && Boolean(String(review.text || "").trim())
+      && review.permissionToPublish === true;
+  });
+
+  if (!visibleReviews.length) {
+    list.hidden = true;
+    empty.hidden = false;
+    return;
+  }
+
+  empty.hidden = true;
+  list.hidden = false;
+  list.innerHTML = visibleReviews.map((review) => {
+    const meta = [review.projectType, review.verified ? ui.verified : ""].filter(Boolean).join(" · ");
+    const safeUrl = isValidUrl(review.websiteUrl || "") ? review.websiteUrl : "";
+    const project = safeUrl
+      ? `<a href="${escapeMarkup(safeUrl)}" target="_blank" rel="noopener" class="review-card__link">${escapeMarkup(ui.projectLink)}</a>`
+      : "";
+    const date = review.date ? `<span>${escapeMarkup(review.date)}</span>` : "";
+    const rating = review.rating ? `<span>${escapeMarkup(ui.rating)}: ${escapeMarkup(review.rating)}</span>` : "";
+
+    return `
+      <article class="review-card">
+        <p class="review-card__text">“${escapeMarkup(review.text)}”</p>
+        <div class="review-card__footer">
+          <div>
+            <h2>${escapeMarkup(review.name || review.projectName || "Amigo client")}</h2>
+            ${review.company ? `<p>${escapeMarkup(review.company)}</p>` : ""}
+            ${meta ? `<p class="review-card__meta">${escapeMarkup(meta)}</p>` : ""}
+          </div>
+          <div class="review-card__actions">
+            ${rating}
+            ${date}
+            ${project}
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+};
+
 document.querySelectorAll("[data-year]").forEach((element) => {
   element.textContent = new Date().getFullYear();
 });
 
 initPortfolioSections();
+initReviewsPage();
 refreshIcons();
 renderMenuButton();

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Сторінка відгуків Amigo. Відгуки клієнтів з'являться після завершення перших комерційних проєктів.">
+  <meta name="description" content="Відгуки клієнтів Amigo. Ми публікуємо лише підтверджені відгуки після дозволу клієнта.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#090d12">
   <link rel="canonical" href="https://amigostudio.pl/uk/reviews">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/reviews">
   <link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/reviews">
   <meta property="og:title" content="Відгуки | Amigo">
-  <meta property="og:description" content="Сторінка відгуків Amigo. Відгуки клієнтів з'являться після завершення перших комерційних проєктів.">
+  <meta property="og:description" content="Відгуки клієнтів Amigo. Ми публікуємо лише підтверджені відгуки після дозволу клієнта.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Amigo">
   <meta property="og:url" content="https://amigostudio.pl/uk/reviews">
@@ -21,7 +21,7 @@
   <meta property="og:locale" content="uk_UA">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Відгуки | Amigo">
-  <meta name="twitter:description" content="Сторінка відгуків Amigo. Відгуки клієнтів з'являться після завершення перших комерційних проєктів.">
+  <meta name="twitter:description" content="Відгуки клієнтів Amigo. Ми публікуємо лише підтверджені відгуки після дозволу клієнта.">
   <meta name="twitter:image" content="https://amigostudio.pl/assets/amigo-logo.png">
   <title>Відгуки | Amigo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,9 +102,11 @@
       </a>
       <div class="nav-shell" aria-hidden="false">
         <div class="nav-links premium-nav-links">
+          <a href="/uk/" data-page-link="home">Головна</a>
           <a href="/uk/services" data-page-link="services">Послуги</a>
           <a href="/uk/portfolio" data-page-link="portfolio">Портфоліо</a>
-          <a href="/uk/about" data-page-link="about">Про нас</a>
+          <a href="/uk/reviews" aria-current="page" data-page-link="reviews">Відгуки</a>
+          <a href="/uk/about" data-page-link="about">Про Amigo</a>
           <a href="/uk/blog" data-page-link="blog">Блог</a>
           <a href="/uk/contact" data-page-link="contact">Контакти</a>
         </div>
@@ -129,9 +131,11 @@
     </nav>
     <div id="mobile-menu" class="mobile-panel premium-mobile-panel">
       <div class="mobile-links premium-mobile-links container">
+          <a href="/uk/" data-page-link="home">Головна</a>
           <a href="/uk/services" data-page-link="services">Послуги</a>
           <a href="/uk/portfolio" data-page-link="portfolio">Портфоліо</a>
-          <a href="/uk/about" data-page-link="about">Про нас</a>
+          <a href="/uk/reviews" aria-current="page" data-page-link="reviews">Відгуки</a>
+          <a href="/uk/about" data-page-link="about">Про Amigo</a>
           <a href="/uk/blog" data-page-link="blog">Блог</a>
           <a href="/uk/contact" data-page-link="contact">Контакти</a>
         <a href="/uk/contact" class="button button-primary mobile-cta">Обговорити проєкт</a>
@@ -140,29 +144,62 @@
   </header>
   <main id="main">
     <div id="top"></div>
-    
+
     <nav class="breadcrumbs container" aria-label="Breadcrumb">
       <a href="/uk/">Головна</a>
       <span aria-hidden="true">/</span>
       <span>Відгуки</span>
     </nav>
 
-    
     <section class="page-hero">
       <div class="grid-mask" aria-hidden="true"></div>
       <div class="container page-hero-inner reveal">
         <p class="eyebrow">Відгуки</p>
         <h1>Відгуки клієнтів</h1>
-        <p>Відгуки клієнтів з'являться тут після завершення перших комерційних проєктів.</p>
+        <p>Тут будуть опубліковані відгуки від клієнтів, з якими Amigo працював над сайтами, landing page, формами заявок і підтримкою після запуску.</p>
       </div>
     </section>
+
+    <section class="section">
+      <div class="container reviews-shell">
+        <div class="reviews-grid" data-reviews-list hidden></div>
+        <article class="empty-state reveal" data-reviews-empty>
+          <i data-lucide="message-square-text" class="icon empty-icon"></i>
+          <h2>Поки без опублікованих відгуків</h2>
+          <p>Ми не додаємо вигадані відгуки або оцінки. Коли зʼявляться підтверджені відгуки від клієнтів, вони будуть опубліковані тут.</p>
+          <div class="review-actions">
+            <a href="/uk/portfolio" class="button button-primary">Переглянути портфоліо <i data-lucide="arrow-right" class="icon"></i></a>
+            <a href="/uk/contact" class="button button-ghost">Обговорити проєкт</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Перевірка</p>
+          <h2>Як ми перевіряємо відгуки</h2>
+        </div>
+        <div class="verification-grid">
+          <article class="verification-item reveal"><span>1</span><p>Відгук залишає клієнт після завершення проєкту.</p></article>
+          <article class="verification-item reveal"><span>2</span><p>Ми публікуємо його тільки після дозволу клієнта.</p></article>
+          <article class="verification-item reveal"><span>3</span><p>Якщо клієнт дозволяє, додаємо назву проєкту або посилання на сайт.</p></article>
+          <article class="verification-item reveal"><span>4</span><p>Відгуки не публікуються автоматично без перевірки.</p></article>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
-        <article class="empty-state reveal">
-          <i data-lucide="message-square-text" class="icon empty-icon"></i>
-          <h2>Поки без відгуків</h2>
-          <p>Ми не додаємо вигадані відгуки або оцінки. Коли з'являться підтверджені відгуки, вони будуть опубліковані тут.</p>
-          <a href="/uk/portfolio" class="button button-primary">Переглянути портфоліо <i data-lucide="arrow-right" class="icon"></i></a>
+        <article class="cta-band reveal">
+          <p class="eyebrow">Портфоліо</p>
+          <h2>Хочете стати наступним кейсом Amigo?</h2>
+          <p>Опишіть свій проєкт — ми підкажемо, який формат сайту краще підійде для вашого бізнесу.</p>
+          <div class="review-cta-actions">
+            <a href="/uk/portfolio" class="button button-ghost">Переглянути портфоліо</a>
+            <a href="/uk/contact" class="button button-primary">Обговорити проєкт <i data-lucide="arrow-right" class="icon"></i></a>
+          </div>
         </article>
       </div>
     </section>

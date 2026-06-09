@@ -1277,6 +1277,144 @@ body.modal-open {
   color: var(--blue);
 }
 
+.reviews-shell {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.review-card {
+  display: grid;
+  gap: 1.5rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  padding: 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.74), rgba(5, 10, 15, 0.92)),
+    var(--panel);
+}
+
+.review-card__text {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.review-card__footer {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 1rem;
+}
+
+.review-card h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.review-card__footer p,
+.review-card__actions {
+  margin: 0.35rem 0 0;
+  color: var(--subtle);
+  font-size: 0.875rem;
+}
+
+.review-card__meta {
+  color: var(--green);
+}
+
+.review-card__actions {
+  display: grid;
+  justify-items: end;
+  gap: 0.35rem;
+}
+
+.review-card__link {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.review-actions,
+.review-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.verification-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.35rem;
+}
+
+.verification-item {
+  display: grid;
+  gap: 0.85rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  padding: 1.25rem;
+  background: rgba(15, 23, 42, 0.46);
+}
+
+.verification-item span {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid rgba(52, 211, 153, 0.28);
+  border-radius: 999px;
+  color: var(--green);
+  background: var(--green-soft);
+  font-weight: 900;
+}
+
+.verification-item p {
+  margin: 0;
+  color: var(--subtle);
+  line-height: 1.65;
+}
+
+.review-form-card {
+  max-width: 58rem;
+  margin-inline: auto;
+}
+
+.checkbox-field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.checkbox-field input {
+  width: 1.05rem;
+  min-height: 1.05rem;
+  flex: 0 0 auto;
+  margin-top: 0.18rem;
+  accent-color: var(--green);
+}
+
+.checkbox-field span {
+  flex: 1 1 min(22rem, 100%);
+  line-height: 1.5;
+}
+
+.checkbox-field .field-error {
+  flex-basis: 100%;
+  margin-top: 0;
+}
+
 .coming-card {
   margin-bottom: 1.25rem;
   background:
@@ -1444,14 +1582,16 @@ textarea:focus {
 
 .form-field-invalid input,
 .form-field-invalid select,
-.form-field-invalid textarea {
+.form-field-invalid textarea,
+.form-field-invalid.checkbox-field input {
   border-color: var(--danger);
   box-shadow: 0 0 0 3px rgba(255, 107, 134, 0.1);
 }
 
 .form-field-valid input,
 .form-field-valid select,
-.form-field-valid textarea {
+.form-field-valid textarea,
+.form-field-valid.checkbox-field input {
   border-color: rgba(52, 211, 153, 0.7);
 }
 
@@ -1801,9 +1941,20 @@ textarea:focus {
   .blog-grid,
   .split-grid,
   .contact-grid,
+  .reviews-grid,
+  .verification-grid,
   .field-row,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .review-card__footer {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .review-card__actions {
+    justify-items: start;
   }
 
   .service-card-action {

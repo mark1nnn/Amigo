@@ -79,6 +79,19 @@ function clampText(value = "", max = 300) {
   return String(value || "").trim().slice(0, max);
 }
 
+function isValidUrl(value = "") {
+  if (!value) {
+    return true;
+  }
+
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
 export async function onRequestOptions({ request, env }) {
   const origin = request.headers.get("Origin") || "";
 
@@ -110,12 +123,20 @@ export async function onRequestPost({ request, env }) {
   }
 
   const name = clampText(data.name, 80);
+  const formType = clampText(data.formType, 40) === "review" ? "review" : "contact";
   const contact = clampText(data.contact, 120);
   const projectType = clampText(data.projectType || data.project, 120);
   const budget = clampText(data.budget, 120);
   const deadline = clampText(data.deadline, 120);
   const hasDomain = clampText(data.hasDomain, 120);
   const message = clampText(data.message, 2000);
+  const company = clampText(data.company, 120);
+  const projectName = clampText(data.projectName, 120);
+  const websiteUrl = clampText(data.websiteUrl, 240);
+  const rating = clampText(data.rating, 20);
+  const reviewText = clampText(data.reviewText, 1000);
+  const permissionToPublish = data.permissionToPublish === "on" || data.permissionToPublish === true;
+  const allowProjectName = data.allowProjectName === "on" || data.allowProjectName === true;
   const language = normalizeLanguage(data.language);
   const sourcePage = clampText(data.sourcePage, 500);
   const website = clampText(data.website, 200);
@@ -127,6 +148,108 @@ export async function onRequestPost({ request, env }) {
 
   if (name.length < 2 || name.length > 80) {
     return jsonResponse({ ok: false, error: "Invalid name" }, 400, origin);
+  }
+
+  if (formType === "review") {
+    if (projectName.length < 2 || projectName.length > 120) {
+      return jsonResponse({ ok: false, error: "Invalid project name" }, 400, origin);
+    }
+
+    if (reviewText.length < 30 || reviewText.length > 1000) {
+      return jsonResponse({ ok: false, error: "Invalid review text" }, 400, origin);
+    }
+
+    if (!permissionToPublish) {
+      return jsonResponse({ ok: false, error: "Missing permission" }, 400, origin);
+    }
+
+    if (!isValidUrl(websiteUrl)) {
+      return jsonResponse({ ok: false, error: "Invalid website URL" }, 400, origin);
+    }
+
+    if (rating && !/^[1-5]$/.test(rating)) {
+      return jsonResponse({ ok: false, error: "Invalid rating" }, 400, origin);
+    }
+
+    const turnstileOk = await verifyTurnstile(turnstileToken, request, env);
+    if (!turnstileOk) {
+      return jsonResponse({ ok: false, error: "Anti-spam check failed" }, 400, origin);
+    }
+
+    const safeReview = {
+      name: escapeHtml(name),
+      company: escapeHtml(company || "Nie wskazano"),
+      projectName: escapeHtml(projectName),
+      projectType: escapeHtml(projectType || "Nie wskazano"),
+      websiteUrl: escapeHtml(websiteUrl || "Nie wskazano"),
+      rating: escapeHtml(rating || "Nie wskazano"),
+      language: escapeHtml(language),
+      sourcePage: escapeHtml(sourcePage || "Nie wskazano"),
+      allowProjectName: allowProjectName ? "Tak" : "Nie",
+      reviewText: escapeHtml(reviewText).replaceAll("\n", "<br>")
+    };
+
+    const reviewSubject = `New review submission — Amigo [${language.toUpperCase()}] - ${name}`;
+    const reviewEmailText = `
+New review submission — Amigo
+
+Status: pending moderation
+Name: ${name}
+Company: ${company || "Nie wskazano"}
+Project name: ${projectName}
+Project type: ${projectType || "Nie wskazano"}
+Website URL: ${websiteUrl || "Nie wskazano"}
+Rating: ${rating || "Nie wskazano"}
+Permission to publish: yes
+Allow company/project name: ${allowProjectName ? "yes" : "no"}
+Language: ${language}
+Source page: ${sourcePage || "Nie wskazano"}
+
+Review:
+${reviewText}
+`.trim();
+
+    const reviewEmailHtml = `
+      <h2>New review submission — Amigo</h2>
+      <p><strong>Status:</strong> pending moderation</p>
+      <p><strong>Name:</strong> ${safeReview.name}</p>
+      <p><strong>Company:</strong> ${safeReview.company}</p>
+      <p><strong>Project name:</strong> ${safeReview.projectName}</p>
+      <p><strong>Project type:</strong> ${safeReview.projectType}</p>
+      <p><strong>Website URL:</strong> ${safeReview.websiteUrl}</p>
+      <p><strong>Rating:</strong> ${safeReview.rating}</p>
+      <p><strong>Permission to publish:</strong> yes</p>
+      <p><strong>Allow company/project name:</strong> ${safeReview.allowProjectName}</p>
+      <p><strong>Language:</strong> ${safeReview.language}</p>
+      <p><strong>Source page:</strong> ${safeReview.sourcePage}</p>
+      <p><strong>Review:</strong></p>
+      <p>${safeReview.reviewText}</p>
+    `;
+
+    const reviewPayload = {
+      from: env.FROM_EMAIL,
+      to: [env.CONTACT_EMAIL],
+      subject: reviewSubject,
+      text: reviewEmailText,
+      html: reviewEmailHtml
+    };
+
+    const reviewResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(reviewPayload)
+    });
+
+    if (!reviewResponse.ok) {
+      const errorText = await reviewResponse.text();
+      console.error("Resend review error:", errorText);
+      return jsonResponse({ ok: false, error: "Email sending failed" }, 502, origin);
+    }
+
+    return jsonResponse({ ok: true }, 200, origin);
   }
 
   if (contact.length < 3 || contact.length > 120) {
