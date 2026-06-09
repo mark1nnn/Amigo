@@ -26,17 +26,20 @@ function isValidEmail(value = "") {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
-function isAllowedOrigin(origin, env) {
+const allowedOrigins = [
+  "https://amigostudio.pl",
+  "https://www.amigostudio.pl"
+];
+
+function isAllowedOrigin(origin) {
   if (!origin) {
-    return true;
+    return false;
   }
 
-  const allowedOrigins = (env.ALLOWED_ORIGINS || "")
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
+  const isProduction = allowedOrigins.includes(origin);
+  const isCloudflarePagesPreview = /^https:\/\/([a-z0-9-]+\.)?amigo-2cj\.pages\.dev$/.test(origin);
 
-  return allowedOrigins.includes(origin);
+  return isProduction || isCloudflarePagesPreview;
 }
 
 async function verifyTurnstile(token, request, env) {
@@ -95,7 +98,7 @@ function isValidUrl(value = "") {
 export async function onRequestOptions({ request, env }) {
   const origin = request.headers.get("Origin") || "";
 
-  if (!isAllowedOrigin(origin, env)) {
+  if (!isAllowedOrigin(origin)) {
     return jsonResponse({ ok: false, error: "Forbidden origin" }, 403);
   }
 
@@ -105,7 +108,7 @@ export async function onRequestOptions({ request, env }) {
 export async function onRequestPost({ request, env }) {
   const origin = request.headers.get("Origin") || "";
 
-  if (!isAllowedOrigin(origin, env)) {
+  if (!isAllowedOrigin(origin)) {
     return jsonResponse({ ok: false, error: "Forbidden origin" }, 403);
   }
 
