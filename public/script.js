@@ -1039,44 +1039,65 @@ function initHeroFrameScroll() {
   function drawCoverImage(img) {
     if (!img || !img.complete) return;
 
-    const canvasRatio = canvas.width / canvas.height;
-    const imageRatio = img.naturalWidth / img.naturalHeight;
+    const canvasWidth = canvas.width;
+    const canvasHeight = canvas.height;
+    const imageWidth = img.naturalWidth;
+    const imageHeight = img.naturalHeight;
+    const canvasRatio = canvasWidth / canvasHeight;
+    const imageRatio = imageWidth / imageHeight;
 
-    let sx = 0;
-    let sy = 0;
-    let sw = img.naturalWidth;
-    let sh = img.naturalHeight;
+    let sourceX = 0;
+    let sourceY = 0;
+    let sourceWidth = imageWidth;
+    let sourceHeight = imageHeight;
 
     if (imageRatio > canvasRatio) {
-      sw = img.naturalHeight * canvasRatio;
-      sx = (img.naturalWidth - sw) / 2;
+      sourceWidth = imageHeight * canvasRatio;
+      sourceX = (imageWidth - sourceWidth) / 2;
     } else {
-      sh = img.naturalWidth / canvasRatio;
-      sy = (img.naturalHeight - sh) / 2;
+      sourceHeight = imageWidth / canvasRatio;
+      sourceY = (imageHeight - sourceHeight) / 2;
     }
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(img, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    ctx.drawImage(img, sourceX, sourceY, sourceWidth, sourceHeight, 0, 0, canvasWidth, canvasHeight);
+  }
+
+  function resizeCanvasToDisplaySize() {
+    const rect = visual.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const width = Math.max(1, Math.round(rect.width * dpr));
+    const height = Math.max(1, Math.round(rect.height * dpr));
+
+    if (canvas.width !== width || canvas.height !== height) {
+      canvas.width = width;
+      canvas.height = height;
+    }
   }
 
   function drawFrame(index, force = false) {
     requestedFrameIndex = index;
-
-    if (!force && index === lastFrameIndex) return;
-
     const img = images[index];
 
-    if (!img || !loaded[index]) {
+    if (!img || !loaded[index]) return;
+    if (!force && index === lastFrameIndex && visual.classList.contains("is-frame-ready")) return;
+
+    resizeCanvasToDisplaySize();
+    drawCoverImage(img);
+    lastFrameIndex = index;
+    visual.classList.add("is-frame-ready");
+  }
+
+  function requestFrame(index) {
+    requestedFrameIndex = index;
+
+    if (!images[index] || !loaded[index]) {
       loadFrame(index).then(() => {
         if (requestedFrameIndex === index) {
           drawFrame(index);
         }
       });
-      return;
     }
-
-    drawCoverImage(img);
-    lastFrameIndex = index;
   }
 
   function preloadPriorityFrames() {
@@ -1145,11 +1166,11 @@ function initHeroFrameScroll() {
     currentProgress += (targetProgress - currentProgress) * smoothFactor;
 
     const frameIndex = Math.round(currentProgress * (frameCount - 1));
-    drawFrame(frameIndex);
+    requestFrame(frameIndex);
 
-    const translateY = currentProgress * 72;
-    const translateX = currentProgress * -18;
-    const scale = 1.04 + currentProgress * 0.09;
+    const translateY = currentProgress * 110;
+    const translateX = currentProgress * -30;
+    const scale = 1.04 + currentProgress * 0.08;
 
     visual.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
 
@@ -1165,21 +1186,19 @@ function initHeroFrameScroll() {
     }
   }
 
-  function resizeCanvas() {
-    canvas.width = 1600;
-    canvas.height = 900;
-
+  function redrawCurrentFrame() {
     if (lastFrameIndex >= 0) {
       drawFrame(lastFrameIndex, true);
     } else {
-      drawFrame(0, true);
+      requestFrame(0);
     }
   }
 
-  resizeCanvas();
+  resizeCanvasToDisplaySize();
   loadFrame(0).then(() => drawFrame(0, true));
 
   if (reduceMotion || isMobile) {
+    resizeCanvasToDisplaySize();
     visual.style.transform = "";
     return;
   }
@@ -1188,8 +1207,9 @@ function initHeroFrameScroll() {
 
   window.addEventListener("scroll", requestTick, { passive: true });
   window.addEventListener("resize", () => {
-    resizeCanvas();
-    updateTarget();
+    resizeCanvasToDisplaySize();
+    redrawCurrentFrame();
+    requestTick();
   });
 
   function requestTick() {

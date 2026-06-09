@@ -174,12 +174,9 @@
 
     <section class="hero hero-premium" data-hero-frame-scroll aria-labelledby="home-hero-title">
       <div class="hero-frame-bg scroll-hero-visual" aria-hidden="true">
-        <canvas class="hero-frame-canvas" width="1600" height="900"></canvas>
+        <canvas class="hero-frame-canvas"></canvas>
       </div>
       <div class="hero-frame-overlay" aria-hidden="true"></div>
-      <div class="hero-frame-glow" aria-hidden="true"></div>
-      <div class="hero-tech-grid" aria-hidden="true"></div>
-      <div class="hero-light-sweep" aria-hidden="true"></div>
       <div class="hero-inner hero-premium-inner container">
         <div class="hero-copy hero-copy-centered reveal">
           <p class="kicker hero-badge"><i data-lucide="zap" class="icon icon-sm"></i> <span>Сучасні сайти для бізнесу</span></p>
@@ -333,25 +330,39 @@
     <section class="section section-alt">
       <div class="container">
         
-        <div class="section-header reveal"><p class="eyebrow">FAQ</p><h2>Короткі відповіді перед розмовою</h2></div>
-        <div class="faq-list">
-
-          <details class="faq-item reveal" open>
-            <summary>Скільки коштує сайт?</summary>
-            <p>Вартість залежить від кількості сторінок, мов, інтеграцій і контенту. Після короткого брифу ви отримуєте зрозумілий обсяг і оцінку.</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>Landing page чи сайт компанії?</summary>
-            <p>Landing page підходить для однієї послуги або кампанії. Сайт компанії кращий, коли потрібно показати кілька напрямків.</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>Чи буде сайт підготовлений під SEO?</summary>
-            <p>Так. Базові теги, заголовки, URL-структура, швидкість і sitemap готуються з самого початку.</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>Чи працює контактна форма?</summary>
-            <p>Так. Форма надсилає дані до Cloudflare Pages Function за адресою /api/contact і зберігає CORS та Turnstile.</p>
-          </details>
+        <div class="faq-shell">
+          <div class="section-header reveal"><p class="eyebrow">FAQ</p><h2>Поширені питання перед початком проєкту</h2></div>
+          <div class="faq-list">
+            <details class="faq-item reveal" open>
+              <summary>Скільки коштує сайт?</summary>
+              <p>Вартість залежить від обсягу проєкту: кількості сторінок, мов, форм, контенту, секцій і додаткових функцій. Після короткого брифу ви отримаєте зрозумілий обсяг робіт і орієнтовну вартість.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>Landing page чи сайт компанії — що обрати?</summary>
+              <p>Landing page підходить для просування однієї послуги, пропозиції або рекламної кампанії. Сайт компанії краще обрати, якщо потрібно показати кілька послуг, інформацію про бізнес, портфоліо, блог або SEO-структуру.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>Чи потрібно мати готові тексти й фото?</summary>
+              <p>Не обов’язково. Ми можемо допомогти впорядкувати структуру контенту, підготувати секції та підказати, які матеріали потрібні. Якщо немає фото, можна використати підібрані зображення, mockup або згенеровані візуали.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>Чи буде сайт підготовлений під SEO?</summary>
+              <p>Так. Кожен сайт отримує базову SEO-структуру: правильні title і description, заголовки, структуру контенту, адаптивність, швидкість завантаження та підготовку до індексації в Google.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>Чи буде працювати контактна форма?</summary>
+              <p>Так. Форма може надсилати заявки на email і мати базовий захист від спаму. Також можна додати поля під конкретний проєкт: бюджет, тип сайту, бажаний термін або опис послуги.</p>
+            </details>
+            <details class="faq-item reveal">
+              <summary>Чи допомагаєте з доменом, запуском і підтримкою?</summary>
+              <p>Так. Ми можемо допомогти з підключенням домену, публікацією сайту, базовими налаштуваннями та подальшими змінами. Після запуску сайт можна розвивати: додавати секції, сторінки, мови або SEO-контент.</p>
+            </details>
+          </div>
+          <div class="faq-cta cta-band reveal">
+            <h3>Не знайшли відповідь?</h3>
+            <p>Коротко опишіть проєкт — ми підкажемо, який формат сайту підійде найкраще.</p>
+            <a href="/uk/contact" class="button button-primary">Обговорити проєкт <i data-lucide="arrow-right" class="icon"></i></a>
+          </div>
         </div>
       </div>
     </section>

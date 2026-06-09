@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Poznaj Amigo, małe web studio pomagające firmom uruchamiać szybkie, czytelne i wygodne strony internetowe bez chaosu.">
+  <meta name="description" content="Poznaj Amigo — małe web studio tworzące landing page, strony firmowe, formularze kontaktowe i podstawy SEO dla małych firm.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#090d12">
   <link rel="canonical" href="https://amigostudio.pl/about">
@@ -12,18 +12,18 @@
   <link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/about">
   <link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/about">
   <link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/about">
-  <meta property="og:title" content="O nas | Amigo">
-  <meta property="og:description" content="Poznaj Amigo, małe web studio pomagające firmom uruchamiać szybkie, czytelne i wygodne strony internetowe bez chaosu.">
+  <meta property="og:title" content="O nas | Amigo — strony internetowe dla małych firm">
+  <meta property="og:description" content="Poznaj Amigo — małe web studio tworzące landing page, strony firmowe, formularze kontaktowe i podstawy SEO dla małych firm.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Amigo">
   <meta property="og:url" content="https://amigostudio.pl/about">
   <meta property="og:image" content="https://amigostudio.pl/assets/amigo-logo.png">
   <meta property="og:locale" content="pl_PL">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="O nas | Amigo">
-  <meta name="twitter:description" content="Poznaj Amigo, małe web studio pomagające firmom uruchamiać szybkie, czytelne i wygodne strony internetowe bez chaosu.">
+  <meta name="twitter:title" content="O nas | Amigo — strony internetowe dla małych firm">
+  <meta name="twitter:description" content="Poznaj Amigo — małe web studio tworzące landing page, strony firmowe, formularze kontaktowe i podstawy SEO dla małych firm.">
   <meta name="twitter:image" content="https://amigostudio.pl/assets/amigo-logo.png">
-  <title>O nas | Amigo</title>
+  <title>O nas | Amigo — strony internetowe dla małych firm</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -57,29 +57,13 @@
       }
     },
     {
-      "@type": "Service",
-      "@id": "https://amigostudio.pl/#web-development-service",
-      "name": "Usługi i ceny",
-      "serviceType": "website development, landing pages, business websites",
-      "areaServed": [
-        "Poland",
-        "Ukraine",
-        "Europe",
-        "Worldwide"
-      ],
-      "provider": {
-        "@id": "https://amigostudio.pl/#organization"
-      },
-      "description": "Amigo tworzy szybkie strony internetowe i landing page'e dla małych firm w Polsce z czytelną ofertą, formularzem kontaktowym i podstawą SEO."
-    },
-    {
       "@type": "BreadcrumbList",
       "@id": "https://amigostudio.pl/about#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
+          "name": "Strona główna",
           "item": "https://amigostudio.pl/"
         },
         {
@@ -89,14 +73,25 @@
           "item": "https://amigostudio.pl/about"
         }
       ]
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "https://amigostudio.pl/about#about",
+      "name": "O nas",
+      "description": "Informacje o Amigo, małym web studio tworzącym strony internetowe dla małych firm.",
+      "url": "https://amigostudio.pl/about",
+      "inLanguage": "pl",
+      "about": {
+        "@id": "https://amigostudio.pl/#organization"
+      }
     }
   ]
 }
   </script>
   <script src="/script.js" defer></script>
 </head>
+
 <body data-page="about" data-language="pl">
-  
   <a class="skip-link" href="#main">Przejdź do treści</a>
   <header id="site-header" class="site-header premium-header">
     <nav class="nav premium-nav container" aria-label="Główne menu">
@@ -134,132 +129,178 @@
     </nav>
     <div id="mobile-menu" class="mobile-panel premium-mobile-panel">
       <div class="mobile-links premium-mobile-links container">
-          <a href="/" data-page-link="home">Strona główna</a>
-          <a href="/services" data-page-link="services">Usługi</a>
-          <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
-          <a href="/reviews" data-page-link="reviews">Opinie</a>
-          <a href="/about" aria-current="page" data-page-link="about">O nas</a>
-          <a href="/blog" data-page-link="blog">Blog</a>
-          <a href="/contact" data-page-link="contact">Kontakt</a>
+        <a href="/" data-page-link="home">Strona główna</a>
+        <a href="/services" data-page-link="services">Usługi</a>
+        <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
+        <a href="/reviews" data-page-link="reviews">Opinie</a>
+        <a href="/about" aria-current="page" data-page-link="about">O nas</a>
+        <a href="/blog" data-page-link="blog">Blog</a>
+        <a href="/contact" data-page-link="contact">Kontakt</a>
         <a href="/contact" class="button button-primary mobile-cta">Omów projekt</a>
       </div>
     </div>
   </header>
   <main id="main">
     <div id="top"></div>
-    
     <nav class="breadcrumbs container" aria-label="Breadcrumb">
-      <a href="/">Home</a>
+      <a href="/">Strona główna</a>
       <span aria-hidden="true">/</span>
       <span>O nas</span>
     </nav>
-
-    
     <section class="page-hero">
       <div class="grid-mask" aria-hidden="true"></div>
       <div class="container page-hero-inner reveal">
         <p class="eyebrow">O nas</p>
         <h1>Kim stoi za Amigo?</h1>
-        <p>Amigo to małe web studio, które pomaga małym firmom uruchamiać szybkie, czytelne i wygodne strony internetowe.</p>
+        <p>Amigo to małe web studio tworzące szybkie, czytelne i responsywne strony internetowe dla małych firm. Pomagamy przełożyć ofertę biznesu na stronę, która jasno pokazuje usługi, ułatwia kontakt i może rozwijać się razem z firmą.</p>
       </div>
     </section>
     <section class="section">
       <div class="container">
-        
-        <div class="cards-grid">
-
-          <article class="info-card reveal">
-            <div class="icon-box"><i data-lucide="compass" class="icon icon-lg"></i></div>
-            <h2>Prosty proces</h2>
-            <p>Zamiast komplikować projekt, zaczynamy od celu strony, odbiorców i najważniejszego kontaktu. Dopiero potem powstaje struktura i interfejs.</p>
-          </article>
-          <article class="info-card reveal">
-            <div class="icon-box"><i data-lucide="messages-square" class="icon icon-lg"></i></div>
-            <h2>Komunikacja bez mgły</h2>
-            <p>Zakres, cena i termin powinny być jasne przed startem. Dobra strona powstaje spokojniej, gdy każdy wie, co jest priorytetem.</p>
-          </article>
-          <article class="info-card reveal">
-            <div class="icon-box"><i data-lucide="search" class="icon icon-lg"></i></div>
-            <h2>Baza pod SEO</h2>
-            <p>Nagłówki, opisy, adresy URL, formularz i prędkość są planowane od początku, nie doklejane na końcu.</p>
-          </article>
-          <article class="info-card reveal">
-            <div class="icon-box"><i data-lucide="handshake" class="icon icon-lg"></i></div>
-            <h2>Wsparcie po publikacji</h2>
-            <p>Po starcie można dodać nowe sekcje, podstrony, wersje językowe, FAQ, blog i dalsze usprawnienia.</p>
-          </article>
+        <div class="section-header reveal about-intro">
+          <p class="eyebrow">O Amigo</p>
+          <h2>Małe studio, praktyczne podejście</h2>
+          <p>W Amigo skupiamy się na prostych i skutecznych rozwiązaniach: landing page, stronach firmowych, formularzach kontaktowych, podstawowej strukturze SEO i wsparciu po publikacji. Nie komplikujemy projektu bez potrzeby — najpierw ustalamy cel strony, najważniejsze informacje dla klienta i sposób kontaktu.</p>
+          <p>Dobra strona nie musi być przeładowana efektami. Powinna szybko wyjaśniać, czym zajmuje się firma, jakie usługi oferuje i co użytkownik może zrobić dalej: zadzwonić, wysłać formularz, sprawdzić <a href="/portfolio">portfolio</a> albo wrócić do oferty później.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Zakres</p>
+          <h2>Co możemy przygotować?</h2>
+        </div>
+        <div class="about-services-grid">
+          <article class="info-card reveal"><div class="icon-box"><i data-lucide="layout-template" class="icon icon-lg"></i></div><h2>Landing page</h2><p>Jednostronicowa strona dla konkretnej usługi, kampanii lub szybkiego startu online.</p></article>
+          <article class="info-card reveal"><div class="icon-box"><i data-lucide="panels-top-left" class="icon icon-lg"></i></div><h2>Strona firmowa</h2><p>Wielostronicowa strona z ofertą, informacjami o firmie, portfolio, FAQ i kontaktem.</p></article>
+          <article class="info-card reveal"><div class="icon-box"><i data-lucide="messages-square" class="icon icon-lg"></i></div><h2>Formularze i kontakt</h2><p>Formularze zapytań dopasowane do usługi, budżetu, terminu i typu projektu.</p></article>
+          <article class="info-card reveal"><div class="icon-box"><i data-lucide="search" class="icon icon-lg"></i></div><h2>Podstawy SEO</h2><p>Struktura nagłówków, meta tagi, opisy, adresy URL, sitemap i przygotowanie do indeksacji.</p></article>
+          <article class="info-card reveal"><div class="icon-box"><i data-lucide="languages" class="icon icon-lg"></i></div><h2>Wersje językowe</h2><p>Strony w kilku językach, na przykład PL / UK / EN, z poprawną strukturą linków.</p></article>
+          <article class="info-card reveal"><div class="icon-box"><i data-lucide="wrench" class="icon icon-lg"></i></div><h2>Wsparcie po publikacji</h2><p>Zmiany treści, nowe sekcje, aktualizacje, podłączenie domeny i dalszy rozwój strony.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Proces</p>
+          <h2>Proces bez niepotrzebnej komplikacji</h2>
+        </div>
+        <div class="process-grid">
+          <article class="process-card reveal"><span class="step-index">1</span><h2>Brief</h2><p>Poznajemy biznes, usługi, odbiorców, cel strony i materiały, które są już dostępne.</p></article>
+          <article class="process-card reveal"><span class="step-index">2</span><h2>Struktura</h2><p>Planujemy sekcje, nawigację, ścieżki kontaktu i kolejność informacji na stronie.</p></article>
+          <article class="process-card reveal"><span class="step-index">3</span><h2>Projekt i wdrożenie</h2><p>Tworzymy responsywną stronę, dopracowujemy treści, formularz, szybkość i wygodę użytkowania.</p></article>
+          <article class="process-card reveal"><span class="step-index">4</span><h2>Publikacja</h2><p>Przygotowujemy stronę do uruchomienia, sprawdzamy podstawowe SEO i pomagamy z kolejnymi krokami.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Zasady</p>
+          <h2>Na czym nam zależy</h2>
+        </div>
+        <div class="about-principles-grid">
+          <article class="info-card reveal"><div class="icon-box"><i data-lucide="message-circle-more" class="icon icon-lg"></i></div><h2>Jasna komunikacja</h2><p>Zakres, termin i koszt powinny być zrozumiałe przed startem pracy.</p></article>
+          <article class="info-card reveal"><div class="icon-box"><i data-lucide="clipboard-list" class="icon icon-lg"></i></div><h2>Czytelna oferta</h2><p>Strona ma pomagać klientowi szybko zrozumieć, co firma oferuje i jak się skontaktować.</p></article>
+          <article class="info-card reveal"><div class="icon-box"><i data-lucide="smartphone" class="icon icon-lg"></i></div><h2>Responsywność</h2><p>Projekt musi działać wygodnie na telefonie, tablecie i komputerze.</p></article>
+          <article class="info-card reveal"><div class="icon-box"><i data-lucide="shield-check" class="icon icon-lg"></i></div><h2>Uczciwe założenia</h2><p>Nie dodajemy niepotwierdzonych wyników, opinii ani statystyk. Wolimy budować zaufanie realną pracą i jasnym procesem.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container split-grid">
+        <div class="section-header reveal">
+          <p class="eyebrow">Dla kogo</p>
+          <h2>Dla kogo jest Amigo?</h2>
+        </div>
+        <div class="rich-text reveal">
+          <p>Amigo sprawdzi się dla małych firm, lokalnych usług, specjalistów, warsztatów, salonów, firm usługowych i osób, które chcą mieć nowoczesną stronę bez zbędnej komplikacji.</p>
+          <ul class="about-list">
+            <li>małe firmy usługowe</li>
+            <li>lokalne biznesy</li>
+            <li>landing page dla reklamy</li>
+            <li>strony firmowe z kilkoma podstronami</li>
+            <li>firmy, które potrzebują formularza zapytań</li>
+            <li>projekty, które mają rozwijać się z czasem</li>
+          </ul>
         </div>
       </div>
     </section>
     <section class="section section-alt">
       <div class="container split-grid">
-        <div class="section-header reveal"><p class="eyebrow">Uczciwe założenia</p><h2>Uczciwe założenia</h2></div>
-        <div class="rich-text reveal"><p>Nie opisujemy Amigo jako dużej agencji ani nie dodajemy niepotwierdzonych wyników klientów. Strona ma jasno pokazać, jak możemy pomóc i czego potrzebujemy, aby wycenić projekt.</p><a href="/contact" class="button button-primary">Omów projekt <i data-lucide="arrow-right" class="icon"></i></a></div>
+        <div class="section-header reveal">
+          <p class="eyebrow">Realnie</p>
+          <h2>Bez pustych obietnic</h2>
+        </div>
+        <div class="rich-text reveal">
+          <p>Nie opisujemy Amigo jako dużej agencji i nie obiecujemy wyników, których nie da się potwierdzić. Strona internetowa może pomóc w prezentacji oferty, kontakcie, reklamie i widoczności w Google, ale jej skuteczność zależy także od treści, rynku, oferty, ruchu i dalszych działań po publikacji.</p>
+          <p>Naszym celem jest przygotowanie solidnej bazy: czytelnej struktury, responsywnego wyglądu, działającego formularza, podstaw SEO i strony, którą można rozwijać.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container cta-band reveal">
+        <h2>Chcesz porozmawiać o stronie dla swojej firmy?</h2>
+        <p>Opisz krótko projekt — podpowiemy, czy lepszy będzie landing page, strona firmowa czy indywidualne rozwiązanie.</p>
+        <div class="about-cta-actions">
+          <a href="/contact" class="button button-primary">Omów projekt <i data-lucide="arrow-right" class="icon"></i></a>
+          <a href="/portfolio" class="button button-ghost">Zobacz portfolio</a>
+        </div>
       </div>
     </section>
   </main>
-  
   <footer class="footer footer-premium">
-  <div class="container footer-shell">
-    <div class="footer-grid footer-grid-premium">
-      <div class="footer-panel footer-brand-panel">
-        <a href="/" class="footer-brand" aria-label="Amigo">
-          <img src="/assets/amigo-mark.png" alt="Amigo" class="footer-brand-mark" width="64" height="64">
-          <span>Amigo</span>
-        </a>
-        <p>Szybkie i czytelne strony oraz landing page'e dla małych firm. Tworzone z myślą o kontakcie, SEO i dalszym rozwoju.</p>
+    <div class="container footer-shell">
+      <div class="footer-grid footer-grid-premium">
+        <div class="footer-panel footer-brand-panel">
+          <a href="/" class="footer-brand" aria-label="Amigo">
+            <img src="/assets/amigo-mark.png" alt="Amigo" class="footer-brand-mark" width="64" height="64">
+            <span>Amigo</span>
+          </a>
+          <p>Szybkie i czytelne strony oraz landing page'e dla małych firm. Tworzone z myślą o kontakcie, SEO i dalszym rozwoju.</p>
+        </div>
+        <div class="footer-panel">
+          <h2>Nawigacja</h2>
+          <nav class="footer-links footer-nav" aria-label="Nawigacja w stopce">
+            <a href="/">Strona główna</a>
+            <a href="/services">Usługi</a>
+            <a href="/portfolio">Portfolio</a>
+            <a href="/reviews">Opinie</a>
+            <a href="/about">O nas</a>
+            <a href="/blog">Blog</a>
+            <a href="/contact">Kontakt</a>
+          </nav>
+        </div>
+        <div class="footer-panel">
+          <h2>Wersje językowe</h2>
+          <nav class="footer-links footer-language-list" aria-label="Wersje językowe">
+            <a href="/about" class="footer-link-chip is-active" aria-current="page">Polski</a>
+            <a href="/uk/about" class="footer-link-chip">Українська</a>
+            <a href="/en/about" class="footer-link-chip">English</a>
+          </nav>
+        </div>
+        <div class="footer-panel footer-contact-panel">
+          <h2>Zacznij projekt</h2>
+          <p class="footer-contact-copy">Opisz zadanie przez formularz — podpowiemy, który format strony będzie najlepszy.</p>
+          <a href="/contact" class="footer-cta-link">Omów projekt</a>
+          <div class="footer-social-grid" aria-label="Szybkie kanały kontaktu">
+            <a href="https://t.me/amigowebstudio" target="_blank" rel="noopener" class="footer-social-link is-primary"><i data-lucide="send" class="icon" aria-hidden="true"></i><span>Telegram</span></a>
+            <a href="https://wa.me/+48511326741" target="_blank" rel="noopener" class="footer-social-link is-primary is-green"><i data-lucide="message-circle" class="icon" aria-hidden="true"></i><span>WhatsApp</span></a>
+            <a href="https://www.instagram.com/amigowebstudio/" target="_blank" rel="noopener" class="footer-social-link is-secondary"><i data-lucide="instagram" class="icon" aria-hidden="true"></i><span>Instagram</span></a>
+            <a href="https://www.facebook.com/profile.php?id=61590617216468" target="_blank" rel="noopener" class="footer-social-link is-secondary"><i data-lucide="facebook" class="icon" aria-hidden="true"></i><span>Facebook</span></a>
+          </div>
+        </div>
       </div>
-      <div class="footer-panel">
-        <h2>Nawigacja</h2>
-        <nav class="footer-links footer-nav" aria-label="Nawigacja w stopce">
-          <a href="/">Strona główna</a>
-          <a href="/services">Usługi</a>
-          <a href="/portfolio">Portfolio</a>
-          <a href="/about">O nas</a>
-          <a href="/blog">Blog</a>
-          <a href="/contact">Kontakt</a>
-        </nav>
-      </div>
-      <div class="footer-panel">
-        <h2>Wersje językowe</h2>
-        <nav class="footer-links footer-language-list" aria-label="Wersje językowe">
-          <a href="/" class="footer-link-chip is-active" aria-current="page">Polski</a>
-          <a href="/uk/" class="footer-link-chip">Українська</a>
-          <a href="/en/" class="footer-link-chip">English</a>
-        </nav>
-      </div>
-      <div class="footer-panel footer-contact-panel">
-        <h2>Zacznij projekt</h2>
-        <p class="footer-contact-copy">Opisz zadanie przez formularz — podpowiemy, który format strony będzie najlepszy.</p>
-        <a href="/contact" class="footer-cta-link">Omów projekt</a>
-        <div class="footer-social-grid" aria-label="Szybkie kanały kontaktu">
-          <a href="https://t.me/amigowebstudio" target="_blank" rel="noopener" class="footer-social-link is-primary">
-            <i data-lucide="send" class="icon" aria-hidden="true"></i>
-            <span>Telegram</span>
-          </a>
-          <a href="https://wa.me/+48511326741" target="_blank" rel="noopener" class="footer-social-link is-primary is-green">
-            <i data-lucide="message-circle" class="icon" aria-hidden="true"></i>
-            <span>WhatsApp</span>
-          </a>
-          <a href="https://www.instagram.com/amigowebstudio/" target="_blank" rel="noopener" class="footer-social-link is-secondary">
-            <i data-lucide="instagram" class="icon" aria-hidden="true"></i>
-            <span>Instagram</span>
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61590617216468" target="_blank" rel="noopener" class="footer-social-link is-secondary">
-            <i data-lucide="facebook" class="icon" aria-hidden="true"></i>
-            <span>Facebook</span>
-          </a>
+      <div class="footer-bottom footer-bottom-premium">
+        <p>© 2026 Amigo. Wszelkie prawa zastrzeżone.</p>
+        <div class="footer-bottom-links">
+          <a href="#top" class="back-top" aria-label="Przejdź do początku strony">Do góry <i data-lucide="arrow-up" class="icon icon-sm" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom footer-bottom-premium">
-      <p>© 2026 Amigo. Wszelkie prawa zastrzeżone.</p>
-      <div class="footer-bottom-links">
-        <a href="#top" class="back-top" aria-label="Przejdź do początku strony">Do góry <i data-lucide="arrow-up" class="icon icon-sm" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </div>
-</footer>
-  
+  </footer>
 </body>
+
 </html>

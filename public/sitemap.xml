@@ -122,7 +122,7 @@
   </url>
   <url>
     <loc>https://amigostudio.pl/blog</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog" />
     <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog" />
     <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog" />
@@ -130,7 +130,7 @@
   </url>
   <url>
     <loc>https://amigostudio.pl/uk/blog</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog" />
     <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog" />
     <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog" />
@@ -138,7 +138,7 @@
   </url>
   <url>
     <loc>https://amigostudio.pl/en/blog</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog" />
     <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog" />
     <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog" />
@@ -167,5 +167,149 @@
     <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/contact" />
     <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/contact" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/blog/ile-kosztuje-strona-internetowa.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/ile-kosztuje-strona-internetowa.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/skilky-koshtuye-sayt-dlya-maloho-biznesu.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/how-much-does-a-small-business-website-cost.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/ile-kosztuje-strona-internetowa.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/blog/skilky-koshtuye-sayt-dlya-maloho-biznesu.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/ile-kosztuje-strona-internetowa.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/skilky-koshtuye-sayt-dlya-maloho-biznesu.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/how-much-does-a-small-business-website-cost.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/ile-kosztuje-strona-internetowa.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/blog/how-much-does-a-small-business-website-cost.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/ile-kosztuje-strona-internetowa.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/skilky-koshtuye-sayt-dlya-maloho-biznesu.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/how-much-does-a-small-business-website-cost.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/ile-kosztuje-strona-internetowa.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/blog/landing-page-czy-strona-firmowa.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/landing-page-czy-strona-firmowa.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/landing-page-chy-sayt-kompanii.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/landing-page-or-company-website.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/landing-page-czy-strona-firmowa.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/blog/landing-page-chy-sayt-kompanii.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/landing-page-czy-strona-firmowa.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/landing-page-chy-sayt-kompanii.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/landing-page-or-company-website.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/landing-page-czy-strona-firmowa.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/blog/landing-page-or-company-website.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/landing-page-czy-strona-firmowa.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/landing-page-chy-sayt-kompanii.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/landing-page-or-company-website.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/landing-page-czy-strona-firmowa.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/blog/co-powinna-zawierac-strona-uslugowa.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/co-powinna-zawierac-strona-uslugowa.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/shcho-maye-mistyty-khorosha-storinka-posluh.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/what-should-a-good-service-website-include.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/co-powinna-zawierac-strona-uslugowa.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/blog/shcho-maye-mistyty-khorosha-storinka-posluh.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/co-powinna-zawierac-strona-uslugowa.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/shcho-maye-mistyty-khorosha-storinka-posluh.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/what-should-a-good-service-website-include.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/co-powinna-zawierac-strona-uslugowa.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/blog/what-should-a-good-service-website-include.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/co-powinna-zawierac-strona-uslugowa.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/shcho-maye-mistyty-khorosha-storinka-posluh.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/what-should-a-good-service-website-include.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/co-powinna-zawierac-strona-uslugowa.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/blog/jak-przygotowac-materialy-do-strony.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/jak-przygotowac-materialy-do-strony.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/yak-pidhotuvaty-materialy-dlya-stvorennya-saytu.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/how-to-prepare-materials-for-a-website-project.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/jak-przygotowac-materialy-do-strony.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/blog/yak-pidhotuvaty-materialy-dlya-stvorennya-saytu.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/jak-przygotowac-materialy-do-strony.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/yak-pidhotuvaty-materialy-dlya-stvorennya-saytu.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/how-to-prepare-materials-for-a-website-project.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/jak-przygotowac-materialy-do-strony.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/blog/how-to-prepare-materials-for-a-website-project.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/jak-przygotowac-materialy-do-strony.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/yak-pidhotuvaty-materialy-dlya-stvorennya-saytu.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/how-to-prepare-materials-for-a-website-project.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/jak-przygotowac-materialy-do-strony.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/blog/dlaczego-formularz-kontaktowy-jest-wazny.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/dlaczego-formularz-kontaktowy-jest-wazny.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/chomu-kontaktna-forma-vazhlyva-na-sayti.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/why-is-a-contact-form-important-on-a-website.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/dlaczego-formularz-kontaktowy-jest-wazny.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/blog/chomu-kontaktna-forma-vazhlyva-na-sayti.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/dlaczego-formularz-kontaktowy-jest-wazny.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/chomu-kontaktna-forma-vazhlyva-na-sayti.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/why-is-a-contact-form-important-on-a-website.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/dlaczego-formularz-kontaktowy-jest-wazny.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/blog/why-is-a-contact-form-important-on-a-website.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/dlaczego-formularz-kontaktowy-jest-wazny.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/chomu-kontaktna-forma-vazhlyva-na-sayti.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/why-is-a-contact-form-important-on-a-website.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/dlaczego-formularz-kontaktowy-jest-wazny.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/blog/jak-przygotowac-strone-pod-google.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/jak-przygotowac-strone-pod-google.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/yak-pidhotuvaty-sayt-do-google.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/how-to-prepare-a-website-for-google.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/jak-przygotowac-strone-pod-google.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/uk/blog/yak-pidhotuvaty-sayt-do-google.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/jak-przygotowac-strone-pod-google.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/yak-pidhotuvaty-sayt-do-google.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/how-to-prepare-a-website-for-google.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/jak-przygotowac-strone-pod-google.html" />
+  </url>
+  <url>
+    <loc>https://amigostudio.pl/en/blog/how-to-prepare-a-website-for-google.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://amigostudio.pl/blog/jak-przygotowac-strone-pod-google.html" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://amigostudio.pl/uk/blog/yak-pidhotuvaty-sayt-do-google.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/blog/how-to-prepare-a-website-for-google.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/blog/jak-przygotowac-strone-pod-google.html" />
   </url>
 </urlset>
