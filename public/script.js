@@ -1,1377 +1,252 @@
-const translations = {
-  ru: {
-    meta: {
-      lang: "ru",
-      title: "Amigo | Разработка сайтов для бизнеса",
-      description: "Amigo создает сайты для бизнеса, лендинги и интернет-магазины с фокусом на заявки, скорость, структуру и понятный запуск."
-    },
-    brand: "Amigo",
-    nav: {
-      portfolio: "Портфолио",
-      services: "Услуги",
-      process: "Процесс",
-      contacts: "Контакты",
-      faq: "FAQ",
-      language: "Выбрать язык сайта",
-      openMenu: "Открыть меню",
-      closeMenu: "Закрыть меню"
-    },
-    hero: {
-      kicker: "Быстрый запуск, чистый код, понятная воронка",
-      title: "Создаём сайты, которые приносят прибыль, а не просто висят в сети",
-      subtitle: "Разработка современных лендингов и корпоративных сайтов с упором на конверсию и скорость.",
-      cta: "Обсудить проект",
-      secondary: "Смотреть работы",
-      stat1Value: "90+",
-      stat1Label: "баллов PageSpeed как ориентир",
-      stat2Value: "14 дней",
-      stat2Label: "средний срок лендинга",
-      stat3Value: "UX + SEO",
-      stat3Label: "заложены на старте"
-    },
-    portfolio: {
-      eyebrow: "Портфолио",
-      title: "Проекты, которые выглядят дорого и работают быстро",
-      description: "Ниже примеры форматов: продающий лендинг, корпоративный сайт и интерфейс для заявки или сервиса.",
-      card1Alt: "Превью лендинга для SaaS продукта",
-      card1Tag: "Лендинг",
-      card1Title: "Лендинг для сервиса",
-      card1Text: "Структура под рекламу, быстрый первый экран, заявки через форму и мессенджеры.",
-      card2Alt: "Превью корпоративного сайта студии",
-      card2Tag: "Корпоративный",
-      card2Title: "Корпоративный сайт",
-      card2Text: "Несколько страниц, понятная навигация, разделы услуг, кейсы и доверительные блоки.",
-      card3Alt: "Превью веб-интерфейса с аналитикой",
-      card3Tag: "Индивидуальный",
-      card3Title: "Индивидуальный интерфейс",
-      card3Text: "Личный кабинет, калькулятор, каталог или другой сценарий под конкретную бизнес-задачу."
-    },
-    services: {
-      eyebrow: "Услуги и цены",
-      title: "Формат под вашу задачу и бюджет",
-      description: "Стоимость фиксируется после короткого брифа: вы заранее понимаете сроки, этапы и итоговый объем работ."
-    },
-    pricing: {
-      cards: {
-        start: {
-          title: 'Пакет "Старт"',
-          description: "Одна страница для малого бизнеса, специалиста или личного бренда.",
-          features: [
-            "Простая и понятная структура",
-            "Тексты и базовый дизайн",
-            "Адаптивная версия для телефона",
-            "Форма заявки и базовая аналитика"
-          ]
-        },
-        business: {
-          title: 'Пакет "Бизнес"',
-          description: "Многостраничный сайт для компании, эксперта или локального бизнеса.",
-          features: [
-            "Главная, услуги, о компании, контакты",
-            "Базовая SEO-структура",
-            "Подготовка к продвижению",
-            "Подключение формы заявок"
-          ]
-        },
-        sales: {
-          title: 'Пакет "Продажи"',
-          description: "Сайт, который не просто выглядит хорошо, а помогает получать заявки.",
-          badge: "pricing.badge.popular",
-          features: [
-            "SEO-структура страниц",
-            "Улучшенные тексты и оффер",
-            "Аналитика",
-            "CRM / Telegram-заявки"
-          ]
-        },
-        shop: {
-          title: 'Пакет "Магазин"',
-          description: "Простой интернет-магазин с каталогом, корзиной и базовой SEO-структурой.",
-          features: [
-            "Каталог и карточки товаров",
-            "Корзина и оплата",
-            "Базовая SEO-структура",
-            "Email-уведомления"
-          ]
-        }
-      },
-      support: {
-        title: "Поддержка сайта",
-        description: "Правки, новые секции, обновления, отчеты, техническая поддержка и развитие сайта."
-      },
-      badge: {
-        popular: "популярно"
-      },
-      pricePrefix: "от",
-      period: " / месяц",
-      note: "Цены начинаются от указанных сумм. Финальная стоимость зависит от количества страниц, текстов, функций, интеграций и сроков выполнения."
-    },
-    process: {
-      eyebrow: "Процесс",
-      title: "От идеи до запуска без хаоса",
-      step1Title: "Брифинг",
-      step1Text: "Фиксируем цели, аудиторию, оффер, конкурентов и критерии успеха.",
-      step2Title: "Дизайн",
-      step2Text: "Собираем структуру, визуальный стиль и интерфейсные состояния.",
-      step3Title: "Разработка",
-      step3Text: "Верстаем адаптивно, оптимизируем скорость и подключаем нужные формы.",
-      step4Title: "Запуск",
-      step4Text: "Проверяем, публикуем, подключаем аналитику и передаем доступы."
-    },
-    contacts: {
-      eyebrow: "Контакты",
-      title: "Расскажите нам, какой сайт нужен вашему бизнесу",
-      description: "Напишите пару слов о проекте, сроках и желаемом результате. Ответим с вопросами по задаче и предложим ближайший шаг.",
-      telegramAria: "Написать в Telegram",
-      whatsappAria: "Написать в WhatsApp",
-      instagramAria: "Открыть Instagram",
-      facebookAria: "Открыть Facebook",
-      formName: "Имя",
-      formNamePlaceholder: "Иван",
-      formContact: "Контакт",
-      formContactPlaceholder: "Telegram, WhatsApp или email",
-      formProject: "Тип проекта",
-      optionLanding: "Лендинг",
-      optionCorporate: "Многостраничный сайт",
-      optionCustom: "Индивидуальное решение",
-      formMessage: "О задаче",
-      formMessagePlaceholder: "Что нужно сделать, какие сроки и цель сайта?",
-      submit: "Отправить заявку",
-      status: "Спасибо! Заявка принята, мы свяжемся с вами в ближайшее время.",
-      sendingStatus: "Отправляем заявку...",
-      errorStatus: "Заявку не удалось отправить. Попробуйте еще раз или напишите нам напрямую.",
-      validationName: "Введите имя от 2 до 80 символов.",
-      validationContact: "Введите контакт от 3 до 120 символов: email, Telegram или WhatsApp.",
-      validationProject: "Тип проекта не должен быть длиннее 120 символов.",
-      validationMessage: "Опишите задачу подробнее: минимум 10 символов, максимум 2000.",
-      validationTurnstile: "Подтвердите, что вы не бот.",
-      messageHint: "Минимум 10 символов.",
-      messageCounter: "{count}/2000"
-    },
-    footer: {
-      copyright: " Amigo. Все права защищены.",
-      backTop: "Наверх"
-    }
-  },
-  en: {
-    meta: {
-      lang: "en",
-      title: "Amigo | Business Website Development",
-      description: "Amigo creates business websites, landing pages and online stores focused on leads, speed, structure and a clear launch."
-    },
-    brand: "Amigo",
-    nav: {
-      portfolio: "Portfolio",
-      services: "Services",
-      process: "Process",
-      contacts: "Contacts",
-      faq: "FAQ",
-      language: "Choose website language",
-      openMenu: "Open menu",
-      closeMenu: "Close menu"
-    },
-    hero: {
-      kicker: "Fast launch, clean code, clear funnel",
-      title: "We build websites that make money, not just sit online",
-      subtitle: "Modern landing pages and corporate websites built for conversion and speed.",
-      cta: "Discuss a project",
-      secondary: "View work",
-      stat1Value: "90+",
-      stat1Label: "PageSpeed score target",
-      stat2Value: "14 days",
-      stat2Label: "average landing page timeline",
-      stat3Value: "UX + SEO",
-      stat3Label: "planned from day one"
-    },
-    portfolio: {
-      eyebrow: "Portfolio",
-      title: "Projects that look premium and load fast",
-      description: "Examples of formats: a conversion landing page, a company website, and a custom request or service interface.",
-      card1Alt: "Landing page preview for a SaaS product",
-      card1Tag: "Landing",
-      card1Title: "Service Landing Page",
-      card1Text: "Ad-ready structure, a strong first screen, and leads through forms and messengers.",
-      card2Alt: "Corporate website preview for a studio",
-      card2Tag: "Corporate",
-      card2Title: "Corporate Website",
-      card2Text: "Multiple pages, clear navigation, service sections, case studies, and trust-building blocks.",
-      card3Alt: "Analytics web interface preview",
-      card3Tag: "Custom",
-      card3Title: "Custom Interface",
-      card3Text: "Account area, calculator, catalog, or another flow shaped around a business task."
-    },
-    services: {
-      eyebrow: "Services & Pricing",
-      title: "A format for your goal and budget",
-      description: "The price is fixed after a short brief: you know the timeline, stages, and final scope before we start."
-    },
-    pricing: {
-      cards: {
-        start: {
-          title: 'Package "Start"',
-          description: "One-page website for a small business, freelancer or personal brand.",
-          features: [
-            "Simple and clear structure",
-            "Basic copy and design",
-            "Mobile-friendly version",
-            "Contact form and basic analytics"
-          ]
-        },
-        business: {
-          title: 'Package "Business"',
-          description: "Multi-page website for a company, expert or local business.",
-          features: [
-            "Home, services, about, contact",
-            "Basic SEO structure",
-            "Ready for promotion",
-            "Contact form setup"
-          ]
-        },
-        sales: {
-          title: 'Package "Sales"',
-          description: "A website that looks professional and helps generate leads.",
-          badge: "pricing.badge.popular",
-          features: [
-            "SEO page structure",
-            "Improved copy and offer",
-            "Analytics",
-            "CRM / Telegram lead notifications"
-          ]
-        },
-        shop: {
-          title: 'Package "Shop"',
-          description: "Simple online store with catalog, cart and basic SEO structure.",
-          features: [
-            "Product catalog and product cards",
-            "Cart and payments",
-            "Basic SEO structure",
-            "Email notifications"
-          ]
-        }
-      },
-      support: {
-        title: "Website support",
-        description: "Website edits, new pages, updates, reports, technical support and website growth."
-      },
-      badge: {
-        popular: "popular"
-      },
-      pricePrefix: "from",
-      period: " / month",
-      note: "Prices start from the listed amounts. The final quote depends on the number of pages, content, features, integrations and project deadline."
-    },
-    process: {
-      eyebrow: "Process",
-      title: "From idea to launch without chaos",
-      step1Title: "Briefing",
-      step1Text: "We define goals, audience, offer, competitors, and success criteria.",
-      step2Title: "Design",
-      step2Text: "We shape the structure, visual direction, and interface states.",
-      step3Title: "Development",
-      step3Text: "We build responsively, optimize speed, and connect the needed forms.",
-      step4Title: "Launch",
-      step4Text: "We test, publish, connect analytics, and hand over access."
-    },
-    contacts: {
-      eyebrow: "Contacts",
-      title: "Tell us what website your business needs",
-      description: "Share a few words about the project, timeline, and desired result. We will reply with focused questions and the next step.",
-      telegramAria: "Message on Telegram",
-      whatsappAria: "Message on WhatsApp",
-      instagramAria: "Open Instagram",
-      facebookAria: "Open Facebook",
-      formName: "Name",
-      formNamePlaceholder: "John",
-      formContact: "Contact",
-      formContactPlaceholder: "Telegram, WhatsApp, or email",
-      formProject: "Project type",
-      optionLanding: "Landing Page",
-      optionCorporate: "Multi-page Website",
-      optionCustom: "Custom Solution",
-      formMessage: "Project details",
-      formMessagePlaceholder: "What should be built, what is the deadline, and what is the goal?",
-      submit: "Send request",
-      status: "Thank you! Your request has been received, and we will contact you soon.",
-      sendingStatus: "Sending your request...",
-      errorStatus: "The request could not be sent. Please try again or message us directly.",
-      validationName: "Enter a name between 2 and 80 characters.",
-      validationContact: "Enter a contact between 3 and 120 characters: email, Telegram or WhatsApp.",
-      validationProject: "Project type must be no longer than 120 characters.",
-      validationMessage: "Describe the project in more detail: minimum 10 characters, maximum 2000.",
-      validationTurnstile: "Please confirm that you are not a bot.",
-      messageHint: "Minimum 10 characters.",
-      messageCounter: "{count}/2000"
-    },
-    footer: {
-      copyright: " Amigo. All rights reserved.",
-      backTop: "Back to top"
-    }
-  },
-  pl: {
-    meta: {
-      lang: "pl",
-      title: "Amigo | Tworzenie stron internetowych dla firm",
-      description: "Amigo tworzy szybkie strony internetowe dla firm, landing page'e i sklepy internetowe z naciskiem na zapytania, strukturę, SEO i sprawny start.",
-    },
-    brand: "Amigo",
-    nav: {
-      portfolio: "Portfolio",
-      services: "Usługi",
-      process: "Proces",
-      contacts: "Kontakt",
-      faq: "FAQ",
-      language: "Wybierz język strony",
-      openMenu: "Otwórz menu",
-      closeMenu: "Zamknij menu"
-    },
-    hero: {
-      kicker: "Szybki start, czysty kod, jasny lejek",
-      title: "Tworzymy strony internetowe, które przynoszą zysk, a nie tylko istnieją w sieci",
-      subtitle: "Nowoczesne landing page'e i strony internetowe dla firm z naciskiem na konwersję oraz szybkość.",
-      cta: "Omów projekt",
-      secondary: "Zobacz realizacje",
-      stat1Value: "90+",
-      stat1Label: "docelowy wynik PageSpeed",
-      stat2Value: "14 dni",
-      stat2Label: "średni czas landing page'a",
-      stat3Value: "UX + SEO",
-      stat3Label: "planowane od początku"
-    },
-    portfolio: {
-      eyebrow: "Portfolio",
-      title: "Projekty, które wyglądają profesjonalnie i działają szybko",
-      description: "Przykładowe formaty: landing sprzedażowy, strona internetowa dla firm oraz indywidualny interfejs dla zgłoszeń lub usługi.",
-      card1Alt: "Podgląd landing page'a dla produktu SaaS",
-      card1Tag: "Landing",
-      card1Title: "Landing dla usługi",
-      card1Text: "Struktura pod reklamy, mocny pierwszy ekran, zgłoszenia przez formularz i komunikatory.",
-      card2Alt: "Podgląd strony internetowej dla firm studia",
-      card2Tag: "Firmowa",
-      card2Title: "Strona internetowa dla firmy",
-      card2Text: "Kilka podstron, czytelna nawigacja, sekcje usług, case studies i bloki budujące zaufanie.",
-      card3Alt: "Podgląd interfejsu webowego z analityką",
-      card3Tag: "Custom",
-      card3Title: "Indywidualny interfejs",
-      card3Text: "Panel klienta, kalkulator, katalog lub inny scenariusz dopasowany do celu biznesowego."
-    },
-    services: {
-      eyebrow: "Usługi i ceny",
-      title: "Format dopasowany do celu i budżetu",
-      description: "Cena jest ustalana po krótkim briefie: znasz terminy, etapy i zakres prac przed startem."
-    },
-    pricing: {
-      cards: {
-        start: {
-          title: 'Pakiet "Start"',
-          description: "Jedna strona dla małej firmy, freelancera albo marki osobistej.",
-          features: [
-            "Prosty i przejrzysty układ",
-            "Teksty i podstawowy design",
-            "Adaptacja do telefonu",
-            "Formularz kontaktowy i podstawowa analityka"
-          ]
-        },
-        business: {
-          title: 'Pakiet "Biznes"',
-          description: "Wielostronicowa strona dla firmy, eksperta albo lokalnego biznesu.",
-          features: [
-            "Strona główna, usługi, o firmie, kontakt",
-            "Podstawowa SEO-struktura",
-            "Przygotowanie do promowania",
-            "Podłączenie formularza zgłoszeń"
-          ]
-        },
-        sales: {
-          title: 'Pakiet "Sprzedaż"',
-          description: "Strona, która nie tylko wygląda dobrze, ale pomaga zdobywać zapytania.",
-          badge: "pricing.badge.popular",
-          features: [
-            "SEO-struktura stron",
-            "Lepsze teksty i oferta",
-            "Analityka",
-            "CRM / Telegram-zgłoszenia"
-          ]
-        },
-        shop: {
-          title: 'Pakiet "Sklep"',
-          description: "Prosty sklep internetowy z katalogiem, koszykiem i podstawową strukturą SEO.",
-          features: [
-            "Katalog i karty produktów",
-            "Koszyk i płatności",
-            "Podstawowa SEO-struktura",
-            "Email-powiadomienia"
-          ]
-        }
-      },
-      support: {
-        title: "Wsparcie strony",
-        description: "Poprawki, nowe sekcje, aktualizacje, raporty, techniczna opieka i rozwój strony."
-      },
-      badge: {
-        popular: "popularny"
-      },
-      pricePrefix: "od",
-      period: " / miesiąc",
-      note: "Ceny zaczynają się od podanych kwot. Końcowa wycena zależy od liczby podstron, treści, funkcji, integracji i terminu realizacji."
-    },
-    process: {
-      eyebrow: "Proces",
-      title: "Od pomysłu do startu bez chaosu",
-      step1Title: "Briefing",
-      step1Text: "Ustalamy cele, grupę odbiorców, ofertę, konkurencję i kryteria sukcesu.",
-      step2Title: "Design",
-      step2Text: "Tworzymy strukturę, kierunek wizualny i stany interfejsu.",
-      step3Title: "Development",
-      step3Text: "Kodujemy responsywnie, optymalizujemy szybkość i podłączamy potrzebne formularze.",
-      step4Title: "Launch",
-      step4Text: "Testujemy, publikujemy, podłączamy analitykę i przekazujemy dostępy."
-    },
-    contacts: {
-      eyebrow: "Kontakt",
-      title: "Opowiedz nam, jakiej strony internetowej potrzebuje Twój biznes",
-      description: "Napisz kilka słów o projekcie, terminach i oczekiwanym efekcie. Odpowiemy z konkretnymi pytaniami i kolejnym krokiem.",
-      telegramAria: "Napisz w Telegramie",
-      whatsappAria: "Napisz w WhatsApp",
-      instagramAria: "Otwórz Instagram",
-      facebookAria: "Otwórz Facebook",
-      formName: "Imię",
-      formNamePlaceholder: "Jan",
-      formContact: "Kontakt",
-      formContactPlaceholder: "Telegram, WhatsApp albo email",
-      formProject: "Typ projektu",
-      optionLanding: "Landing Page",
-      optionCorporate: "Strona internetowa wielostronicowa",
-      optionCustom: "Rozwiązanie indywidualne",
-      formMessage: "O zadaniu",
-      formMessagePlaceholder: "Co trzeba zrobić, jaki jest termin i cel strony internetowej?",
-      submit: "Wyślij zapytanie",
-      status: "Dziękujemy! Zgłoszenie zostało przyjęte, skontaktujemy się wkrótce.",
-      sendingStatus: "Wysyłamy zapytanie...",
-      errorStatus: "Nie udało się wysłać zapytania. Spróbuj ponownie albo napisz do nas bezpośrednio.",
-      validationName: "Wpisz imię od 2 do 80 znaków.",
-      validationContact: "Wpisz kontakt od 3 do 120 znaków: e-mail, Telegram albo WhatsApp.",
-      validationProject: "Typ projektu nie może mieć więcej niż 120 znaków.",
-      validationMessage: "Opisz zadanie dokładniej: minimum 10 znaków, maksimum 2000.",
-      validationTurnstile: "Potwierdź, że nie jesteś botem.",
-      messageHint: "Minimum 10 znaków.",
-      messageCounter: "{count}/2000"
-    },
-    footer: {
-      copyright: " Amigo. Wszelkie prawa zastrzeżone.",
-      backTop: "Do góry"
-    }
-  },
-  uk: {
-    meta: {
-      lang: "uk",
-      title: "Amigo | Розробка сайтів для бізнесу",
-      description: "Amigo створює сайти для бізнесу, лендинги та інтернет-магазини з фокусом на заявки, швидкість, структуру і зрозумілий запуск."
-    },
-    brand: "Amigo",
-    nav: {
-      portfolio: "Портфоліо",
-      services: "Послуги",
-      process: "Процес",
-      contacts: "Контакти",
-      faq: "FAQ",
-      language: "Вибрати мову сайту",
-      openMenu: "Відкрити меню",
-      closeMenu: "Закрити меню"
-    },
-    hero: {
-      kicker: "Швидкий запуск, чистий код, зрозуміла воронка",
-      title: "Створюємо сайти, які приносять прибуток, а не просто висять у мережі",
-      subtitle: "Розробка сучасних лендингів і корпоративних сайтів з фокусом на конверсію та швидкість.",
-      cta: "Обговорити проєкт",
-      secondary: "Дивитися роботи",
-      stat1Value: "90+",
-      stat1Label: "балів PageSpeed як орієнтир",
-      stat2Value: "14 днів",
-      stat2Label: "середній термін лендингу",
-      stat3Value: "UX + SEO",
-      stat3Label: "закладені на старті"
-    },
-    portfolio: {
-      eyebrow: "Портфоліо",
-      title: "Проєкти, які виглядають дорого і працюють швидко",
-      description: "Нижче приклади форматів: продаючий лендинг, корпоративний сайт та інтерфейс для заявки або сервісу.",
-      card1Alt: "Прев'ю лендингу для SaaS продукту",
-      card1Tag: "Лендинг",
-      card1Title: "Лендинг для сервісу",
-      card1Text: "Структура під рекламу, сильний перший екран, заявки через форму та месенджери.",
-      card2Alt: "Прев'ю корпоративного сайту студії",
-      card2Tag: "Корпоративний",
-      card2Title: "Корпоративний сайт",
-      card2Text: "Кілька сторінок, зрозуміла навігація, розділи послуг, кейси та блоки довіри.",
-      card3Alt: "Прев'ю веб-інтерфейсу з аналітикою",
-      card3Tag: "Індивідуальний",
-      card3Title: "Індивідуальний інтерфейс",
-      card3Text: "Особистий кабінет, калькулятор, каталог або інший сценарій під конкретну бізнес-задачу."
-    },
-    services: {
-      eyebrow: "Послуги та ціни",
-      title: "Формат під вашу задачу і бюджет",
-      description: "Вартість фіксується після короткого брифу: ви заздалегідь розумієте терміни, етапи та фінальний обсяг робіт."
-    },
-    pricing: {
-      cards: {
-        start: {
-          title: 'Пакет "Старт"',
-          description: "Одна сторінка для малого бізнесу, спеціаліста або особистого бренду.",
-          features: [
-            "Проста і зрозуміла структура",
-            "Тексти і базовий дизайн",
-            "Адаптивна версія для телефону",
-            "Форма заявки і базова аналітика"
-          ]
-        },
-        business: {
-          title: 'Пакет "Бізнес"',
-          description: "Багатосторінковий сайт для компанії, експерта або локального бізнесу.",
-          features: [
-            "Головна, послуги, про компанію, контакти",
-            "Базова SEO-підготовка",
-            "Підготовка до просування",
-            "Підключення форми заявок"
-          ]
-        },
-        sales: {
-          title: 'Пакет "Продажі"',
-          description: "Сайт, який не просто виглядає красиво, а допомагає отримувати заявки.",
-          badge: "pricing.badge.popular",
-          features: [
-            "SEO-структура сторінок",
-            "Покращені тексти та офер",
-            "Аналітика",
-            "CRM / Telegram-заявки"
-          ]
-        },
-        shop: {
-          title: 'Пакет "Магазин"',
-          description: "Простий інтернет-магазин з каталогом, кошиком і базовою SEO-структурою.",
-          features: [
-            "Каталог і картки товарів",
-            "Кошик і оплата",
-            "Базова SEO-структура",
-            "Email-повідомлення"
-          ]
-        }
-      },
-      support: {
-        title: "Підтримка сайту",
-        description: "Правки, нові сторінки, оновлення, звіти, технічна підтримка та розвиток сайту."
-      },
-      badge: {
-        popular: "популярно"
-      },
-      pricePrefix: "від",
-      period: " / місяць",
-      note: "Ціни починаються від вказаних сум. Остаточна вартість залежить від кількості сторінок, текстів, функцій, інтеграцій і термінів виконання."
-    },
-    process: {
-      eyebrow: "Процес",
-      title: "Від ідеї до запуску без хаосу",
-      step1Title: "Брифінг",
-      step1Text: "Фіксуємо цілі, аудиторію, офер, конкурентів і критерії успіху.",
-      step2Title: "Дизайн",
-      step2Text: "Збираємо структуру, візуальний стиль та інтерфейсні стани.",
-      step3Title: "Розробка",
-      step3Text: "Верстаємо адаптивно, оптимізуємо швидкість і підключаємо потрібні форми.",
-      step4Title: "Запуск",
-      step4Text: "Перевіряємо, публікуємо, підключаємо аналітику та передаємо доступи."
-    },
-    contacts: {
-      eyebrow: "Контакти",
-      title: "Розкажіть нам, який сайт потрібен вашому бізнесу",
-      description: "Напишіть кілька слів про проєкт, терміни та бажаний результат. Відповімо із питаннями по задачі та запропонуємо найближчий крок.",
-      telegramAria: "Написати в Telegram",
-      whatsappAria: "Написати в WhatsApp",
-      instagramAria: "Відкрити Instagram",
-      facebookAria: "Відкрити Facebook",
-      formName: "Ім'я",
-      formNamePlaceholder: "Іван",
-      formContact: "Контакт",
-      formContactPlaceholder: "Telegram, WhatsApp або email",
-      formProject: "Тип проєкту",
-      optionLanding: "Лендинг",
-      optionCorporate: "Багатосторінковий сайт",
-      optionCustom: "Індивідуальне рішення",
-      formMessage: "Про задачу",
-      formMessagePlaceholder: "Що потрібно зробити, які терміни та мета сайту?",
-      submit: "Надіслати заявку",
-      status: "Дякуємо! Заявку прийнято, ми зв'яжемося з вами найближчим часом.",
-      sendingStatus: "Надсилаємо заявку...",
-      errorStatus: "Заявку не вдалося надіслати. Спробуйте ще раз або напишіть нам напряму.",
-      validationName: "Введіть ім'я від 2 до 80 символів.",
-      validationContact: "Введіть контакт від 3 до 120 символів: email, Telegram або WhatsApp.",
-      validationProject: "Тип проєкту не має бути довшим за 120 символів.",
-      validationMessage: "Опишіть задачу детальніше: мінімум 10 символів, максимум 2000.",
-      validationTurnstile: "Підтвердіть, що ви не бот.",
-      messageHint: "Мінімум 10 символів.",
-      messageCounter: "{count}/2000"
-    },
-    footer: {
-      copyright: " Amigo. Усі права захищені.",
-      backTop: "Нагору"
-    }
-  }
-};
-
-
-const extraTranslations = {
-  pl: {
-    seoContent: {
-      eyebrow: "SEO-ready websites",
-      title: "Strony internetowe dla firm, które mają zdobywać klientów",
-      text1: "W Amigo tworzymy strony internetowe dla małych firm, ekspertów, freelancerów, lokalnych biznesów, sklepów internetowych i projektów, które chcą szybciej wejść na rynek. Strona nie jest traktowana jak sam obrazek w przeglądarce. Najpierw porządkujemy ofertę, grupę odbiorców i cel kontaktu, a dopiero potem budujemy strukturę sekcji, teksty, projekt oraz formularz. Dzięki temu landing page albo strona firmowa ma jasno prowadzić użytkownika do zapytania, rozmowy lub zakupu.",
-      text2: "W praktyce oznacza to mobile-first, szybkie ładowanie, logiczne nagłówki, podstawową strukturę SEO i treści napisane pod realne pytania klientów. Strona może zawierać formularz kontaktowy, analitykę, integrację z e-mailem lub komunikatorem, a także wersje językowe dla firm pracujących w Polsce, Ukrainie i na rynkach międzynarodowych. Jeśli potrzebujesz nowej strony, modernizacji obecnej witryny albo sklepu internetowego, zobacz <a href=\"#services\">zakres usług i ceny</a>, sprawdź <a href=\"#portfolio\">przykładowe formaty realizacji</a> i przejdź przez <a href=\"#process\">proces współpracy</a>. Gdy projekt jest gotowy do omówienia, formularz w sekcji <a href=\"#contacts\">kontakt</a> pozwala szybko opisać cel, termin i oczekiwany rezultat."
-    },
-    audience: {
-      eyebrow: "Dla kogo", title: "Dla kogo tworzymy strony?", description: "Projekty są dopasowane do firm, które potrzebują czytelnej oferty, szybkiego kontaktu i strony przygotowanej do dalszego rozwoju.",
-      serviceTitle: "Firmy usługowe", serviceText: "Strony dla specjalistów i zespołów, które chcą lepiej pokazać ofertę, proces i efekty pracy.",
-      localTitle: "Lokalne biznesy", localText: "Witryny dla firm działających w konkretnym mieście lub regionie, z mocnym kontaktem i mapą usług.",
-      expertTitle: "Eksperci i freelancerzy", expertText: "Landing page albo portfolio, które buduje zaufanie i pomaga zbierać konkretne zapytania.",
-      shopTitle: "Sklepy internetowe", shopText: "Sklepy z katalogiem, kartami produktów, płatnościami, dostawą i podstawową strukturą SEO.",
-      startupTitle: "Startupy i nowe projekty", startupText: "Szybki start strony, która pomaga sprawdzić ofertę, kampanię reklamową albo nowy segment rynku.",
-      internationalTitle: "Firmy międzynarodowe", internationalText: "Strony wielojęzyczne dla zespołów, które obsługują klientów w Polsce, Europie i poza nią."
-    },
-    included: {
-      eyebrow: "Zakres", title: "Co zawiera strona internetowa?", description: "Każdy projekt ma jasny zakres, aby po publikacji strona była nie tylko estetyczna, ale też gotowa do mierzenia efektów.",
-      item1: "Projekt dopasowany do marki", item2: "Responsywna wersja mobilna", item3: "Szybkie ładowanie", item4: "Formularz kontaktowy", item5: "Podstawowa optymalizacja SEO", item6: "Integracja z analityką", item7: "Przygotowanie do Google Search Console", item8: "Wsparcie po publikacji"
-    },
-    faqContent: {
-      eyebrow: "FAQ", title: "Najczęstsze pytania o tworzenie stron internetowych", description: "Krótkie odpowiedzi przed pierwszą rozmową o stronie firmowej, landing page'u, sklepie internetowym albo modernizacji obecnej witryny.",
-      q1: "Ile kosztuje strona internetowa?", a1: "Cena zależy od liczby podstron, języków, integracji i poziomu projektu graficznego. Wycena jest przygotowywana po krótkim briefie, a zakres i termin są ustalane przed startem prac.",
-      q2: "Ile trwa stworzenie strony?", a2: "Prosty landing page zwykle można przygotować szybciej niż rozbudowaną stronę firmową lub sklep internetowy. Po briefie otrzymujesz realny harmonogram prac, testów i publikacji.",
-      q3: "Czy strona będzie widoczna w Google?", a3: "Strona otrzymuje logiczną strukturę nagłówków, podstawową optymalizację SEO, szybkie ładowanie i przygotowanie do Google Search Console. Widoczność zależy później od konkurencji, treści i rozwoju strony.",
-      q4: "Czy tworzycie landing page?", a4: "Tak. Landing page może być przygotowany pod kampanię reklamową, usługę, produkt, lokalny biznes albo walidację nowego pomysłu. Ważne są jasny komunikat, formularz i szybki kontakt.",
-      q5: "Czy podłączacie formularz kontaktowy?", a5: "Tak. Formularz może zbierać zapytania z podstawowymi polami, a w zależności od projektu można dodać powiadomienia e-mail, Telegram lub integrację z CRM.",
-      q6: "Czy mogę mieć stronę w kilku językach?", a6: "Tak. Strona może mieć kilka wersji językowych, na przykład polską, angielską, ukraińską lub rosyjską. Najlepsze rozwiązanie zależy od tego, czy potrzebne są oddzielne adresy URL dla SEO.",
-      q7: "Czy pomagacie z domeną i hostingiem?", a7: "Tak. Możemy pomóc wybrać prosty hosting, podpiąć domenę, ustawić SSL oraz przygotować stronę do publikacji na Netlify albo innym statycznym hostingu.",
-      q8: "Czy mogę później rozwijać stronę?", a8: "Tak. Stronę można rozbudowywać o nowe podstrony, wersje językowe, artykuły, integracje, lepsze treści sprzedażowe i kolejne elementy wspierające pozyskiwanie zapytań."
-    }
-  },
-  en: {
-    seoContent: { eyebrow: "SEO-ready websites", title: "Business websites designed to win clients", text1: "At Amigo, we build websites for small businesses, experts, freelancers, local companies, online stores and new projects that need a clear digital launch. A website is not treated as a decorative screen. First we organize the offer, audience and contact goal, then we build the section structure, copy, design and form. That way a landing page or business website can guide visitors toward an inquiry, conversation or purchase.", text2: "In practice, this means a mobile-first layout, fast loading, logical headings, a basic SEO structure and content based on real customer questions. The website can include a contact form, analytics, email or messenger integration and multilingual versions for companies working in Poland, Ukraine and international markets. If you need a new website, a redesign or an online store, see <a href=\"#services\">services and pricing</a>, review <a href=\"#portfolio\">example website formats</a> and check the <a href=\"#process\">workflow</a>. When the project is ready to discuss, the <a href=\"#contacts\">contact form</a> helps describe the goal, deadline and expected result." },
-    audience: { eyebrow: "For whom", title: "Who are these websites for?", description: "The projects are shaped for businesses that need a clear offer, fast contact and a website ready for future growth.", serviceTitle: "Service businesses", serviceText: "Websites for specialists and teams that need to present their offer, process and results more clearly.", localTitle: "Local businesses", localText: "Websites for companies working in a specific city or region, with strong contact paths and service structure.", expertTitle: "Experts and freelancers", expertText: "Landing pages or portfolios that build trust and help collect concrete inquiries.", shopTitle: "Online stores", shopText: "Stores with product catalogs, product pages, payments, delivery setup and a basic SEO structure.", startupTitle: "Startups and new projects", startupText: "A fast launch that helps validate an offer, ad campaign or new market segment.", internationalTitle: "International companies", internationalText: "Multilingual websites for teams serving clients in Poland, Europe and beyond." },
-    included: { eyebrow: "Scope", title: "What does a website include?", description: "Every project has a clear scope so the website is not only polished, but also ready to measure results after launch.", item1: "Design matched to the brand", item2: "Responsive mobile version", item3: "Fast loading", item4: "Contact form", item5: "Basic SEO optimization", item6: "Analytics integration", item7: "Google Search Console preparation", item8: "Support after publication" },
-    faqContent: { eyebrow: "FAQ", title: "Frequently asked questions about website development", description: "Short answers before the first conversation about a business website, landing page, online store or redesign.", q1: "How much does a website cost?", a1: "The price depends on the number of pages, languages, integrations and design complexity. After a short brief, you receive a clear scope, fixed price and timeline.", q2: "How long does website development take?", a2: "A simple landing page can usually be prepared faster than a larger business website or online store. After the brief, you receive a realistic schedule for design, development, testing and launch.", q3: "Will the website be visible in Google?", a3: "The website gets logical headings, basic SEO optimization, fast loading and preparation for Google Search Console. Visibility later depends on competition, content and ongoing development.", q4: "Do you create landing pages?", a4: "Yes. A landing page can be built for an ad campaign, service, product, local business or validation of a new idea. Clear messaging, a form and quick contact matter most.", q5: "Do you connect a contact form?", a5: "Yes. The form can collect inquiries with basic fields, and depending on the project we can add email notifications, Telegram or CRM integration.", q6: "Can I have a website in several languages?", a6: "Yes. The website can have Polish, English, Ukrainian or Russian versions. The best setup depends on whether separate URLs are needed for SEO.", q7: "Can you help with domain and hosting?", a7: "Yes. We can help choose simple hosting, connect a domain, set up SSL and prepare the site for publication on Netlify or another static host.", q8: "Can I expand the website later?", a8: "Yes. The website can be expanded with new pages, language versions, articles, integrations, stronger sales copy and more elements that support lead generation." }
-  },
-  ru: {
-    seoContent: { eyebrow: "SEO-ready сайты", title: "Сайты для бизнеса, которые помогают получать клиентов", text1: "В Amigo мы создаём сайты для малого бизнеса, экспертов, фрилансеров, локальных компаний, интернет-магазинов и новых проектов, которым нужен понятный запуск в сети. Сайт не воспринимается как декоративная картинка. Сначала мы упорядочиваем предложение, аудиторию и цель контакта, а затем собираем структуру секций, тексты, дизайн и форму заявки. Так лендинг или корпоративный сайт ведет посетителя к запросу, разговору или покупке.", text2: "На практике это означает mobile-first подход, быструю загрузку, логичные заголовки, базовую SEO-структуру и тексты на основе реальных вопросов клиентов. Сайт может включать контактную форму, аналитику, интеграцию с email или мессенджером, а также языковые версии для компаний, работающих в Польше, Украине и на международных рынках. Если нужен новый сайт, обновление текущего проекта или интернет-магазин, посмотрите <a href=\"#services\">услуги и цены</a>, изучите <a href=\"#portfolio\">примеры форматов</a> и пройдите через <a href=\"#process\">процесс работы</a>. Когда проект готов к обсуждению, форма в разделе <a href=\"#contacts\">контакты</a> поможет быстро описать цель, сроки и ожидаемый результат." },
-    audience: { eyebrow: "Для кого", title: "Для кого мы создаём сайты?", description: "Проекты подходят компаниям, которым нужна понятная оферта, быстрый контакт и сайт, готовый к дальнейшему развитию.", serviceTitle: "Сервисные компании", serviceText: "Сайты для специалистов и команд, которым важно ясно показать услуги, процесс и результаты работы.", localTitle: "Локальный бизнес", localText: "Сайты для компаний в конкретном городе или регионе, с сильным блоком контактов и структурой услуг.", expertTitle: "Эксперты и фрилансеры", expertText: "Лендинг или портфолио, которое формирует доверие и помогает собирать конкретные заявки.", shopTitle: "Интернет-магазины", shopText: "Магазины с каталогом, карточками товаров, оплатой, доставкой и базовой SEO-структурой.", startupTitle: "Стартапы и новые проекты", startupText: "Быстрый запуск сайта, который помогает проверить офер, рекламную кампанию или новый сегмент рынка.", internationalTitle: "Международные компании", internationalText: "Многоязычные сайты для команд, которые обслуживают клиентов в Польше, Европе и за ее пределами." },
-    included: { eyebrow: "Состав работ", title: "Что входит в сайт?", description: "У каждого проекта есть понятный объем работ, чтобы после публикации сайт был не только аккуратным, но и готовым к измерению результата.", item1: "Дизайн под бренд", item2: "Адаптивная мобильная версия", item3: "Быстрая загрузка", item4: "Контактная форма", item5: "Базовая SEO-оптимизация", item6: "Интеграция аналитики", item7: "Подготовка к Google Search Console", item8: "Поддержка после публикации" },
-    faqContent: { eyebrow: "FAQ", title: "Частые вопросы о разработке сайтов", description: "Короткие ответы перед первой беседой о корпоративном сайте, лендинге, интернет-магазине или обновлении текущей страницы.", q1: "Сколько стоит сайт?", a1: "Цена зависит от количества страниц, языков, интеграций и сложности дизайна. После короткого брифа вы получаете понятный объем работ, фиксированную цену и сроки.", q2: "Сколько времени занимает создание сайта?", a2: "Простой лендинг обычно можно подготовить быстрее, чем многостраничный сайт или интернет-магазин. После брифа вы получаете реалистичный график дизайна, разработки, тестов и публикации.", q3: "Будет ли сайт виден в Google?", a3: "Сайт получает логичную структуру заголовков, базовую SEO-оптимизацию, быструю загрузку и подготовку к Google Search Console. Дальнейшая видимость зависит от конкуренции, контента и развития сайта.", q4: "Вы создаете лендинги?", a4: "Да. Лендинг можно сделать под рекламную кампанию, услугу, продукт, локальный бизнес или проверку новой идеи. Важны ясное сообщение, форма и быстрый контакт.", q5: "Вы подключаете контактную форму?", a5: "Да. Форма может собирать заявки с базовыми полями, а в зависимости от проекта можно добавить уведомления на email, Telegram или интеграцию с CRM.", q6: "Можно сделать сайт на нескольких языках?", a6: "Да. Сайт может иметь польскую, английскую, украинскую или русскую версию. Лучшее решение зависит от того, нужны ли отдельные URL для SEO.", q7: "Помогаете с доменом и хостингом?", a7: "Да. Мы можем помочь выбрать простой хостинг, подключить домен, настроить SSL и подготовить сайт к публикации на Netlify или другом статическом хостинге.", q8: "Можно потом развивать сайт?", a8: "Да. Сайт можно расширять новыми страницами, языковыми версиями, статьями, интеграциями, улучшенными продающими текстами и элементами для получения заявок." }
-  },
-  uk: {
-    seoContent: { eyebrow: "SEO-ready сайти", title: "Сайти для бізнесу, які допомагають отримувати клієнтів", text1: "В Amigo ми створюємо сайти для малого бізнесу, експертів, фрилансерів, локальних компаній, інтернет-магазинів і нових проєктів, яким потрібен зрозумілий запуск в онлайні. Сайт не сприймається як декоративна картинка. Спочатку ми впорядковуємо пропозицію, аудиторію і ціль контакту, а потім збираємо структуру секцій, тексти, дизайн і форму заявки. Так лендинг або корпоративний сайт веде відвідувача до запиту, розмови або покупки.", text2: "На практиці це означає mobile-first підхід, швидке завантаження, логічні заголовки, базову SEO-структуру і тексти на основі реальних питань клієнтів. Сайт може містити контактну форму, аналітику, інтеграцію з email або месенджером, а також мовні версії для компаній, що працюють у Польщі, Україні та на міжнародних ринках. Якщо потрібен новий сайт, оновлення поточного проєкту або інтернет-магазин, перегляньте <a href=\"#services\">послуги та ціни</a>, подивіться <a href=\"#portfolio\">приклади форматів</a> і пройдіть через <a href=\"#process\">процес роботи</a>. Коли проєкт готовий до обговорення, форма в розділі <a href=\"#contacts\">контакти</a> допоможе швидко описати ціль, строки і бажаний результат." },
-    audience: { eyebrow: "Для кого", title: "Для кого ми створюємо сайти?", description: "Проєкти підходять компаніям, яким потрібна зрозуміла пропозиція, швидкий контакт і сайт, готовий до подальшого розвитку.", serviceTitle: "Сервісні компанії", serviceText: "Сайти для спеціалістів і команд, яким важливо чітко показати послуги, процес і результати роботи.", localTitle: "Локальний бізнес", localText: "Сайти для компаній у конкретному місті або регіоні, з сильним блоком контактів і структурою послуг.", expertTitle: "Експерти і фрилансери", expertText: "Лендинг або портфоліо, що формує довіру і допомагає збирати конкретні заявки.", shopTitle: "Інтернет-магазини", shopText: "Магазини з каталогом, картками товарів, оплатою, доставкою і базовою SEO-структурою.", startupTitle: "Стартапи і нові проєкти", startupText: "Швидкий запуск сайту, який допомагає перевірити офер, рекламну кампанію або новий сегмент ринку.", internationalTitle: "Міжнародні компанії", internationalText: "Багатомовні сайти для команд, які обслуговують клієнтів у Польщі, Європі та за її межами." },
-    included: { eyebrow: "Склад робіт", title: "Що входить у сайт?", description: "Кожен проєкт має зрозумілий обсяг робіт, щоб після публікації сайт був не лише акуратним, а й готовим до вимірювання результатів.", item1: "Дизайн під бренд", item2: "Адаптивна мобільна версія", item3: "Швидке завантаження", item4: "Контактна форма", item5: "Базова SEO-оптимізація", item6: "Інтеграція аналітики", item7: "Підготовка до Google Search Console", item8: "Підтримка після публікації" },
-    faqContent: { eyebrow: "FAQ", title: "Часті питання про розробку сайтів", description: "Короткі відповіді перед першою розмовою про корпоративний сайт, лендинг, інтернет-магазин або оновлення поточної сторінки.", q1: "Скільки коштує сайт?", a1: "Ціна залежить від кількості сторінок, мов, інтеграцій і складності дизайну. Після короткого брифу ви отримуєте зрозумілий обсяг робіт, фіксовану ціну і строки.", q2: "Скільки часу займає створення сайту?", a2: "Простий лендинг зазвичай можна підготувати швидше, ніж багатосторінковий сайт або інтернет-магазин. Після брифу ви отримуєте реалістичний графік дизайну, розробки, тестів і публікації.", q3: "Чи буде сайт видимий у Google?", a3: "Сайт отримує логічну структуру заголовків, базову SEO-оптимізацію, швидке завантаження і підготовку до Google Search Console. Подальша видимість залежить від конкуренції, контенту і розвитку сайту.", q4: "Чи створюєте ви лендинги?", a4: "Так. Лендинг можна зробити під рекламну кампанію, послугу, продукт, локальний бізнес або перевірку нової ідеї. Важливі ясне повідомлення, форма і швидкий контакт.", q5: "Чи підключаєте контактну форму?", a5: "Так. Форма може збирати заявки з базовими полями, а залежно від проєкту можна додати email-сповіщення, Telegram або інтеграцію з CRM.", q6: "Чи можна зробити сайт кількома мовами?", a6: "Так. Сайт може мати польську, англійську, українську або російську версію. Найкраще рішення залежить від того, чи потрібні окремі URL для SEO.", q7: "Чи допомагаєте з доменом і хостингом?", a7: "Так. Ми можемо допомогти вибрати простий хостинг, підключити домен, налаштувати SSL і підготувати сайт до публікації на Netlify або іншому статичному хостингу.", q8: "Чи можна потім розвивати сайт?", a8: "Так. Сайт можна розширювати новими сторінками, мовними версіями, статтями, інтеграціями, покращеними продаючими текстами і елементами для отримання заявок." }
-  }
-};
-
-const portfolioTranslations = {
-  ru: {
-    portfolio: {
-      eyebrow: "Портфолио",
-      title: "Примеры проектов",
-      description: "Демонстрационные сайты, которые показывают подход Amigo к структуре, дизайну, адаптации под телефон и получению заявок.",
-      note: "Часть проектов представлена как демонстрационные концепты. Они показывают возможную структуру, дизайн и функциональность сайта перед адаптацией под реальный бизнес.",
-      detailsButton: "Подробнее",
-      demoButton: "Смотреть демо",
-      taskTitle: "Задача",
-      workTitle: "Что сделано",
-      featuresTitle: "Ключевые функции",
-      sectionsTitle: "Блоки сайта",
-      modalLabel: "Описание проекта",
-      closeModal: "Закрыть описание проекта",
-      detailsAria: "Открыть подробности проекта",
-      demoAria: "Открыть демо проекта"
-    }
-  },
-  pl: {
-    portfolio: {
-      eyebrow: "Portfolio",
-      title: "Przykłady projektów",
-      description: "Strony demonstracyjne pokazujące podejście Amigo do struktury, designu, wersji mobilnej i zdobywania zapytań.",
-      note: "Część projektów jest przedstawiona jako koncepcje demonstracyjne. Pokazują możliwą strukturę, design i funkcjonalność strony przed adaptacją pod realny biznes.",
-      detailsButton: "Szczegóły",
-      demoButton: "Zobacz demo",
-      taskTitle: "Zadanie",
-      workTitle: "Co zostało zrobione",
-      featuresTitle: "Kluczowe funkcje",
-      sectionsTitle: "Bloki strony",
-      modalLabel: "Opis projektu",
-      closeModal: "Zamknij opis projektu",
-      detailsAria: "Otwórz szczegóły projektu",
-      demoAria: "Otwórz demo projektu"
-    }
-  },
-  en: {
-    portfolio: {
-      eyebrow: "Portfolio",
-      title: "Project Examples",
-      description: "Demo websites that show Amigo's approach to structure, design, mobile adaptation, and lead generation.",
-      note: "Some projects are presented as demonstration concepts. They show a possible website structure, design, and functionality before adaptation to a real business.",
-      detailsButton: "Details",
-      demoButton: "View demo",
-      taskTitle: "Task",
-      workTitle: "What was done",
-      featuresTitle: "Key features",
-      sectionsTitle: "Website blocks",
-      modalLabel: "Project description",
-      closeModal: "Close project description",
-      detailsAria: "Open project details",
-      demoAria: "Open project demo"
-    }
-  },
-  uk: {
-    portfolio: {
-      eyebrow: "Портфоліо",
-      title: "Приклади проєктів",
-      description: "Демонстраційні сайти, які показують підхід Amigo до структури, дизайну, адаптації під телефон і отримання заявок.",
-      note: "Частина проєктів представлена як демонстраційні концепти. Вони показують можливу структуру, дизайн і функціональність сайту перед адаптацією під реальний бізнес.",
-      detailsButton: "Докладніше",
-      demoButton: "Дивитися демо",
-      taskTitle: "Задача",
-      workTitle: "Що зроблено",
-      featuresTitle: "Ключові функції",
-      sectionsTitle: "Блоки сайту",
-      modalLabel: "Опис проєкту",
-      closeModal: "Закрити опис проєкту",
-      detailsAria: "Відкрити подробиці проєкту",
-      demoAria: "Відкрити демо проєкту"
-    }
-  }
-};
-
-Object.entries(extraTranslations).forEach(([language, values]) => {
-  Object.assign(translations[language], values);
-});
-Object.entries(portfolioTranslations).forEach(([language, values]) => {
-  Object.assign(translations[language], values);
-});
-
-
-const header = document.getElementById("site-header");
-const menuToggle = document.getElementById("menu-toggle");
-const mobileMenu = document.getElementById("mobile-menu");
-const languageSelects = document.querySelectorAll(".language-select");
-const form = document.getElementById("contact-form");
-const formStatus = document.getElementById("form-status");
-const messageCounter = document.getElementById("message-counter");
-const metaDescription = document.getElementById("meta-description");
-const portfolioGrid = document.getElementById("portfolio-grid");
-const portfolioModal = document.getElementById("portfolio-modal");
-const portfolioModalPanel = portfolioModal ? portfolioModal.querySelector(".portfolio-modal-panel") : null;
-const portfolioModalContent = document.getElementById("portfolio-modal-content");
-const pricingGrid = document.getElementById("pricing-grid");
-const pricingSupport = document.getElementById("pricing-support");
-const pricingNote = document.getElementById("pricing-note");
-const pricingMarketButtons = document.querySelectorAll("[data-pricing-market]");
-const DEFAULT_LANGUAGE = "pl";
-const DEFAULT_PRICING_MARKET = "poland";
-const DEFAULT_PREFERENCES_VERSION = "pl-first-v1";
-let currentLanguage = DEFAULT_LANGUAGE;
-let currentPricingMarket = DEFAULT_PRICING_MARKET;
-let activePortfolioProjectId = null;
-let lastFocusedPortfolioElement = null;
-let revealObserver = null;
-
-const getNestedValue = (source, path) => (
-  path.split(".").reduce((value, key) => (value && value[key] !== undefined ? value[key] : undefined), source)
-);
-
-const translate = (key) => (
-  getNestedValue(translations[currentLanguage], key) ?? getNestedValue(translations.ru, key) ?? ""
-);
-
-const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
-  "&": "&amp;",
-  "<": "&lt;",
-  ">": "&gt;",
-  '"': "&quot;",
-  "'": "&#39;"
-}[character]));
-
-const CONTACT_FIELD_RULES = {
-  name: {
-    min: 2,
-    max: 80,
-    errorKey: "contacts.validationName"
-  },
-  contact: {
-    min: 3,
-    max: 120,
-    errorKey: "contacts.validationContact"
-  },
-  project: {
-    max: 120,
-    errorKey: "contacts.validationProject"
-  },
-  message: {
-    min: 10,
-    max: 2000,
-    errorKey: "contacts.validationMessage"
-  }
-};
-
-const CONTACT_FIELD_NAMES = Object.keys(CONTACT_FIELD_RULES);
-
-const BACKEND_ERROR_MAP = {
-  "Invalid name": {
-    fieldName: "name",
-    messageKey: "contacts.validationName"
-  },
-  "Invalid contact": {
-    fieldName: "contact",
-    messageKey: "contacts.validationContact"
-  },
-  "Invalid project type": {
-    fieldName: "project",
-    messageKey: "contacts.validationProject"
-  },
-  "Invalid message": {
-    fieldName: "message",
-    messageKey: "contacts.validationMessage"
-  },
-  "Anti-spam check failed": {
-    messageKey: "contacts.validationTurnstile"
-  },
-  "Email sending failed": {
-    messageKey: "contacts.errorStatus"
-  }
-};
-
-const getContactField = (name) => {
-  if (!form) {
-    return null;
-  }
-
-  const field = form.elements.namedItem(name);
-  return field instanceof HTMLElement ? field : null;
-};
-
-const getFieldValue = (name) => {
-  const field = getContactField(name);
-  return field && "value" in field ? String(field.value).trim() : "";
-};
-
-const getFieldLabel = (fieldName) => {
-  const field = getContactField(fieldName);
-  return field ? field.closest("label") : null;
-};
-
-const setFormStatus = (messageKey, isError = false) => {
-  if (!formStatus) {
-    return;
-  }
-
-  formStatus.dataset.statusKey = messageKey;
-  formStatus.classList.remove("hidden");
-  formStatus.classList.toggle("is-error", isError);
-  formStatus.textContent = translate(messageKey);
-};
-
-const setFieldError = (fieldName, messageKey) => {
-  if (!form) {
-    return;
-  }
-
-  const errorElement = form.querySelector(`[data-error-for="${fieldName}"]`);
-  const label = getFieldLabel(fieldName);
-
-  if (errorElement) {
-    errorElement.dataset.errorKey = messageKey;
-    errorElement.textContent = translate(messageKey);
-  }
-
-  if (label) {
-    label.classList.add("form-field-invalid");
-    label.classList.remove("form-field-valid");
-  }
-};
-
-const clearFieldError = (fieldName) => {
-  if (!form) {
-    return;
-  }
-
-  const errorElement = form.querySelector(`[data-error-for="${fieldName}"]`);
-  const label = getFieldLabel(fieldName);
-
-  if (errorElement) {
-    delete errorElement.dataset.errorKey;
-    errorElement.textContent = "";
-  }
-
-  if (label) {
-    label.classList.remove("form-field-invalid");
-    label.classList.add("form-field-valid");
-  }
-};
-
-const resetContactFormValidation = () => {
-  if (!form) {
-    return;
-  }
-
-  form.querySelectorAll("[data-error-for]").forEach((errorElement) => {
-    delete errorElement.dataset.errorKey;
-    errorElement.textContent = "";
-  });
-
-  form.querySelectorAll(".form-field-invalid, .form-field-valid").forEach((fieldWrapper) => {
-    fieldWrapper.classList.remove("form-field-invalid", "form-field-valid");
-  });
-
-  delete form.dataset.validationStatusKey;
-};
-
-const validateContactField = (fieldName) => {
-  const rule = CONTACT_FIELD_RULES[fieldName];
-
-  if (!rule) {
-    return true;
-  }
-
-  const value = getFieldValue(fieldName);
-  const isTooShort = rule.min !== undefined && value.length < rule.min;
-  const isTooLong = rule.max !== undefined && value.length > rule.max;
-
-  if (isTooShort || isTooLong) {
-    setFieldError(fieldName, rule.errorKey);
-    return false;
-  }
-
-  clearFieldError(fieldName);
-  return true;
-};
-
-const isTurnstileRequired = () => (
-  Boolean(form && form.querySelector(".cf-turnstile")) && window.location.protocol !== "file:"
-);
-
-const hasTurnstileResponse = () => Boolean(getFieldValue("cf-turnstile-response"));
-
-const validateContactForm = () => {
-  if (!form) {
-    return true;
-  }
-
-  resetContactFormValidation();
-  let isValid = true;
-
-  CONTACT_FIELD_NAMES.forEach((fieldName) => {
-    if (!validateContactField(fieldName)) {
-      isValid = false;
-    }
-  });
-
-  if (isTurnstileRequired() && !hasTurnstileResponse()) {
-    form.dataset.validationStatusKey = "contacts.validationTurnstile";
-    return false;
-  }
-
-  form.dataset.validationStatusKey = isValid ? "" : "contacts.errorStatus";
-  return isValid;
-};
-
-const updateMessageCounter = () => {
-  if (!messageCounter) {
-    return;
-  }
-
-  const count = getFieldValue("message").length;
-  messageCounter.textContent = translate("contacts.messageCounter").replace("{count}", String(count));
-};
-
-const refreshContactValidationLanguage = () => {
-  if (!form) {
-    return;
-  }
-
-  form.querySelectorAll("[data-error-key]").forEach((errorElement) => {
-    errorElement.textContent = translate(errorElement.dataset.errorKey);
-  });
-
-  updateMessageCounter();
-
-  if (formStatus && !formStatus.classList.contains("hidden") && formStatus.dataset.statusKey) {
-    formStatus.textContent = translate(formStatus.dataset.statusKey);
-  }
-};
-
-const handleBackendContactError = (errorCode) => {
-  const mappedError = BACKEND_ERROR_MAP[errorCode] || {
-    messageKey: "contacts.errorStatus"
-  };
-
-  if (mappedError.fieldName) {
-    setFieldError(mappedError.fieldName, mappedError.messageKey);
-  }
-
-  setFormStatus(mappedError.messageKey, true);
-};
-
 const iconTemplates = {
-  "arrow-right": '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
-  "arrow-up": '<path d="m5 12 7-7 7 7"/><path d="M12 19V5"/>',
-  check: '<path d="M20 6 9 17l-5-5"/>',
-  "external-link": '<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
-  facebook: '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
-  instagram: '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/>',
-  "code-2": '<path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/>',
-  "layout-dashboard": '<rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>',
-  "layers-3": '<path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="m22 12.5-9.17 4.18a2 2 0 0 1-1.66 0L2 12.5"/><path d="m22 17.5-9.17 4.18a2 2 0 0 1-1.66 0L2 17.5"/>',
-  menu: '<path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/>',
-  "message-circle": '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
-  rocket: '<path d="M4.5 16.5c-1.5 1.26-2 4.5-2 4.5s3.24-.5 4.5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
-  send: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
-  "send-horizontal": '<path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z"/><path d="M6 12h16"/>',
-  sparkles: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.936 8.5l1.583-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.064a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>',
-  x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
-  zap: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>'
+  "arrow-right": '<path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>',
+  "arrow-up": '<path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path>',
+  "check": '<path d="M20 6 9 17l-5-5"></path>',
+  "clipboard-check": '<rect width="8" height="4" x="8" y="2" rx="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path>',
+  "code": '<polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>',
+  "compass": '<circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>',
+  "facebook": '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>',
+  "handshake": '<path d="m11 17 2 2a1 1 0 1 0 3-3"></path><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"></path><path d="m21 3 1 11h-2"></path><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path><path d="M3 4h8"></path>',
+  "instagram": '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>',
+  "layout-dashboard": '<rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect>',
+  "menu": '<line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line>',
+  "message-circle": '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>',
+  "message-square-text": '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M13 8H7"></path><path d="M17 12H7"></path>',
+  "messages-square": '<path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"></path><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path>',
+  "search": '<circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path>',
+  "send": '<path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path>',
+  "send-horizontal": '<path d="m3 3 3 9-3 9 19-9Z"></path><path d="M6 12h16"></path>',
+  "shield-check": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path>',
+  "x": '<path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>',
+  "zap": '<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>'
 };
 
-const pricingData = {
-  ukraine: {
-    cards: [
-      {
-        titleKey: "pricing.cards.start.title",
-        descriptionKey: "pricing.cards.start.description",
-        price: "7 000 грн",
-        icon: "rocket",
-        accent: "blue",
-        features: [
-          "pricing.cards.start.features.0",
-          "pricing.cards.start.features.1",
-          "pricing.cards.start.features.2",
-          "pricing.cards.start.features.3"
-        ]
-      },
-      {
-        titleKey: "pricing.cards.business.title",
-        descriptionKey: "pricing.cards.business.description",
-        price: "14 000 грн",
-        icon: "layers-3",
-        accent: "green",
-        features: [
-          "pricing.cards.business.features.0",
-          "pricing.cards.business.features.1",
-          "pricing.cards.business.features.2",
-          "pricing.cards.business.features.3"
-        ]
-      },
-      {
-        titleKey: "pricing.cards.sales.title",
-        descriptionKey: "pricing.cards.sales.description",
-        price: "22 000 грн",
-        badgeKey: "pricing.badge.popular",
-        icon: "zap",
-        accent: "green",
-        featured: true,
-        features: [
-          "pricing.cards.sales.features.0",
-          "pricing.cards.sales.features.1",
-          "pricing.cards.sales.features.2",
-          "pricing.cards.sales.features.3"
-        ]
-      },
-      {
-        titleKey: "pricing.cards.shop.title",
-        descriptionKey: "pricing.cards.shop.description",
-        price: "32 000 грн",
-        icon: "sparkles",
-        accent: "gold",
-        features: [
-          "pricing.cards.shop.features.0",
-          "pricing.cards.shop.features.1",
-          "pricing.cards.shop.features.2",
-          "pricing.cards.shop.features.3"
-        ]
-      }
-    ],
-    support: {
-      titleKey: "pricing.support.title",
-      price: "4 000 грн",
-      descriptionKey: "pricing.support.description"
-    },
-    noteKey: "pricing.note"
-  },
-  poland: {
-    cards: [
-      {
-        titleKey: "pricing.cards.start.title",
-        descriptionKey: "pricing.cards.start.description",
-        price: "1 700 zł netto",
-        icon: "rocket",
-        accent: "blue",
-        features: [
-          "pricing.cards.start.features.0",
-          "pricing.cards.start.features.1",
-          "pricing.cards.start.features.2",
-          "pricing.cards.start.features.3"
-        ]
-      },
-      {
-        titleKey: "pricing.cards.business.title",
-        descriptionKey: "pricing.cards.business.description",
-        price: "3 200 zł netto",
-        icon: "layers-3",
-        accent: "green",
-        features: [
-          "pricing.cards.business.features.0",
-          "pricing.cards.business.features.1",
-          "pricing.cards.business.features.2",
-          "pricing.cards.business.features.3"
-        ]
-      },
-      {
-        titleKey: "pricing.cards.sales.title",
-        descriptionKey: "pricing.cards.sales.description",
-        price: "4 900 zł netto",
-        badgeKey: "pricing.badge.popular",
-        icon: "zap",
-        accent: "green",
-        featured: true,
-        features: [
-          "pricing.cards.sales.features.0",
-          "pricing.cards.sales.features.1",
-          "pricing.cards.sales.features.2",
-          "pricing.cards.sales.features.3"
-        ]
-      },
-      {
-        titleKey: "pricing.cards.shop.title",
-        descriptionKey: "pricing.cards.shop.description",
-        price: "6 900 zł netto",
-        icon: "sparkles",
-        accent: "gold",
-        features: [
-          "pricing.cards.shop.features.0",
-          "pricing.cards.shop.features.1",
-          "pricing.cards.shop.features.2",
-          "pricing.cards.shop.features.3"
-        ]
-      }
-    ],
-    support: {
-      titleKey: "pricing.support.title",
-      price: "400 zł netto",
-      descriptionKey: "pricing.support.description"
-    },
-    noteKey: "pricing.note"
-  },
-  international: {
-    cards: [
-      {
-        titleKey: "pricing.cards.start.title",
-        descriptionKey: "pricing.cards.start.description",
-        price: "$350",
-        icon: "rocket",
-        accent: "blue",
-        features: [
-          "pricing.cards.start.features.0",
-          "pricing.cards.start.features.1",
-          "pricing.cards.start.features.2",
-          "pricing.cards.start.features.3"
-        ]
-      },
-      {
-        titleKey: "pricing.cards.business.title",
-        descriptionKey: "pricing.cards.business.description",
-        price: "$750",
-        icon: "layers-3",
-        accent: "green",
-        features: [
-          "pricing.cards.business.features.0",
-          "pricing.cards.business.features.1",
-          "pricing.cards.business.features.2",
-          "pricing.cards.business.features.3"
-        ]
-      },
-      {
-        titleKey: "pricing.cards.sales.title",
-        descriptionKey: "pricing.cards.sales.description",
-        price: "$1,200",
-        badgeKey: "pricing.badge.popular",
-        icon: "zap",
-        accent: "green",
-        featured: true,
-        features: [
-          "pricing.cards.sales.features.0",
-          "pricing.cards.sales.features.1",
-          "pricing.cards.sales.features.2",
-          "pricing.cards.sales.features.3"
-        ]
-      },
-      {
-        titleKey: "pricing.cards.shop.title",
-        descriptionKey: "pricing.cards.shop.description",
-        price: "$1,800",
-        icon: "sparkles",
-        accent: "gold",
-        features: [
-          "pricing.cards.shop.features.0",
-          "pricing.cards.shop.features.1",
-          "pricing.cards.shop.features.2",
-          "pricing.cards.shop.features.3"
-        ]
-      }
-    ],
-    support: {
-      titleKey: "pricing.support.title",
-      price: "$100",
-      descriptionKey: "pricing.support.description"
-    },
-    noteKey: "pricing.note"
-  }
-};
-
-const portfolioProjects = [
-  {
-    id: "sto-landing",
-    image: "assets/portfolio/sto-landing-cover.jpg",
-    fullImage: "assets/portfolio/sto-landing-full.jpg",
-    url: "https://landingwebsite.markin4097.workers.dev/",
-    accent: "blue",
-    copy: {
-      ru: {
-        title: "Лендинг для СТО",
-        type: "Landing page",
-        status: "Демонстрационный проект",
-        imageAlt: "Скриншот лендинга для автосервиса",
-        shortDescription: "Одностраничный сайт для автосервиса с услугами, преимуществами, FAQ, контактами и формой заявки.",
-        fullDescription: "Демонстрационный landing page для автосервиса. Проект показывает, как можно быстро презентовать услуги СТО, вызвать доверие у клиента и привести посетителя к заявке через форму или быстрые кнопки связи.",
-        task: "Показать услуги автосервиса, объяснить преимущества, упростить контакт и подготовить структуру сайта под рекламный трафик.",
-        work: "Собрана структура лендинга с сильным первым экраном, блоками услуг, преимуществами, FAQ и быстрыми сценариями связи.",
-        highlights: ["Адаптивный первый экран", "Форма заявки", "Быстрые кнопки связи"],
-        features: ["Адаптивный первый экран", "Блок услуг", "Преимущества компании", "Форма заявки", "Быстрые кнопки связи", "FAQ", "Контакты"],
-        sections: ["Главный экран", "Услуги", "Преимущества", "Процесс работы", "Отзывы", "FAQ", "Контакты"]
-      },
-      pl: {
-        title: "Landing page dla serwisu samochodowego",
-        type: "Landing page",
-        status: "Projekt demonstracyjny",
-        imageAlt: "Zrzut landing page'a dla serwisu samochodowego",
-        shortDescription: "Jednostronicowa witryna dla serwisu samochodowego z usługami, zaletami, FAQ, kontaktem i formularzem zgłoszenia.",
-        fullDescription: "Demonstracyjny landing page dla serwisu samochodowego. Projekt pokazuje, jak szybko zaprezentować usługi, zbudować zaufanie klienta i doprowadzić odwiedzającego do zgłoszenia przez formularz albo szybkie przyciski kontaktu.",
-        task: "Pokazać usługi serwisu, wyjaśnić przewagi, uprościć kontakt i przygotować strukturę pod ruch reklamowy.",
-        work: "Powstała struktura landing page'a z mocnym pierwszym ekranem, usługami, przewagami, FAQ i szybkimi ścieżkami kontaktu.",
-        highlights: ["Responsywny pierwszy ekran", "Formularz zgłoszenia", "Szybkie przyciski kontaktu"],
-        features: ["Responsywny pierwszy ekran", "Blok usług", "Przewagi firmy", "Formularz zgłoszenia", "Szybkie przyciski kontaktu", "FAQ", "Kontakty"],
-        sections: ["Pierwszy ekran", "Usługi", "Przewagi", "Proces pracy", "Opinie", "FAQ", "Kontakty"]
-      },
-      en: {
-        title: "Auto Service Landing Page",
-        type: "Landing page",
-        status: "Demo project",
-        imageAlt: "Screenshot of an auto service landing page",
-        shortDescription: "A one-page website for an auto service business with services, benefits, FAQ, contacts, and a lead form.",
-        fullDescription: "A demonstration landing page for an auto service business. The project shows how to present service offers quickly, build client trust, and guide visitors toward an inquiry through a form or fast contact buttons.",
-        task: "Show the auto service offer, explain the benefits, simplify contact, and prepare the site structure for paid traffic.",
-        work: "A conversion-oriented landing structure was built with a strong hero, service blocks, benefits, FAQ, and quick contact paths.",
-        highlights: ["Responsive hero section", "Lead form", "Fast contact buttons"],
-        features: ["Responsive hero section", "Services block", "Company benefits", "Lead form", "Fast contact buttons", "FAQ", "Contacts"],
-        sections: ["Hero", "Services", "Benefits", "Work process", "Reviews", "FAQ", "Contacts"]
-      },
-      uk: {
-        title: "Лендинг для СТО",
-        type: "Landing page",
-        status: "Демонстраційний проєкт",
-        imageAlt: "Скриншот лендингу для автосервісу",
-        shortDescription: "Односторінковий сайт для автосервісу з послугами, перевагами, FAQ, контактами і формою заявки.",
-        fullDescription: "Демонстраційний landing page для автосервісу. Проєкт показує, як швидко презентувати послуги СТО, викликати довіру клієнта і привести відвідувача до заявки через форму або швидкі кнопки зв'язку.",
-        task: "Показати послуги автосервісу, пояснити переваги, спростити контакт і підготувати структуру сайту під рекламний трафік.",
-        work: "Зібрана структура лендингу з сильним першим екраном, блоками послуг, перевагами, FAQ і швидкими сценаріями зв'язку.",
-        highlights: ["Адаптивний перший екран", "Форма заявки", "Швидкі кнопки зв'язку"],
-        features: ["Адаптивний перший екран", "Блок послуг", "Переваги компанії", "Форма заявки", "Швидкі кнопки зв'язку", "FAQ", "Контакти"],
-        sections: ["Головний екран", "Послуги", "Переваги", "Процес роботи", "Відгуки", "FAQ", "Контакти"]
-      }
-    }
-  },
-  {
-    id: "sto-multipage",
-    image: "assets/portfolio/sto-multipage-cover.jpg",
-    fullImage: "assets/portfolio/sto-multipage-full.jpg",
-    url: "https://multipagewebsiteexample.markin4097.workers.dev/",
-    accent: "green",
-    copy: {
-      ru: {
-        title: "Многостраничный сайт для СТО",
-        type: "Multi-page website",
-        status: "Демонстрационный проект",
-        imageAlt: "Скриншот многостраничного сайта для автосервиса",
-        shortDescription: "Многостраничный сайт для автосервиса с отдельными страницами услуг, информацией о компании и контактами.",
-        fullDescription: "Демонстрационный многостраничный сайт в похожем стиле. Подходит для бизнеса, которому важно продвигать отдельные услуги, улучшить SEO-структуру и дать клиенту больше информации перед обращением.",
-        task: "Создать понятную структуру многостраничного сайта для локального бизнеса с отдельными страницами услуг и удобным контактом.",
-        work: "Подготовлена логика сайта с главной страницей, страницами услуг, блоком о компании, контактами и заявкой.",
-        highlights: ["Отдельные страницы услуг", "SEO-структура", "Адаптация под телефон"],
-        features: ["Главная страница", "Отдельные страницы услуг", "Страница о компании", "Контакты", "Форма заявки", "SEO-структура", "Адаптация под телефон"],
-        sections: ["Главная", "Услуги", "О компании", "Контакты", "Форма заявки"]
-      },
-      pl: {
-        title: "Wielostronicowa strona dla serwisu samochodowego",
-        type: "Multi-page website",
-        status: "Projekt demonstracyjny",
-        imageAlt: "Zrzut wielostronicowej strony dla serwisu samochodowego",
-        shortDescription: "Wielostronicowa witryna dla serwisu samochodowego z osobnymi stronami usług, informacją o firmie i kontaktem.",
-        fullDescription: "Demonstracyjna strona wielostronicowa w spójnym stylu. Dobrze pasuje do biznesu, który chce promować oddzielne usługi, poprawić strukturę SEO i przekazać klientowi więcej informacji przed kontaktem.",
-        task: "Stworzyć czytelną strukturę wielostronicowej strony dla lokalnego biznesu z oddzielnymi stronami usług i wygodnym kontaktem.",
-        work: "Przygotowano logikę strony z główną podstroną, usługami, sekcją o firmie, kontaktem i formularzem zgłoszenia.",
-        highlights: ["Osobne strony usług", "Struktura SEO", "Adaptacja do telefonu"],
-        features: ["Strona główna", "Osobne strony usług", "Strona o firmie", "Kontakty", "Formularz zgłoszenia", "Struktura SEO", "Adaptacja do telefonu"],
-        sections: ["Strona główna", "Usługi", "O firmie", "Kontakty", "Formularz zgłoszenia"]
-      },
-      en: {
-        title: "Auto Service Multi-page Website",
-        type: "Multi-page website",
-        status: "Demo project",
-        imageAlt: "Screenshot of a multi-page auto service website",
-        shortDescription: "A multi-page website for an auto service business with separate service pages, company information, and contacts.",
-        fullDescription: "A demonstration multi-page website in a similar style. It fits businesses that need to promote individual services, improve SEO structure, and give clients more information before they make contact.",
-        task: "Create a clear multi-page website structure for a local business with separate service pages and convenient contact paths.",
-        work: "The website logic was prepared with a home page, service pages, about section, contacts, and a lead form.",
-        highlights: ["Separate service pages", "SEO structure", "Mobile adaptation"],
-        features: ["Home page", "Separate service pages", "About page", "Contacts", "Lead form", "SEO structure", "Mobile adaptation"],
-        sections: ["Home", "Services", "About", "Contacts", "Lead form"]
-      },
-      uk: {
-        title: "Багатосторінковий сайт для СТО",
-        type: "Multi-page website",
-        status: "Демонстраційний проєкт",
-        imageAlt: "Скриншот багатосторінкового сайту для автосервісу",
-        shortDescription: "Багатосторінковий сайт для автосервісу з окремими сторінками послуг, інформацією про компанію і контактами.",
-        fullDescription: "Демонстраційний багатосторінковий сайт у схожому стилі. Підходить для бізнесу, якому важливо просувати окремі послуги, покращити SEO-структуру і дати клієнту більше інформації перед зверненням.",
-        task: "Створити зрозумілу структуру багатосторінкового сайту для локального бізнесу з окремими сторінками послуг і зручним контактом.",
-        work: "Підготовлена логіка сайту з головною сторінкою, сторінками послуг, блоком про компанію, контактами і заявкою.",
-        highlights: ["Окремі сторінки послуг", "SEO-структура", "Адаптація під телефон"],
-        features: ["Головна сторінка", "Окремі сторінки послуг", "Сторінка про компанію", "Контакти", "Форма заявки", "SEO-структура", "Адаптація під телефон"],
-        sections: ["Головна", "Послуги", "Про компанію", "Контакти", "Форма заявки"]
-      }
-    }
-  }
+const reviewsData = [
+  // Do not publish fake reviews.
+  // Add real client reviews only after approval and permission to publish.
+  // Example pending structure for future use:
+  // {
+  //   id: "autohouse",
+  //   status: "pending",
+  //   lang: "uk",
+  //   name: "",
+  //   company: "AutoHouse",
+  //   projectName: "AutoHouse",
+  //   projectType: "Landing Page",
+  //   websiteUrl: "https://autohouse.dp.ua/",
+  //   rating: null,
+  //   text: "",
+  //   verified: true,
+  //   permissionToPublish: false,
+  //   date: ""
+  // }
 ];
 
-const setBrowserTabIcon = () => {
-  document.querySelectorAll('link[rel~="icon"]').forEach((link) => {
-    link.setAttribute("href", "assets/amigo-mark.png");
-    link.setAttribute("type", "image/png");
-    link.setAttribute("sizes", "512x512");
-  });
+const reviewUi = {
+  pl: {
+    verified: "Zweryfikowany klient",
+    projectLink: "Otwórz projekt",
+    rating: "Ocena"
+  },
+  en: {
+    verified: "Verified client",
+    projectLink: "Open project",
+    rating: "Rating"
+  },
+  uk: {
+    verified: "Перевірений клієнт",
+    projectLink: "Відкрити проєкт",
+    rating: "Оцінка"
+  }
+};
+
+const portfolioUi = {
+  pl: {
+    detailsLabel: "Zobacz projekt",
+    featuresLabel: "Najważniejsze elementy",
+    goalLabel: "Cel projektu",
+    bestForLabel: "Dla kogo",
+    closeLabel: "Zamknij okno projektu",
+    placeholderLabel: "Podgląd wkrótce",
+    emptyLabel: "Brak projektów dla wybranego filtra."
+  },
+  en: {
+    detailsLabel: "View case",
+    featuresLabel: "Key features",
+    goalLabel: "Project goal",
+    bestForLabel: "Best for",
+    closeLabel: "Close project dialog",
+    placeholderLabel: "Preview coming soon",
+    emptyLabel: "No projects match this filter."
+  },
+  uk: {
+    detailsLabel: "Детальніше",
+    featuresLabel: "Ключові елементи",
+    goalLabel: "Мета проєкту",
+    bestForLabel: "Для кого",
+    closeLabel: "Закрити вікно проєкту",
+    placeholderLabel: "Превʼю скоро буде додано",
+    emptyLabel: "Немає проєктів для цього фільтра."
+  }
+};
+
+const portfolioProjects = {
+  pl: [
+    {
+      id: "autohouse",
+      title: "AutoHouse",
+      tags: ["Landing", "Projekt realny"],
+      filters: ["landing"],
+      thumbnail: "portfolio-autohouse-card.webp",
+      fullImage: "portfolio-autohouse-modal.webp",
+      imageAlt: "Preview of AutoHouse landing page project",
+      url: "https://autohouse.dp.ua/",
+      shortDescription: "Landing page dla lokalnej firmy z czytelną ofertą, ścieżkami kontaktu i formularzem zapytania.",
+      description: "Landing page przygotowany dla lokalnej firmy. Projekt skupia się na czytelnej prezentacji usług, szybkim kontakcie, wersji mobilnej i prostym procesie wysłania zapytania.",
+      goal: "Stworzyć czytelny landing page, na którym użytkownik szybko rozumie ofertę i może wysłać zapytanie.",
+      features: ["Sekcje usług", "Formularz kontaktowy", "Wyraźne CTA", "Układ mobile-first", "Podstawowe przygotowanie SEO"],
+      bestFor: "Lokalne usługi, małe firmy i biznesy, które potrzebują czytelnej prezentacji online.",
+      actionLabel: "Otwórz stronę"
+    },
+    {
+      id: "termotrans-multipage",
+      title: "Termotrans Multipage Website",
+      tags: ["Multipage", "Projekt demo"],
+      filters: ["multipage", "demo"],
+      thumbnail: "portfolio-termotrans-multipage-card.webp",
+      fullImage: "portfolio-termotrans-multipage-modal.webp",
+      imageAlt: "Preview of Termotrans multipage website demo",
+      url: "https://multipagewebsiteexample.markin4097.workers.dev/",
+      shortDescription: "Demo strony wielostronicowej z osobnymi podstronami, czytelną nawigacją i strukturą przyjazną SEO.",
+      description: "Demonstracyjna strona wielostronicowa pokazująca, jak firma usługowa może przedstawić ofertę na kilku podstronach. Struktura jest przygotowana pod nawigację, FAQ, kontakt i przyszłe treści.",
+      goal: "Pokazać, jak strona firmowa może rozdzielić usługi, informacje o firmie, portfolio i kontakt w czytelnej strukturze.",
+      features: ["Kilka podstron", "Strona usług", "Strona o firmie", "Strona kontaktowa", "Struktura przyjazna SEO", "Układ przygotowany pod FAQ"],
+      bestFor: "Firmy, które potrzebują więcej niż jednej strony, osobnych opisów usług i miejsca na przyszłe treści SEO.",
+      actionLabel: "Otwórz demo"
+    },
+    {
+      id: "termotrans-landing",
+      title: "Termotrans Landing Website",
+      tags: ["Landing", "Projekt demo"],
+      filters: ["landing", "demo"],
+      thumbnail: "portfolio-termotrans-landing-card.webp",
+      fullImage: "portfolio-termotrans-landing-modal.webp",
+      imageAlt: "Preview of Termotrans landing page demo",
+      url: "https://landingwebsite.markin4097.workers.dev/",
+      shortDescription: "Demo jednostronicowego landing page z naciskiem na ofertę, korzyści, proces i kontakt.",
+      description: "Demonstracyjny landing page dla firmy usługowej, która potrzebuje szybkiej i czytelnej obecności online. Układ skupia się na pierwszym ekranie, prezentacji oferty, sekcjach zaufania, procesie i formularzu kontaktowym.",
+      goal: "Pokazać, jak strona one-page może jasno przedstawić ofertę i poprowadzić użytkownika do kontaktu.",
+      features: ["Struktura one-page", "Sekcja hero", "Usługi i korzyści", "Sekcja procesu", "Formularz kontaktowy", "Responsywny układ"],
+      bestFor: "Małe firmy, pojedyncze usługi, szybkie starty i kampanie reklamowe.",
+      actionLabel: "Otwórz demo"
+    }
+  ],
+  en: [
+    {
+      id: "autohouse",
+      title: "AutoHouse",
+      tags: ["Landing", "Real project"],
+      filters: ["landing"],
+      thumbnail: "portfolio-autohouse-card.webp",
+      fullImage: "portfolio-autohouse-modal.webp",
+      imageAlt: "Preview of AutoHouse landing page project",
+      url: "https://autohouse.dp.ua/",
+      shortDescription: "Landing page for a local business with clear services, contact paths and an inquiry form.",
+      description: "A landing page created for a local business. The project focuses on clear service presentation, fast contact, mobile-first layout and a simple inquiry flow.",
+      goal: "Create a clear landing page where visitors can quickly understand the offer and send an inquiry.",
+      features: ["Service sections", "Contact form", "Clear CTA buttons", "Mobile-first layout", "Basic SEO preparation"],
+      bestFor: "Local services, small businesses and companies that need a clear online presentation.",
+      actionLabel: "Open website"
+    },
+    {
+      id: "termotrans-multipage",
+      title: "Termotrans Multipage Website",
+      tags: ["Multipage", "Demo project"],
+      filters: ["multipage", "demo"],
+      thumbnail: "portfolio-termotrans-multipage-card.webp",
+      fullImage: "portfolio-termotrans-multipage-modal.webp",
+      imageAlt: "Preview of Termotrans multipage website demo",
+      url: "https://multipagewebsiteexample.markin4097.workers.dev/",
+      shortDescription: "Demo multipage website with separate pages, clear navigation and SEO-friendly structure.",
+      description: "A demonstration multipage website showing how a service business can present its offer across several pages. The structure is prepared for navigation, FAQ, contact and future content growth.",
+      goal: "Show how a business website can separate services, company information, portfolio and contact into a clear page structure.",
+      features: ["Multiple pages", "Services page", "About page", "Contact page", "SEO-friendly structure", "FAQ-ready layout"],
+      bestFor: "Companies that need more than one page, separate service descriptions and room for future SEO content.",
+      actionLabel: "Open demo"
+    },
+    {
+      id: "termotrans-landing",
+      title: "Termotrans Landing Website",
+      tags: ["Landing", "Demo project"],
+      filters: ["landing", "demo"],
+      thumbnail: "portfolio-termotrans-landing-card.webp",
+      fullImage: "portfolio-termotrans-landing-modal.webp",
+      imageAlt: "Preview of Termotrans landing page demo",
+      url: "https://landingwebsite.markin4097.workers.dev/",
+      shortDescription: "Demo one-page landing page for a service business focused on offer, benefits, process and contact.",
+      description: "A demonstration landing page for a service business that needs a quick and clear online presence. The layout focuses on the first screen, offer presentation, trust sections, process and contact form.",
+      goal: "Show how a one-page website can present an offer clearly and guide the visitor to contact.",
+      features: ["One-page structure", "Hero section", "Services and benefits", "Process section", "Contact form", "Mobile-friendly layout"],
+      bestFor: "Small businesses, single services, quick launches and advertising campaigns.",
+      actionLabel: "Open demo"
+    }
+  ],
+  uk: [
+    {
+      id: "autohouse",
+      title: "AutoHouse",
+      tags: ["Landing", "Реальний проєкт"],
+      filters: ["landing"],
+      thumbnail: "portfolio-autohouse-card.webp",
+      fullImage: "portfolio-autohouse-modal.webp",
+      imageAlt: "Preview of AutoHouse landing page project",
+      url: "https://autohouse.dp.ua/",
+      shortDescription: "Landing page для локального бізнесу з чіткою пропозицією, шляхами до контакту та формою заявки.",
+      description: "Landing page для локального бізнесу. Проєкт зосереджений на зрозумілій презентації послуг, швидкому контакті, мобільній версії та простому шляху до заявки.",
+      goal: "Створити зрозумілий landing page, де відвідувач швидко бачить пропозицію та може залишити заявку.",
+      features: ["Секції послуг", "Контактна форма", "Помітні CTA-кнопки", "Mobile-first структура", "Базова SEO-підготовка"],
+      bestFor: "Локальні послуги, малий бізнес і компанії, яким потрібна зрозуміла онлайн-презентація.",
+      actionLabel: "Відкрити сайт"
+    },
+    {
+      id: "termotrans-multipage",
+      title: "Termotrans Multipage Website",
+      tags: ["Multipage", "Демо-проєкт"],
+      filters: ["multipage", "demo"],
+      thumbnail: "portfolio-termotrans-multipage-card.webp",
+      fullImage: "portfolio-termotrans-multipage-modal.webp",
+      imageAlt: "Preview of Termotrans multipage website demo",
+      url: "https://multipagewebsiteexample.markin4097.workers.dev/",
+      shortDescription: "Демо багатосторінкового сайту з окремими сторінками, зрозумілою навігацією та SEO-friendly структурою.",
+      description: "Демонстраційний багатосторінковий сайт, який показує, як бізнес у сфері послуг може презентувати пропозицію на кількох сторінках. Структура підготовлена для навігації, FAQ, контактів і майбутнього контенту.",
+      goal: "Показати, як сайт компанії може розділити послуги, інформацію про бізнес, портфоліо та контакти в зрозумілій структурі.",
+      features: ["Кілька сторінок", "Сторінка послуг", "Сторінка про компанію", "Контактна сторінка", "SEO-friendly структура", "Макет під FAQ"],
+      bestFor: "Компанії, яким потрібно більше ніж одна сторінка, окремі описи послуг і місце для майбутнього SEO-контенту.",
+      actionLabel: "Відкрити демо"
+    },
+    {
+      id: "termotrans-landing",
+      title: "Termotrans Landing Website",
+      tags: ["Landing", "Демо-проєкт"],
+      filters: ["landing", "demo"],
+      thumbnail: "portfolio-termotrans-landing-card.webp",
+      fullImage: "portfolio-termotrans-landing-modal.webp",
+      imageAlt: "Preview of Termotrans landing page demo",
+      url: "https://landingwebsite.markin4097.workers.dev/",
+      shortDescription: "Демо односторінкового landing page для бізнесу у сфері послуг з акцентом на пропозицію, переваги, процес і контакт.",
+      description: "Демонстраційний landing page для бізнесу у сфері послуг, якому потрібна швидка й зрозуміла онлайн-презентація. Макет зосереджений на першому екрані, послугах, блоках довіри, процесі роботи та контактній формі.",
+      goal: "Показати, як one-page сайт може зрозуміло презентувати пропозицію та привести відвідувача до контакту.",
+      features: ["One-page структура", "Hero-секція", "Послуги та переваги", "Секція процесу", "Контактна форма", "Адаптивний макет"],
+      bestFor: "Малий бізнес, окремі послуги, швидкий запуск і рекламні кампанії.",
+      actionLabel: "Відкрити демо"
+    }
+  ]
 };
 
 const refreshIcons = () => {
   document.querySelectorAll("i[data-lucide]").forEach((element) => {
-    const iconName = element.dataset.lucide;
-    const template = iconTemplates[iconName];
-
-    if (!template) {
-      return;
-    }
-
+    const template = iconTemplates[element.dataset.lucide];
+    if (!template) return;
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("viewBox", "0 0 24 24");
     svg.setAttribute("fill", "none");
@@ -1387,345 +262,10 @@ const refreshIcons = () => {
   });
 };
 
-const getPortfolioProject = (projectId) => portfolioProjects.find((project) => project.id === projectId);
-
-const getPortfolioCopy = (project) => (
-  project.copy[currentLanguage] || project.copy.ru || Object.values(project.copy)[0]
-);
-
-const hasDemoUrl = (url) => Boolean(url && url !== "#" && url !== "#REPLACE_WITH_MULTIPAGE_DEMO_URL");
-
-const renderListItems = (items) => (items || [])
-  .map((item) => `<li><i data-lucide="check" class="icon icon-check"></i><span>${escapeHtml(item)}</span></li>`)
-  .join("");
-
-const renderPortfolioDemoLink = (project, copy, className = "portfolio-action-button") => {
-  if (!hasDemoUrl(project.url)) {
-    return "";
-  }
-
-  return `
-    <a href="${escapeHtml(project.url)}" class="button button-ghost ${className}" target="_blank" rel="noopener" data-project-demo aria-label="${escapeHtml(`${translate("portfolio.demoAria")}: ${copy.title}`)}">
-      <span>${escapeHtml(translate("portfolio.demoButton"))}</span>
-      <i data-lucide="external-link" class="icon"></i>
-    </a>
-  `;
-};
-
-const renderPortfolio = () => {
-  if (!portfolioGrid) {
-    return;
-  }
-
-  portfolioGrid.innerHTML = portfolioProjects.map((project) => {
-    const copy = getPortfolioCopy(project);
-    const detailsLabel = `${translate("portfolio.detailsAria")}: ${copy.title}`;
-
-    return `
-      <article class="portfolio-card reveal" tabindex="0" data-project-id="${escapeHtml(project.id)}" aria-label="${escapeHtml(detailsLabel)}">
-        <div class="project-media">
-          <img src="${escapeHtml(project.image)}" alt="${escapeHtml(copy.imageAlt)}" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="portfolio-tags">
-            <span class="project-tag project-tag-inline project-tag-${escapeHtml(project.accent)}">${escapeHtml(copy.type)}</span>
-            <span class="project-tag project-tag-inline project-tag-muted">${escapeHtml(copy.status)}</span>
-          </div>
-          <h3>${escapeHtml(copy.title)}</h3>
-          <p>${escapeHtml(copy.shortDescription)}</p>
-          <ul class="portfolio-points">
-            ${renderListItems(copy.highlights)}
-          </ul>
-          <div class="portfolio-actions">
-            <button class="button button-primary portfolio-action-button" type="button" data-project-details data-project-id="${escapeHtml(project.id)}">
-              <span>${escapeHtml(translate("portfolio.detailsButton"))}</span>
-              <i data-lucide="arrow-right" class="icon"></i>
-            </button>
-            ${renderPortfolioDemoLink(project, copy)}
-          </div>
-        </div>
-      </article>
-    `;
-  }).join("");
-
-  portfolioGrid.querySelectorAll(".reveal").forEach((element, index) => {
-    prepareRevealElement(element, index);
-  });
-
-  refreshIcons();
-};
-
-const renderPortfolioModal = (project) => {
-  if (!portfolioModal || !portfolioModalContent) {
-    return;
-  }
-
-  const copy = getPortfolioCopy(project);
-  portfolioModal.setAttribute("aria-label", `${translate("portfolio.modalLabel")}: ${copy.title}`);
-
-  portfolioModalContent.innerHTML = `
-    <div class="portfolio-modal-media">
-      <img src="${escapeHtml(project.fullImage)}" alt="${escapeHtml(copy.imageAlt)}">
-    </div>
-    <div class="portfolio-modal-body">
-      <div class="portfolio-tags">
-        <span class="project-tag project-tag-inline project-tag-${escapeHtml(project.accent)}">${escapeHtml(copy.type)}</span>
-        <span class="project-tag project-tag-inline project-tag-muted">${escapeHtml(copy.status)}</span>
-      </div>
-      <h3 id="portfolio-modal-title">${escapeHtml(copy.title)}</h3>
-      <p class="portfolio-modal-description">${escapeHtml(copy.fullDescription)}</p>
-
-      <div class="portfolio-modal-block portfolio-modal-block-accent">
-        <h4>${escapeHtml(translate("portfolio.taskTitle"))}</h4>
-        <p>${escapeHtml(copy.task)}</p>
-      </div>
-
-      <div class="portfolio-modal-block">
-        <h4>${escapeHtml(translate("portfolio.workTitle"))}</h4>
-        <p>${escapeHtml(copy.work)}</p>
-      </div>
-
-      <div class="portfolio-modal-lists">
-        <div class="portfolio-modal-block">
-          <h4>${escapeHtml(translate("portfolio.featuresTitle"))}</h4>
-          <ul class="feature-list portfolio-modal-list">${renderListItems(copy.features)}</ul>
-        </div>
-        <div class="portfolio-modal-block">
-          <h4>${escapeHtml(translate("portfolio.sectionsTitle"))}</h4>
-          <ul class="feature-list portfolio-modal-list">${renderListItems(copy.sections)}</ul>
-        </div>
-      </div>
-
-      <div class="portfolio-modal-actions">
-        ${renderPortfolioDemoLink(project, copy, "portfolio-modal-demo")}
-      </div>
-    </div>
-  `;
-
-  refreshIcons();
-};
-
-const openPortfolioModal = (projectId) => {
-  const project = getPortfolioProject(projectId);
-
-  if (!project || !portfolioModal || !portfolioModalPanel) {
-    return;
-  }
-
-  activePortfolioProjectId = project.id;
-  lastFocusedPortfolioElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-  renderPortfolioModal(project);
-
-  portfolioModal.hidden = false;
-  document.body.classList.add("modal-open");
-  portfolioModalPanel.focus({ preventScroll: true });
-};
-
-const closePortfolioModal = () => {
-  if (!portfolioModal || portfolioModal.hidden) {
-    return;
-  }
-
-  portfolioModal.hidden = true;
-  document.body.classList.remove("modal-open");
-  activePortfolioProjectId = null;
-
-  if (lastFocusedPortfolioElement) {
-    lastFocusedPortfolioElement.focus({ preventScroll: true });
-  }
-};
-
-const renderMenuButton = () => {
-  if (!menuToggle || !mobileMenu) {
-    return;
-  }
-
-  const isOpen = mobileMenu.classList.contains("is-open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-  menuToggle.setAttribute("aria-label", translate(isOpen ? "nav.closeMenu" : "nav.openMenu"));
-  menuToggle.innerHTML = isOpen
-    ? '<i data-lucide="x" class="icon"></i>'
-    : '<i data-lucide="menu" class="icon"></i>';
-  refreshIcons();
-};
-
-const applyLanguage = (language) => {
-  currentLanguage = translations[language] ? language : "ru";
-  const dictionary = translations[currentLanguage];
-
-  document.documentElement.lang = dictionary.meta.lang;
-  document.title = dictionary.meta.title;
-
-  if (metaDescription) {
-    metaDescription.setAttribute("content", dictionary.meta.description);
-  }
-
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const value = translate(element.dataset.i18n);
-    if (value) {
-      element.textContent = value;
-    }
-  });
-
-  document.querySelectorAll("[data-i18n-html]").forEach((element) => {
-    const value = translate(element.dataset.i18nHtml);
-    if (value) {
-      element.innerHTML = value;
-    }
-  });
-
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
-    const value = translate(element.dataset.i18nPlaceholder);
-    if (value) {
-      element.setAttribute("placeholder", value);
-    }
-  });
-
-  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
-    const value = translate(element.dataset.i18nAria);
-    if (value) {
-      element.setAttribute("aria-label", value);
-    }
-  });
-
-  document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
-    const value = translate(element.dataset.i18nAlt);
-    if (value) {
-      element.setAttribute("alt", value);
-    }
-  });
-
-  languageSelects.forEach((select) => {
-    select.value = currentLanguage;
-  });
-
-  try {
-    localStorage.setItem("site-language", currentLanguage);
-  } catch (error) {
-    // Storage can be unavailable in strict browser privacy modes.
-  }
-
-  renderMenuButton();
-  renderPortfolio();
-
-  if (activePortfolioProjectId && portfolioModal && !portfolioModal.hidden) {
-    const activeProject = getPortfolioProject(activePortfolioProjectId);
-    if (activeProject) {
-      renderPortfolioModal(activeProject);
-    }
-  }
-
-  renderPricing(currentPricingMarket, { persist: false });
-  refreshContactValidationLanguage();
-};
-
-const getSavedLanguage = () => {
-  try {
-    return localStorage.getItem("site-language");
-  } catch (error) {
-    return null;
-  }
-};
-
-const getSavedPricingMarket = () => {
-  try {
-    return localStorage.getItem("pricing-market");
-  } catch (error) {
-    return null;
-  }
-};
-
-const savePricingMarket = (market) => {
-  try {
-    localStorage.setItem("pricing-market", market);
-  } catch (error) {
-    // Storage can be unavailable in strict browser privacy modes.
-  }
-};
-
-const ensureDefaultPreferences = () => {
-  try {
-    if (localStorage.getItem("amigo-defaults-version") !== DEFAULT_PREFERENCES_VERSION) {
-      localStorage.setItem("site-language", DEFAULT_LANGUAGE);
-      localStorage.setItem("pricing-market", DEFAULT_PRICING_MARKET);
-      localStorage.setItem("amigo-defaults-version", DEFAULT_PREFERENCES_VERSION);
-    }
-  } catch (error) {
-    // Defaults still work when storage is unavailable.
-  }
-};
-
-const prepareRevealElement = (element, index = 0) => {
-  if (!element) {
-    return;
-  }
-
-  element.style.transitionDelay = `${Math.min(index * 45, 240)}ms`;
-
-  if (revealObserver) {
-    revealObserver.observe(element);
-    return;
-  }
-
-  element.classList.add("is-visible");
-};
-
-const renderPricing = (market, options = {}) => {
-  if (!pricingGrid || !pricingSupport || !pricingNote) {
-    return;
-  }
-
-  const shouldPersist = options.persist !== false;
-  currentPricingMarket = pricingData[market] ? market : "ukraine";
-  const marketData = pricingData[currentPricingMarket];
-
-  pricingGrid.innerHTML = marketData.cards.map((card) => `
-    <article class="service-card${card.featured ? " service-card-featured" : ""} reveal">
-      <div class="service-topline">
-        <div class="icon-box icon-box-${card.accent}">
-          <i data-lucide="${card.icon}" class="icon icon-lg"></i>
-        </div>
-        ${card.badgeKey ? `<span class="popular-badge">${translate(card.badgeKey)}</span>` : ""}
-      </div>
-      <h3>${translate(card.titleKey)}</h3>
-      <p class="price price-${card.accent}">${translate("pricing.pricePrefix")} ${card.price}</p>
-      <p class="card-text">${translate(card.descriptionKey)}</p>
-      <ul class="feature-list">
-        ${card.features.map((featureKey) => `<li><i data-lucide="check" class="icon icon-check"></i><span>${translate(featureKey)}</span></li>`).join("")}
-      </ul>
-    </article>
-  `).join("");
-
-  pricingSupport.innerHTML = `
-    <div class="pricing-support-main">
-      <div class="icon-box icon-box-blue">
-        <i data-lucide="message-circle" class="icon icon-lg"></i>
-      </div>
-      <div>
-        <h3>${translate(marketData.support.titleKey)}</h3>
-        <p class="price price-blue">${translate("pricing.pricePrefix")} ${marketData.support.price}${translate("pricing.period")}</p>
-        <p class="card-text">${translate(marketData.support.descriptionKey)}</p>
-      </div>
-    </div>
-  `;
-  pricingNote.textContent = translate(marketData.noteKey);
-
-  pricingMarketButtons.forEach((button) => {
-    const isActive = button.dataset.pricingMarket === currentPricingMarket;
-    button.classList.toggle("is-active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
-  });
-
-  pricingGrid.querySelectorAll(".reveal").forEach((element, index) => {
-    prepareRevealElement(element, index);
-  });
-
-  if (shouldPersist) {
-    savePricingMarket(currentPricingMarket);
-  }
-
-  refreshIcons();
-};
+const header = document.getElementById("site-header");
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+const languageMenus = document.querySelectorAll("[data-language-menu]");
 
 const setHeaderState = () => {
   if (header) {
@@ -1733,63 +273,233 @@ const setHeaderState = () => {
   }
 };
 
-window.addEventListener("scroll", setHeaderState, { passive: true });
-setHeaderState();
+const renderMenuButton = () => {
+  if (!menuToggle || !mobileMenu) return;
+  const isOpen = mobileMenu.classList.contains("is-open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? menuToggle.dataset.closeLabel : menuToggle.dataset.openLabel);
+  menuToggle.innerHTML = isOpen ? '<i data-lucide="x" class="icon"></i>' : '<i data-lucide="menu" class="icon"></i>';
+  refreshIcons();
+};
 
-languageSelects.forEach((select) => {
-  select.addEventListener("change", (event) => {
-    applyLanguage(event.target.value);
+const closeLanguageMenus = (exceptMenu = null) => {
+  languageMenus.forEach((menu) => {
+    if (menu === exceptMenu) return;
+    menu.classList.remove("is-open");
+    const toggle = menu.querySelector(".language-toggle");
+    if (toggle) toggle.setAttribute("aria-expanded", "false");
   });
-});
+};
 
-pricingMarketButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    renderPricing(button.dataset.pricingMarket);
-  });
-});
+const portfolioGrids = document.querySelectorAll("[data-portfolio-grid]");
+let portfolioModal = null;
+let portfolioModalDialog = null;
+let portfolioModalCloseButton = null;
+let portfolioModalActiveTrigger = null;
 
-if (portfolioGrid) {
-  portfolioGrid.addEventListener("click", (event) => {
-    if (event.target.closest("[data-project-demo]")) {
-      return;
-    }
+const getPortfolioLanguage = () => document.body.dataset.language || "pl";
+const getPortfolioUi = () => portfolioUi[getPortfolioLanguage()] || portfolioUi.pl;
+const getPortfolioProjects = () => portfolioProjects[getPortfolioLanguage()] || portfolioProjects.pl;
+const getPortfolioAssetBase = () => (getPortfolioLanguage() === "pl" ? "assets/portfolio/" : "../assets/portfolio/");
+const getPortfolioContactPath = (projectId) => {
+  const basePath = getPortfolioLanguage() === "pl" ? "/contact" : `/${getPortfolioLanguage()}/contact`;
+  return `${basePath}?project=${encodeURIComponent(projectId)}`;
+};
 
-    const trigger = event.target.closest("[data-project-id]");
-    if (trigger) {
-      openPortfolioModal(trigger.dataset.projectId);
-    }
-  });
+const renderPortfolioImage = (project, extraClass = "") => {
+  const classes = ["project-media", extraClass].filter(Boolean).join(" ");
+  if (project.thumbnail) {
+    return `<div class="${classes}"><img src="${getPortfolioAssetBase()}${project.thumbnail}" alt="${project.imageAlt}" width="720" height="405" loading="lazy" decoding="async"></div>`;
+  }
+  return `<div class="${classes} project-media-placeholder"><span>${getPortfolioUi().placeholderLabel}</span></div>`;
+};
 
-  portfolioGrid.addEventListener("keydown", (event) => {
-    const card = event.target.closest(".portfolio-card[data-project-id]");
+const renderPortfolioModalImage = (project) => {
+  if (project.fullImage) {
+    return `<img src="${getPortfolioAssetBase()}${project.fullImage}" alt="${project.imageAlt}" width="1440" height="2400" loading="lazy" decoding="async">`;
+  }
+  return `<div class="portfolio-modal__placeholder">${getPortfolioUi().placeholderLabel}</div>`;
+};
 
-    if (!card || event.target !== card || (event.key !== "Enter" && event.key !== " ")) {
-      return;
-    }
+const renderPortfolioCard = (project) => `
+  <article class="portfolio-card portfolio-card-compact" data-project-id="${project.id}" data-project-filters="${project.filters.join(" ")}" tabindex="0" role="button" aria-haspopup="dialog">
+    ${renderPortfolioImage(project, "portfolio-card__image")}
+    <div class="card-body portfolio-card__body">
+      <div class="portfolio-tags portfolio-card__tags">
+        ${project.tags.map((tag, index) => `<span class="project-tag ${index === 0 ? "project-tag-blue" : "project-tag-muted"}">${tag}</span>`).join("")}
+      </div>
+      <h2>${project.title}</h2>
+      <p>${project.shortDescription}</p>
+      <span class="portfolio-card__hint">${getPortfolioUi().detailsLabel}</span>
+    </div>
+  </article>
+`;
 
-    event.preventDefault();
-    openPortfolioModal(card.dataset.projectId);
-  });
-}
+const ensurePortfolioModal = () => {
+  if (portfolioModal) return;
 
-if (portfolioModal) {
+  const ui = getPortfolioUi();
+  portfolioModal = document.createElement("div");
+  portfolioModal.className = "portfolio-modal";
+  portfolioModal.hidden = true;
+  portfolioModal.innerHTML = `
+    <div class="portfolio-modal__overlay" data-portfolio-close="overlay"></div>
+    <div class="portfolio-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="portfolio-modal-title" tabindex="-1">
+      <button type="button" class="portfolio-modal__close" data-portfolio-close="button" aria-label="${ui.closeLabel}">×</button>
+      <div class="portfolio-modal__layout">
+        <div class="portfolio-modal__media" data-portfolio-modal-image></div>
+        <div class="portfolio-modal__content">
+          <div class="portfolio-tags portfolio-modal__tags" data-portfolio-modal-tags></div>
+          <h2 id="portfolio-modal-title" data-portfolio-modal-title></h2>
+          <p class="portfolio-modal__description" data-portfolio-modal-description></p>
+          <div class="portfolio-modal__meta">
+            <h3>${ui.goalLabel}</h3>
+            <p data-portfolio-modal-goal></p>
+          </div>
+          <div class="portfolio-modal__features">
+            <h3>${ui.featuresLabel}</h3>
+            <ul class="feature-list portfolio-modal__feature-list" data-portfolio-modal-features></ul>
+          </div>
+          <div class="portfolio-modal__meta">
+            <h3>${ui.bestForLabel}</h3>
+            <p data-portfolio-modal-best-for></p>
+          </div>
+          <div class="portfolio-modal__actions">
+            <a href="/" class="button button-primary portfolio-modal__action" data-portfolio-modal-link target="_blank" rel="noopener"></a>
+            <a href="/" class="button button-ghost portfolio-modal__action portfolio-modal__action-secondary" data-portfolio-modal-contact></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.append(portfolioModal);
+  portfolioModalDialog = portfolioModal.querySelector(".portfolio-modal__dialog");
+  portfolioModalCloseButton = portfolioModal.querySelector(".portfolio-modal__close");
+
   portfolioModal.addEventListener("click", (event) => {
-    if (event.target.closest("[data-portfolio-close]")) {
+    if (event.target instanceof HTMLElement && event.target.dataset.portfolioClose) {
       closePortfolioModal();
     }
   });
-}
+};
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closePortfolioModal();
+const closePortfolioModal = () => {
+  if (!portfolioModal || portfolioModal.hidden) return;
+  portfolioModal.hidden = true;
+  document.body.classList.remove("modal-open");
+  if (portfolioModalActiveTrigger instanceof HTMLElement) {
+    portfolioModalActiveTrigger.focus();
   }
-});
+  portfolioModalActiveTrigger = null;
+};
+
+const openPortfolioModal = (project, trigger) => {
+  ensurePortfolioModal();
+  const tags = portfolioModal.querySelector("[data-portfolio-modal-tags]");
+  const title = portfolioModal.querySelector("[data-portfolio-modal-title]");
+  const description = portfolioModal.querySelector("[data-portfolio-modal-description]");
+  const goal = portfolioModal.querySelector("[data-portfolio-modal-goal]");
+  const image = portfolioModal.querySelector("[data-portfolio-modal-image]");
+  const features = portfolioModal.querySelector("[data-portfolio-modal-features]");
+  const bestFor = portfolioModal.querySelector("[data-portfolio-modal-best-for]");
+  const link = portfolioModal.querySelector("[data-portfolio-modal-link]");
+  const contact = portfolioModal.querySelector("[data-portfolio-modal-contact]");
+
+  if (!tags || !title || !description || !goal || !image || !features || !bestFor || !link || !contact) return;
+
+  tags.innerHTML = project.tags.map((tag, index) => `<span class="project-tag ${index === 0 ? "project-tag-blue" : "project-tag-muted"}">${tag}</span>`).join("");
+  title.textContent = project.title;
+  description.textContent = project.description;
+  goal.textContent = project.goal;
+  image.innerHTML = renderPortfolioModalImage(project);
+  features.innerHTML = project.features.map((feature) => `<li><i data-lucide="check" class="icon icon-check"></i><span>${feature}</span></li>`).join("");
+  bestFor.textContent = project.bestFor;
+  link.href = project.url;
+  link.textContent = project.actionLabel;
+  contact.href = getPortfolioContactPath(project.id);
+  contact.textContent = getPortfolioLanguage() === "pl"
+    ? "Chcę podobny projekt"
+    : getPortfolioLanguage() === "uk"
+      ? "Хочу схожий сайт"
+      : "I want a similar website";
+
+  portfolioModal.hidden = false;
+  document.body.classList.add("modal-open");
+  portfolioModalActiveTrigger = trigger;
+  refreshIcons();
+  requestAnimationFrame(() => {
+    if (portfolioModalCloseButton) portfolioModalCloseButton.focus();
+  });
+};
+
+const bindPortfolioCards = (grid, projectMap) => {
+  grid.querySelectorAll("[data-project-id]").forEach((card) => {
+    const open = () => {
+      const projectId = card.getAttribute("data-project-id");
+      if (!projectId || !projectMap.has(projectId)) return;
+      openPortfolioModal(projectMap.get(projectId), card);
+    };
+
+    card.addEventListener("click", (event) => {
+      if (event.target instanceof HTMLElement && event.target.closest("a")) return;
+      open();
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        open();
+      }
+    });
+  });
+};
+
+const renderPortfolioSection = (grid, projects, filter = "all") => {
+  const ui = getPortfolioUi();
+  const visibleProjects = filter === "all" ? projects : projects.filter((project) => project.filters.includes(filter));
+  if (!visibleProjects.length) {
+    grid.innerHTML = `<p class="portfolio-empty">${ui.emptyLabel}</p>`;
+    return new Map();
+  }
+  grid.innerHTML = visibleProjects.map((project) => renderPortfolioCard(project)).join("");
+  const projectMap = new Map(visibleProjects.map((project) => [project.id, project]));
+  bindPortfolioCards(grid, projectMap);
+  return projectMap;
+};
+
+const initPortfolioSections = () => {
+  if (!portfolioGrids.length) return;
+
+  const projects = getPortfolioProjects();
+
+  portfolioGrids.forEach((grid) => {
+    const view = grid.getAttribute("data-portfolio-view") || "home";
+    const availableProjects = view === "home" ? projects.slice(0, 3) : projects;
+    renderPortfolioSection(grid, availableProjects);
+
+    if (view !== "portfolio") return;
+
+    const filterBar = grid.parentElement?.querySelector(".portfolio-filter-bar");
+    const filterButtons = filterBar ? [...filterBar.querySelectorAll("[data-portfolio-filter]")] : [];
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-portfolio-filter") || "all";
+        filterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+        renderPortfolioSection(grid, availableProjects, filter);
+      });
+    });
+  });
+};
+
+window.addEventListener("scroll", setHeaderState, { passive: true });
+setHeaderState();
 
 if (menuToggle && mobileMenu) {
   menuToggle.addEventListener("click", () => {
     mobileMenu.classList.toggle("is-open");
     renderMenuButton();
+    closeLanguageMenus();
   });
 
   mobileMenu.querySelectorAll("a").forEach((link) => {
@@ -1800,10 +510,63 @@ if (menuToggle && mobileMenu) {
   });
 }
 
-const revealElements = document.querySelectorAll(".reveal");
+languageMenus.forEach((menu) => {
+  const toggle = menu.querySelector(".language-toggle");
+  if (!toggle) return;
 
+  menu.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  toggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const isOpen = menu.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    closeLanguageMenus(menu);
+  });
+
+  menu.querySelectorAll(".language-option").forEach((option) => {
+    option.addEventListener("click", () => {
+      closeLanguageMenus();
+    });
+  });
+});
+
+document.addEventListener("click", (event) => {
+  if (![...languageMenus].some((menu) => menu.contains(event.target))) {
+    closeLanguageMenus();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (!portfolioModal?.hidden && event.key === "Tab" && portfolioModalDialog) {
+    const focusable = [...portfolioModalDialog.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')];
+    if (focusable.length) {
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  }
+
+  if (event.key === "Escape") {
+    if (mobileMenu) {
+      mobileMenu.classList.remove("is-open");
+      renderMenuButton();
+    }
+    closeLanguageMenus();
+    closePortfolioModal();
+  }
+});
+
+const revealElements = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window) {
-  revealObserver = new IntersectionObserver((entries) => {
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
@@ -1813,102 +576,639 @@ if ("IntersectionObserver" in window) {
   }, { threshold: 0.12 });
 
   revealElements.forEach((element, index) => {
-    prepareRevealElement(element, index);
+    element.style.transitionDelay = `${Math.min(index * 35, 220)}ms`;
+    revealObserver.observe(element);
   });
 } else {
-  revealElements.forEach((element) => {
-    prepareRevealElement(element);
-  });
+  revealElements.forEach((element) => element.classList.add("is-visible"));
 }
 
-if (form && formStatus) {
-  ["name", "contact", "message"].forEach((fieldName) => {
-    const field = getContactField(fieldName);
+const getField = (form, name) => {
+  const field = form.elements.namedItem(name);
+  return field instanceof HTMLElement ? field : null;
+};
 
-    if (!field) {
-      return;
+const getValue = (form, name) => {
+  const field = getField(form, name);
+  return field && "value" in field ? String(field.value).trim() : "";
+};
+
+const getChecked = (form, name) => {
+  const field = getField(form, name);
+  return field instanceof HTMLInputElement && field.type === "checkbox" ? field.checked : false;
+};
+
+const contactValidationMessages = {
+  pl: {
+    name: "Wpisz imię - minimum 2 znaki.",
+    contact: "Podaj kontakt: email, Telegram, WhatsApp albo telefon.",
+    contactInvalid: "Sprawdź kontakt - możesz podać email, Telegram, WhatsApp albo telefon.",
+    projectType: "Wybierz format strony.",
+    message: "Krótko opisz projekt.",
+    messageShort: "Opisz projekt trochę dokładniej - minimum 20 znaków.",
+    messageLong: "Tekst jest zbyt długi. Skróć opis do dozwolonego limitu.",
+    turnstile: "Potwierdź weryfikację bezpieczeństwa i spróbuj ponownie."
+  },
+  en: {
+    name: "Enter your name - at least 2 characters.",
+    contact: "Enter a contact method: email, Telegram, WhatsApp or phone.",
+    contactInvalid: "Check the contact field - you can enter email, Telegram, WhatsApp or phone.",
+    projectType: "Choose a website format.",
+    message: "Briefly describe the project.",
+    messageShort: "Describe the project in a bit more detail - at least 20 characters.",
+    messageLong: "The text is too long. Shorten the description to the allowed limit.",
+    turnstile: "Complete the security check and try again."
+  },
+  uk: {
+    name: "Вкажіть ім'я - мінімум 2 символи.",
+    contact: "Вкажіть контакт: email, Telegram, WhatsApp або телефон.",
+    contactInvalid: "Перевірте контакт - можна вказати email, Telegram, WhatsApp або телефон.",
+    projectType: "Оберіть формат сайту.",
+    message: "Коротко опишіть проєкт.",
+    messageShort: "Опишіть проєкт трохи детальніше - мінімум 20 символів.",
+    messageLong: "Текст занадто довгий. Скоротіть опис до дозволеного ліміту.",
+    turnstile: "Підтвердіть перевірку безпеки та спробуйте ще раз."
+  }
+};
+
+const reviewValidationMessages = {
+  pl: {
+    name: "Wpisz imię - minimum 2 znaki.",
+    projectName: "Wpisz nazwę projektu.",
+    reviewText: "Treść opinii powinna mieć od 30 do 1000 znaków.",
+    websiteUrl: "Podaj poprawny adres URL albo zostaw pole puste.",
+    permissionToPublish: "Zgoda na publikację opinii jest wymagana.",
+    turnstile: "Potwierdź weryfikację bezpieczeństwa i spróbuj ponownie."
+  },
+  en: {
+    name: "Enter your name - at least 2 characters.",
+    projectName: "Enter the project name.",
+    reviewText: "Review text must be between 30 and 1000 characters.",
+    websiteUrl: "Enter a valid URL or leave the field empty.",
+    permissionToPublish: "Permission to publish the review is required.",
+    turnstile: "Complete the security check and try again."
+  },
+  uk: {
+    name: "Вкажіть ім'я - мінімум 2 символи.",
+    projectName: "Вкажіть назву проєкту.",
+    reviewText: "Текст відгуку має містити від 30 до 1000 символів.",
+    websiteUrl: "Вкажіть коректний URL або залиште поле порожнім.",
+    permissionToPublish: "Згода на публікацію відгуку є обов'язковою.",
+    turnstile: "Підтвердіть перевірку безпеки та спробуйте ще раз."
+  }
+};
+
+const getValidationMessage = (form, key) => {
+  const language = form.dataset.language || "pl";
+  const messages = getValue(form, "formType") === "review" ? reviewValidationMessages : contactValidationMessages;
+  return messages[language]?.[key] || messages.pl[key] || "";
+};
+
+const isValidUrl = (value) => {
+  if (!value) return true;
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+};
+
+const escapeMarkup = (value = "") => String(value)
+  .replaceAll("&", "&amp;")
+  .replaceAll("<", "&lt;")
+  .replaceAll(">", "&gt;")
+  .replaceAll('"', "&quot;")
+  .replaceAll("'", "&#039;");
+
+const isPlausibleContact = (value) => {
+  const contact = value.trim();
+  if (!contact) return false;
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)
+    || /^@?[a-zA-Z0-9_]{4,32}$/.test(contact)
+    || /^\+?[0-9][0-9\s().-]{6,}$/.test(contact)
+    || /\b(telegram|whatsapp|wa)\b/i.test(contact);
+};
+
+const setFormStatus = (form, message, isError = false) => {
+  const status = form.querySelector(".form-status");
+  if (!status) return;
+  status.textContent = message;
+  status.classList.remove("hidden");
+  status.classList.toggle("is-error", isError);
+};
+
+const setFieldError = (form, name, message) => {
+  const error = form.querySelector(`[data-error-for="${name}"]`);
+  const field = getField(form, name);
+  const label = field ? field.closest("label") : null;
+  if (error) {
+    error.textContent = message;
+    if (!error.id) error.id = `${name}-error`;
+  }
+  if (field) {
+    field.setAttribute("aria-invalid", "true");
+    if (error?.id) field.setAttribute("aria-describedby", error.id);
+  }
+  if (label) {
+    label.classList.add("form-field-invalid");
+    label.classList.remove("form-field-valid");
+  }
+};
+
+const clearFieldError = (form, name) => {
+  const error = form.querySelector(`[data-error-for="${name}"]`);
+  const field = getField(form, name);
+  const label = field ? field.closest("label") : null;
+  if (error) error.textContent = "";
+  if (field) {
+    field.removeAttribute("aria-invalid");
+    if (error?.id && field.getAttribute("aria-describedby") === error.id) {
+      field.removeAttribute("aria-describedby");
     }
+  }
+  if (label) {
+    label.classList.remove("form-field-invalid");
+    if (getValue(form, name)) {
+      label.classList.add("form-field-valid");
+    }
+  }
+};
 
+const hasTurnstileResponse = (form) => Boolean(getValue(form, "cf-turnstile-response"));
+const requiresTurnstile = (form) => Boolean(form.querySelector(".cf-turnstile")) && window.location.protocol !== "file:";
+
+const validateForm = (form) => {
+  let isValid = true;
+  const name = getValue(form, "name");
+  const contact = getValue(form, "contact");
+  const projectType = getValue(form, "projectType");
+  const message = getValue(form, "message");
+
+  if (name.length < 2 || name.length > 80) {
+    setFieldError(form, "name", getValidationMessage(form, "name"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "name");
+  }
+
+  if (contact.length < 3 || contact.length > 120) {
+    setFieldError(form, "contact", getValidationMessage(form, "contact"));
+    isValid = false;
+  } else if (!isPlausibleContact(contact)) {
+    setFieldError(form, "contact", getValidationMessage(form, "contactInvalid"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "contact");
+  }
+
+  if (!projectType) {
+    setFieldError(form, "projectType", getValidationMessage(form, "projectType"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "projectType");
+  }
+
+  if (!message) {
+    setFieldError(form, "message", getValidationMessage(form, "message"));
+    isValid = false;
+  } else if (message.length < 20) {
+    setFieldError(form, "message", getValidationMessage(form, "messageShort"));
+    isValid = false;
+  } else if (message.length > 2000) {
+    setFieldError(form, "message", getValidationMessage(form, "messageLong"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "message");
+  }
+
+  if (requiresTurnstile(form) && !hasTurnstileResponse(form)) {
+    setFormStatus(form, getValidationMessage(form, "turnstile"), true);
+    isValid = false;
+  }
+
+  return isValid;
+};
+
+const validateReviewForm = (form) => {
+  let isValid = true;
+  const name = getValue(form, "name");
+  const projectName = getValue(form, "projectName");
+  const reviewText = getValue(form, "reviewText");
+  const websiteUrl = getValue(form, "websiteUrl");
+
+  if (name.length < 2 || name.length > 80) {
+    setFieldError(form, "name", getValidationMessage(form, "name"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "name");
+  }
+
+  if (projectName.length < 2 || projectName.length > 120) {
+    setFieldError(form, "projectName", getValidationMessage(form, "projectName"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "projectName");
+  }
+
+  if (reviewText.length < 30 || reviewText.length > 1000) {
+    setFieldError(form, "reviewText", getValidationMessage(form, "reviewText"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "reviewText");
+  }
+
+  if (!isValidUrl(websiteUrl)) {
+    setFieldError(form, "websiteUrl", getValidationMessage(form, "websiteUrl"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "websiteUrl");
+  }
+
+  if (!getChecked(form, "permissionToPublish")) {
+    setFieldError(form, "permissionToPublish", getValidationMessage(form, "permissionToPublish"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "permissionToPublish");
+  }
+
+  if (requiresTurnstile(form) && !hasTurnstileResponse(form)) {
+    setFormStatus(form, getValidationMessage(form, "turnstile"), true);
+    isValid = false;
+  }
+
+  return isValid;
+};
+
+const updateCounter = (form) => {
+  const textarea = getField(form, "reviewText") || getField(form, "message");
+  const counter = form.querySelector("[data-counter]");
+  if (textarea && counter) {
+    const length = String(textarea.value || "").length;
+    const max = Number(textarea.getAttribute("maxlength")) || 2000;
+    counter.textContent = `${length}/${max}`;
+    counter.classList.toggle("is-error", length > max);
+  }
+};
+
+document.querySelectorAll(".contact-form").forEach((form) => {
+  const isReviewForm = getValue(form, "formType") === "review";
+  const sourcePage = getField(form, "sourcePage");
+  if (sourcePage) {
+    sourcePage.value = window.location.href;
+  }
+
+  const fieldsToWatch = isReviewForm
+    ? ["name", "company", "projectName", "projectType", "websiteUrl", "rating", "reviewText", "permissionToPublish", "allowProjectName"]
+    : ["name", "contact", "projectType", "message"];
+
+  fieldsToWatch.forEach((name) => {
+    const field = getField(form, name);
+    if (!field) return;
     field.addEventListener("input", () => {
-      validateContactField(fieldName);
-
-      if (fieldName === "message") {
-        updateMessageCounter();
-      }
+      if (name === "message" || name === "reviewText") updateCounter(form);
+      clearFieldError(form, name);
     });
+    field.addEventListener("change", () => clearFieldError(form, name));
   });
 
-  const projectField = getContactField("project");
-
-  if (projectField) {
-    projectField.addEventListener("change", () => {
-      validateContactField("project");
-    });
-  }
+  updateCounter(form);
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-
     const submitButton = form.querySelector('button[type="submit"]');
 
-    if (!validateContactForm()) {
-      setFormStatus(form.dataset.validationStatusKey || "contacts.errorStatus", true);
+    const isValid = isReviewForm ? validateReviewForm(form) : validateForm(form);
+
+    if (!isValid) {
+      if (!form.querySelector(".form-status").textContent) {
+        setFormStatus(form, form.dataset.error, true);
+      }
       return;
     }
 
-    const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
-
-    setFormStatus("contacts.sendingStatus");
-
-    if (submitButton) {
-      submitButton.disabled = true;
-    }
+    const payload = Object.fromEntries(new FormData(form).entries());
+    setFormStatus(form, form.dataset.sending);
+    if (submitButton) submitButton.disabled = true;
 
     try {
       if (window.location.protocol !== "file:") {
         const response = await fetch("/api/contact", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
-
-        const result = await response.json();
-
+        const result = await response.json().catch(() => ({ ok: false }));
         if (!response.ok || !result.ok) {
-          handleBackendContactError(result.error);
+          setFormStatus(form, form.dataset.error, true);
           return;
         }
       }
 
       form.reset();
-      resetContactFormValidation();
-      updateMessageCounter();
-      setFormStatus("contacts.status");
-
-      if (window.turnstile) {
-        window.turnstile.reset();
-      }
+      if (sourcePage) sourcePage.value = window.location.href;
+      updateCounter(form);
+      form.querySelectorAll(".form-field-valid, .form-field-invalid").forEach((item) => {
+        item.classList.remove("form-field-valid", "form-field-invalid");
+      });
+      setFormStatus(form, form.dataset.success);
+      if (window.turnstile) window.turnstile.reset();
     } catch (error) {
       console.error("Contact form error:", error);
-      setFormStatus("contacts.errorStatus", true);
+      setFormStatus(form, form.dataset.error, true);
     } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
+      if (submitButton) submitButton.disabled = false;
+    }
+  });
+});
+
+const initReviewsPage = () => {
+  const list = document.querySelector("[data-reviews-list]");
+  const empty = document.querySelector("[data-reviews-empty]");
+  if (!list || !empty) return;
+
+  const language = document.body.dataset.language || "pl";
+  const ui = reviewUi[language] || reviewUi.pl;
+  const visibleReviews = reviewsData.filter((review) => {
+    const status = String(review.status || "").toLowerCase();
+    return review.lang === language
+      && (status === "published" || status === "approved")
+      && Boolean(String(review.text || "").trim())
+      && review.permissionToPublish === true;
+  });
+
+  if (!visibleReviews.length) {
+    list.hidden = true;
+    empty.hidden = false;
+    return;
+  }
+
+  empty.hidden = true;
+  list.hidden = false;
+  list.innerHTML = visibleReviews.map((review) => {
+    const meta = [review.projectType, review.verified ? ui.verified : ""].filter(Boolean).join(" · ");
+    const safeUrl = isValidUrl(review.websiteUrl || "") ? review.websiteUrl : "";
+    const project = safeUrl
+      ? `<a href="${escapeMarkup(safeUrl)}" target="_blank" rel="noopener" class="review-card__link">${escapeMarkup(ui.projectLink)}</a>`
+      : "";
+    const date = review.date ? `<span>${escapeMarkup(review.date)}</span>` : "";
+    const rating = review.rating ? `<span>${escapeMarkup(ui.rating)}: ${escapeMarkup(review.rating)}</span>` : "";
+
+    return `
+      <article class="review-card">
+        <p class="review-card__text">“${escapeMarkup(review.text)}”</p>
+        <div class="review-card__footer">
+          <div>
+            <h2>${escapeMarkup(review.name || review.projectName || "Amigo client")}</h2>
+            ${review.company ? `<p>${escapeMarkup(review.company)}</p>` : ""}
+            ${meta ? `<p class="review-card__meta">${escapeMarkup(meta)}</p>` : ""}
+          </div>
+          <div class="review-card__actions">
+            ${rating}
+            ${date}
+            ${project}
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+};
+
+function initHeroFrameScroll() {
+  const heroes = document.querySelectorAll("[data-hero-frame-scroll]");
+  if (!heroes.length) return;
+
+  heroes.forEach((hero) => {
+    const canvas = hero.querySelector(".hero-frame-canvas");
+    const visual = hero.querySelector(".scroll-hero-visual");
+
+    if (!canvas || !visual) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    const frameCount = 120;
+    const frameBasePath = "/assets/hero-globe-frames/";
+    const framePath = (index) => `${frameBasePath}frame-${String(index).padStart(3, "0")}.webp`;
+
+    const images = new Array(frameCount);
+    const loaded = new Array(frameCount).fill(false);
+
+    let targetProgress = 0;
+    let currentProgress = 0;
+    let rafId = null;
+    let lastFrameIndex = -1;
+    let restLoadingStarted = false;
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    function resizeCanvasToDisplaySize() {
+      const rect = visual.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const width = Math.max(1, Math.round(rect.width * dpr));
+      const height = Math.max(1, Math.round(rect.height * dpr));
+
+      if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
       }
     }
+
+    function loadFrame(index) {
+      if (images[index]) return Promise.resolve(images[index]);
+
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.decoding = "async";
+        img.src = framePath(index);
+
+        img.onload = () => {
+          loaded[index] = true;
+          resolve(img);
+        };
+
+        img.onerror = () => {
+          console.warn(`Hero frame failed to load: ${framePath(index)}`);
+          resolve(null);
+        };
+
+        images[index] = img;
+      });
+    }
+
+    function drawCoverImage(img) {
+      if (!img || !img.complete) return;
+
+      resizeCanvasToDisplaySize();
+
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+      const imageWidth = img.naturalWidth;
+      const imageHeight = img.naturalHeight;
+      const canvasRatio = canvasWidth / canvasHeight;
+      const imageRatio = imageWidth / imageHeight;
+
+      let sourceX = 0;
+      let sourceY = 0;
+      let sourceWidth = imageWidth;
+      let sourceHeight = imageHeight;
+
+      if (imageRatio > canvasRatio) {
+        sourceWidth = imageHeight * canvasRatio;
+        sourceX = (imageWidth - sourceWidth) / 2;
+      } else {
+        sourceHeight = imageWidth / canvasRatio;
+        sourceY = (imageHeight - sourceHeight) / 2;
+      }
+
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      ctx.drawImage(
+        img,
+        sourceX,
+        sourceY,
+        sourceWidth,
+        sourceHeight,
+        0,
+        0,
+        canvasWidth,
+        canvasHeight
+      );
+    }
+
+    function drawFrame(index, force = false) {
+      const img = images[index];
+
+      if (!img || !loaded[index]) return;
+      if (!force && index === lastFrameIndex && visual.classList.contains("is-frame-ready")) return;
+
+      drawCoverImage(img);
+      lastFrameIndex = index;
+      visual.classList.add("is-frame-ready");
+    }
+
+    function preloadPriorityFrames() {
+      const priorityCount = 16;
+      const promises = [];
+
+      for (let i = 0; i < priorityCount; i += 1) {
+        promises.push(loadFrame(i));
+      }
+
+      Promise.all(promises).then(() => {
+        drawFrame(0);
+      });
+    }
+
+    function preloadRestFrames() {
+      if (restLoadingStarted || reduceMotion || isMobile) return;
+      restLoadingStarted = true;
+
+      let index = 16;
+
+      function loadNextBatch() {
+        const batchSize = 6;
+        const batch = [];
+
+        for (let i = 0; i < batchSize && index < frameCount; i += 1) {
+          batch.push(loadFrame(index));
+          index += 1;
+        }
+
+        Promise.all(batch).then(() => {
+          if (index < frameCount) {
+            if ("requestIdleCallback" in window) {
+              window.requestIdleCallback(loadNextBatch, { timeout: 800 });
+            } else {
+              window.setTimeout(loadNextBatch, 80);
+            }
+          }
+        });
+      }
+
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(loadNextBatch, { timeout: 800 });
+      } else {
+        window.setTimeout(loadNextBatch, 80);
+      }
+    }
+
+    function getProgress() {
+      const rect = hero.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      return clamp(-rect.top / (viewportHeight * 0.9), 0, 1);
+    }
+
+    function updateTarget() {
+      targetProgress = getProgress();
+      preloadRestFrames();
+
+      if (!rafId) {
+        rafId = window.requestAnimationFrame(animate);
+      }
+    }
+
+    function animate() {
+      const smoothFactor = 0.11;
+
+      currentProgress += (targetProgress - currentProgress) * smoothFactor;
+
+      const frameIndex = Math.round(currentProgress * (frameCount - 1));
+      drawFrame(frameIndex);
+
+      const translateY = currentProgress * 72;
+      const translateX = currentProgress * -18;
+      const scale = 1.04 + currentProgress * 0.08;
+
+      visual.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
+
+      hero.dataset.frameProgress = currentProgress.toFixed(3);
+      hero.dataset.frameTarget = targetProgress.toFixed(3);
+      hero.dataset.frameIndex = String(frameIndex);
+
+      if (Math.abs(targetProgress - currentProgress) > 0.001) {
+        rafId = window.requestAnimationFrame(animate);
+      } else {
+        currentProgress = targetProgress;
+        rafId = null;
+      }
+    }
+
+    resizeCanvasToDisplaySize();
+
+    if (reduceMotion || isMobile) {
+      loadFrame(0).then(() => drawFrame(0));
+      return;
+    }
+
+    preloadPriorityFrames();
+
+    window.addEventListener("scroll", updateTarget, { passive: true });
+    window.addEventListener("resize", () => {
+      resizeCanvasToDisplaySize();
+      drawFrame(lastFrameIndex >= 0 ? lastFrameIndex : 0, true);
+      updateTarget();
+    });
+
+    updateTarget();
   });
 }
 
-const year = document.getElementById("year");
-if (year) {
-  year.textContent = new Date().getFullYear();
-}
+document.querySelectorAll("[data-year]").forEach((element) => {
+  element.textContent = new Date().getFullYear();
+});
 
-setBrowserTabIcon();
-ensureDefaultPreferences();
-applyLanguage(getSavedLanguage() || DEFAULT_LANGUAGE);
-renderPricing(getSavedPricingMarket() || DEFAULT_PRICING_MARKET, { persist: false });
+initPortfolioSections();
+initReviewsPage();
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initHeroFrameScroll);
+} else {
+  initHeroFrameScroll();
+}
 refreshIcons();
+renderMenuButton();

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Private review form for Amigo clients after a completed project.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#090d12">
+  <title>Leave a review | Amigo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/assets/amigo-logo.png">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png?v=2" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/favicon-192.png?v=2" sizes="192x192">
+  <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2" sizes="180x180">
+  <script src="/script.js" defer></script>
+</head>
+
+<body data-page="review" data-language="en">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header id="site-header" class="site-header premium-header">
+    <nav class="nav premium-nav container" aria-label="Main navigation">
+      <a href="/en/" class="brand brand-logo premium-brand" aria-label="Amigo">
+        <img src="/assets/amigo-logo.png" alt="Amigo" class="brand-logo-image" width="214" height="58" decoding="async" fetchpriority="high">
+      </a>
+      <div class="nav-shell" aria-hidden="false">
+        <div class="nav-links premium-nav-links">
+          <a href="/en/" data-page-link="home">Home</a>
+          <a href="/en/services" data-page-link="services">Services</a>
+          <a href="/en/portfolio" data-page-link="portfolio">Portfolio</a>
+          <a href="/en/reviews" data-page-link="reviews">Reviews</a>
+          <a href="/en/about" data-page-link="about">About</a>
+          <a href="/en/blog" data-page-link="blog">Blog</a>
+          <a href="/en/contact" data-page-link="contact">Contact</a>
+        </div>
+      </div>
+      <div class="header-actions premium-header-actions">
+        <div class="language-menu premium-language-menu" aria-label="Language versions" data-language-menu>
+          <button type="button" class="language-toggle" aria-expanded="false" aria-haspopup="true">
+            <span class="language-current">EN</span>
+            <span class="language-caret" aria-hidden="true"></span>
+          </button>
+          <div class="language-popover" role="menu">
+            <a href="/review" class="language-option" role="menuitem">PL</a>
+            <a href="/uk/review" class="language-option" role="menuitem">UA</a>
+            <a href="/en/review" class="language-option" role="menuitem" aria-current="true">EN</a>
+          </div>
+        </div>
+        <a href="/en/contact" class="button button-primary header-cta nav-cta">Discuss a project</a>
+        <button id="menu-toggle" type="button" class="menu-toggle nav-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-open-label="Open menu" data-close-label="Close menu">
+          <i data-lucide="menu" class="icon"></i>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-panel premium-mobile-panel">
+      <div class="mobile-links premium-mobile-links container">
+        <a href="/en/" data-page-link="home">Home</a>
+        <a href="/en/services" data-page-link="services">Services</a>
+        <a href="/en/portfolio" data-page-link="portfolio">Portfolio</a>
+        <a href="/en/reviews" data-page-link="reviews">Reviews</a>
+        <a href="/en/about" data-page-link="about">About</a>
+        <a href="/en/blog" data-page-link="blog">Blog</a>
+        <a href="/en/contact" data-page-link="contact">Contact</a>
+        <a href="/en/contact" class="button button-primary mobile-cta">Discuss a project</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div id="top"></div>
+    <section class="page-hero">
+      <div class="grid-mask" aria-hidden="true"></div>
+      <div class="container page-hero-inner reveal">
+        <p class="eyebrow">Client review</p>
+        <h1>Leave a review</h1>
+        <p>This form is for Amigo clients after a project is completed. The review will be checked before publication.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <form class="contact-card contact-form review-form-card reveal" novalidate data-language="en" data-success="Thank you for the review. It will be checked before publication." data-error="The review could not be sent. Try again or contact us directly." data-sending="Sending review...">
+          <div class="form-heading">
+            <h2>Leave a review</h2>
+            <p>We publish reviews only after client permission and moderation.</p>
+          </div>
+          <div class="field-row">
+            <label><span>Your name</span><input type="text" name="name" autocomplete="name" required minlength="2" maxlength="80"><small class="field-error" data-error-for="name"></small></label>
+            <label><span>Company</span><input type="text" name="company" maxlength="120"><small class="field-error" data-error-for="company"></small></label>
+          </div>
+          <div class="field-row">
+            <label><span>Project name</span><input type="text" name="projectName" required minlength="2" maxlength="120"><small class="field-error" data-error-for="projectName"></small></label>
+            <label><span>Project type</span><input type="text" name="projectType" maxlength="120" placeholder="Landing Page"></label>
+          </div>
+          <div class="field-row">
+            <label><span>Website link</span><input type="url" name="websiteUrl" maxlength="240" placeholder="https://"><small class="field-error" data-error-for="websiteUrl"></small></label>
+            <label><span>Rating</span><select name="rating"><option value="">No rating</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+          </div>
+          <label>
+            <span class="field-label-line"><span>Review text</span><span class="field-counter" data-counter>0/1000</span></span>
+            <textarea name="reviewText" rows="7" required minlength="30" maxlength="1000"></textarea>
+            <small class="field-error" data-error-for="reviewText"></small>
+          </label>
+          <label class="checkbox-field">
+            <input type="checkbox" name="permissionToPublish" required>
+            <span>I allow this review to be published on the Amigo website</span>
+            <small class="field-error" data-error-for="permissionToPublish"></small>
+          </label>
+          <label class="checkbox-field">
+            <input type="checkbox" name="allowProjectName">
+            <span>The company or project name can be shown</span>
+          </label>
+          <input type="hidden" name="formType" value="review">
+          <input type="hidden" name="language" value="en">
+          <input type="hidden" name="sourcePage" value="">
+          <input type="text" name="website" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAADgXp5W-mlnPn-ya"></div>
+          <button type="submit" class="button button-green button-large form-button"><span>Send review</span><i data-lucide="send-horizontal" class="icon"></i></button>
+          <p class="form-status hidden" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer-premium">
+  <div class="container footer-shell">
+    <div class="footer-grid footer-grid-premium">
+      <div class="footer-panel footer-brand-panel">
+        <a href="/en/" class="footer-brand" aria-label="Amigo">
+          <img src="/assets/amigo-mark.png" alt="Amigo" class="footer-brand-mark" width="64" height="64">
+          <span>Amigo</span>
+        </a>
+        <p>Fast, clear websites and landing pages for small businesses. Built for contact, SEO and future growth.</p>
+      </div>
+      <div class="footer-panel">
+        <h2>Navigation</h2>
+        <nav class="footer-links footer-nav" aria-label="Footer navigation">
+          <a href="/en/">Home</a>
+          <a href="/en/services">Services</a>
+          <a href="/en/portfolio">Portfolio</a>
+          <a href="/en/reviews">Reviews</a>
+          <a href="/en/about">About</a>
+          <a href="/en/blog">Blog</a>
+          <a href="/en/contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-panel">
+        <h2>Language versions</h2>
+        <nav class="footer-links footer-language-list" aria-label="Language versions">
+          <a href="/review" class="footer-link-chip">Polski</a>
+          <a href="/uk/review" class="footer-link-chip">Українська</a>
+          <a href="/en/review" class="footer-link-chip is-active" aria-current="page">English</a>
+        </nav>
+      </div>
+      <div class="footer-panel footer-contact-panel">
+        <h2>Start a project</h2>
+        <p class="footer-contact-copy">Describe the task through the form — we will suggest the best website format.</p>
+        <a href="/en/contact" class="footer-cta-link">Discuss project</a>
+        <div class="footer-social-grid" aria-label="Quick contact channels">
+          <a href="https://t.me/amigowebstudio" target="_blank" rel="noopener" class="footer-social-link is-primary">
+            <i data-lucide="send" class="icon" aria-hidden="true"></i>
+            <span>Telegram</span>
+          </a>
+          <a href="https://wa.me/+48511326741" target="_blank" rel="noopener" class="footer-social-link is-primary is-green">
+            <i data-lucide="message-circle" class="icon" aria-hidden="true"></i>
+            <span>WhatsApp</span>
+          </a>
+          <a href="https://www.instagram.com/amigowebstudio/" target="_blank" rel="noopener" class="footer-social-link is-secondary">
+            <i data-lucide="instagram" class="icon" aria-hidden="true"></i>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61590617216468" target="_blank" rel="noopener" class="footer-social-link is-secondary">
+            <i data-lucide="facebook" class="icon" aria-hidden="true"></i>
+            <span>Facebook</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom footer-bottom-premium">
+      <p>© 2026 Amigo. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#top" class="back-top" aria-label="Back to top">Back to top <i data-lucide="arrow-up" class="icon icon-sm" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</body>
+</html>
