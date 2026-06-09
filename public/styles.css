@@ -1026,7 +1026,7 @@ p {
 
 .project-media {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   background: #020617;
 }
 
@@ -1034,7 +1034,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: top center;
 }
 
 .card-body {
@@ -1104,6 +1104,16 @@ p {
 .portfolio-card__image {
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.portfolio-card__image img {
+  transition: transform 0.35s ease;
+}
+
+.portfolio-card-compact:hover .portfolio-card__image img,
+.portfolio-card-compact:focus-visible .portfolio-card__image img {
+  transform: scale(1.035);
 }
 
 .portfolio-card__body {
@@ -1272,15 +1282,17 @@ body.modal-open {
 .portfolio-modal__media {
   display: flex;
   min-height: 100%;
-  max-height: calc(100svh - 32px);
+  max-height: min(72vh, 820px);
   overflow: auto;
   background: #020617;
+  border-radius: 8px;
 }
 
 .portfolio-modal__media img {
   display: block;
   width: 100%;
   height: auto;
+  object-fit: contain;
 }
 
 .portfolio-modal__content {
@@ -2290,7 +2302,7 @@ textarea:focus {
   }
 
   .project-media {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
   }
 
   .footer-bottom-links,
@@ -2595,7 +2607,7 @@ textarea:focus {
 
 .hero-premium {
   position: relative;
-  min-height: 96svh;
+  min-height: calc(106svh - var(--header-height, 80px));
   padding-top: 7.75rem;
   overflow: hidden;
   isolation: isolate;
@@ -2608,8 +2620,10 @@ textarea:focus {
 .premium-hero,
 [data-hero-frame-scroll] {
   position: relative;
+  min-height: calc(106svh - var(--header-height, 80px));
   overflow: hidden;
   isolation: isolate;
+  background: #05080c;
 }
 
 .hero-premium::before,
@@ -2631,11 +2645,12 @@ textarea:focus {
 
 .hero-premium::after {
   background:
-    linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.11), transparent),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 96px),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.026) 0 1px, transparent 1px 96px);
-  opacity: 0.64;
-  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.74) 50%, rgba(0, 0, 0, 0.96) 100%);
+    linear-gradient(180deg, rgba(5, 8, 12, 0) 0%, rgba(5, 8, 12, 0.72) 58%, rgba(5, 8, 12, 1) 100%);
+  inset: auto 0 0;
+  z-index: 1;
+  height: clamp(120px, 18vh, 220px);
+  opacity: 1;
+  mask-image: none;
 }
 
 .hero-tech-grid,
@@ -2671,10 +2686,10 @@ textarea:focus {
   position: relative;
   z-index: 2;
   display: grid;
-  min-height: calc(96svh - 7.75rem);
+  min-height: calc(106svh - var(--header-height, 80px));
   align-content: center;
   justify-items: center;
-  padding-block: 5.5rem 3.25rem;
+  padding-block: 5.5rem clamp(120px, 14vh, 190px);
 }
 
 .hero-copy-centered {
@@ -2951,7 +2966,7 @@ textarea:focus {
 
   .hero-premium-inner {
     min-height: auto;
-    padding-block: 4.5rem 2.25rem;
+    padding-block: 4.5rem clamp(88px, 14vw, 128px);
   }
 
   .hero-premium h1 {
@@ -3012,7 +3027,7 @@ textarea:focus {
   }
 
   .hero-premium-inner {
-    padding-block: 3.6rem 1.6rem;
+    padding-block: 3.6rem clamp(72px, 18vw, 112px);
   }
 
   .hero-badge {

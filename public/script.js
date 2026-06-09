@@ -97,9 +97,9 @@ const portfolioProjects = {
       title: "AutoHouse",
       tags: ["Landing", "Projekt realny"],
       filters: ["landing"],
-      thumbnail: "sto-landing-cover.jpg",
-      fullImage: "sto-landing-full.jpg",
-      imageAlt: "Podgląd strony AutoHouse",
+      thumbnail: "portfolio-autohouse-card.webp",
+      fullImage: "portfolio-autohouse-modal.webp",
+      imageAlt: "Preview of AutoHouse landing page project",
       url: "https://autohouse.dp.ua/",
       shortDescription: "Landing page dla lokalnej firmy z czytelną ofertą, ścieżkami kontaktu i formularzem zapytania.",
       description: "Landing page przygotowany dla lokalnej firmy. Projekt skupia się na czytelnej prezentacji usług, szybkim kontakcie, wersji mobilnej i prostym procesie wysłania zapytania.",
@@ -111,11 +111,11 @@ const portfolioProjects = {
     {
       id: "termotrans-multipage",
       title: "Termotrans Multipage Website",
-      tags: ["Multipage demo"],
+      tags: ["Multipage", "Projekt demo"],
       filters: ["multipage", "demo"],
-      thumbnail: "sto-multipage-cover.jpg",
-      fullImage: "sto-multipage-full.jpg",
-      imageAlt: "Podgląd strony Termotrans Multipage Website",
+      thumbnail: "portfolio-termotrans-multipage-card.webp",
+      fullImage: "portfolio-termotrans-multipage-modal.webp",
+      imageAlt: "Preview of Termotrans multipage website demo",
       url: "https://multipagewebsiteexample.markin4097.workers.dev/",
       shortDescription: "Demo strony wielostronicowej z osobnymi podstronami, czytelną nawigacją i strukturą przyjazną SEO.",
       description: "Demonstracyjna strona wielostronicowa pokazująca, jak firma usługowa może przedstawić ofertę na kilku podstronach. Struktura jest przygotowana pod nawigację, FAQ, kontakt i przyszłe treści.",
@@ -127,11 +127,11 @@ const portfolioProjects = {
     {
       id: "termotrans-landing",
       title: "Termotrans Landing Website",
-      tags: ["Landing demo"],
+      tags: ["Landing", "Projekt demo"],
       filters: ["landing", "demo"],
-      thumbnail: "",
-      fullImage: "",
-      imageAlt: "Placeholder podglądu Termotrans Landing Website",
+      thumbnail: "portfolio-termotrans-landing-card.webp",
+      fullImage: "portfolio-termotrans-landing-modal.webp",
+      imageAlt: "Preview of Termotrans landing page demo",
       url: "https://landingwebsite.markin4097.workers.dev/",
       shortDescription: "Demo jednostronicowego landing page z naciskiem na ofertę, korzyści, proces i kontakt.",
       description: "Demonstracyjny landing page dla firmy usługowej, która potrzebuje szybkiej i czytelnej obecności online. Układ skupia się na pierwszym ekranie, prezentacji oferty, sekcjach zaufania, procesie i formularzu kontaktowym.",
@@ -147,9 +147,9 @@ const portfolioProjects = {
       title: "AutoHouse",
       tags: ["Landing", "Real project"],
       filters: ["landing"],
-      thumbnail: "sto-landing-cover.jpg",
-      fullImage: "sto-landing-full.jpg",
-      imageAlt: "AutoHouse website preview",
+      thumbnail: "portfolio-autohouse-card.webp",
+      fullImage: "portfolio-autohouse-modal.webp",
+      imageAlt: "Preview of AutoHouse landing page project",
       url: "https://autohouse.dp.ua/",
       shortDescription: "Landing page for a local business with clear services, contact paths and an inquiry form.",
       description: "A landing page created for a local business. The project focuses on clear service presentation, fast contact, mobile-first layout and a simple inquiry flow.",
@@ -161,11 +161,11 @@ const portfolioProjects = {
     {
       id: "termotrans-multipage",
       title: "Termotrans Multipage Website",
-      tags: ["Multipage demo"],
+      tags: ["Multipage", "Demo project"],
       filters: ["multipage", "demo"],
-      thumbnail: "sto-multipage-cover.jpg",
-      fullImage: "sto-multipage-full.jpg",
-      imageAlt: "Termotrans multipage website preview",
+      thumbnail: "portfolio-termotrans-multipage-card.webp",
+      fullImage: "portfolio-termotrans-multipage-modal.webp",
+      imageAlt: "Preview of Termotrans multipage website demo",
       url: "https://multipagewebsiteexample.markin4097.workers.dev/",
       shortDescription: "Demo multipage website with separate pages, clear navigation and SEO-friendly structure.",
       description: "A demonstration multipage website showing how a service business can present its offer across several pages. The structure is prepared for navigation, FAQ, contact and future content growth.",
@@ -177,11 +177,11 @@ const portfolioProjects = {
     {
       id: "termotrans-landing",
       title: "Termotrans Landing Website",
-      tags: ["Landing demo"],
+      tags: ["Landing", "Demo project"],
       filters: ["landing", "demo"],
-      thumbnail: "",
-      fullImage: "",
-      imageAlt: "Placeholder preview for Termotrans Landing Website",
+      thumbnail: "portfolio-termotrans-landing-card.webp",
+      fullImage: "portfolio-termotrans-landing-modal.webp",
+      imageAlt: "Preview of Termotrans landing page demo",
       url: "https://landingwebsite.markin4097.workers.dev/",
       shortDescription: "Demo one-page landing page for a service business focused on offer, benefits, process and contact.",
       description: "A demonstration landing page for a service business that needs a quick and clear online presence. The layout focuses on the first screen, offer presentation, trust sections, process and contact form.",
@@ -197,9 +197,9 @@ const portfolioProjects = {
       title: "AutoHouse",
       tags: ["Landing", "Реальний проєкт"],
       filters: ["landing"],
-      thumbnail: "sto-landing-cover.jpg",
-      fullImage: "sto-landing-full.jpg",
-      imageAlt: "Preview сайту AutoHouse",
+      thumbnail: "portfolio-autohouse-card.webp",
+      fullImage: "portfolio-autohouse-modal.webp",
+      imageAlt: "Preview of AutoHouse landing page project",
       url: "https://autohouse.dp.ua/",
       shortDescription: "Landing page для локального бізнесу з чіткою пропозицією, шляхами до контакту та формою заявки.",
       description: "Landing page для локального бізнесу. Проєкт зосереджений на зрозумілій презентації послуг, швидкому контакті, мобільній версії та простому шляху до заявки.",
@@ -211,11 +211,11 @@ const portfolioProjects = {
     {
       id: "termotrans-multipage",
       title: "Termotrans Multipage Website",
-      tags: ["Multipage demo"],
+      tags: ["Multipage", "Демо-проєкт"],
       filters: ["multipage", "demo"],
-      thumbnail: "sto-multipage-cover.jpg",
-      fullImage: "sto-multipage-full.jpg",
-      imageAlt: "Preview сайту Termotrans Multipage Website",
+      thumbnail: "portfolio-termotrans-multipage-card.webp",
+      fullImage: "portfolio-termotrans-multipage-modal.webp",
+      imageAlt: "Preview of Termotrans multipage website demo",
       url: "https://multipagewebsiteexample.markin4097.workers.dev/",
       shortDescription: "Демо багатосторінкового сайту з окремими сторінками, зрозумілою навігацією та SEO-friendly структурою.",
       description: "Демонстраційний багатосторінковий сайт, який показує, як бізнес у сфері послуг може презентувати пропозицію на кількох сторінках. Структура підготовлена для навігації, FAQ, контактів і майбутнього контенту.",
@@ -227,11 +227,11 @@ const portfolioProjects = {
     {
       id: "termotrans-landing",
       title: "Termotrans Landing Website",
-      tags: ["Landing demo"],
+      tags: ["Landing", "Демо-проєкт"],
       filters: ["landing", "demo"],
-      thumbnail: "",
-      fullImage: "",
-      imageAlt: "Placeholder preview для Termotrans Landing Website",
+      thumbnail: "portfolio-termotrans-landing-card.webp",
+      fullImage: "portfolio-termotrans-landing-modal.webp",
+      imageAlt: "Preview of Termotrans landing page demo",
       url: "https://landingwebsite.markin4097.workers.dev/",
       shortDescription: "Демо односторінкового landing page для бізнесу у сфері послуг з акцентом на пропозицію, переваги, процес і контакт.",
       description: "Демонстраційний landing page для бізнесу у сфері послуг, якому потрібна швидка й зрозуміла онлайн-презентація. Макет зосереджений на першому екрані, послугах, блоках довіри, процесі роботи та контактній формі.",
@@ -309,14 +309,14 @@ const getPortfolioContactPath = (projectId) => {
 const renderPortfolioImage = (project, extraClass = "") => {
   const classes = ["project-media", extraClass].filter(Boolean).join(" ");
   if (project.thumbnail) {
-    return `<div class="${classes}"><img src="${getPortfolioAssetBase()}${project.thumbnail}" alt="${project.imageAlt}" width="720" height="450" loading="lazy"></div>`;
+    return `<div class="${classes}"><img src="${getPortfolioAssetBase()}${project.thumbnail}" alt="${project.imageAlt}" width="720" height="405" loading="lazy" decoding="async"></div>`;
   }
   return `<div class="${classes} project-media-placeholder"><span>${getPortfolioUi().placeholderLabel}</span></div>`;
 };
 
 const renderPortfolioModalImage = (project) => {
   if (project.fullImage) {
-    return `<img src="${getPortfolioAssetBase()}${project.fullImage}" alt="${project.imageAlt}" width="1440" height="1800" loading="lazy">`;
+    return `<img src="${getPortfolioAssetBase()}${project.fullImage}" alt="${project.imageAlt}" width="1440" height="2400" loading="lazy" decoding="async">`;
   }
   return `<div class="portfolio-modal__placeholder">${getPortfolioUi().placeholderLabel}</div>`;
 };
@@ -1080,11 +1080,11 @@ function initHeroFrameScroll() {
       );
     }
 
-    function drawFrame(index) {
+    function drawFrame(index, force = false) {
       const img = images[index];
 
       if (!img || !loaded[index]) return;
-      if (index === lastFrameIndex && visual.classList.contains("is-frame-ready")) return;
+      if (!force && index === lastFrameIndex && visual.classList.contains("is-frame-ready")) return;
 
       drawCoverImage(img);
       lastFrameIndex = index;
@@ -1191,7 +1191,7 @@ function initHeroFrameScroll() {
     window.addEventListener("scroll", updateTarget, { passive: true });
     window.addEventListener("resize", () => {
       resizeCanvasToDisplaySize();
-      drawFrame(lastFrameIndex >= 0 ? lastFrameIndex : 0);
+      drawFrame(lastFrameIndex >= 0 ? lastFrameIndex : 0, true);
       updateTarget();
     });
 
