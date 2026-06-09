@@ -197,24 +197,19 @@
     </section>
     <section class="section">
       <div class="container contact-grid">
-        <div class="contact-copy reveal">
-          <p class="eyebrow">Інші способи зв'язку</p>
-          <h2>Інші способи зв'язку</h2>
-          <p>Форма допомагає зібрати основну інформацію про проєкт, термін, бюджет і ситуацію з доменом.</p>
-          
-        <article class="contact-methods reveal">
-          <h2>Інші способи зв'язку</h2>
-          <div class="messenger-links">
-            <a href="https://t.me/amigowebstudio" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="send" class="icon"></i> Telegram</a>
-            <a href="https://wa.me/+48511326741" target="_blank" rel="noopener" class="messenger-link messenger-link-green"><i data-lucide="message-circle" class="icon"></i> WhatsApp</a>
-            <a href="https://www.instagram.com/amigowebstudio/" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="instagram" class="icon"></i> Instagram</a>
-            <a href="https://www.facebook.com/profile.php?id=61590617216468" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="facebook" class="icon"></i> Facebook</a>
+        <div class="contact-copy contact-faq-column reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>Питання перед відправкою заявки</h2>
+          <p>Короткі відповіді, які допоможуть заповнити форму і зрозуміти наступний крок.</p>
+          <div class="contact-faq-list">
+            <article class="contact-faq-item"><h3>Чи потрібно мати готове технічне завдання?</h3><p>Ні. Достатньо коротко описати бізнес, послуги й бажаний результат. Якщо чогось не вистачає, ми уточнимо це після заявки.</p></article>
+            <article class="contact-faq-item"><h3>Що писати в полі “Коротко про проєкт”?</h3><p>Напишіть, який сайт потрібен, для якого бізнесу, які послуги треба показати, чи є логотип, фото, тексти або приклади сайтів, які вам подобаються.</p></article>
+            <article class="contact-faq-item"><h3>Якщо я не знаю бюджет?</h3><p>Можна вибрати “Поки не знаю”. Після короткого брифу ми підкажемо, який формат сайту краще підійде і від чого залежить вартість.</p></article>
+            <article class="contact-faq-item"><h3>Якщо в мене ще немає домену?</h3><p>Це нормально. У формі можна вказати, що домену ще немає. За потреби ми підкажемо, як його вибрати і підключити.</p></article>
+            <article class="contact-faq-item"><h3>Що буде після відправки форми?</h3><p>Ми переглянемо заявку, уточнимо деталі й відповімо з наступним кроком: формат сайту, орієнтовний обсяг робіт і що потрібно підготувати.</p></article>
           </div>
-          <p>E-mail після надсилання форми</p>
-        </article>
         </div>
-        
-        <form class="contact-card contact-form reveal" novalidate data-language="uk" data-success="Дякуємо! Заявку надіслано. Ми зв'яжемося з вами щодо наступного кроку." data-error="Не вдалося надіслати заявку. Спробуйте ще раз або напишіть напряму." data-sending="Надсилаємо заявку..." data-validation-name="Введіть ім'я від 2 до 80 символів." data-validation-contact="Введіть контакт від 3 до 120 символів." data-validation-message="Опишіть завдання детальніше: мінімум 10 символів." data-validation-turnstile="Підтвердіть, що ви не бот.">
+        <form class="contact-card contact-form reveal" novalidate data-language="uk" data-success="Дякуємо! Заявку надіслано. Ми зв'яжемося з вами щодо наступного кроку." data-error="Не вдалося надіслати заявку. Спробуйте ще раз або напишіть напряму." data-sending="Надсилаємо заявку..." data-validation-name="Введіть ім'я від 2 до 80 символів." data-validation-contact="Введіть контакт від 3 до 120 символів." data-validation-message="Опишіть завдання детальніше: мінімум 20 символів." data-validation-turnstile="Підтвердіть, що ви не бот.">
           <div class="form-heading">
             <h2>Розкажіть про проєкт</h2>
             <p>Достатньо кількох деталей. Ми відповімо з питаннями та наступним кроком.</p>
@@ -234,14 +229,15 @@
           <div class="field-row">
             <label>
               <span>Тип проєкту</span>
-              <select name="projectType">
-                <option>Landing Page</option><option>Сайт компанії</option><option>Індивідуальне рішення</option><option>Підтримка сайту</option>
+              <select name="projectType" required>
+                <option value="" disabled selected>Оберіть формат</option><option>Landing Page</option><option>Сайт компанії</option><option>Індивідуальне рішення</option><option>Підтримка сайту</option>
               </select>
+              <small class="field-error" data-error-for="projectType"></small>
             </label>
             <label>
               <span>Бюджет</span>
               <select name="budget">
-                <option>Поки не знаю</option><option>до 1000 zl</option><option>1000-2500 zł</option><option>2500-5000 zł</option><option>5000+ zł</option>
+                <option>Поки не знаю</option><option>до $600</option><option>$600-$1200</option><option>$1200-$2500</option><option>$2500+</option>
               </select>
             </label>
           </div>
@@ -262,7 +258,7 @@
               <span>Про завдання</span>
               <span class="field-counter" data-counter>0/2000</span>
             </span>
-            <textarea name="message" rows="5" required minlength="10" maxlength="2000" placeholder="Що потрібно зробити, яка мета сайту і що вже підготовлено?"></textarea>
+            <textarea name="message" rows="5" required minlength="20" maxlength="2000" placeholder="Що потрібно зробити, яка мета сайту і що вже підготовлено?"></textarea>
             <small class="field-error" data-error-for="message"></small>
           </label>
           <input type="hidden" name="language" value="uk">
@@ -277,68 +273,69 @@
         </form>
       </div>
     </section>
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-header reveal"><p class="eyebrow">FAQ</p><h2>Перед надсиланням</h2></div>
-        <div class="faq-list">
-
-          <details class="faq-item reveal" open>
-            <summary>Скільки коштує сайт?</summary>
-            <p>Вартість залежить від кількості сторінок, мов, інтеграцій і контенту. Після короткого брифу ви отримуєте зрозумілий обсяг і оцінку.</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>Landing page чи сайт компанії?</summary>
-            <p>Landing page підходить для однієї послуги або кампанії. Сайт компанії кращий, коли потрібно показати кілька напрямків.</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>Чи буде сайт підготовлений під SEO?</summary>
-            <p>Так. Базові теги, заголовки, URL-структура, швидкість і sitemap готуються з самого початку.</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>Чи працює контактна форма?</summary>
-            <p>Так. Форма надсилає дані до Cloudflare Pages Function за адресою /api/contact і зберігає CORS та Turnstile.</p>
-          </details>
-        </div></div>
-    </section>
   </main>
   
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
+  <footer class="footer footer-premium">
+  <div class="container footer-shell">
+    <div class="footer-grid footer-grid-premium">
+      <div class="footer-panel footer-brand-panel">
         <a href="/uk/" class="footer-brand" aria-label="Amigo">
           <img src="../assets/amigo-mark.png" alt="Amigo" class="footer-brand-mark" width="64" height="64">
           <span>Amigo</span>
         </a>
-        <p>Швидкі та зрозумілі сайти для малого бізнесу, з формою заявки і простою підтримкою після запуску.</p>
+        <p>Швидкі та зрозумілі сайти й landing page для малого бізнесу. Створені для заявок, SEO та подальшого розвитку.</p>
       </div>
-      <div>
-        <h2>Мовні версії</h2>
-        <div class="footer-links">
-          <a href="/">PL</a>
-          <a href="/uk/">UA</a>
-          <a href="/en/">EN</a>
+      <div class="footer-panel">
+        <h2>Навігація</h2>
+        <nav class="footer-links footer-nav" aria-label="Навігація в підвалі сайту">
+          <a href="/uk/">Головна</a>
+          <a href="/uk/services">Послуги</a>
+          <a href="/uk/portfolio">Портфоліо</a>
+          <a href="/uk/about">Про Amigo</a>
+          <a href="/uk/blog">Блог</a>
+          <a href="/uk/contact">Контакти</a>
+        </nav>
+      </div>
+      <div class="footer-panel">
+        <h2>Мови сайту</h2>
+        <nav class="footer-links footer-language-list" aria-label="Мови сайту">
+          <a href="/" class="footer-link-chip">Польська</a>
+          <a href="/uk/" class="footer-link-chip is-active" aria-current="page">Українська</a>
+          <a href="/en/" class="footer-link-chip">Англійська</a>
+        </nav>
+      </div>
+      <div class="footer-panel footer-contact-panel">
+        <h2>Почати проєкт</h2>
+        <p class="footer-contact-copy">Опишіть задачу через форму — ми підкажемо, який формат сайту краще підійде.</p>
+        <a href="/uk/contact" class="footer-cta-link">Обговорити проєкт</a>
+        <div class="footer-social-grid" aria-label="Швидкі канали зв'язку">
+          <a href="https://t.me/amigowebstudio" target="_blank" rel="noopener" class="footer-social-link is-primary">
+            <i data-lucide="send" class="icon" aria-hidden="true"></i>
+            <span>Telegram</span>
+          </a>
+          <a href="https://wa.me/+48511326741" target="_blank" rel="noopener" class="footer-social-link is-primary is-green">
+            <i data-lucide="message-circle" class="icon" aria-hidden="true"></i>
+            <span>WhatsApp</span>
+          </a>
+          <a href="https://www.instagram.com/amigowebstudio/" target="_blank" rel="noopener" class="footer-social-link is-secondary">
+            <i data-lucide="instagram" class="icon" aria-hidden="true"></i>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61590617216468" target="_blank" rel="noopener" class="footer-social-link is-secondary">
+            <i data-lucide="facebook" class="icon" aria-hidden="true"></i>
+            <span>Facebook</span>
+          </a>
         </div>
       </div>
-      <div>
-        <h2>Головна навігація</h2>
-        <div class="footer-links"><a href="/uk/">Головна</a><a href="/uk/about">Про нас</a><a href="/uk/portfolio">Портфоліо</a><a href="/uk/services">Послуги</a><a href="/uk/reviews">Відгуки</a><a href="/uk/blog">Блог</a><a href="/uk/contact">Контакти</a></div>
-      </div>
-      <div>
-        <h2>Швидкий контакт</h2>
-        <div class="messenger-links footer-social">
-          <a href="https://t.me/amigowebstudio" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="send" class="icon"></i> Telegram</a>
-          <a href="https://wa.me/+48511326741" target="_blank" rel="noopener" class="messenger-link messenger-link-green"><i data-lucide="message-circle" class="icon"></i> WhatsApp</a>
-          <a href="https://www.instagram.com/amigowebstudio/" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="instagram" class="icon"></i> Instagram</a>
-          <a href="https://www.facebook.com/profile.php?id=61590617216468" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="facebook" class="icon"></i> Facebook</a>
-        </div>
-        <p class="email-note">E-mail після надсилання форми</p>
+    </div>
+    <div class="footer-bottom footer-bottom-premium">
+      <p>© 2026 Amigo. Усі права захищені.</p>
+      <div class="footer-bottom-links">
+        <a href="#top" class="back-top" aria-label="Повернутися на початок сторінки">До початку <i data-lucide="arrow-up" class="icon icon-sm" aria-hidden="true"></i></a>
       </div>
     </div>
-    <div class="container footer-bottom">
-      <p><span>© </span><span data-year></span><span> Amigo. Усі права захищені.</span></p>
-      <a href="#top" class="back-top">Нагору <i data-lucide="arrow-up" class="icon icon-sm"></i></a>
-    </div>
-  </footer>
+  </div>
+</footer>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

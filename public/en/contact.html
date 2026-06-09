@@ -197,24 +197,19 @@
     </section>
     <section class="section">
       <div class="container contact-grid">
-        <div class="contact-copy reveal">
-          <p class="eyebrow">Other contact options</p>
-          <h2>Other contact options</h2>
-          <p>The form gathers basic information about the project, timeline, budget and domain situation.</p>
-          
-        <article class="contact-methods reveal">
-          <h2>Other contact options</h2>
-          <div class="messenger-links">
-            <a href="https://t.me/amigowebstudio" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="send" class="icon"></i> Telegram</a>
-            <a href="https://wa.me/+48511326741" target="_blank" rel="noopener" class="messenger-link messenger-link-green"><i data-lucide="message-circle" class="icon"></i> WhatsApp</a>
-            <a href="https://www.instagram.com/amigowebstudio/" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="instagram" class="icon"></i> Instagram</a>
-            <a href="https://www.facebook.com/profile.php?id=61590617216468" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="facebook" class="icon"></i> Facebook</a>
+        <div class="contact-copy contact-faq-column reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions before sending the form</h2>
+          <p>Short answers to help you fill out the form and understand the next step.</p>
+          <div class="contact-faq-list">
+            <article class="contact-faq-item"><h3>Do I need a full specification?</h3><p>No. A short description of your business, services and expected result is enough. If anything is missing, we will clarify it after you send the form.</p></article>
+            <article class="contact-faq-item"><h3>What should I write in “Briefly about the project”?</h3><p>Describe what kind of website you need, what business it is for, which services should be shown and whether you already have a logo, photos, text or example websites you like.</p></article>
+            <article class="contact-faq-item"><h3>What if I do not know the budget?</h3><p>You can choose “I do not know yet”. After a short brief, we will suggest the best website format and explain what affects the price.</p></article>
+            <article class="contact-faq-item"><h3>What if I do not have a domain yet?</h3><p>That is fine. You can select that you do not have a domain yet. If needed, we can help you choose and connect one.</p></article>
+            <article class="contact-faq-item"><h3>What happens after I send the form?</h3><p>We review the request, clarify the details and reply with the next step: website format, approximate scope and what should be prepared.</p></article>
           </div>
-          <p>Email after the form is sent</p>
-        </article>
         </div>
-        
-        <form class="contact-card contact-form reveal" novalidate data-language="en" data-success="Thank you! Your request has been sent. We will contact you with the next step." data-error="The request could not be sent. Please try again or message us directly." data-sending="Sending your request..." data-validation-name="Enter a name between 2 and 80 characters." data-validation-contact="Enter a contact between 3 and 120 characters." data-validation-message="Describe the project in more detail: minimum 10 characters." data-validation-turnstile="Please confirm that you are not a bot.">
+        <form class="contact-card contact-form reveal" novalidate data-language="en" data-success="Thank you! Your request has been sent. We will contact you with the next step." data-error="The request could not be sent. Please try again or message us directly." data-sending="Sending your request..." data-validation-name="Enter a name between 2 and 80 characters." data-validation-contact="Enter a contact between 3 and 120 characters." data-validation-message="Describe the project in more detail: minimum 20 characters." data-validation-turnstile="Please confirm that you are not a bot.">
           <div class="form-heading">
             <h2>Tell us about the project</h2>
             <p>A few concrete details are enough. We will reply with questions and the next step.</p>
@@ -234,14 +229,15 @@
           <div class="field-row">
             <label>
               <span>Project type</span>
-              <select name="projectType">
-                <option>Landing Page</option><option>Business website</option><option>Custom solution</option><option>Website support</option>
+              <select name="projectType" required>
+                <option value="" disabled selected>Choose a format</option><option>Landing Page</option><option>Business website</option><option>Custom solution</option><option>Website support</option>
               </select>
+              <small class="field-error" data-error-for="projectType"></small>
             </label>
             <label>
               <span>Budget</span>
               <select name="budget">
-                <option>Not sure yet</option><option>up to 1000 zl</option><option>1000-2500 zł</option><option>2500-5000 zł</option><option>5000+ zł</option>
+                <option>Not sure yet</option><option>up to $600</option><option>$600-$1200</option><option>$1200-$2500</option><option>$2500+</option>
               </select>
             </label>
           </div>
@@ -262,7 +258,7 @@
               <span>Project details</span>
               <span class="field-counter" data-counter>0/2000</span>
             </span>
-            <textarea name="message" rows="5" required minlength="10" maxlength="2000" placeholder="What should be built, what is the goal and what do you already have?"></textarea>
+            <textarea name="message" rows="5" required minlength="20" maxlength="2000" placeholder="What should be built, what is the goal and what do you already have?"></textarea>
             <small class="field-error" data-error-for="message"></small>
           </label>
           <input type="hidden" name="language" value="en">
@@ -277,68 +273,69 @@
         </form>
       </div>
     </section>
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-header reveal"><p class="eyebrow">FAQ</p><h2>Before sending</h2></div>
-        <div class="faq-list">
-
-          <details class="faq-item reveal" open>
-            <summary>How much does a website cost?</summary>
-            <p>The price depends on pages, languages, integrations and content. After a short brief, you receive a clear scope and quote.</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>Landing page or business website?</summary>
-            <p>A landing page fits one service or campaign. A business website is better when several parts of the offer need space.</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>Will the website be SEO-ready?</summary>
-            <p>Yes. Basic tags, headings, URL structure, speed and sitemap are prepared from the start.</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>Does the contact form work?</summary>
-            <p>Yes. The form sends data to the Cloudflare Pages Function at /api/contact and keeps CORS and Turnstile protection.</p>
-          </details>
-        </div></div>
-    </section>
   </main>
   
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
+  <footer class="footer footer-premium">
+  <div class="container footer-shell">
+    <div class="footer-grid footer-grid-premium">
+      <div class="footer-panel footer-brand-panel">
         <a href="/en/" class="footer-brand" aria-label="Amigo">
           <img src="../assets/amigo-mark.png" alt="Amigo" class="footer-brand-mark" width="64" height="64">
           <span>Amigo</span>
         </a>
-        <p>Fast, clear websites and landing pages for small businesses, with a practical form and simple support after launch.</p>
+        <p>Fast, clear websites and landing pages for small businesses. Built for contact, SEO and future growth.</p>
       </div>
-      <div>
+      <div class="footer-panel">
+        <h2>Navigation</h2>
+        <nav class="footer-links footer-nav" aria-label="Footer navigation">
+          <a href="/en/">Home</a>
+          <a href="/en/services">Services</a>
+          <a href="/en/portfolio">Portfolio</a>
+          <a href="/en/about">About</a>
+          <a href="/en/blog">Blog</a>
+          <a href="/en/contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-panel">
         <h2>Language versions</h2>
-        <div class="footer-links">
-          <a href="/">PL</a>
-          <a href="/uk/">UA</a>
-          <a href="/en/">EN</a>
+        <nav class="footer-links footer-language-list" aria-label="Language versions">
+          <a href="/" class="footer-link-chip">Polski</a>
+          <a href="/uk/" class="footer-link-chip">Українська</a>
+          <a href="/en/" class="footer-link-chip is-active" aria-current="page">English</a>
+        </nav>
+      </div>
+      <div class="footer-panel footer-contact-panel">
+        <h2>Start a project</h2>
+        <p class="footer-contact-copy">Describe the task through the form — we will suggest the best website format.</p>
+        <a href="/en/contact" class="footer-cta-link">Discuss project</a>
+        <div class="footer-social-grid" aria-label="Quick contact channels">
+          <a href="https://t.me/amigowebstudio" target="_blank" rel="noopener" class="footer-social-link is-primary">
+            <i data-lucide="send" class="icon" aria-hidden="true"></i>
+            <span>Telegram</span>
+          </a>
+          <a href="https://wa.me/+48511326741" target="_blank" rel="noopener" class="footer-social-link is-primary is-green">
+            <i data-lucide="message-circle" class="icon" aria-hidden="true"></i>
+            <span>WhatsApp</span>
+          </a>
+          <a href="https://www.instagram.com/amigowebstudio/" target="_blank" rel="noopener" class="footer-social-link is-secondary">
+            <i data-lucide="instagram" class="icon" aria-hidden="true"></i>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61590617216468" target="_blank" rel="noopener" class="footer-social-link is-secondary">
+            <i data-lucide="facebook" class="icon" aria-hidden="true"></i>
+            <span>Facebook</span>
+          </a>
         </div>
       </div>
-      <div>
-        <h2>Main navigation</h2>
-        <div class="footer-links"><a href="/en/">Home</a><a href="/en/about">About</a><a href="/en/portfolio">Portfolio</a><a href="/en/services">Services</a><a href="/en/reviews">Reviews</a><a href="/en/blog">Blog</a><a href="/en/contact">Contact</a></div>
-      </div>
-      <div>
-        <h2>Quick contact</h2>
-        <div class="messenger-links footer-social">
-          <a href="https://t.me/amigowebstudio" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="send" class="icon"></i> Telegram</a>
-          <a href="https://wa.me/+48511326741" target="_blank" rel="noopener" class="messenger-link messenger-link-green"><i data-lucide="message-circle" class="icon"></i> WhatsApp</a>
-          <a href="https://www.instagram.com/amigowebstudio/" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="instagram" class="icon"></i> Instagram</a>
-          <a href="https://www.facebook.com/profile.php?id=61590617216468" target="_blank" rel="noopener" class="messenger-link"><i data-lucide="facebook" class="icon"></i> Facebook</a>
-        </div>
-        <p class="email-note">Email after the form is sent</p>
+    </div>
+    <div class="footer-bottom footer-bottom-premium">
+      <p>© 2026 Amigo. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#top" class="back-top" aria-label="Back to top">Back to top <i data-lucide="arrow-up" class="icon icon-sm" aria-hidden="true"></i></a>
       </div>
     </div>
-    <div class="container footer-bottom">
-      <p><span>© </span><span data-year></span><span> Amigo. All rights reserved.</span></p>
-      <a href="#top" class="back-top">Back to top <i data-lucide="arrow-up" class="icon icon-sm"></i></a>
-    </div>
-  </footer>
+  </div>
+</footer>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

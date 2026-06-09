@@ -553,6 +553,53 @@ const getValue = (form, name) => {
   return field && "value" in field ? String(field.value).trim() : "";
 };
 
+const contactValidationMessages = {
+  pl: {
+    name: "Wpisz imię - minimum 2 znaki.",
+    contact: "Podaj kontakt: email, Telegram, WhatsApp albo telefon.",
+    contactInvalid: "Sprawdź kontakt - możesz podać email, Telegram, WhatsApp albo telefon.",
+    projectType: "Wybierz format strony.",
+    message: "Krótko opisz projekt.",
+    messageShort: "Opisz projekt trochę dokładniej - minimum 20 znaków.",
+    messageLong: "Tekst jest zbyt długi. Skróć opis do dozwolonego limitu.",
+    turnstile: "Potwierdź weryfikację bezpieczeństwa i spróbuj ponownie."
+  },
+  en: {
+    name: "Enter your name - at least 2 characters.",
+    contact: "Enter a contact method: email, Telegram, WhatsApp or phone.",
+    contactInvalid: "Check the contact field - you can enter email, Telegram, WhatsApp or phone.",
+    projectType: "Choose a website format.",
+    message: "Briefly describe the project.",
+    messageShort: "Describe the project in a bit more detail - at least 20 characters.",
+    messageLong: "The text is too long. Shorten the description to the allowed limit.",
+    turnstile: "Complete the security check and try again."
+  },
+  uk: {
+    name: "Вкажіть ім'я - мінімум 2 символи.",
+    contact: "Вкажіть контакт: email, Telegram, WhatsApp або телефон.",
+    contactInvalid: "Перевірте контакт - можна вказати email, Telegram, WhatsApp або телефон.",
+    projectType: "Оберіть формат сайту.",
+    message: "Коротко опишіть проєкт.",
+    messageShort: "Опишіть проєкт трохи детальніше - мінімум 20 символів.",
+    messageLong: "Текст занадто довгий. Скоротіть опис до дозволеного ліміту.",
+    turnstile: "Підтвердіть перевірку безпеки та спробуйте ще раз."
+  }
+};
+
+const getValidationMessage = (form, key) => {
+  const language = form.dataset.language || "pl";
+  return contactValidationMessages[language]?.[key] || contactValidationMessages.pl[key] || "";
+};
+
+const isPlausibleContact = (value) => {
+  const contact = value.trim();
+  if (!contact) return false;
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)
+    || /^@?[a-zA-Z0-9_]{4,32}$/.test(contact)
+    || /^\+?[0-9][0-9\s().-]{6,}$/.test(contact)
+    || /\b(telegram|whatsapp|wa)\b/i.test(contact);
+};
+
 const setFormStatus = (form, message, isError = false) => {
   const status = form.querySelector(".form-status");
   if (!status) return;
@@ -565,7 +612,14 @@ const setFieldError = (form, name, message) => {
   const error = form.querySelector(`[data-error-for="${name}"]`);
   const field = getField(form, name);
   const label = field ? field.closest("label") : null;
-  if (error) error.textContent = message;
+  if (error) {
+    error.textContent = message;
+    if (!error.id) error.id = `${name}-error`;
+  }
+  if (field) {
+    field.setAttribute("aria-invalid", "true");
+    if (error?.id) field.setAttribute("aria-describedby", error.id);
+  }
   if (label) {
     label.classList.add("form-field-invalid");
     label.classList.remove("form-field-valid");
@@ -577,6 +631,12 @@ const clearFieldError = (form, name) => {
   const field = getField(form, name);
   const label = field ? field.closest("label") : null;
   if (error) error.textContent = "";
+  if (field) {
+    field.removeAttribute("aria-invalid");
+    if (error?.id && field.getAttribute("aria-describedby") === error.id) {
+      field.removeAttribute("aria-describedby");
+    }
+  }
   if (label) {
     label.classList.remove("form-field-invalid");
     if (getValue(form, name)) {
@@ -592,31 +652,48 @@ const validateForm = (form) => {
   let isValid = true;
   const name = getValue(form, "name");
   const contact = getValue(form, "contact");
+  const projectType = getValue(form, "projectType");
   const message = getValue(form, "message");
 
   if (name.length < 2 || name.length > 80) {
-    setFieldError(form, "name", form.dataset.validationName);
+    setFieldError(form, "name", getValidationMessage(form, "name"));
     isValid = false;
   } else {
     clearFieldError(form, "name");
   }
 
   if (contact.length < 3 || contact.length > 120) {
-    setFieldError(form, "contact", form.dataset.validationContact);
+    setFieldError(form, "contact", getValidationMessage(form, "contact"));
+    isValid = false;
+  } else if (!isPlausibleContact(contact)) {
+    setFieldError(form, "contact", getValidationMessage(form, "contactInvalid"));
     isValid = false;
   } else {
     clearFieldError(form, "contact");
   }
 
-  if (message.length < 10 || message.length > 2000) {
-    setFieldError(form, "message", form.dataset.validationMessage);
+  if (!projectType) {
+    setFieldError(form, "projectType", getValidationMessage(form, "projectType"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "projectType");
+  }
+
+  if (!message) {
+    setFieldError(form, "message", getValidationMessage(form, "message"));
+    isValid = false;
+  } else if (message.length < 20) {
+    setFieldError(form, "message", getValidationMessage(form, "messageShort"));
+    isValid = false;
+  } else if (message.length > 2000) {
+    setFieldError(form, "message", getValidationMessage(form, "messageLong"));
     isValid = false;
   } else {
     clearFieldError(form, "message");
   }
 
   if (requiresTurnstile(form) && !hasTurnstileResponse(form)) {
-    setFormStatus(form, form.dataset.validationTurnstile, true);
+    setFormStatus(form, getValidationMessage(form, "turnstile"), true);
     isValid = false;
   }
 
@@ -627,7 +704,9 @@ const updateCounter = (form) => {
   const textarea = getField(form, "message");
   const counter = form.querySelector("[data-counter]");
   if (textarea && counter) {
-    counter.textContent = `${String(textarea.value || "").length}/2000`;
+    const length = String(textarea.value || "").length;
+    counter.textContent = `${length}/2000`;
+    counter.classList.toggle("is-error", length > 2000);
   }
 };
 
@@ -637,13 +716,14 @@ document.querySelectorAll(".contact-form").forEach((form) => {
     sourcePage.value = window.location.href;
   }
 
-  ["name", "contact", "message"].forEach((name) => {
+  ["name", "contact", "projectType", "message"].forEach((name) => {
     const field = getField(form, name);
     if (!field) return;
     field.addEventListener("input", () => {
       if (name === "message") updateCounter(form);
       clearFieldError(form, name);
     });
+    field.addEventListener("change", () => clearFieldError(form, name));
   });
 
   updateCounter(form);
