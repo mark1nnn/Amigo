@@ -2763,7 +2763,7 @@ textarea:focus {
 
 .hero-frame-bg {
   position: absolute;
-  inset: -6%;
+  inset: -8%;
   z-index: 0;
   overflow: hidden;
   pointer-events: none;

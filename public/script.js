@@ -975,248 +975,228 @@ const initReviewsPage = () => {
 };
 
 function initHeroFrameScroll() {
-  const hero = document.querySelector("[data-hero-frame-scroll]");
-  if (!hero) return;
+  const heroes = document.querySelectorAll("[data-hero-frame-scroll]");
+  if (!heroes.length) return;
 
-  const canvas = hero.querySelector(".hero-frame-canvas");
-  const visual = hero.querySelector(".scroll-hero-visual");
+  heroes.forEach((hero) => {
+    const canvas = hero.querySelector(".hero-frame-canvas");
+    const visual = hero.querySelector(".scroll-hero-visual");
 
-  if (!canvas || !visual) return;
+    if (!canvas || !visual) return;
 
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-  const frameCount = 120;
-  const priorityFrameCount = 16;
-  const frameBasePath = "/assets/hero-globe-frames/";
-  const framePath = (index) => `${frameBasePath}frame-${String(index).padStart(3, "0")}.webp`;
+    const frameCount = 120;
+    const frameBasePath = "/assets/hero-globe-frames/";
+    const framePath = (index) => `${frameBasePath}frame-${String(index).padStart(3, "0")}.webp`;
 
-  const images = new Array(frameCount);
-  const framePromises = new Array(frameCount);
-  const loaded = new Array(frameCount).fill(false);
+    const images = new Array(frameCount);
+    const loaded = new Array(frameCount).fill(false);
 
-  let targetProgress = 0;
-  let currentProgress = 0;
-  let rafId = null;
-  let lastFrameIndex = -1;
-  let requestedFrameIndex = 0;
-  let hasStartedLoadingRest = false;
+    let targetProgress = 0;
+    let currentProgress = 0;
+    let rafId = null;
+    let lastFrameIndex = -1;
+    let restLoadingStarted = false;
 
-  ctx.imageSmoothingEnabled = true;
-  ctx.imageSmoothingQuality = "high";
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
 
-  function clamp(value, min, max) {
-    return Math.min(Math.max(value, min), max);
-  }
+    function resizeCanvasToDisplaySize() {
+      const rect = visual.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const width = Math.max(1, Math.round(rect.width * dpr));
+      const height = Math.max(1, Math.round(rect.height * dpr));
 
-  function loadFrame(index) {
-    if (loaded[index]) return Promise.resolve(images[index]);
-    if (framePromises[index]) return framePromises[index];
+      if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
+      }
+    }
 
-    framePromises[index] = new Promise((resolve) => {
-      const img = new Image();
-      img.decoding = "async";
+    function loadFrame(index) {
+      if (images[index]) return Promise.resolve(images[index]);
 
-      img.onload = () => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.decoding = "async";
+        img.src = framePath(index);
+
+        img.onload = () => {
+          loaded[index] = true;
+          resolve(img);
+        };
+
+        img.onerror = () => {
+          console.warn(`Hero frame failed to load: ${framePath(index)}`);
+          resolve(null);
+        };
+
         images[index] = img;
-        loaded[index] = true;
-        resolve(img);
-      };
-
-      img.onerror = () => {
-        resolve(null);
-      };
-
-      img.src = framePath(index);
-    });
-
-    return framePromises[index];
-  }
-
-  function drawCoverImage(img) {
-    if (!img || !img.complete) return;
-
-    const canvasWidth = canvas.width;
-    const canvasHeight = canvas.height;
-    const imageWidth = img.naturalWidth;
-    const imageHeight = img.naturalHeight;
-    const canvasRatio = canvasWidth / canvasHeight;
-    const imageRatio = imageWidth / imageHeight;
-
-    let sourceX = 0;
-    let sourceY = 0;
-    let sourceWidth = imageWidth;
-    let sourceHeight = imageHeight;
-
-    if (imageRatio > canvasRatio) {
-      sourceWidth = imageHeight * canvasRatio;
-      sourceX = (imageWidth - sourceWidth) / 2;
-    } else {
-      sourceHeight = imageWidth / canvasRatio;
-      sourceY = (imageHeight - sourceHeight) / 2;
-    }
-
-    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-    ctx.drawImage(img, sourceX, sourceY, sourceWidth, sourceHeight, 0, 0, canvasWidth, canvasHeight);
-  }
-
-  function resizeCanvasToDisplaySize() {
-    const rect = visual.getBoundingClientRect();
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const width = Math.max(1, Math.round(rect.width * dpr));
-    const height = Math.max(1, Math.round(rect.height * dpr));
-
-    if (canvas.width !== width || canvas.height !== height) {
-      canvas.width = width;
-      canvas.height = height;
-    }
-  }
-
-  function drawFrame(index, force = false) {
-    requestedFrameIndex = index;
-    const img = images[index];
-
-    if (!img || !loaded[index]) return;
-    if (!force && index === lastFrameIndex && visual.classList.contains("is-frame-ready")) return;
-
-    resizeCanvasToDisplaySize();
-    drawCoverImage(img);
-    lastFrameIndex = index;
-    visual.classList.add("is-frame-ready");
-  }
-
-  function requestFrame(index) {
-    requestedFrameIndex = index;
-
-    if (!images[index] || !loaded[index]) {
-      loadFrame(index).then(() => {
-        if (requestedFrameIndex === index) {
-          drawFrame(index);
-        }
       });
     }
-  }
 
-  function preloadPriorityFrames() {
-    const promises = [];
+    function drawCoverImage(img) {
+      if (!img || !img.complete) return;
 
-    for (let i = 0; i < priorityFrameCount; i += 1) {
-      promises.push(loadFrame(i));
-    }
+      resizeCanvasToDisplaySize();
 
-    return Promise.all(promises).then(() => {
-      drawFrame(lastFrameIndex >= 0 ? lastFrameIndex : 0, true);
-    });
-  }
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+      const imageWidth = img.naturalWidth;
+      const imageHeight = img.naturalHeight;
+      const canvasRatio = canvasWidth / canvasHeight;
+      const imageRatio = imageWidth / imageHeight;
 
-  function preloadRestFrames() {
-    if (hasStartedLoadingRest) return;
-    hasStartedLoadingRest = true;
+      let sourceX = 0;
+      let sourceY = 0;
+      let sourceWidth = imageWidth;
+      let sourceHeight = imageHeight;
 
-    let index = priorityFrameCount;
-
-    function schedule(callback) {
-      if ("requestIdleCallback" in window) {
-        window.requestIdleCallback(callback, { timeout: 800 });
+      if (imageRatio > canvasRatio) {
+        sourceWidth = imageHeight * canvasRatio;
+        sourceX = (imageWidth - sourceWidth) / 2;
       } else {
-        window.setTimeout(callback, 80);
+        sourceHeight = imageWidth / canvasRatio;
+        sourceY = (imageHeight - sourceHeight) / 2;
       }
+
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      ctx.drawImage(
+        img,
+        sourceX,
+        sourceY,
+        sourceWidth,
+        sourceHeight,
+        0,
+        0,
+        canvasWidth,
+        canvasHeight
+      );
     }
 
-    function loadNextBatch() {
-      const batchSize = 6;
-      const batch = [];
+    function drawFrame(index) {
+      const img = images[index];
 
-      for (let i = 0; i < batchSize && index < frameCount; i += 1) {
-        batch.push(loadFrame(index));
-        index += 1;
+      if (!img || !loaded[index]) return;
+      if (index === lastFrameIndex && visual.classList.contains("is-frame-ready")) return;
+
+      drawCoverImage(img);
+      lastFrameIndex = index;
+      visual.classList.add("is-frame-ready");
+    }
+
+    function preloadPriorityFrames() {
+      const priorityCount = 16;
+      const promises = [];
+
+      for (let i = 0; i < priorityCount; i += 1) {
+        promises.push(loadFrame(i));
       }
 
-      Promise.all(batch).then(() => {
-        if (index < frameCount) {
-          schedule(loadNextBatch);
-        }
+      Promise.all(promises).then(() => {
+        drawFrame(0);
       });
     }
 
-    schedule(loadNextBatch);
-  }
+    function preloadRestFrames() {
+      if (restLoadingStarted || reduceMotion || isMobile) return;
+      restLoadingStarted = true;
 
-  function getProgress() {
-    const rect = hero.getBoundingClientRect();
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      let index = 16;
 
-    return clamp(-rect.top / (viewportHeight * 0.9), 0, 1);
-  }
+      function loadNextBatch() {
+        const batchSize = 6;
+        const batch = [];
 
-  function updateTarget() {
-    targetProgress = getProgress();
+        for (let i = 0; i < batchSize && index < frameCount; i += 1) {
+          batch.push(loadFrame(index));
+          index += 1;
+        }
 
-    if (!rafId) {
-      rafId = window.requestAnimationFrame(animate);
+        Promise.all(batch).then(() => {
+          if (index < frameCount) {
+            if ("requestIdleCallback" in window) {
+              window.requestIdleCallback(loadNextBatch, { timeout: 800 });
+            } else {
+              window.setTimeout(loadNextBatch, 80);
+            }
+          }
+        });
+      }
+
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(loadNextBatch, { timeout: 800 });
+      } else {
+        window.setTimeout(loadNextBatch, 80);
+      }
     }
-  }
 
-  function animate() {
-    const smoothFactor = 0.11;
+    function getProgress() {
+      const rect = hero.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
-    currentProgress += (targetProgress - currentProgress) * smoothFactor;
-
-    const frameIndex = Math.round(currentProgress * (frameCount - 1));
-    requestFrame(frameIndex);
-
-    const translateY = currentProgress * 110;
-    const translateX = currentProgress * -30;
-    const scale = 1.04 + currentProgress * 0.08;
-
-    visual.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
-
-    hero.dataset.frameProgress = currentProgress.toFixed(3);
-    hero.dataset.frameTarget = targetProgress.toFixed(3);
-    hero.dataset.frameIndex = String(frameIndex);
-
-    if (Math.abs(targetProgress - currentProgress) > 0.001) {
-      rafId = window.requestAnimationFrame(animate);
-    } else {
-      currentProgress = targetProgress;
-      rafId = null;
+      return clamp(-rect.top / (viewportHeight * 0.9), 0, 1);
     }
-  }
 
-  function redrawCurrentFrame() {
-    if (lastFrameIndex >= 0) {
-      drawFrame(lastFrameIndex, true);
-    } else {
-      requestFrame(0);
+    function updateTarget() {
+      targetProgress = getProgress();
+      preloadRestFrames();
+
+      if (!rafId) {
+        rafId = window.requestAnimationFrame(animate);
+      }
     }
-  }
 
-  resizeCanvasToDisplaySize();
-  loadFrame(0).then(() => drawFrame(0, true));
+    function animate() {
+      const smoothFactor = 0.11;
 
-  if (reduceMotion || isMobile) {
+      currentProgress += (targetProgress - currentProgress) * smoothFactor;
+
+      const frameIndex = Math.round(currentProgress * (frameCount - 1));
+      drawFrame(frameIndex);
+
+      const translateY = currentProgress * 72;
+      const translateX = currentProgress * -18;
+      const scale = 1.04 + currentProgress * 0.08;
+
+      visual.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
+
+      hero.dataset.frameProgress = currentProgress.toFixed(3);
+      hero.dataset.frameTarget = targetProgress.toFixed(3);
+      hero.dataset.frameIndex = String(frameIndex);
+
+      if (Math.abs(targetProgress - currentProgress) > 0.001) {
+        rafId = window.requestAnimationFrame(animate);
+      } else {
+        currentProgress = targetProgress;
+        rafId = null;
+      }
+    }
+
     resizeCanvasToDisplaySize();
-    visual.style.transform = "";
-    return;
-  }
 
-  preloadPriorityFrames().then(preloadRestFrames);
+    if (reduceMotion || isMobile) {
+      loadFrame(0).then(() => drawFrame(0));
+      return;
+    }
 
-  window.addEventListener("scroll", requestTick, { passive: true });
-  window.addEventListener("resize", () => {
-    resizeCanvasToDisplaySize();
-    redrawCurrentFrame();
-    requestTick();
-  });
+    preloadPriorityFrames();
 
-  function requestTick() {
+    window.addEventListener("scroll", updateTarget, { passive: true });
+    window.addEventListener("resize", () => {
+      resizeCanvasToDisplaySize();
+      drawFrame(lastFrameIndex >= 0 ? lastFrameIndex : 0);
+      updateTarget();
+    });
+
     updateTarget();
-  }
-
-  updateTarget();
+  });
 }
 
 document.querySelectorAll("[data-year]").forEach((element) => {
