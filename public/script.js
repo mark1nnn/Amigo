@@ -975,7 +975,7 @@ const initReviewsPage = () => {
 };
 
 const initHeroScrollVideo = () => {
-  const hero = document.querySelector(".hero-premium");
+  const hero = document.querySelector(".hero-premium, .hero, .premium-hero, .hero-section");
   const visual = document.querySelector(".scroll-hero-visual");
   const video = document.querySelector(".hero-scroll-video");
   if (!hero || !visual || !video) return;
@@ -984,7 +984,7 @@ const initHeroScrollVideo = () => {
   const mobileQuery = window.matchMedia("(max-width: 768px)");
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
   let ticking = false;
-  let ready = Number.isFinite(video.duration) && video.duration > 0;
+  let ready = video.readyState >= 1 && Number.isFinite(video.duration) && video.duration > 0;
   let disabledSettled = false;
 
   const resetVisual = () => {
@@ -1016,11 +1016,10 @@ const initHeroScrollVideo = () => {
 
     const rect = hero.getBoundingClientRect();
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    const progress = clamp(-rect.top / (viewportHeight * 1.05), 0, 1);
+    const progress = clamp(-rect.top / (viewportHeight * 0.95), 0, 1);
     const targetTime = progress * video.duration;
-    const translateY = progress * 34;
-    const translateX = progress * -10;
-    const scale = 1.02 + progress * 0.055;
+    const translateY = progress * 36;
+    const scale = 1.02 + progress * 0.045;
 
     try {
       video.currentTime = targetTime;
@@ -1028,7 +1027,7 @@ const initHeroScrollVideo = () => {
       return;
     }
 
-    visual.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
+    visual.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
   };
 
   const requestTick = () => {
@@ -1039,11 +1038,24 @@ const initHeroScrollVideo = () => {
   };
 
   video.pause();
+  video.muted = true;
+  video.playsInline = true;
 
-  video.addEventListener("loadedmetadata", () => {
+  const onReady = () => {
     ready = true;
+    try {
+      video.currentTime = 0;
+    } catch {
+      // Some browsers reject currentTime before metadata is available.
+    }
     requestTick();
-  }, { once: true });
+  };
+
+  if (ready) {
+    onReady();
+  } else {
+    video.addEventListener("loadedmetadata", onReady, { once: true });
+  }
 
   window.addEventListener("scroll", requestTick, { passive: true });
   window.addEventListener("resize", requestTick);
