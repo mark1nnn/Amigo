@@ -28,6 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="/assets/amigo-logo.png">
+  <link rel="preload" as="image" href="/assets/hero-digital-globe-poster.webp">
   <link rel="stylesheet" href="/styles.css">
   <link rel="icon" href="/favicon.ico?v=2" sizes="any">
   <link rel="icon" type="image/png" href="/assets/favicon-32.png?v=2" sizes="32x32">
@@ -183,14 +184,12 @@
             <a href="/uk/portfolio" class="button button-ghost button-large hero-secondary-cta">Переглянути портфоліо <i data-lucide="layout-dashboard" class="icon"></i></a>
           </div>
         </div>
-        <div class="hero-tech-stage reveal" aria-hidden="true">
-          <div class="tech-floor"></div>
-          <div class="tech-panel tech-panel-1"></div>
-          <div class="tech-panel tech-panel-2"></div>
-          <div class="tech-panel tech-panel-3"></div>
-          <div class="tech-line tech-line-1"></div>
-          <div class="tech-line tech-line-2"></div>
-          <div class="tech-line tech-line-3"></div>
+        <div class="hero-video-wrap scroll-hero-visual" aria-hidden="true">
+          <video class="hero-scroll-video" muted playsinline preload="metadata" poster="/assets/hero-digital-globe-poster.webp">
+            <source src="/assets/hero-digital-globe.webm" type="video/webm">
+            <source src="/assets/hero-digital-globe.mp4" type="video/mp4">
+          </video>
+          <div class="hero-video-glow" aria-hidden="true"></div>
         </div>
       </div>
     </section>

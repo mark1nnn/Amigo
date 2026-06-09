@@ -974,11 +974,97 @@ const initReviewsPage = () => {
   }).join("");
 };
 
+const initHeroScrollVideo = () => {
+  const hero = document.querySelector(".hero-premium");
+  const visual = document.querySelector(".scroll-hero-visual");
+  const video = document.querySelector(".hero-scroll-video");
+  if (!hero || !visual || !video) return;
+
+  const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const mobileQuery = window.matchMedia("(max-width: 768px)");
+  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+  let ticking = false;
+  let ready = Number.isFinite(video.duration) && video.duration > 0;
+  let disabledSettled = false;
+
+  const resetVisual = () => {
+    visual.style.transform = "";
+    try {
+      video.pause();
+      video.currentTime = 0;
+    } catch {
+      // Some browsers reject currentTime before metadata is available.
+    }
+  };
+
+  const shouldDisable = () => reduceMotionQuery.matches || mobileQuery.matches;
+
+  const update = () => {
+    ticking = false;
+
+    if (shouldDisable()) {
+      if (!disabledSettled) {
+        resetVisual();
+        disabledSettled = true;
+      }
+      return;
+    }
+
+    disabledSettled = false;
+
+    if (!ready || !video.duration) return;
+
+    const rect = hero.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const progress = clamp(-rect.top / (viewportHeight * 1.05), 0, 1);
+    const targetTime = progress * video.duration;
+    const translateY = progress * 34;
+    const translateX = progress * -10;
+    const scale = 1.02 + progress * 0.055;
+
+    try {
+      video.currentTime = targetTime;
+    } catch {
+      return;
+    }
+
+    visual.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
+  };
+
+  const requestTick = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  };
+
+  video.pause();
+
+  video.addEventListener("loadedmetadata", () => {
+    ready = true;
+    requestTick();
+  }, { once: true });
+
+  window.addEventListener("scroll", requestTick, { passive: true });
+  window.addEventListener("resize", requestTick);
+
+  [reduceMotionQuery, mobileQuery].forEach((query) => {
+    if (query.addEventListener) {
+      query.addEventListener("change", requestTick);
+    } else if (query.addListener) {
+      query.addListener(requestTick);
+    }
+  });
+
+  requestTick();
+};
+
 document.querySelectorAll("[data-year]").forEach((element) => {
   element.textContent = new Date().getFullYear();
 });
 
 initPortfolioSections();
 initReviewsPage();
+initHeroScrollVideo();
 refreshIcons();
 renderMenuButton();
