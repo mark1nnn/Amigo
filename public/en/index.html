@@ -120,7 +120,7 @@
 </head>
 <body data-page="home" data-language="en">
   
-  <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">Skip to content</a>
   <header id="site-header" class="site-header premium-header">
     <nav class="nav premium-nav container" aria-label="Main navigation">
       <a href="/en/" class="brand brand-logo premium-brand" aria-label="Amigo">
@@ -128,7 +128,7 @@
       </a>
       <div class="nav-shell" aria-hidden="false">
         <div class="nav-links premium-nav-links">
-          <a href="/en/" aria-current="page" data-page-link="home">Home</a>
+          <a href="/en/" data-page-link="home" aria-current="page">Home</a>
           <a href="/en/services" data-page-link="services">Services</a>
           <a href="/en/portfolio" data-page-link="portfolio">Portfolio</a>
           <a href="/en/reviews" data-page-link="reviews">Reviews</a>
@@ -157,7 +157,7 @@
     </nav>
     <div id="mobile-menu" class="mobile-panel premium-mobile-panel">
       <div class="mobile-links premium-mobile-links container">
-          <a href="/en/" aria-current="page" data-page-link="home">Home</a>
+          <a href="/en/" data-page-link="home" aria-current="page">Home</a>
           <a href="/en/services" data-page-link="services">Services</a>
           <a href="/en/portfolio" data-page-link="portfolio">Portfolio</a>
           <a href="/en/reviews" data-page-link="reviews">Reviews</a>
@@ -391,31 +391,43 @@
               <small class="field-error" data-error-for="contact"></small>
             </label>
           </div>
-          <div class="field-row">
+          <div class="field-row field-row-support">
             <label>
               <span>Project type</span>
               <select name="projectType" required>
-                <option value="" disabled selected>Choose a format</option><option>Landing Page</option><option>Business website</option><option>Custom solution</option><option>Website support</option>
+                <option value="" disabled selected>Choose a format</option><option>Landing page</option><option>Company website</option><option>Multilingual website</option><option>Contact form / lead form</option><option>Portfolio / service presentation</option><option>Other / not sure</option>
               </select>
               <small class="field-error" data-error-for="projectType"></small>
             </label>
+            <label>
+              <span>Will the website need support after launch?</span>
+              <select name="futureSupport">
+                <option>Not sure yet</option><option>Yes, regular support</option><option>Yes, occasional updates</option><option>Probably not</option>
+              </select>
+              <small class="field-error" aria-hidden="true"></small>
+            </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Budget</span>
               <select name="budget">
                 <option>Not sure yet</option><option>up to $600</option><option>$600-$1200</option><option>$1200-$2500</option><option>$2500+</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
-          </div>
-          <div class="field-row">
             <label>
               <span>Deadline</span>
               <input type="text" name="deadline" maxlength="120" placeholder="for example, 2-4 weeks">
+              <small class="field-error" aria-hidden="true"></small>
             </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Domain</span>
               <select name="hasDomain">
                 <option>Not sure yet</option><option>I have a domain</option><option>I need a domain</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
           </div>
           <label>
@@ -440,7 +452,7 @@
     </section>
   </main>
   
-  <footer class="footer footer-premium">
+    <footer class="footer footer-premium">
   <div class="container footer-shell">
     <div class="footer-grid footer-grid-premium">
       <div class="footer-panel footer-brand-panel">
@@ -456,6 +468,7 @@
           <a href="/en/">Home</a>
           <a href="/en/services">Services</a>
           <a href="/en/portfolio">Portfolio</a>
+          <a href="/en/reviews">Reviews</a>
           <a href="/en/about">About</a>
           <a href="/en/blog">Blog</a>
           <a href="/en/contact">Contact</a>
@@ -464,8 +477,8 @@
       <div class="footer-panel">
         <h2>Language versions</h2>
         <nav class="footer-links footer-language-list" aria-label="Language versions">
-          <a href="/" class="footer-link-chip">Polski</a>
-          <a href="/uk/" class="footer-link-chip">Українська</a>
+          <a href="/" class="footer-link-chip">Polish</a>
+          <a href="/uk/" class="footer-link-chip">Ukrainian</a>
           <a href="/en/" class="footer-link-chip is-active" aria-current="page">English</a>
         </nav>
       </div>
@@ -501,6 +514,7 @@
     </div>
   </div>
 </footer>
+
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

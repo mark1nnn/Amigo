@@ -9,25 +9,36 @@ Cloudflare Pages
 Cloudflare Pages settings:
 
 * Framework preset: None
-* Build command: exit 0
+* Build command: npm run build
 * Build output directory: public
 * Production branch: main
 
+## Static HTML build
+
+This project uses a small Node.js build step to keep the deployed site as complete static HTML while avoiding duplicated header and footer markup.
+
+* Edit shared headers and footers only in `src/components/`.
+* Edit page templates only in `src/pages/`.
+* Run `npm run build` before preview or deploy.
+* `public/*.html`, `public/en/*.html`, `public/uk/*.html`, and blog article HTML files are generated output.
+* Do not manually edit generated header or footer markup inside `public/` HTML files.
+* The private review pages (`/review`, `/en/review`, `/uk/review`) intentionally remain `noindex`.
+
 ## Site structure
 
-The live static site is served from `public/`.
+The live static site is served from generated files in `public/`.
 
-Primary Polish page files live at the root of `public/`:
+Primary Polish source page templates live at the root of `src/pages/`:
 
 * `/`
-* `public/about.html`
-* `public/portfolio.html`
-* `public/services.html`
-* `public/reviews.html`
-* `public/blog.html`
-* `public/contact.html`
+* `src/pages/about.html`
+* `src/pages/portfolio.html`
+* `src/pages/services.html`
+* `src/pages/reviews.html`
+* `src/pages/blog.html`
+* `src/pages/contact.html`
 
-Ukrainian and English versions live in `public/uk/` and `public/en/`.
+Ukrainian and English source versions live in `src/pages/uk/` and `src/pages/en/`.
 
 Cloudflare Pages serves `.html` files through clean URLs such as `/about`, `/services`, `/uk/about`, and `/en/about`. Do not add `_redirects` rules that rewrite `/about` to `/about.html`; that can create a self-redirect loop with Cloudflare's pretty URL handling.
 
@@ -70,7 +81,7 @@ In Cloudflare Dashboard -> Turnstile -> Add widget:
 
 After creating the widget:
 
-1. Add the public Site Key to every contact form page if the key changes: `public/index.html`, `public/contact.html`, `public/uk/index.html`, `public/uk/contact.html`, `public/en/index.html`, and `public/en/contact.html`.
+1. Add the public Site Key to every contact form source page if the key changes: `src/pages/index.html`, `src/pages/contact.html`, `src/pages/uk/index.html`, `src/pages/uk/contact.html`, `src/pages/en/index.html`, and `src/pages/en/contact.html`, then run `npm run build`.
 2. Add the Secret Key to Cloudflare Pages Environment Variables as `TURNSTILE_SECRET_KEY`.
 
 Server-side Turnstile verification is implemented in `functions/api/contact.js` through:

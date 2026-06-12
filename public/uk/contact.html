@@ -121,10 +121,10 @@
         },
         {
           "@type": "Question",
-          "name": "Чи працює контактна форма?",
+          "name": "Чи можна замовити підтримку сайту після запуску?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Так. Форма надсилає дані до Cloudflare Pages Function за адресою /api/contact і зберігає CORS та Turnstile."
+            "text": "Так. У формі можна вказати, чи сайту потрібна регулярна підтримка, періодичні зміни або ви ще не впевнені. Це допомагає підібрати правильне рішення, витрати на обслуговування та обсяг подальшої підтримки."
           }
         }
       ]
@@ -136,7 +136,7 @@
 </head>
 <body data-page="contact" data-language="uk">
   
-  <a class="skip-link" href="#main">Перейти до контенту</a>
+    <a class="skip-link" href="#main">Перейти до контенту</a>
   <header id="site-header" class="site-header premium-header">
     <nav class="nav premium-nav container" aria-label="Головна навігація">
       <a href="/uk/" class="brand brand-logo premium-brand" aria-label="Amigo">
@@ -150,7 +150,7 @@
           <a href="/uk/reviews" data-page-link="reviews">Відгуки</a>
           <a href="/uk/about" data-page-link="about">Про Amigo</a>
           <a href="/uk/blog" data-page-link="blog">Блог</a>
-          <a href="/uk/contact" aria-current="page" data-page-link="contact">Контакти</a>
+          <a href="/uk/contact" data-page-link="contact" aria-current="page">Контакти</a>
         </div>
       </div>
       <div class="header-actions premium-header-actions">
@@ -179,7 +179,7 @@
           <a href="/uk/reviews" data-page-link="reviews">Відгуки</a>
           <a href="/uk/about" data-page-link="about">Про Amigo</a>
           <a href="/uk/blog" data-page-link="blog">Блог</a>
-          <a href="/uk/contact" aria-current="page" data-page-link="contact">Контакти</a>
+          <a href="/uk/contact" data-page-link="contact" aria-current="page">Контакти</a>
         <a href="/uk/contact" class="button button-primary mobile-cta">Обговорити проєкт</a>
       </div>
     </div>
@@ -213,7 +213,7 @@
             <article class="contact-faq-item"><h3>Що писати в полі “Коротко про проєкт”?</h3><p>Напишіть, який сайт потрібен, для якого бізнесу, які послуги треба показати, чи є логотип, фото, тексти або приклади сайтів, які вам подобаються.</p></article>
             <article class="contact-faq-item"><h3>Якщо я не знаю бюджет?</h3><p>Можна вибрати “Поки не знаю”. Після короткого брифу ми підкажемо, який формат сайту краще підійде і від чого залежить вартість.</p></article>
             <article class="contact-faq-item"><h3>Якщо в мене ще немає домену?</h3><p>Це нормально. У формі можна вказати, що домену ще немає. За потреби ми підкажемо, як його вибрати і підключити.</p></article>
-            <article class="contact-faq-item"><h3>Що буде після відправки форми?</h3><p>Ми переглянемо заявку, уточнимо деталі й відповімо з наступним кроком: формат сайту, орієнтовний обсяг робіт і що потрібно підготувати.</p></article>
+            <article class="contact-faq-item"><h3>Чи можна замовити підтримку сайту після запуску?</h3><p>Так. У формі можна вказати, чи сайту потрібна регулярна підтримка, періодичні зміни або ви ще не впевнені. Це допомагає підібрати правильне рішення, витрати на обслуговування та обсяг подальшої підтримки.</p></article>
           </div>
         </div>
         <form class="contact-card contact-form reveal" novalidate data-language="uk" data-success="Дякуємо! Заявку надіслано. Ми зв'яжемося з вами щодо наступного кроку." data-error="Не вдалося надіслати заявку. Спробуйте ще раз або напишіть напряму." data-sending="Надсилаємо заявку..." data-validation-name="Введіть ім'я від 2 до 80 символів." data-validation-contact="Введіть контакт від 3 до 120 символів." data-validation-message="Опишіть завдання детальніше: мінімум 20 символів." data-validation-turnstile="Підтвердіть, що ви не бот.">
@@ -233,31 +233,43 @@
               <small class="field-error" data-error-for="contact"></small>
             </label>
           </div>
-          <div class="field-row">
+          <div class="field-row field-row-support">
             <label>
               <span>Тип проєкту</span>
               <select name="projectType" required>
-                <option value="" disabled selected>Оберіть формат</option><option>Landing Page</option><option>Сайт компанії</option><option>Індивідуальне рішення</option><option>Підтримка сайту</option>
+                <option value="" disabled selected>Оберіть формат</option><option>Лендінг</option><option>Сайт компанії</option><option>Багатомовний сайт</option><option>Контактна форма / форма заявок</option><option>Портфоліо / презентація послуг</option><option>Інше / не знаю</option>
               </select>
               <small class="field-error" data-error-for="projectType"></small>
             </label>
+            <label>
+              <span>Чи буде сайту потрібна підтримка після запуску?</span>
+              <select name="futureSupport">
+                <option>Ще не знаю</option><option>Так, регулярна підтримка</option><option>Так, періодичні зміни</option><option>Скоріш за все ні</option>
+              </select>
+              <small class="field-error" aria-hidden="true"></small>
+            </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Бюджет</span>
               <select name="budget">
                 <option>Поки не знаю</option><option>до $600</option><option>$600-$1200</option><option>$1200-$2500</option><option>$2500+</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
-          </div>
-          <div class="field-row">
             <label>
               <span>Термін</span>
               <input type="text" name="deadline" maxlength="120" placeholder="наприклад, 2-4 тижні">
+              <small class="field-error" aria-hidden="true"></small>
             </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Домен</span>
               <select name="hasDomain">
                 <option>Поки не знаю</option><option>У мене є домен</option><option>Потрібен домен</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
           </div>
           <label>
@@ -282,7 +294,7 @@
     </section>
   </main>
   
-  <footer class="footer footer-premium">
+    <footer class="footer footer-premium">
   <div class="container footer-shell">
     <div class="footer-grid footer-grid-premium">
       <div class="footer-panel footer-brand-panel">
@@ -298,6 +310,7 @@
           <a href="/uk/">Головна</a>
           <a href="/uk/services">Послуги</a>
           <a href="/uk/portfolio">Портфоліо</a>
+          <a href="/uk/reviews">Відгуки</a>
           <a href="/uk/about">Про Amigo</a>
           <a href="/uk/blog">Блог</a>
           <a href="/uk/contact">Контакти</a>
@@ -306,9 +319,9 @@
       <div class="footer-panel">
         <h2>Мови сайту</h2>
         <nav class="footer-links footer-language-list" aria-label="Мови сайту">
-          <a href="/" class="footer-link-chip">Польська</a>
-          <a href="/uk/" class="footer-link-chip is-active" aria-current="page">Українська</a>
-          <a href="/en/" class="footer-link-chip">Англійська</a>
+          <a href="/contact" class="footer-link-chip">Польська</a>
+          <a href="/uk/contact" class="footer-link-chip is-active" aria-current="page">Українська</a>
+          <a href="/en/contact" class="footer-link-chip">Англійська</a>
         </nav>
       </div>
       <div class="footer-panel footer-contact-panel">
@@ -343,6 +356,7 @@
     </div>
   </div>
 </footer>
+
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

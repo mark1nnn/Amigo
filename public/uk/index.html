@@ -120,7 +120,7 @@
 </head>
 <body data-page="home" data-language="uk">
   
-  <a class="skip-link" href="#main">Перейти до контенту</a>
+    <a class="skip-link" href="#main">Перейти до контенту</a>
   <header id="site-header" class="site-header premium-header">
     <nav class="nav premium-nav container" aria-label="Головна навігація">
       <a href="/uk/" class="brand brand-logo premium-brand" aria-label="Amigo">
@@ -128,7 +128,7 @@
       </a>
       <div class="nav-shell" aria-hidden="false">
         <div class="nav-links premium-nav-links">
-          <a href="/uk/" aria-current="page" data-page-link="home">Головна</a>
+          <a href="/uk/" data-page-link="home" aria-current="page">Головна</a>
           <a href="/uk/services" data-page-link="services">Послуги</a>
           <a href="/uk/portfolio" data-page-link="portfolio">Портфоліо</a>
           <a href="/uk/reviews" data-page-link="reviews">Відгуки</a>
@@ -157,7 +157,7 @@
     </nav>
     <div id="mobile-menu" class="mobile-panel premium-mobile-panel">
       <div class="mobile-links premium-mobile-links container">
-          <a href="/uk/" aria-current="page" data-page-link="home">Головна</a>
+          <a href="/uk/" data-page-link="home" aria-current="page">Головна</a>
           <a href="/uk/services" data-page-link="services">Послуги</a>
           <a href="/uk/portfolio" data-page-link="portfolio">Портфоліо</a>
           <a href="/uk/reviews" data-page-link="reviews">Відгуки</a>
@@ -391,31 +391,43 @@
               <small class="field-error" data-error-for="contact"></small>
             </label>
           </div>
-          <div class="field-row">
+          <div class="field-row field-row-support">
             <label>
               <span>Тип проєкту</span>
               <select name="projectType" required>
-                <option value="" disabled selected>Оберіть формат</option><option>Landing Page</option><option>Сайт компанії</option><option>Індивідуальне рішення</option><option>Підтримка сайту</option>
+                <option value="" disabled selected>Оберіть формат</option><option>Лендінг</option><option>Сайт компанії</option><option>Багатомовний сайт</option><option>Контактна форма / форма заявок</option><option>Портфоліо / презентація послуг</option><option>Інше / не знаю</option>
               </select>
               <small class="field-error" data-error-for="projectType"></small>
             </label>
+            <label>
+              <span>Чи буде сайту потрібна підтримка після запуску?</span>
+              <select name="futureSupport">
+                <option>Ще не знаю</option><option>Так, регулярна підтримка</option><option>Так, періодичні зміни</option><option>Скоріш за все ні</option>
+              </select>
+              <small class="field-error" aria-hidden="true"></small>
+            </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Бюджет</span>
               <select name="budget">
                 <option>Поки не знаю</option><option>до $600</option><option>$600-$1200</option><option>$1200-$2500</option><option>$2500+</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
-          </div>
-          <div class="field-row">
             <label>
               <span>Термін</span>
               <input type="text" name="deadline" maxlength="120" placeholder="наприклад, 2-4 тижні">
+              <small class="field-error" aria-hidden="true"></small>
             </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Домен</span>
               <select name="hasDomain">
                 <option>Поки не знаю</option><option>У мене є домен</option><option>Потрібен домен</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
           </div>
           <label>
@@ -440,7 +452,7 @@
     </section>
   </main>
   
-  <footer class="footer footer-premium">
+    <footer class="footer footer-premium">
   <div class="container footer-shell">
     <div class="footer-grid footer-grid-premium">
       <div class="footer-panel footer-brand-panel">
@@ -456,6 +468,7 @@
           <a href="/uk/">Головна</a>
           <a href="/uk/services">Послуги</a>
           <a href="/uk/portfolio">Портфоліо</a>
+          <a href="/uk/reviews">Відгуки</a>
           <a href="/uk/about">Про Amigo</a>
           <a href="/uk/blog">Блог</a>
           <a href="/uk/contact">Контакти</a>
@@ -501,6 +514,7 @@
     </div>
   </div>
 </footer>
+
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

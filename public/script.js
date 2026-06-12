@@ -8,15 +8,22 @@ const iconTemplates = {
   "facebook": '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>',
   "handshake": '<path d="m11 17 2 2a1 1 0 1 0 3-3"></path><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"></path><path d="m21 3 1 11h-2"></path><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path><path d="M3 4h8"></path>',
   "instagram": '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>',
+  "languages": '<path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path>',
   "layout-dashboard": '<rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect>',
+  "layout-template": '<rect width="18" height="7" x="3" y="3" rx="1"></rect><rect width="9" height="7" x="3" y="14" rx="1"></rect><rect width="5" height="7" x="16" y="14" rx="1"></rect>',
   "menu": '<line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line>',
   "message-circle": '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>',
+  "message-circle-more": '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M8 12h.01"></path><path d="M12 12h.01"></path><path d="M16 12h.01"></path>',
   "message-square-text": '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M13 8H7"></path><path d="M17 12H7"></path>',
   "messages-square": '<path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"></path><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path>',
+  "clipboard-list": '<rect width="8" height="4" x="8" y="2" rx="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path>',
+  "panels-top-left": '<rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path>',
   "search": '<circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path>',
   "send": '<path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path>',
   "send-horizontal": '<path d="m3 3 3 9-3 9 19-9Z"></path><path d="M6 12h16"></path>',
   "shield-check": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path>',
+  "smartphone": '<rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path>',
+  "wrench": '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"></path>',
   "x": '<path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>',
   "zap": '<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>'
 };
@@ -46,14 +53,20 @@ const reviewUi = {
   pl: {
     verified: "Zweryfikowany klient",
     projectLink: "Otwórz projekt",
-    rating: "Ocena"
+    rating: "Ocena",
+    sourceLabel: "\u0179r\u00f3d\u0142o: Formularz Amigo",
+    fallbackName: "Klient Amigo"
   },
   en: {
     verified: "Verified client",
     projectLink: "Open project",
-    rating: "Rating"
+    rating: "Rating",
+    sourceLabel: "Source: Amigo form",
+    fallbackName: "Amigo client"
   },
   uk: {
+    sourceLabel: "\u0414\u0436\u0435\u0440\u0435\u043b\u043e: \u0444\u043e\u0440\u043c\u0430 Amigo",
+    fallbackName: "\u041a\u043b\u0456\u0454\u043d\u0442 Amigo",
     verified: "Перевірений клієнт",
     projectLink: "Відкрити проєкт",
     rating: "Оцінка"
@@ -95,7 +108,7 @@ const portfolioProjects = {
     {
       id: "autohouse",
       title: "AutoHouse",
-      tags: ["Landing", "Projekt realny"],
+      tags: ["Landing page", "Projekt realny"],
       filters: ["landing"],
       thumbnail: "portfolio-autohouse-card.webp",
       fullImage: "portfolio-autohouse-modal.webp",
@@ -111,7 +124,7 @@ const portfolioProjects = {
     {
       id: "termotrans-multipage",
       title: "Termotrans Multipage Website",
-      tags: ["Multipage", "Projekt demo"],
+      tags: ["Strona wielostronicowa", "Projekt demo"],
       filters: ["multipage", "demo"],
       thumbnail: "portfolio-termotrans-multipage-card.webp",
       fullImage: "portfolio-termotrans-multipage-modal.webp",
@@ -127,7 +140,7 @@ const portfolioProjects = {
     {
       id: "termotrans-landing",
       title: "Termotrans Landing Website",
-      tags: ["Landing", "Projekt demo"],
+      tags: ["Landing page", "Projekt demo"],
       filters: ["landing", "demo"],
       thumbnail: "portfolio-termotrans-landing-card.webp",
       fullImage: "portfolio-termotrans-landing-modal.webp",
@@ -145,7 +158,7 @@ const portfolioProjects = {
     {
       id: "autohouse",
       title: "AutoHouse",
-      tags: ["Landing", "Real project"],
+      tags: ["Landing page", "Real project"],
       filters: ["landing"],
       thumbnail: "portfolio-autohouse-card.webp",
       fullImage: "portfolio-autohouse-modal.webp",
@@ -161,7 +174,7 @@ const portfolioProjects = {
     {
       id: "termotrans-multipage",
       title: "Termotrans Multipage Website",
-      tags: ["Multipage", "Demo project"],
+      tags: ["Multipage website", "Demo project"],
       filters: ["multipage", "demo"],
       thumbnail: "portfolio-termotrans-multipage-card.webp",
       fullImage: "portfolio-termotrans-multipage-modal.webp",
@@ -177,7 +190,7 @@ const portfolioProjects = {
     {
       id: "termotrans-landing",
       title: "Termotrans Landing Website",
-      tags: ["Landing", "Demo project"],
+      tags: ["Landing page", "Demo project"],
       filters: ["landing", "demo"],
       thumbnail: "portfolio-termotrans-landing-card.webp",
       fullImage: "portfolio-termotrans-landing-modal.webp",
@@ -195,15 +208,15 @@ const portfolioProjects = {
     {
       id: "autohouse",
       title: "AutoHouse",
-      tags: ["Landing", "Реальний проєкт"],
+      tags: ["Лендинг", "Реальний проєкт"],
       filters: ["landing"],
       thumbnail: "portfolio-autohouse-card.webp",
       fullImage: "portfolio-autohouse-modal.webp",
       imageAlt: "Preview of AutoHouse landing page project",
       url: "https://autohouse.dp.ua/",
-      shortDescription: "Landing page для локального бізнесу з чіткою пропозицією, шляхами до контакту та формою заявки.",
-      description: "Landing page для локального бізнесу. Проєкт зосереджений на зрозумілій презентації послуг, швидкому контакті, мобільній версії та простому шляху до заявки.",
-      goal: "Створити зрозумілий landing page, де відвідувач швидко бачить пропозицію та може залишити заявку.",
+      shortDescription: "Лендинг для локального бізнесу з чіткою пропозицією, шляхами до контакту та формою заявки.",
+      description: "Лендинг для локального бізнесу. Проєкт зосереджений на зрозумілій презентації послуг, швидкому контакті, мобільній версії та простому шляху до заявки.",
+      goal: "Створити зрозумілий лендинг, де відвідувач швидко бачить пропозицію та може залишити заявку.",
       features: ["Секції послуг", "Контактна форма", "Помітні CTA-кнопки", "Mobile-first структура", "Базова SEO-підготовка"],
       bestFor: "Локальні послуги, малий бізнес і компанії, яким потрібна зрозуміла онлайн-презентація.",
       actionLabel: "Відкрити сайт"
@@ -211,7 +224,7 @@ const portfolioProjects = {
     {
       id: "termotrans-multipage",
       title: "Termotrans Multipage Website",
-      tags: ["Multipage", "Демо-проєкт"],
+      tags: ["Багатосторінковий сайт", "Демо-проєкт"],
       filters: ["multipage", "demo"],
       thumbnail: "portfolio-termotrans-multipage-card.webp",
       fullImage: "portfolio-termotrans-multipage-modal.webp",
@@ -227,14 +240,14 @@ const portfolioProjects = {
     {
       id: "termotrans-landing",
       title: "Termotrans Landing Website",
-      tags: ["Landing", "Демо-проєкт"],
+      tags: ["Лендинг", "Демо-проєкт"],
       filters: ["landing", "demo"],
       thumbnail: "portfolio-termotrans-landing-card.webp",
       fullImage: "portfolio-termotrans-landing-modal.webp",
       imageAlt: "Preview of Termotrans landing page demo",
       url: "https://landingwebsite.markin4097.workers.dev/",
-      shortDescription: "Демо односторінкового landing page для бізнесу у сфері послуг з акцентом на пропозицію, переваги, процес і контакт.",
-      description: "Демонстраційний landing page для бізнесу у сфері послуг, якому потрібна швидка й зрозуміла онлайн-презентація. Макет зосереджений на першому екрані, послугах, блоках довіри, процесі роботи та контактній формі.",
+      shortDescription: "Демо односторінкового лендингу для бізнесу у сфері послуг з акцентом на пропозицію, переваги, процес і контакт.",
+      description: "Демонстраційний лендинг для бізнесу у сфері послуг, якому потрібна швидка й зрозуміла онлайн-презентація. Макет зосереджений на першому екрані, послугах, блоках довіри, процесі роботи та контактній формі.",
       goal: "Показати, як one-page сайт може зрозуміло презентувати пропозицію та привести відвідувача до контакту.",
       features: ["One-page структура", "Hero-секція", "Послуги та переваги", "Секція процесу", "Контактна форма", "Адаптивний макет"],
       bestFor: "Малий бізнес, окремі послуги, швидкий запуск і рекламні кампанії.",
@@ -634,25 +647,31 @@ const contactValidationMessages = {
 const reviewValidationMessages = {
   pl: {
     name: "Wpisz imię - minimum 2 znaki.",
+    company: "Wpisz nazwę firmy.",
     projectName: "Wpisz nazwę projektu.",
+    projectType: "Wpisz typ projektu.",
     reviewText: "Treść opinii powinna mieć od 30 do 1000 znaków.",
-    websiteUrl: "Podaj poprawny adres URL albo zostaw pole puste.",
+    websiteUrl: "Podaj poprawny adres URL strony.",
     permissionToPublish: "Zgoda na publikację opinii jest wymagana.",
     turnstile: "Potwierdź weryfikację bezpieczeństwa i spróbuj ponownie."
   },
   en: {
     name: "Enter your name - at least 2 characters.",
+    company: "Enter the company name.",
     projectName: "Enter the project name.",
+    projectType: "Enter the project type.",
     reviewText: "Review text must be between 30 and 1000 characters.",
-    websiteUrl: "Enter a valid URL or leave the field empty.",
+    websiteUrl: "Enter a valid website URL.",
     permissionToPublish: "Permission to publish the review is required.",
     turnstile: "Complete the security check and try again."
   },
   uk: {
     name: "Вкажіть ім'я - мінімум 2 символи.",
+    company: "Вкажіть назву компанії.",
     projectName: "Вкажіть назву проєкту.",
+    projectType: "Вкажіть тип проєкту.",
     reviewText: "Текст відгуку має містити від 30 до 1000 символів.",
-    websiteUrl: "Вкажіть коректний URL або залиште поле порожнім.",
+    websiteUrl: "Вкажіть коректний URL сайту.",
     permissionToPublish: "Згода на публікацію відгуку є обов'язковою.",
     turnstile: "Підтвердіть перевірку безпеки та спробуйте ще раз."
   }
@@ -793,7 +812,9 @@ const validateForm = (form) => {
 const validateReviewForm = (form) => {
   let isValid = true;
   const name = getValue(form, "name");
+  const company = getValue(form, "company");
   const projectName = getValue(form, "projectName");
+  const projectType = getValue(form, "projectType");
   const reviewText = getValue(form, "reviewText");
   const websiteUrl = getValue(form, "websiteUrl");
 
@@ -804,11 +825,25 @@ const validateReviewForm = (form) => {
     clearFieldError(form, "name");
   }
 
+  if (company.length < 2 || company.length > 120) {
+    setFieldError(form, "company", getValidationMessage(form, "company"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "company");
+  }
+
   if (projectName.length < 2 || projectName.length > 120) {
     setFieldError(form, "projectName", getValidationMessage(form, "projectName"));
     isValid = false;
   } else {
     clearFieldError(form, "projectName");
+  }
+
+  if (projectType.length < 2 || projectType.length > 120) {
+    setFieldError(form, "projectType", getValidationMessage(form, "projectType"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "projectType");
   }
 
   if (reviewText.length < 30 || reviewText.length > 1000) {
@@ -818,7 +853,7 @@ const validateReviewForm = (form) => {
     clearFieldError(form, "reviewText");
   }
 
-  if (!isValidUrl(websiteUrl)) {
+  if (!websiteUrl || !isValidUrl(websiteUrl)) {
     setFieldError(form, "websiteUrl", getValidationMessage(form, "websiteUrl"));
     isValid = false;
   } else {
@@ -859,8 +894,8 @@ document.querySelectorAll(".contact-form").forEach((form) => {
   }
 
   const fieldsToWatch = isReviewForm
-    ? ["name", "company", "projectName", "projectType", "websiteUrl", "rating", "reviewText", "permissionToPublish", "allowProjectName"]
-    : ["name", "contact", "projectType", "message"];
+    ? ["name", "company", "projectName", "projectType", "websiteUrl", "rating", "reviewText", "permissionToPublish"]
+    : ["name", "contact", "projectType", "futureSupport", "message"];
 
   fieldsToWatch.forEach((name) => {
     const field = getField(form, name);
@@ -946,21 +981,26 @@ const initReviewsPage = () => {
   empty.hidden = true;
   list.hidden = false;
   list.innerHTML = visibleReviews.map((review) => {
-    const meta = [review.projectType, review.verified ? ui.verified : ""].filter(Boolean).join(" · ");
+    const allowProjectDetails = review.allowProjectName === true;
+    const projectName = allowProjectDetails ? String(review.projectName || "").trim() : "";
+    const company = allowProjectDetails ? String(review.company || "").trim() : "";
+    const meta = [review.projectType, review.verified ? ui.verified : "", ui.sourceLabel].filter(Boolean).join(" · ");
     const safeUrl = isValidUrl(review.websiteUrl || "") ? review.websiteUrl : "";
-    const project = safeUrl
+    const project = allowProjectDetails && safeUrl
       ? `<a href="${escapeMarkup(safeUrl)}" target="_blank" rel="noopener" class="review-card__link">${escapeMarkup(ui.projectLink)}</a>`
       : "";
     const date = review.date ? `<span>${escapeMarkup(review.date)}</span>` : "";
     const rating = review.rating ? `<span>${escapeMarkup(ui.rating)}: ${escapeMarkup(review.rating)}</span>` : "";
+    const displayName = review.name || projectName || ui.fallbackName;
+    const visibleDetail = [company, projectName].filter(Boolean).join(" · ");
 
     return `
       <article class="review-card">
         <p class="review-card__text">“${escapeMarkup(review.text)}”</p>
         <div class="review-card__footer">
           <div>
-            <h2>${escapeMarkup(review.name || review.projectName || "Amigo client")}</h2>
-            ${review.company ? `<p>${escapeMarkup(review.company)}</p>` : ""}
+            <h2>${escapeMarkup(displayName)}</h2>
+            ${visibleDetail ? `<p>${escapeMarkup(visibleDetail)}</p>` : ""}
             ${meta ? `<p class="review-card__meta">${escapeMarkup(meta)}</p>` : ""}
           </div>
           <div class="review-card__actions">

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Private review form for Amigo clients after a completed project.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#090d12">
+  <title>Leave a review | Amigo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/assets/amigo-logo.png">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png?v=2" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/favicon-192.png?v=2" sizes="192x192">
+  <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2" sizes="180x180">
+  <script src="/script.js" defer></script>
+</head>
+
+<body data-page="review" data-language="en">
+    <!-- @include header-en.html -->
+
+  <main id="main">
+    <div id="top"></div>
+    <section class="page-hero">
+      <div class="grid-mask" aria-hidden="true"></div>
+      <div class="container page-hero-inner reveal">
+        <p class="eyebrow">Client review</p>
+        <h1>Leave a review</h1>
+        <p>This form is for Amigo clients after a project is completed. The review will be checked before publication.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <form class="contact-card contact-form review-form-card reveal" novalidate data-language="en" data-success="Thank you for the review. It will be checked before publication." data-error="The review could not be sent. Try again or contact us directly." data-sending="Sending review...">
+          <div class="form-heading">
+            <h2>Leave a review</h2>
+            <p>We publish reviews only after client permission and moderation.</p>
+          </div>
+          <div class="field-row">
+            <label><span>Your name</span><input type="text" name="name" autocomplete="name" required minlength="2" maxlength="80"><small class="field-error" data-error-for="name"></small></label>
+            <label><span>Company</span><input type="text" name="company" required minlength="2" maxlength="120"><small class="field-error" data-error-for="company"></small></label>
+          </div>
+          <div class="field-row">
+            <label><span>Project name</span><input type="text" name="projectName" required minlength="2" maxlength="120"><small class="field-error" data-error-for="projectName"></small></label>
+            <label><span>Project type</span><input type="text" name="projectType" required minlength="2" maxlength="120" placeholder="Landing Page"><small class="field-error" data-error-for="projectType"></small></label>
+          </div>
+          <div class="field-row">
+            <label><span>Website link</span><input type="url" name="websiteUrl" required maxlength="240" placeholder="https://"><small class="field-error" data-error-for="websiteUrl"></small></label>
+            <label><span>Rating</span><select name="rating"><option value="">No rating</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><small class="field-error" aria-hidden="true"></small></label>
+          </div>
+          <label>
+            <span class="field-label-line"><span>Review text</span><span class="field-counter" data-counter>0/1000</span></span>
+            <textarea name="reviewText" rows="7" required minlength="30" maxlength="1000"></textarea>
+            <small class="field-error" data-error-for="reviewText"></small>
+          </label>
+          <label class="checkbox-field">
+            <input type="checkbox" name="permissionToPublish" required>
+            <span>I allow this review to be published on the Amigo website</span>
+            <small class="field-error" data-error-for="permissionToPublish"></small>
+          </label>
+          <input type="hidden" name="formType" value="review">
+          <input type="hidden" name="language" value="en">
+          <input type="hidden" name="sourcePage" value="">
+          <input type="text" name="website" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAADgXp5W-mlnPn-ya"></div>
+          <button type="submit" class="button button-green button-large form-button"><span>Send review</span><i data-lucide="send-horizontal" class="icon"></i></button>
+          <p class="form-status hidden" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+    <!-- @include footer-en.html -->
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</body>
+</html>

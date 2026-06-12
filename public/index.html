@@ -120,7 +120,7 @@
 </head>
 <body data-page="home" data-language="pl">
   
-  <a class="skip-link" href="#main">Przejdź do treści</a>
+    <a class="skip-link" href="#main">Przejdź do treści</a>
   <header id="site-header" class="site-header premium-header">
     <nav class="nav premium-nav container" aria-label="Główne menu">
       <a href="/" class="brand brand-logo premium-brand" aria-label="Amigo">
@@ -128,7 +128,7 @@
       </a>
       <div class="nav-shell" aria-hidden="false">
         <div class="nav-links premium-nav-links">
-          <a href="/" aria-current="page" data-page-link="home">Strona główna</a>
+          <a href="/" data-page-link="home" aria-current="page">Strona główna</a>
           <a href="/services" data-page-link="services">Usługi</a>
           <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
           <a href="/reviews" data-page-link="reviews">Opinie</a>
@@ -157,7 +157,7 @@
     </nav>
     <div id="mobile-menu" class="mobile-panel premium-mobile-panel">
       <div class="mobile-links premium-mobile-links container">
-          <a href="/" aria-current="page" data-page-link="home">Strona główna</a>
+          <a href="/" data-page-link="home" aria-current="page">Strona główna</a>
           <a href="/services" data-page-link="services">Usługi</a>
           <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
           <a href="/reviews" data-page-link="reviews">Opinie</a>
@@ -391,31 +391,43 @@
               <small class="field-error" data-error-for="contact"></small>
             </label>
           </div>
-          <div class="field-row">
+          <div class="field-row field-row-support">
             <label>
               <span>Typ projektu</span>
               <select name="projectType" required>
-                <option value="" disabled selected>Wybierz format</option><option>Landing Page</option><option>Strona firmowa</option><option>Rozwiązanie indywidualne</option><option>Wsparcie strony</option>
+                <option value="" disabled selected>Wybierz format</option><option>Landing page</option><option>Strona firmowa</option><option>Strona wielojęzyczna</option><option>Formularz kontaktowy / lead form</option><option>Portfolio / prezentacja usług</option><option>Inne / nie wiem</option>
               </select>
               <small class="field-error" data-error-for="projectType"></small>
             </label>
+            <label>
+              <span>Czy strona będzie wymagała wsparcia po wdrożeniu?</span>
+              <select name="futureSupport">
+                <option>Nie wiem jeszcze</option><option>Tak, regularna obsługa</option><option>Tak, okazjonalne zmiany</option><option>Raczej nie</option>
+              </select>
+              <small class="field-error" aria-hidden="true"></small>
+            </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Budżet</span>
               <select name="budget">
                 <option>Jeszcze nie wiem</option><option>do $600</option><option>$600-$1200</option><option>$1200-$2500</option><option>$2500+</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
-          </div>
-          <div class="field-row">
             <label>
               <span>Termin</span>
               <input type="text" name="deadline" maxlength="120" placeholder="np. 2-4 tygodnie">
+              <small class="field-error" aria-hidden="true"></small>
             </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Domena</span>
               <select name="hasDomain">
                 <option>Nie wiem jeszcze</option><option>Mam domenę</option><option>Potrzebuję domeny</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
           </div>
           <label>
@@ -440,7 +452,7 @@
     </section>
   </main>
   
-  <footer class="footer footer-premium">
+    <footer class="footer footer-premium">
   <div class="container footer-shell">
     <div class="footer-grid footer-grid-premium">
       <div class="footer-panel footer-brand-panel">
@@ -456,6 +468,7 @@
           <a href="/">Strona główna</a>
           <a href="/services">Usługi</a>
           <a href="/portfolio">Portfolio</a>
+          <a href="/reviews">Opinie</a>
           <a href="/about">O nas</a>
           <a href="/blog">Blog</a>
           <a href="/contact">Kontakt</a>
@@ -465,8 +478,8 @@
         <h2>Wersje językowe</h2>
         <nav class="footer-links footer-language-list" aria-label="Wersje językowe">
           <a href="/" class="footer-link-chip is-active" aria-current="page">Polski</a>
-          <a href="/uk/" class="footer-link-chip">Українська</a>
-          <a href="/en/" class="footer-link-chip">English</a>
+          <a href="/uk/" class="footer-link-chip">Ukrainski</a>
+          <a href="/en/" class="footer-link-chip">Angielski</a>
         </nav>
       </div>
       <div class="footer-panel footer-contact-panel">
@@ -501,6 +514,7 @@
     </div>
   </div>
 </footer>
+
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

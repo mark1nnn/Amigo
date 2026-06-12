@@ -136,7 +136,7 @@
 </head>
 <body data-page="services" data-language="en">
   
-  <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">Skip to content</a>
   <header id="site-header" class="site-header premium-header">
     <nav class="nav premium-nav container" aria-label="Main navigation">
       <a href="/en/" class="brand brand-logo premium-brand" aria-label="Amigo">
@@ -145,7 +145,7 @@
       <div class="nav-shell" aria-hidden="false">
         <div class="nav-links premium-nav-links">
           <a href="/en/" data-page-link="home">Home</a>
-          <a href="/en/services" aria-current="page" data-page-link="services">Services</a>
+          <a href="/en/services" data-page-link="services" aria-current="page">Services</a>
           <a href="/en/portfolio" data-page-link="portfolio">Portfolio</a>
           <a href="/en/reviews" data-page-link="reviews">Reviews</a>
           <a href="/en/about" data-page-link="about">About</a>
@@ -174,7 +174,7 @@
     <div id="mobile-menu" class="mobile-panel premium-mobile-panel">
       <div class="mobile-links premium-mobile-links container">
           <a href="/en/" data-page-link="home">Home</a>
-          <a href="/en/services" aria-current="page" data-page-link="services">Services</a>
+          <a href="/en/services" data-page-link="services" aria-current="page">Services</a>
           <a href="/en/portfolio" data-page-link="portfolio">Portfolio</a>
           <a href="/en/reviews" data-page-link="reviews">Reviews</a>
           <a href="/en/about" data-page-link="about">About</a>
@@ -200,12 +200,45 @@
       <article class="service-package-card service-package-card-featured reveal"><span class="service-badge">Popular choice</span><div class="service-topline"><h2>Business Website</h2><p class="price">from $600</p></div><p>For a business that needs more space: separate service pages, company information, portfolio, blog and contact.</p><h3>Included</h3><ul class="feature-list service-includes"><li><i data-lucide="check" class="icon icon-check"></i><span>homepage</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>services page</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>About page</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>portfolio or work examples</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>contact page</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>FAQ or blog</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>navigation</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>contact form</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>SEO structure</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>responsive version</span></li></ul><p class="service-best-for"><strong>Best for:</strong> Companies with several services, local businesses, service companies and projects planning SEO growth.</p><a href="/en/contact" class="service-card-action">Discuss business website <i data-lucide="arrow-right" class="icon"></i></a></article>
       <article class="service-package-card reveal"><div class="service-topline"><h2>Custom Solution</h2><p class="price">quote after brief</p></div><p>For projects that need custom structure, integrations, catalog features, advanced forms or additional logic.</p><h3>Included</h3><ul class="feature-list service-includes"><li><i data-lucide="check" class="icon icon-check"></i><span>custom sections</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>integrations</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>service or product catalog</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>advanced contact forms</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>multilingual structure</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>preparation for scaling</span></li><li><i data-lucide="check" class="icon icon-check"></i><span>technical optimization</span></li></ul><p class="service-best-for"><strong>Best for:</strong> Businesses that need more than a standard landing page or business website.</p><a href="/en/contact" class="service-card-action">Discuss custom solution <i data-lucide="arrow-right" class="icon"></i></a></article>
     </div></div></section>
-    <section class="section section-alt"><div class="container"><div class="section-header reveal"><p class="eyebrow">Comparison</p><h2>Compare website formats</h2></div><div class="comparison-table-wrap reveal"><table class="comparison-table"><thead><tr><th>Feature</th><th>Landing Page</th><th>Business Website</th><th>Custom Solution</th></tr></thead><tbody><tr><td>One page</td><td>yes</td><td>no</td><td>if needed</td></tr><tr><td>Multiple pages</td><td>no</td><td>yes</td><td>yes</td></tr><tr><td>Contact form</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>Basic SEO</td><td>yes</td><td>yes</td><td>yes</td></tr><tr><td>FAQ or blog</td><td>optional</td><td>yes</td><td>yes</td></tr><tr><td>Integrations</td><td>no</td><td>optional</td><td>yes</td></tr><tr><td>Best for</td><td>quick launch</td><td>service business</td><td>complex projects</td></tr></tbody></table></div></div></section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Comparison</p>
+          <h2>Compare website formats</h2>
+        </div>
+        <div class="comparison-table-wrap reveal">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Landing Page</th>
+                <th>Business Website <span class="comparison-column-label">Popular choice</span></th>
+                <th>Custom Solution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Pages</td><td>1 page</td><td>up to 10 pages</td><td>custom structure</td></tr>
+              <tr><td>Best for</td><td>one offer or campaign</td><td>service businesses</td><td>complex projects</td></tr>
+              <tr><td>Content structure</td><td>focused sections</td><td>service pages + company info</td><td>custom content architecture</td></tr>
+              <tr><td>Contact form</td><td>included</td><td>included</td><td>advanced forms if needed</td></tr>
+              <tr><td>SEO level</td><td>basic SEO setup</td><td>advanced SEO structure</td><td>custom SEO strategy</td></tr>
+              <tr><td>Google indexing setup</td><td>sitemap + Search Console</td><td>sitemap + Search Console</td><td>extended technical setup</td></tr>
+              <tr><td>Blog or FAQ</td><td>optional FAQ</td><td>blog or FAQ included</td><td>knowledge base if needed</td></tr>
+              <tr><td>Multilingual version</td><td>optional</td><td>optional / recommended</td><td>scalable multilingual setup</td></tr>
+              <tr><td>Integrations</td><td>simple only</td><td>optional</td><td>custom integrations</td></tr>
+              <tr><td>Performance optimization</td><td>basic optimization</td><td>advanced optimization</td><td>technical optimization</td></tr>
+              <tr><td>Future support</td><td>optional</td><td>recommended</td><td>support plan recommended</td></tr>
+              <tr><td>Scalability</td><td>limited</td><td>expandable</td><td>built to scale</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
     <section class="section"><div class="container"><div class="section-header reveal"><p class="eyebrow">Add-ons</p><h2>Additional options</h2></div><div class="additional-services-grid"><span class="additional-service-item reveal">website support after launch</span><span class="additional-service-item reveal">Google Search Console</span><span class="additional-service-item reveal">basic SEO updates</span><span class="additional-service-item reveal">text and section changes</span><span class="additional-service-item reveal">domain connection</span><span class="additional-service-item reveal">inquiry form via email</span><span class="additional-service-item reveal">language versions PL / UK / EN</span><span class="additional-service-item reveal">pages prepared for ads</span></div></div></section>
     <section class="section section-alt"><div class="container cta-band services-cta reveal"><h2>Not sure which format to choose?</h2><p>Tell us briefly about your business and website goal. We will help you decide whether to start with a landing page, business website or custom solution.</p><a href="/en/contact" class="button button-primary button-large">Discuss project <i data-lucide="arrow-right" class="icon"></i></a></div></section>
   </main>
   
-  <footer class="footer footer-premium">
+    <footer class="footer footer-premium">
   <div class="container footer-shell">
     <div class="footer-grid footer-grid-premium">
       <div class="footer-panel footer-brand-panel">
@@ -221,6 +254,7 @@
           <a href="/en/">Home</a>
           <a href="/en/services">Services</a>
           <a href="/en/portfolio">Portfolio</a>
+          <a href="/en/reviews">Reviews</a>
           <a href="/en/about">About</a>
           <a href="/en/blog">Blog</a>
           <a href="/en/contact">Contact</a>
@@ -229,9 +263,9 @@
       <div class="footer-panel">
         <h2>Language versions</h2>
         <nav class="footer-links footer-language-list" aria-label="Language versions">
-          <a href="/" class="footer-link-chip">Polski</a>
-          <a href="/uk/" class="footer-link-chip">Українська</a>
-          <a href="/en/" class="footer-link-chip is-active" aria-current="page">English</a>
+          <a href="/services" class="footer-link-chip">Polish</a>
+          <a href="/uk/services" class="footer-link-chip">Ukrainian</a>
+          <a href="/en/services" class="footer-link-chip is-active" aria-current="page">English</a>
         </nav>
       </div>
       <div class="footer-panel footer-contact-panel">
@@ -266,6 +300,7 @@
     </div>
   </div>
 </footer>
+
   
 </body>
 </html>

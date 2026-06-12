@@ -22,7 +22,7 @@
 </head>
 
 <body data-page="review" data-language="pl">
-  <a class="skip-link" href="#main">Przejdź do treści</a>
+    <a class="skip-link" href="#main">Przejdź do treści</a>
   <header id="site-header" class="site-header premium-header">
     <nav class="nav premium-nav container" aria-label="Główne menu">
       <a href="/" class="brand brand-logo premium-brand" aria-label="Amigo">
@@ -59,13 +59,13 @@
     </nav>
     <div id="mobile-menu" class="mobile-panel premium-mobile-panel">
       <div class="mobile-links premium-mobile-links container">
-        <a href="/" data-page-link="home">Strona główna</a>
-        <a href="/services" data-page-link="services">Usługi</a>
-        <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
-        <a href="/reviews" data-page-link="reviews">Opinie</a>
-        <a href="/about" data-page-link="about">O nas</a>
-        <a href="/blog" data-page-link="blog">Blog</a>
-        <a href="/contact" data-page-link="contact">Kontakt</a>
+          <a href="/" data-page-link="home">Strona główna</a>
+          <a href="/services" data-page-link="services">Usługi</a>
+          <a href="/portfolio" data-page-link="portfolio">Portfolio</a>
+          <a href="/reviews" data-page-link="reviews">Opinie</a>
+          <a href="/about" data-page-link="about">O nas</a>
+          <a href="/blog" data-page-link="blog">Blog</a>
+          <a href="/contact" data-page-link="contact">Kontakt</a>
         <a href="/contact" class="button button-primary mobile-cta">Omów projekt</a>
       </div>
     </div>
@@ -91,15 +91,15 @@
           </div>
           <div class="field-row">
             <label><span>Imię</span><input type="text" name="name" autocomplete="name" required minlength="2" maxlength="80"><small class="field-error" data-error-for="name"></small></label>
-            <label><span>Firma</span><input type="text" name="company" maxlength="120"><small class="field-error" data-error-for="company"></small></label>
+            <label><span>Firma</span><input type="text" name="company" required minlength="2" maxlength="120"><small class="field-error" data-error-for="company"></small></label>
           </div>
           <div class="field-row">
             <label><span>Nazwa projektu</span><input type="text" name="projectName" required minlength="2" maxlength="120"><small class="field-error" data-error-for="projectName"></small></label>
-            <label><span>Typ projektu</span><input type="text" name="projectType" maxlength="120" placeholder="Landing Page"></label>
+            <label><span>Typ projektu</span><input type="text" name="projectType" required minlength="2" maxlength="120" placeholder="Landing Page"><small class="field-error" data-error-for="projectType"></small></label>
           </div>
           <div class="field-row">
-            <label><span>Link do strony</span><input type="url" name="websiteUrl" maxlength="240" placeholder="https://"><small class="field-error" data-error-for="websiteUrl"></small></label>
-            <label><span>Ocena</span><select name="rating"><option value="">Bez oceny</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+            <label><span>Link do strony</span><input type="url" name="websiteUrl" required maxlength="240" placeholder="https://"><small class="field-error" data-error-for="websiteUrl"></small></label>
+            <label><span>Ocena</span><select name="rating"><option value="">Bez oceny</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><small class="field-error" aria-hidden="true"></small></label>
           </div>
           <label>
             <span class="field-label-line"><span>Treść opinii</span><span class="field-counter" data-counter>0/1000</span></span>
@@ -110,10 +110,6 @@
             <input type="checkbox" name="permissionToPublish" required>
             <span>Zgadzam się na publikację tej opinii na stronie Amigo</span>
             <small class="field-error" data-error-for="permissionToPublish"></small>
-          </label>
-          <label class="checkbox-field">
-            <input type="checkbox" name="allowProjectName">
-            <span>Można pokazać nazwę firmy lub projektu</span>
           </label>
           <input type="hidden" name="formType" value="review">
           <input type="hidden" name="language" value="pl">
@@ -127,7 +123,7 @@
     </section>
   </main>
 
-  <footer class="footer footer-premium">
+    <footer class="footer footer-premium">
   <div class="container footer-shell">
     <div class="footer-grid footer-grid-premium">
       <div class="footer-panel footer-brand-panel">
@@ -153,8 +149,8 @@
         <h2>Wersje językowe</h2>
         <nav class="footer-links footer-language-list" aria-label="Wersje językowe">
           <a href="/review" class="footer-link-chip is-active" aria-current="page">Polski</a>
-          <a href="/uk/review" class="footer-link-chip">Українська</a>
-          <a href="/en/review" class="footer-link-chip">English</a>
+          <a href="/uk/review" class="footer-link-chip">Ukrainski</a>
+          <a href="/en/review" class="footer-link-chip">Angielski</a>
         </nav>
       </div>
       <div class="footer-panel footer-contact-panel">
@@ -189,6 +185,7 @@
     </div>
   </div>
 </footer>
+
 
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>

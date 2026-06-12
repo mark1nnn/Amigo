@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Відгуки клієнтів Amigo. Ми публікуємо лише підтверджені відгуки після дозволу клієнта.">
+  <meta name="description" content="Відгуки клієнтів Amigo з окремими Google-відгуками та відгуками з форми проєкту, які публікуються лише за згодою клієнта.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#090d12">
   <link rel="canonical" href="https://amigostudio.pl/uk/reviews">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/reviews">
   <link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/reviews">
   <meta property="og:title" content="Відгуки | Amigo">
-  <meta property="og:description" content="Відгуки клієнтів Amigo. Ми публікуємо лише підтверджені відгуки після дозволу клієнта.">
+  <meta property="og:description" content="Відгуки клієнтів Amigo з окремими Google-відгуками та відгуками з форми проєкту, які публікуються лише за згодою клієнта.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Amigo">
   <meta property="og:url" content="https://amigostudio.pl/uk/reviews">
@@ -21,9 +21,9 @@
   <meta property="og:locale" content="uk_UA">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Відгуки | Amigo">
-  <meta name="twitter:description" content="Відгуки клієнтів Amigo. Ми публікуємо лише підтверджені відгуки після дозволу клієнта.">
+  <meta name="twitter:description" content="Відгуки клієнтів Amigo з окремими Google-відгуками та відгуками з форми проєкту, які публікуються лише за згодою клієнта.">
   <meta name="twitter:image" content="https://amigostudio.pl/assets/amigo-logo.png">
-  <title>Відгуки | Amigo</title>
+  <title>Відгуки клієнтів | Amigo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -57,22 +57,6 @@
       }
     },
     {
-      "@type": "Service",
-      "@id": "https://amigostudio.pl/#web-development-service",
-      "name": "Послуги та ціни",
-      "serviceType": "website development, landing pages, business websites",
-      "areaServed": [
-        "Poland",
-        "Ukraine",
-        "Europe",
-        "Worldwide"
-      ],
-      "provider": {
-        "@id": "https://amigostudio.pl/#organization"
-      },
-      "description": "Amigo створює сайти та landing page для малого бізнесу в Польщі й Україні з простою структурою, формою заявки та SEO-основою."
-    },
-    {
       "@type": "BreadcrumbList",
       "@id": "https://amigostudio.pl/uk/reviews#breadcrumb",
       "itemListElement": [
@@ -96,7 +80,6 @@
   <script src="/script.js" defer></script>
 </head>
 <body data-page="reviews" data-language="uk">
-  
   <a class="skip-link" href="#main">Перейти до контенту</a>
   <header id="site-header" class="site-header premium-header">
     <nav class="nav premium-nav container" aria-label="Головна навігація">
@@ -108,7 +91,7 @@
           <a href="/uk/" data-page-link="home">Головна</a>
           <a href="/uk/services" data-page-link="services">Послуги</a>
           <a href="/uk/portfolio" data-page-link="portfolio">Портфоліо</a>
-          <a href="/uk/reviews" aria-current="page" data-page-link="reviews">Відгуки</a>
+          <a href="/uk/reviews" data-page-link="reviews" aria-current="page">Відгуки</a>
           <a href="/uk/about" data-page-link="about">Про Amigo</a>
           <a href="/uk/blog" data-page-link="blog">Блог</a>
           <a href="/uk/contact" data-page-link="contact">Контакти</a>
@@ -137,7 +120,7 @@
           <a href="/uk/" data-page-link="home">Головна</a>
           <a href="/uk/services" data-page-link="services">Послуги</a>
           <a href="/uk/portfolio" data-page-link="portfolio">Портфоліо</a>
-          <a href="/uk/reviews" aria-current="page" data-page-link="reviews">Відгуки</a>
+          <a href="/uk/reviews" data-page-link="reviews" aria-current="page">Відгуки</a>
           <a href="/uk/about" data-page-link="about">Про Amigo</a>
           <a href="/uk/blog" data-page-link="blog">Блог</a>
           <a href="/uk/contact" data-page-link="contact">Контакти</a>
@@ -154,25 +137,38 @@
       <span>Відгуки</span>
     </nav>
 
-    <section class="page-hero">
+    <!--
+      Google Reviews config:
+      GOOGLE_PROFILE_URL=""
+      GOOGLE_REVIEW_URL=""
+      GOOGLE_RATING=""
+      GOOGLE_REVIEW_COUNT=""
+      Replace placeholder anchor links below with real https:// Google URLs and rating data when available.
+    -->
+
+    <section class="page-hero trust-hero">
       <div class="grid-mask" aria-hidden="true"></div>
       <div class="container page-hero-inner reveal">
         <p class="eyebrow">Відгуки</p>
         <h1>Відгуки клієнтів</h1>
-        <p>Тут будуть опубліковані відгуки від клієнтів, з якими Amigo працював над сайтами, landing page, формами заявок і підтримкою після запуску.</p>
+        <p>Ми збираємо відгуки після завершених проєктів. Частина відгуків надходить із Google, а частина через форму Amigo і публікується лише за згодою клієнта.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container reviews-shell">
-        <div class="reviews-grid" data-reviews-list hidden></div>
-        <article class="empty-state reveal" data-reviews-empty>
-          <i data-lucide="message-square-text" class="icon empty-icon"></i>
-          <h2>Поки без опублікованих відгуків</h2>
-          <p>Ми не додаємо вигадані відгуки або оцінки. Коли зʼявляться підтверджені відгуки від клієнтів, вони будуть опубліковані тут.</p>
-          <div class="review-actions">
-            <a href="/uk/portfolio" class="button button-primary">Переглянути портфоліо <i data-lucide="arrow-right" class="icon"></i></a>
-            <a href="/uk/contact" class="button button-ghost">Обговорити проєкт</a>
+      <div class="container trust-center-stack">
+        <article class="review-source-card google-review-card reveal" aria-labelledby="google-reviews-heading">
+          <div class="review-source-icon" aria-hidden="true">
+            <i data-lucide="search" class="icon icon-lg"></i>
+          </div>
+          <div class="review-source-content">
+            <p class="eyebrow">Зовнішні відгуки</p>
+            <h2 id="google-reviews-heading">Google-відгуки</h2>
+            <p>Профіль Google Business готується. Після завершених проєктів клієнти зможуть залишити відгук безпосередньо в Google.</p>
+            <div class="review-source-actions">
+              <a href="https://share.google/2ILUxpWbZCsb1jkf2" class="button button-primary" >Переглянути профіль Google</a>
+              <a href="https://g.page/r/CekMHVdSKEM6EBM/review" class="button button-ghost" >Залишити відгук у Google</a>
+            </div>
           </div>
         </article>
       </div>
@@ -181,14 +177,32 @@
     <section class="section section-muted">
       <div class="container">
         <div class="section-header reveal">
-          <p class="eyebrow">Перевірка</p>
-          <h2>Як ми перевіряємо відгуки</h2>
+          <p class="eyebrow">Форма Amigo</p>
+          <h2>Відгуки з проєктів Amigo</h2>
+          <p>Вибрані відгуки клієнтів після завершених проєктів. Ми публікуємо їх лише після отримання згоди клієнта.</p>
         </div>
-        <div class="verification-grid">
-          <article class="verification-item reveal"><span>1</span><p>Відгук залишає клієнт після завершення проєкту.</p></article>
-          <article class="verification-item reveal"><span>2</span><p>Ми публікуємо його тільки після дозволу клієнта.</p></article>
-          <article class="verification-item reveal"><span>3</span><p>Якщо клієнт дозволяє, додаємо назву проєкту або посилання на сайт.</p></article>
-          <article class="verification-item reveal"><span>4</span><p>Відгуки не публікуються автоматично без перевірки.</p></article>
+        <div class="reviews-shell">
+          <div class="reviews-grid" data-reviews-list hidden></div>
+          <article class="empty-state reveal" data-reviews-empty>
+            <i data-lucide="message-square-text" class="icon empty-icon"></i>
+            <h2>Відгуки з'являться після завершених проєктів</h2>
+            <p>Відгуки з'являться тут після завершених проєктів. Ми не публікуємо вигадані оцінки або штучні рекомендації.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Принципи</p>
+          <h2>Як ми збираємо відгуки</h2>
+        </div>
+        <div class="trust-card-grid">
+          <article class="trust-card reveal"><div class="icon-box"><i data-lucide="check" class="icon icon-lg"></i></div><h2>Лише після завершених проєктів</h2><p>Ми збираємо відгуки тільки від клієнтів після завершеної співпраці.</p></article>
+          <article class="trust-card reveal"><div class="icon-box"><i data-lucide="shield-check" class="icon icon-lg"></i></div><h2>Публікація за згодою клієнта</h2><p>Кожен відгук публікується лише після чіткої згоди клієнта.</p></article>
+          <article class="trust-card reveal"><div class="icon-box"><i data-lucide="message-square-text" class="icon icon-lg"></i></div><h2>Без вигаданих оцінок</h2><p>Ми не купуємо відгуки й не публікуємо штучні рекомендації.</p></article>
+          <article class="trust-card reveal"><div class="icon-box"><i data-lucide="layout-dashboard" class="icon icon-lg"></i></div><h2>Google і форма Amigo розділені</h2><p>Google-відгуки та відгуки з форми Amigo надходять із різних джерел.</p></article>
         </div>
       </div>
     </section>
@@ -196,18 +210,16 @@
     <section class="section">
       <div class="container">
         <article class="cta-band reveal">
-          <p class="eyebrow">Портфоліо</p>
-          <h2>Хочете стати наступним кейсом Amigo?</h2>
-          <p>Опишіть свій проєкт — ми підкажемо, який формат сайту краще підійде для вашого бізнесу.</p>
+          <p class="eyebrow">Старт проєкту</p>
+          <h2>Хочете створити сайт для свого бізнесу?</h2>
+          <p>Розкажіть нам про проєкт, і ми підкажемо найкращий формат сайту.</p>
           <div class="review-cta-actions">
-            <a href="/uk/portfolio" class="button button-ghost">Переглянути портфоліо</a>
             <a href="/uk/contact" class="button button-primary">Обговорити проєкт <i data-lucide="arrow-right" class="icon"></i></a>
           </div>
         </article>
       </div>
     </section>
   </main>
-  
   <footer class="footer footer-premium">
   <div class="container footer-shell">
     <div class="footer-grid footer-grid-premium">
@@ -224,6 +236,7 @@
           <a href="/uk/">Головна</a>
           <a href="/uk/services">Послуги</a>
           <a href="/uk/portfolio">Портфоліо</a>
+          <a href="/uk/reviews">Відгуки</a>
           <a href="/uk/about">Про Amigo</a>
           <a href="/uk/blog">Блог</a>
           <a href="/uk/contact">Контакти</a>
@@ -232,9 +245,9 @@
       <div class="footer-panel">
         <h2>Мови сайту</h2>
         <nav class="footer-links footer-language-list" aria-label="Мови сайту">
-          <a href="/" class="footer-link-chip">Польська</a>
-          <a href="/uk/" class="footer-link-chip is-active" aria-current="page">Українська</a>
-          <a href="/en/" class="footer-link-chip">Англійська</a>
+          <a href="/reviews" class="footer-link-chip">Польська</a>
+          <a href="/uk/reviews" class="footer-link-chip is-active" aria-current="page">Українська</a>
+          <a href="/en/reviews" class="footer-link-chip">Англійська</a>
         </nav>
       </div>
       <div class="footer-panel footer-contact-panel">
@@ -269,6 +282,6 @@
     </div>
   </div>
 </footer>
-  
+
 </body>
 </html>
