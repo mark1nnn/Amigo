@@ -1,0 +1,9 @@
+{
+  "name": "amigo-static-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "test": "node scripts/check-build.js && node scripts/check-links.js && node scripts/check-seo.js"
+  }
+}

@@ -2370,6 +2370,7 @@ textarea:focus {
 }
 
 .nav-shell {
+  white-space: nowrap;
   position: absolute;
   left: 50%;
   top: 50%;
