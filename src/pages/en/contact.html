@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Amigo, describe your website, landing page or support project and get the next step.">
+  <meta name="description" content="Contact Amigo, describe your website or landing page project and get the next step.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#090d12">
   <link rel="canonical" href="https://amigostudio.pl/en/contact">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/contact">
   <link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/contact">
   <meta property="og:title" content="Contact | Amigo">
-  <meta property="og:description" content="Contact Amigo, describe your website, landing page or support project and get the next step.">
+  <meta property="og:description" content="Contact Amigo, describe your website or landing page project and get the next step.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Amigo">
   <meta property="og:url" content="https://amigostudio.pl/en/contact">
@@ -21,7 +21,7 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact | Amigo">
-  <meta name="twitter:description" content="Contact Amigo, describe your website, landing page or support project and get the next step.">
+  <meta name="twitter:description" content="Contact Amigo, describe your website or landing page project and get the next step.">
   <meta name="twitter:image" content="https://amigostudio.pl/assets/amigo-logo.png">
   <title>Contact | Amigo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -121,10 +121,10 @@
         },
         {
           "@type": "Question",
-          "name": "Does the contact form work?",
+          "name": "Can I request website support after launch?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. The form sends data to the Cloudflare Pages Function at /api/contact and keeps CORS and Turnstile protection."
+            "text": "Yes. In the form, you can indicate whether the website may need regular support, occasional updates or whether you are not sure yet. This helps us choose the right setup, maintenance costs and future support scope."
           }
         }
       ]
@@ -163,10 +163,10 @@
           <p>Short answers to help you fill out the form and understand the next step.</p>
           <div class="contact-faq-list">
             <article class="contact-faq-item"><h3>Do I need a full specification?</h3><p>No. A short description of your business, services and expected result is enough. If anything is missing, we will clarify it after you send the form.</p></article>
-            <article class="contact-faq-item"><h3>What should I write in “Briefly about the project”?</h3><p>Describe what kind of website you need, what business it is for, which services should be shown and whether you already have a logo, photos, text or example websites you like.</p></article>
-            <article class="contact-faq-item"><h3>What if I do not know the budget?</h3><p>You can choose “I do not know yet”. After a short brief, we will suggest the best website format and explain what affects the price.</p></article>
+            <article class="contact-faq-item"><h3>What should I write in вЂњBriefly about the projectвЂќ?</h3><p>Describe what kind of website you need, what business it is for, which services should be shown and whether you already have a logo, photos, text or example websites you like.</p></article>
+            <article class="contact-faq-item"><h3>What if I do not know the budget?</h3><p>You can choose вЂњI do not know yetвЂќ. After a short brief, we will suggest the best website format and explain what affects the price.</p></article>
             <article class="contact-faq-item"><h3>What if I do not have a domain yet?</h3><p>That is fine. You can select that you do not have a domain yet. If needed, we can help you choose and connect one.</p></article>
-            <article class="contact-faq-item"><h3>What happens after I send the form?</h3><p>We review the request, clarify the details and reply with the next step: website format, approximate scope and what should be prepared.</p></article>
+            <article class="contact-faq-item"><h3>Can I request website support after launch?</h3><p>Yes. In the form, you can indicate whether the website may need regular support, occasional updates or whether you are not sure yet. This helps us choose the right setup, maintenance costs and future support scope.</p></article>
           </div>
         </div>
         <form class="contact-card contact-form reveal" novalidate data-language="en" data-success="Thank you! Your request has been sent. We will contact you with the next step." data-error="The request could not be sent. Please try again or message us directly." data-sending="Sending your request..." data-validation-name="Enter a name between 2 and 80 characters." data-validation-contact="Enter a contact between 3 and 120 characters." data-validation-message="Describe the project in more detail: minimum 20 characters." data-validation-turnstile="Please confirm that you are not a bot.">
@@ -186,26 +186,34 @@
               <small class="field-error" data-error-for="contact"></small>
             </label>
           </div>
-          <div class="field-row">
+          <div class="field-row field-row-support">
             <label>
               <span>Project type</span>
               <select name="projectType" required>
-                <option value="" disabled selected>Choose a format</option><option>Landing Page</option><option>Business website</option><option>Custom solution</option><option>Website support</option>
+                <option value="" disabled selected>Choose a format</option><option>Landing page</option><option>Company website</option><option>Multilingual website</option><option>Contact form / lead form</option><option>Portfolio / service presentation</option><option>Other / not sure</option>
               </select>
               <small class="field-error" data-error-for="projectType"></small>
             </label>
+            <label>
+              <span>Will the website need support after launch?</span>
+              <select name="futureSupport">
+                <option>Not sure yet</option><option>Yes, regular support</option><option>Yes, occasional updates</option><option>Probably not</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Budget</span>
               <select name="budget">
                 <option>Not sure yet</option><option>up to $600</option><option>$600-$1200</option><option>$1200-$2500</option><option>$2500+</option>
               </select>
             </label>
-          </div>
-          <div class="field-row">
             <label>
               <span>Deadline</span>
               <input type="text" name="deadline" maxlength="120" placeholder="for example, 2-4 weeks">
             </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Domain</span>
               <select name="hasDomain">
@@ -239,3 +247,6 @@
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>
+
+
+

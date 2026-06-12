@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Amigo client reviews. We publish only verified reviews after client permission.">
+  <meta name="description" content="Amigo client reviews with separate Google reviews and Amigo project form reviews published only with client permission.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#090d12">
   <link rel="canonical" href="https://amigostudio.pl/en/reviews">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="en" href="https://amigostudio.pl/en/reviews">
   <link rel="alternate" hreflang="x-default" href="https://amigostudio.pl/reviews">
   <meta property="og:title" content="Reviews | Amigo">
-  <meta property="og:description" content="Amigo client reviews. We publish only verified reviews after client permission.">
+  <meta property="og:description" content="Amigo client reviews with separate Google reviews and Amigo project form reviews published only with client permission.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Amigo">
   <meta property="og:url" content="https://amigostudio.pl/en/reviews">
@@ -21,9 +21,9 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Reviews | Amigo">
-  <meta name="twitter:description" content="Amigo client reviews. We publish only verified reviews after client permission.">
+  <meta name="twitter:description" content="Amigo client reviews with separate Google reviews and Amigo project form reviews published only with client permission.">
   <meta name="twitter:image" content="https://amigostudio.pl/assets/amigo-logo.png">
-  <title>Reviews | Amigo</title>
+  <title>Client reviews | Amigo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -57,22 +57,6 @@
       }
     },
     {
-      "@type": "Service",
-      "@id": "https://amigostudio.pl/#web-development-service",
-      "name": "Services and pricing",
-      "serviceType": "website development, landing pages, business websites",
-      "areaServed": [
-        "Poland",
-        "Ukraine",
-        "Europe",
-        "Worldwide"
-      ],
-      "provider": {
-        "@id": "https://amigostudio.pl/#organization"
-      },
-      "description": "Amigo builds fast websites and landing pages for small businesses with clear structure, contact forms and an SEO-ready foundation."
-    },
-    {
       "@type": "BreadcrumbList",
       "@id": "https://amigostudio.pl/en/reviews#breadcrumb",
       "itemListElement": [
@@ -96,8 +80,7 @@
   <script src="/script.js" defer></script>
 </head>
 <body data-page="reviews" data-language="en">
-  
-    <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header id="site-header" class="site-header premium-header">
     <nav class="nav premium-nav container" aria-label="Main navigation">
       <a href="/en/" class="brand brand-logo premium-brand" aria-label="Amigo">
@@ -154,25 +137,38 @@
       <span>Reviews</span>
     </nav>
 
-    <section class="page-hero">
+    <!--
+      Google Reviews config:
+      GOOGLE_PROFILE_URL=""
+      GOOGLE_REVIEW_URL=""
+      GOOGLE_RATING=""
+      GOOGLE_REVIEW_COUNT=""
+      Replace placeholder anchor links below with real https:// Google URLs and rating data when available.
+    -->
+
+    <section class="page-hero trust-hero">
       <div class="grid-mask" aria-hidden="true"></div>
       <div class="container page-hero-inner reveal">
         <p class="eyebrow">Reviews</p>
         <h1>Client reviews</h1>
-        <p>This page will contain reviews from clients Amigo has worked with on websites, landing pages, inquiry forms and post-launch support.</p>
+        <p>We collect reviews after completed projects. Some reviews come from Google, while others are collected through the Amigo project form and published only with client permission.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container reviews-shell">
-        <div class="reviews-grid" data-reviews-list hidden></div>
-        <article class="empty-state reveal" data-reviews-empty>
-          <i data-lucide="message-square-text" class="icon empty-icon"></i>
-          <h2>No published reviews yet</h2>
-          <p>We do not add fake reviews or ratings. When verified client reviews are available, they will be published here.</p>
-          <div class="review-actions">
-            <a href="/en/portfolio" class="button button-primary">View portfolio <i data-lucide="arrow-right" class="icon"></i></a>
-            <a href="/en/contact" class="button button-ghost">Discuss project</a>
+      <div class="container trust-center-stack">
+        <article class="review-source-card google-review-card reveal" aria-labelledby="google-reviews-heading">
+          <div class="review-source-icon" aria-hidden="true">
+            <i data-lucide="search" class="icon icon-lg"></i>
+          </div>
+          <div class="review-source-content">
+            <p class="eyebrow">External reviews</p>
+            <h2 id="google-reviews-heading">Google Reviews</h2>
+            <p>The Google Business Profile is being prepared. After completed projects, clients will be able to leave a review directly on Google.</p>
+            <div class="review-source-actions">
+              <a href="https://share.google/2ILUxpWbZCsb1jkf2" class="button button-primary" >View Google profile</a>
+              <a href="https://g.page/r/CekMHVdSKEM6EBM/review" class="button button-ghost" >Leave a Google review</a>
+            </div>
           </div>
         </article>
       </div>
@@ -181,14 +177,32 @@
     <section class="section section-muted">
       <div class="container">
         <div class="section-header reveal">
-          <p class="eyebrow">Verification</p>
-          <h2>How we verify reviews</h2>
+          <p class="eyebrow">Amigo form</p>
+          <h2>Reviews from Amigo projects</h2>
+          <p>Selected client reviews after completed projects. We publish them only after receiving client permission.</p>
         </div>
-        <div class="verification-grid">
-          <article class="verification-item reveal"><span>1</span><p>A review is submitted by a client after the project is completed.</p></article>
-          <article class="verification-item reveal"><span>2</span><p>We publish it only after the client gives permission.</p></article>
-          <article class="verification-item reveal"><span>3</span><p>If the client agrees, we add the project name or website link.</p></article>
-          <article class="verification-item reveal"><span>4</span><p>Reviews are not published automatically without review.</p></article>
+        <div class="reviews-shell">
+          <div class="reviews-grid" data-reviews-list hidden></div>
+          <article class="empty-state reveal" data-reviews-empty>
+            <i data-lucide="message-square-text" class="icon empty-icon"></i>
+            <h2>Reviews will appear after completed projects</h2>
+            <p>Reviews will appear here after completed projects. We do not publish fictional ratings or artificial recommendations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Trust process</p>
+          <h2>How we collect reviews</h2>
+        </div>
+        <div class="trust-card-grid">
+          <article class="trust-card reveal"><div class="icon-box"><i data-lucide="check" class="icon icon-lg"></i></div><h2>Only after completed projects</h2><p>We collect reviews only from clients after a completed collaboration.</p></article>
+          <article class="trust-card reveal"><div class="icon-box"><i data-lucide="shield-check" class="icon icon-lg"></i></div><h2>Published with client permission</h2><p>Each review is published only after clear client consent.</p></article>
+          <article class="trust-card reveal"><div class="icon-box"><i data-lucide="message-square-text" class="icon icon-lg"></i></div><h2>No fictional ratings</h2><p>We do not buy reviews or publish artificial recommendations.</p></article>
+          <article class="trust-card reveal"><div class="icon-box"><i data-lucide="layout-dashboard" class="icon icon-lg"></i></div><h2>Google and Amigo form are separate</h2><p>Google reviews and Amigo form reviews come from different sources.</p></article>
         </div>
       </div>
     </section>
@@ -196,19 +210,17 @@
     <section class="section">
       <div class="container">
         <article class="cta-band reveal">
-          <p class="eyebrow">Portfolio</p>
-          <h2>Want to become the next Amigo project?</h2>
-          <p>Tell us about your project — we will suggest the website format that best fits your business.</p>
+          <p class="eyebrow">Start a project</p>
+          <h2>Want to build a website for your business?</h2>
+          <p>Tell us about your project and we will suggest the best website format.</p>
           <div class="review-cta-actions">
-            <a href="/en/portfolio" class="button button-ghost">View portfolio</a>
-            <a href="/en/contact" class="button button-primary">Discuss project <i data-lucide="arrow-right" class="icon"></i></a>
+            <a href="/en/contact" class="button button-primary">Discuss a project <i data-lucide="arrow-right" class="icon"></i></a>
           </div>
         </article>
       </div>
     </section>
   </main>
-  
-    <footer class="footer footer-premium">
+  <footer class="footer footer-premium">
   <div class="container footer-shell">
     <div class="footer-grid footer-grid-premium">
       <div class="footer-panel footer-brand-panel">
@@ -233,8 +245,8 @@
       <div class="footer-panel">
         <h2>Language versions</h2>
         <nav class="footer-links footer-language-list" aria-label="Language versions">
-          <a href="/reviews" class="footer-link-chip">Polski</a>
-          <a href="/uk/reviews" class="footer-link-chip">Українська</a>
+          <a href="/reviews" class="footer-link-chip">Polish</a>
+          <a href="/uk/reviews" class="footer-link-chip">Ukrainian</a>
           <a href="/en/reviews" class="footer-link-chip is-active" aria-current="page">English</a>
         </nav>
       </div>
@@ -271,6 +283,5 @@
   </div>
 </footer>
 
-  
 </body>
 </html>

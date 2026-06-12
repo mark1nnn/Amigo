@@ -82,6 +82,21 @@ function clampText(value = "", max = 300) {
   return String(value || "").trim().slice(0, max);
 }
 
+const contactEmailLabels = {
+  pl: {
+    futureSupport: "Wsparcie po wdrożeniu"
+  },
+  en: {
+    futureSupport: "Support after launch"
+  },
+  uk: {
+    futureSupport: "Підтримка після запуску"
+  },
+  unknown: {
+    futureSupport: "Support after launch"
+  }
+};
+
 function isValidUrl(value = "") {
   if (!value) {
     return true;
@@ -129,6 +144,7 @@ export async function onRequestPost({ request, env }) {
   const formType = clampText(data.formType, 40) === "review" ? "review" : "contact";
   const contact = clampText(data.contact, 120);
   const projectType = clampText(data.projectType || data.project, 120);
+  const futureSupport = clampText(data.futureSupport, 160);
   const budget = clampText(data.budget, 120);
   const deadline = clampText(data.deadline, 120);
   const hasDomain = clampText(data.hasDomain, 120);
@@ -259,7 +275,7 @@ ${reviewText}
     return jsonResponse({ ok: false, error: "Invalid contact" }, 400, origin);
   }
 
-  if (projectType.length > 120 || budget.length > 120 || deadline.length > 120 || hasDomain.length > 120) {
+  if (projectType.length > 120 || futureSupport.length > 160 || budget.length > 120 || deadline.length > 120 || hasDomain.length > 120) {
     return jsonResponse({ ok: false, error: "Invalid project details" }, 400, origin);
   }
 
@@ -276,6 +292,7 @@ ${reviewText}
     name: escapeHtml(name),
     contact: escapeHtml(contact),
     projectType: escapeHtml(projectType || "Nie wskazano"),
+    futureSupport: escapeHtml(futureSupport || "Nie wskazano"),
     budget: escapeHtml(budget || "Nie wskazano"),
     deadline: escapeHtml(deadline || "Nie wskazano"),
     hasDomain: escapeHtml(hasDomain || "Nie wskazano"),
@@ -283,6 +300,7 @@ ${reviewText}
     sourcePage: escapeHtml(sourcePage || "Nie wskazano"),
     message: escapeHtml(message).replaceAll("\n", "<br>")
   };
+  const labels = contactEmailLabels[language] || contactEmailLabels.unknown;
 
   const subject = `Nowe zapytanie z Amigo [${language.toUpperCase()}] - ${name}`;
   const text = `
@@ -293,6 +311,7 @@ Kontakt: ${contact}
 Język: ${language}
 Strona źródłowa: ${sourcePage || "Nie wskazano"}
 Typ projektu: ${projectType || "Nie wskazano"}
+${labels.futureSupport}: ${futureSupport || "Nie wskazano"}
 Budżet: ${budget || "Nie wskazano"}
 Termin: ${deadline || "Nie wskazano"}
 Domena: ${hasDomain || "Nie wskazano"}
@@ -308,6 +327,7 @@ ${message}
     <p><strong>Język:</strong> ${safe.language}</p>
     <p><strong>Strona źródłowa:</strong> ${safe.sourcePage}</p>
     <p><strong>Typ projektu:</strong> ${safe.projectType}</p>
+    <p><strong>${escapeHtml(labels.futureSupport)}:</strong> ${safe.futureSupport}</p>
     <p><strong>Budżet:</strong> ${safe.budget}</p>
     <p><strong>Termin:</strong> ${safe.deadline}</p>
     <p><strong>Domena:</strong> ${safe.hasDomain}</p>

@@ -90,6 +90,18 @@ const existsForInternalPath = (internalPath) => {
 const problems = [];
 const htmlFiles = walkHtml(publicDir);
 const attrPattern = /\b(?:href|src)=["']([^"']+)["']/gi;
+const hrefPattern = /\bhref=["']([^"']+)["']/gi;
+const privateReviewPathPattern = /^\/?(?:en\/|uk\/)?review(?:\.html)?(?:[#?].*)?$/i;
+
+const containsPrivateReviewPath = (value) => {
+  const cleanValue = stripQueryAndHash(value.trim()).replace(/^\/+/, "");
+  return privateReviewPathPattern.test(cleanValue);
+};
+
+const firstMatch = (html, pattern) => {
+  const match = html.match(pattern);
+  return match ? match[0] : "";
+};
 
 htmlFiles.forEach((filePath) => {
   const relativePath = toPosix(path.relative(publicDir, filePath));
@@ -112,6 +124,36 @@ htmlFiles.forEach((filePath) => {
       });
     }
   }
+
+  [
+    { label: "desktop navigation", markup: firstMatch(html, /<div\b[^>]*\bclass=["'][^"']*\bnav-links\b[^"']*["'][\s\S]*?<\/div>/i) },
+    { label: "mobile navigation", markup: firstMatch(html, /<div\b[^>]*\bclass=["'][^"']*\bmobile-links\b[^"']*["'][\s\S]*?<\/div>/i) },
+    { label: "footer navigation", markup: firstMatch(html, /<nav\b[^>]*\bclass=["'][^"']*\bfooter-nav\b[^"']*["'][\s\S]*?<\/nav>/i) }
+  ].forEach(({ label, markup }) => {
+    let hrefMatch;
+    while ((hrefMatch = hrefPattern.exec(markup)) !== null) {
+      if (containsPrivateReviewPath(hrefMatch[1])) {
+        problems.push({
+          file: `public/${relativePath}`,
+          line: lineNumberFor(html, html.indexOf(hrefMatch[0])),
+          value: hrefMatch[1],
+          context: `${label} links must not expose private review forms.`
+        });
+      }
+    }
+  });
+
+  [...html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>[^<]*Google[^<]*<\/a>/gi)].forEach((googleLink) => {
+    const href = googleLink[1].trim();
+    if (!href.startsWith("#") && !/^https:\/\//i.test(href)) {
+      problems.push({
+        file: `public/${relativePath}`,
+        line: lineNumberFor(html, googleLink.index),
+        value: href,
+        context: "Real Google profile/review links must be external https URLs."
+      });
+    }
+  });
 });
 
 if (problems.length) {

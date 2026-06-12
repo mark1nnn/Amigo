@@ -14,8 +14,17 @@ const requiredFiles = [
   "uk/services.html",
   "blog.html",
   "en/blog.html",
-  "uk/blog.html"
+  "uk/blog.html",
+  "reviews.html",
+  "en/reviews.html",
+  "uk/reviews.html",
+  "review.html",
+  "en/review.html",
+  "uk/review.html"
 ];
+
+const publicReviewPages = new Set(["reviews.html", "en/reviews.html", "uk/reviews.html"]);
+const privateReviewPages = new Set(["review.html", "en/review.html", "uk/review.html"]);
 
 const walkHtml = (dir) => {
   if (!fs.existsSync(dir)) return [];
@@ -43,7 +52,8 @@ if (htmlFiles.length === 0) {
 }
 
 htmlFiles.forEach((filePath) => {
-  const relativePath = toPosix(path.relative(rootDir, filePath));
+  const publicRelativePath = toPosix(path.relative(publicDir, filePath));
+  const relativePath = `public/${publicRelativePath}`;
   const html = fs.readFileSync(filePath, "utf8");
 
   if (/@include/i.test(html)) {
@@ -68,6 +78,15 @@ htmlFiles.forEach((filePath) => {
 
   if (/fetch\(\s*["']\/?components\//i.test(html)) {
     problems.push(`${relativePath}: uses client-side component fetch.`);
+  }
+
+  const robotsMeta = html.match(/<meta\b[^>]*\bname=["']robots["'][^>]*>/i)?.[0] || "";
+  if (privateReviewPages.has(publicRelativePath) && !/content=["'][^"']*\bnoindex\b[^"']*\bnofollow\b/i.test(robotsMeta)) {
+    problems.push(`${relativePath}: private review form must contain meta robots noindex, nofollow.`);
+  }
+
+  if (publicReviewPages.has(publicRelativePath) && /\bnoindex\b/i.test(robotsMeta)) {
+    problems.push(`${relativePath}: public reviews page must remain indexable.`);
   }
 });
 
