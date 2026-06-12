@@ -121,10 +121,10 @@
         },
         {
           "@type": "Question",
-          "name": "Czy formularz kontaktowy działa?",
+          "name": "Czy mogę zamówić wsparcie strony po wdrożeniu?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Tak. Formularz wysyła dane do funkcji Cloudflare Pages pod adresem /api/contact i zachowuje ochronę CORS oraz Turnstile."
+            "text": "Tak. Już w formularzu możesz zaznaczyć, czy strona będzie wymagała regularnej obsługi, okazjonalnych zmian lub czy nie masz jeszcze pewności. Dzięki temu łatwiej dobrać odpowiednie rozwiązania, koszty utrzymania i zakres dalszego wsparcia."
           }
         }
       ]
@@ -213,7 +213,7 @@
             <article class="contact-faq-item"><h3>Co wpisać w polu “Krótko o projekcie”?</h3><p>Napisz, jakiej strony potrzebujesz, dla jakiego biznesu, jakie usługi trzeba pokazać oraz czy masz logo, zdjęcia, teksty lub przykłady stron, które Ci się podobają.</p></article>
             <article class="contact-faq-item"><h3>Co jeśli nie znam budżetu?</h3><p>Możesz wybrać “Jeszcze nie wiem”. Po krótkim briefie podpowiemy, który format strony będzie najlepszy i od czego zależy wycena.</p></article>
             <article class="contact-faq-item"><h3>Co jeśli nie mam domeny?</h3><p>To nie problem. W formularzu możesz zaznaczyć, że nie masz jeszcze domeny. W razie potrzeby pomożemy wybrać i podłączyć domenę.</p></article>
-            <article class="contact-faq-item"><h3>Co dzieje się po wysłaniu formularza?</h3><p>Przejrzymy zgłoszenie, doprecyzujemy szczegóły i odpowiemy z kolejnym krokiem: format strony, orientacyjny zakres prac i co warto przygotować.</p></article>
+            <article class="contact-faq-item"><h3>Czy mogę zamówić wsparcie strony po wdrożeniu?</h3><p>Tak. Już w formularzu możesz zaznaczyć, czy strona będzie wymagała regularnej obsługi, okazjonalnych zmian lub czy nie masz jeszcze pewności. Dzięki temu łatwiej dobrać odpowiednie rozwiązania, koszty utrzymania i zakres dalszego wsparcia.</p></article>
           </div>
         </div>
         <form class="contact-card contact-form reveal" novalidate data-language="pl" data-success="Dziękujemy! Zgłoszenie zostało wysłane. Odezwiemy się z kolejnym krokiem." data-error="Nie udało się wysłać zgłoszenia. Spróbuj ponownie albo napisz bezpośrednio." data-sending="Wysyłamy zapytanie..." data-validation-name="Wpisz imię od 2 do 80 znaków." data-validation-contact="Wpisz kontakt od 3 do 120 znaków." data-validation-message="Opisz zadanie dokładniej: minimum 20 znaków." data-validation-turnstile="Potwierdź, że nie jesteś botem.">
@@ -233,31 +233,43 @@
               <small class="field-error" data-error-for="contact"></small>
             </label>
           </div>
-          <div class="field-row">
+          <div class="field-row field-row-support">
             <label>
               <span>Typ projektu</span>
               <select name="projectType" required>
-                <option value="" disabled selected>Wybierz format</option><option>Landing Page</option><option>Strona firmowa</option><option>Rozwiązanie indywidualne</option><option>Wsparcie strony</option>
+                <option value="" disabled selected>Wybierz format</option><option>Landing page</option><option>Strona firmowa</option><option>Strona wielojęzyczna</option><option>Formularz kontaktowy / lead form</option><option>Portfolio / prezentacja usług</option><option>Inne / nie wiem</option>
               </select>
               <small class="field-error" data-error-for="projectType"></small>
             </label>
+            <label>
+              <span>Czy strona będzie wymagała wsparcia po wdrożeniu?</span>
+              <select name="futureSupport">
+                <option>Nie wiem jeszcze</option><option>Tak, regularna obsługa</option><option>Tak, okazjonalne zmiany</option><option>Raczej nie</option>
+              </select>
+              <small class="field-error" aria-hidden="true"></small>
+            </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Budżet</span>
               <select name="budget">
                 <option>Jeszcze nie wiem</option><option>do $600</option><option>$600-$1200</option><option>$1200-$2500</option><option>$2500+</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
-          </div>
-          <div class="field-row">
             <label>
               <span>Termin</span>
               <input type="text" name="deadline" maxlength="120" placeholder="np. 2-4 tygodnie">
+              <small class="field-error" aria-hidden="true"></small>
             </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Domena</span>
               <select name="hasDomain">
                 <option>Nie wiem jeszcze</option><option>Mam domenę</option><option>Potrzebuję domeny</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
           </div>
           <label>

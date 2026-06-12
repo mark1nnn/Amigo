@@ -1870,7 +1870,7 @@ body.modal-open {
 
 .contact-card {
   display: grid;
-  gap: 1.25rem;
+  gap: 0.9rem;
 }
 
 .field-row {
@@ -1884,10 +1884,14 @@ body.modal-open {
   grid-column: 1 / -1;
 }
 
+.field-row-support {
+  align-items: end;
+}
+
 label {
   display: grid;
   align-content: start;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 label span {
@@ -1945,8 +1949,8 @@ textarea:focus {
 
 .field-error {
   display: block;
-  min-height: 1.1rem;
-  margin-top: 0.35rem;
+  min-height: 0.95rem;
+  margin-top: 0.15rem;
   color: var(--danger);
   font-size: 0.8rem;
   line-height: 1.4;

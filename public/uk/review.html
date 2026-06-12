@@ -91,15 +91,15 @@
           </div>
           <div class="field-row">
             <label><span>Ваше імʼя</span><input type="text" name="name" autocomplete="name" required minlength="2" maxlength="80"><small class="field-error" data-error-for="name"></small></label>
-            <label><span>Компанія</span><input type="text" name="company" maxlength="120"><small class="field-error" data-error-for="company"></small></label>
+            <label><span>Компанія</span><input type="text" name="company" required minlength="2" maxlength="120"><small class="field-error" data-error-for="company"></small></label>
           </div>
           <div class="field-row">
             <label><span>Назва проєкту</span><input type="text" name="projectName" required minlength="2" maxlength="120"><small class="field-error" data-error-for="projectName"></small></label>
-            <label><span>Тип проєкту</span><input type="text" name="projectType" maxlength="120" placeholder="Landing Page"></label>
+            <label><span>Тип проєкту</span><input type="text" name="projectType" required minlength="2" maxlength="120" placeholder="Landing Page"><small class="field-error" data-error-for="projectType"></small></label>
           </div>
           <div class="field-row">
-            <label><span>Посилання на сайт</span><input type="url" name="websiteUrl" maxlength="240" placeholder="https://"><small class="field-error" data-error-for="websiteUrl"></small></label>
-            <label><span>Оцінка</span><select name="rating"><option value="">Без оцінки</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+            <label><span>Посилання на сайт</span><input type="url" name="websiteUrl" required maxlength="240" placeholder="https://"><small class="field-error" data-error-for="websiteUrl"></small></label>
+            <label><span>Оцінка</span><select name="rating"><option value="">Без оцінки</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><small class="field-error" aria-hidden="true"></small></label>
           </div>
           <label>
             <span class="field-label-line"><span>Текст відгуку</span><span class="field-counter" data-counter>0/1000</span></span>
@@ -110,10 +110,6 @@
             <input type="checkbox" name="permissionToPublish" required>
             <span>Я дозволяю опублікувати цей відгук на сайті Amigo</span>
             <small class="field-error" data-error-for="permissionToPublish"></small>
-          </label>
-          <label class="checkbox-field">
-            <input type="checkbox" name="allowProjectName">
-            <span>Можна показати назву компанії або проєкту</span>
           </label>
           <input type="hidden" name="formType" value="review">
           <input type="hidden" name="language" value="uk">

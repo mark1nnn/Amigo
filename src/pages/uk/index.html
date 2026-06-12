@@ -344,31 +344,43 @@
               <small class="field-error" data-error-for="contact"></small>
             </label>
           </div>
-          <div class="field-row">
+          <div class="field-row field-row-support">
             <label>
               <span>Тип проєкту</span>
               <select name="projectType" required>
-                <option value="" disabled selected>Оберіть формат</option><option>Landing Page</option><option>Сайт компанії</option><option>Індивідуальне рішення</option><option>Підтримка сайту</option>
+                <option value="" disabled selected>Оберіть формат</option><option>Лендінг</option><option>Сайт компанії</option><option>Багатомовний сайт</option><option>Контактна форма / форма заявок</option><option>Портфоліо / презентація послуг</option><option>Інше / не знаю</option>
               </select>
               <small class="field-error" data-error-for="projectType"></small>
             </label>
+            <label>
+              <span>Чи буде сайту потрібна підтримка після запуску?</span>
+              <select name="futureSupport">
+                <option>Ще не знаю</option><option>Так, регулярна підтримка</option><option>Так, періодичні зміни</option><option>Скоріш за все ні</option>
+              </select>
+              <small class="field-error" aria-hidden="true"></small>
+            </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Бюджет</span>
               <select name="budget">
                 <option>Поки не знаю</option><option>до $600</option><option>$600-$1200</option><option>$1200-$2500</option><option>$2500+</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
-          </div>
-          <div class="field-row">
             <label>
               <span>Термін</span>
               <input type="text" name="deadline" maxlength="120" placeholder="наприклад, 2-4 тижні">
+              <small class="field-error" aria-hidden="true"></small>
             </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Домен</span>
               <select name="hasDomain">
                 <option>Поки не знаю</option><option>У мене є домен</option><option>Потрібен домен</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
           </div>
           <label>

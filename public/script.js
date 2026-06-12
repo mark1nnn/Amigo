@@ -647,25 +647,31 @@ const contactValidationMessages = {
 const reviewValidationMessages = {
   pl: {
     name: "Wpisz imię - minimum 2 znaki.",
+    company: "Wpisz nazwę firmy.",
     projectName: "Wpisz nazwę projektu.",
+    projectType: "Wpisz typ projektu.",
     reviewText: "Treść opinii powinna mieć od 30 do 1000 znaków.",
-    websiteUrl: "Podaj poprawny adres URL albo zostaw pole puste.",
+    websiteUrl: "Podaj poprawny adres URL strony.",
     permissionToPublish: "Zgoda na publikację opinii jest wymagana.",
     turnstile: "Potwierdź weryfikację bezpieczeństwa i spróbuj ponownie."
   },
   en: {
     name: "Enter your name - at least 2 characters.",
+    company: "Enter the company name.",
     projectName: "Enter the project name.",
+    projectType: "Enter the project type.",
     reviewText: "Review text must be between 30 and 1000 characters.",
-    websiteUrl: "Enter a valid URL or leave the field empty.",
+    websiteUrl: "Enter a valid website URL.",
     permissionToPublish: "Permission to publish the review is required.",
     turnstile: "Complete the security check and try again."
   },
   uk: {
     name: "Вкажіть ім'я - мінімум 2 символи.",
+    company: "Вкажіть назву компанії.",
     projectName: "Вкажіть назву проєкту.",
+    projectType: "Вкажіть тип проєкту.",
     reviewText: "Текст відгуку має містити від 30 до 1000 символів.",
-    websiteUrl: "Вкажіть коректний URL або залиште поле порожнім.",
+    websiteUrl: "Вкажіть коректний URL сайту.",
     permissionToPublish: "Згода на публікацію відгуку є обов'язковою.",
     turnstile: "Підтвердіть перевірку безпеки та спробуйте ще раз."
   }
@@ -806,7 +812,9 @@ const validateForm = (form) => {
 const validateReviewForm = (form) => {
   let isValid = true;
   const name = getValue(form, "name");
+  const company = getValue(form, "company");
   const projectName = getValue(form, "projectName");
+  const projectType = getValue(form, "projectType");
   const reviewText = getValue(form, "reviewText");
   const websiteUrl = getValue(form, "websiteUrl");
 
@@ -817,11 +825,25 @@ const validateReviewForm = (form) => {
     clearFieldError(form, "name");
   }
 
+  if (company.length < 2 || company.length > 120) {
+    setFieldError(form, "company", getValidationMessage(form, "company"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "company");
+  }
+
   if (projectName.length < 2 || projectName.length > 120) {
     setFieldError(form, "projectName", getValidationMessage(form, "projectName"));
     isValid = false;
   } else {
     clearFieldError(form, "projectName");
+  }
+
+  if (projectType.length < 2 || projectType.length > 120) {
+    setFieldError(form, "projectType", getValidationMessage(form, "projectType"));
+    isValid = false;
+  } else {
+    clearFieldError(form, "projectType");
   }
 
   if (reviewText.length < 30 || reviewText.length > 1000) {
@@ -831,7 +853,7 @@ const validateReviewForm = (form) => {
     clearFieldError(form, "reviewText");
   }
 
-  if (!isValidUrl(websiteUrl)) {
+  if (!websiteUrl || !isValidUrl(websiteUrl)) {
     setFieldError(form, "websiteUrl", getValidationMessage(form, "websiteUrl"));
     isValid = false;
   } else {
@@ -872,7 +894,7 @@ document.querySelectorAll(".contact-form").forEach((form) => {
   }
 
   const fieldsToWatch = isReviewForm
-    ? ["name", "company", "projectName", "projectType", "websiteUrl", "rating", "reviewText", "permissionToPublish", "allowProjectName"]
+    ? ["name", "company", "projectName", "projectType", "websiteUrl", "rating", "reviewText", "permissionToPublish"]
     : ["name", "contact", "projectType", "futureSupport", "message"];
 
   fieldsToWatch.forEach((name) => {

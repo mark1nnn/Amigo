@@ -391,31 +391,43 @@
               <small class="field-error" data-error-for="contact"></small>
             </label>
           </div>
-          <div class="field-row">
+          <div class="field-row field-row-support">
             <label>
               <span>Typ projektu</span>
               <select name="projectType" required>
-                <option value="" disabled selected>Wybierz format</option><option>Landing Page</option><option>Strona firmowa</option><option>Rozwiązanie indywidualne</option><option>Wsparcie strony</option>
+                <option value="" disabled selected>Wybierz format</option><option>Landing page</option><option>Strona firmowa</option><option>Strona wielojęzyczna</option><option>Formularz kontaktowy / lead form</option><option>Portfolio / prezentacja usług</option><option>Inne / nie wiem</option>
               </select>
               <small class="field-error" data-error-for="projectType"></small>
             </label>
+            <label>
+              <span>Czy strona będzie wymagała wsparcia po wdrożeniu?</span>
+              <select name="futureSupport">
+                <option>Nie wiem jeszcze</option><option>Tak, regularna obsługa</option><option>Tak, okazjonalne zmiany</option><option>Raczej nie</option>
+              </select>
+              <small class="field-error" aria-hidden="true"></small>
+            </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Budżet</span>
               <select name="budget">
                 <option>Jeszcze nie wiem</option><option>do $600</option><option>$600-$1200</option><option>$1200-$2500</option><option>$2500+</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
-          </div>
-          <div class="field-row">
             <label>
               <span>Termin</span>
               <input type="text" name="deadline" maxlength="120" placeholder="np. 2-4 tygodnie">
+              <small class="field-error" aria-hidden="true"></small>
             </label>
+          </div>
+          <div class="field-row">
             <label>
               <span>Domena</span>
               <select name="hasDomain">
                 <option>Nie wiem jeszcze</option><option>Mam domenę</option><option>Potrzebuję domeny</option>
               </select>
+              <small class="field-error" aria-hidden="true"></small>
             </label>
           </div>
           <label>

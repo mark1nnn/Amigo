@@ -155,7 +155,6 @@ export async function onRequestPost({ request, env }) {
   const rating = clampText(data.rating, 20);
   const reviewText = clampText(data.reviewText, 1000);
   const permissionToPublish = data.permissionToPublish === "on" || data.permissionToPublish === true;
-  const allowProjectName = data.allowProjectName === "on" || data.allowProjectName === true;
   const language = normalizeLanguage(data.language);
   const sourcePage = clampText(data.sourcePage, 500);
   const website = clampText(data.website, 200);
@@ -170,8 +169,16 @@ export async function onRequestPost({ request, env }) {
   }
 
   if (formType === "review") {
+    if (company.length < 2 || company.length > 120) {
+      return jsonResponse({ ok: false, error: "Invalid company" }, 400, origin);
+    }
+
     if (projectName.length < 2 || projectName.length > 120) {
       return jsonResponse({ ok: false, error: "Invalid project name" }, 400, origin);
+    }
+
+    if (projectType.length < 2 || projectType.length > 120) {
+      return jsonResponse({ ok: false, error: "Invalid project type" }, 400, origin);
     }
 
     if (reviewText.length < 30 || reviewText.length > 1000) {
@@ -182,7 +189,7 @@ export async function onRequestPost({ request, env }) {
       return jsonResponse({ ok: false, error: "Missing permission" }, 400, origin);
     }
 
-    if (!isValidUrl(websiteUrl)) {
+    if (!websiteUrl || !isValidUrl(websiteUrl)) {
       return jsonResponse({ ok: false, error: "Invalid website URL" }, 400, origin);
     }
 
@@ -197,14 +204,13 @@ export async function onRequestPost({ request, env }) {
 
     const safeReview = {
       name: escapeHtml(name),
-      company: escapeHtml(company || "Nie wskazano"),
+      company: escapeHtml(company),
       projectName: escapeHtml(projectName),
-      projectType: escapeHtml(projectType || "Nie wskazano"),
-      websiteUrl: escapeHtml(websiteUrl || "Nie wskazano"),
+      projectType: escapeHtml(projectType),
+      websiteUrl: escapeHtml(websiteUrl),
       rating: escapeHtml(rating || "Nie wskazano"),
       language: escapeHtml(language),
       sourcePage: escapeHtml(sourcePage || "Nie wskazano"),
-      allowProjectName: allowProjectName ? "Tak" : "Nie",
       reviewText: escapeHtml(reviewText).replaceAll("\n", "<br>")
     };
 
@@ -214,13 +220,12 @@ New review submission — Amigo
 
 Status: pending moderation
 Name: ${name}
-Company: ${company || "Nie wskazano"}
+Company: ${company}
 Project name: ${projectName}
-Project type: ${projectType || "Nie wskazano"}
-Website URL: ${websiteUrl || "Nie wskazano"}
+Project type: ${projectType}
+Website URL: ${websiteUrl}
 Rating: ${rating || "Nie wskazano"}
 Permission to publish: yes
-Allow company/project name: ${allowProjectName ? "yes" : "no"}
 Language: ${language}
 Source page: ${sourcePage || "Nie wskazano"}
 
@@ -238,7 +243,6 @@ ${reviewText}
       <p><strong>Website URL:</strong> ${safeReview.websiteUrl}</p>
       <p><strong>Rating:</strong> ${safeReview.rating}</p>
       <p><strong>Permission to publish:</strong> yes</p>
-      <p><strong>Allow company/project name:</strong> ${safeReview.allowProjectName}</p>
       <p><strong>Language:</strong> ${safeReview.language}</p>
       <p><strong>Source page:</strong> ${safeReview.sourcePage}</p>
       <p><strong>Review:</strong></p>
