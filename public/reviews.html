@@ -182,12 +182,41 @@
           <p>Wybrane opinie klientów po zakończonych projektach. Publikujemy je tylko po otrzymaniu zgody klienta.</p>
         </div>
         <div class="reviews-shell">
-          <div class="reviews-grid" data-reviews-list hidden></div>
-          <article class="empty-state reveal" data-reviews-empty>
-            <i data-lucide="message-square-text" class="icon empty-icon"></i>
-            <h2>Opinie pojawią się po zakończonych projektach</h2>
-            <p>Na tej stronie pojawią się opinie po zakończonych projektach. Nie publikujemy fikcyjnych ocen ani sztucznych rekomendacji.</p>
-          </article>
+          <div class="project-reviews-grid" data-reviews-list data-review-count="1">
+            <article class="project-review-card" data-review-card>
+              <div class="project-review-card__surface">
+                <div class="project-review-card__glow" data-review-parallax aria-hidden="true"></div>
+                <header class="project-review-card__top">
+                  <div class="project-review-stars" role="img" aria-label="Ocena: 5 na 5">
+                    <span aria-hidden="true">&#9733;</span>
+                    <span aria-hidden="true">&#9733;</span>
+                    <span aria-hidden="true">&#9733;</span>
+                    <span aria-hidden="true">&#9733;</span>
+                    <span aria-hidden="true">&#9733;</span>
+                  </div>
+                  <span class="project-review-source">Formularz Amigo</span>
+                </header>
+                <span class="project-review-quote" data-review-parallax aria-hidden="true">&ldquo;</span>
+                <blockquote class="project-review-text">
+                  Bardzo podobała mi się komunikacja, termin realizacji, cena oraz oczywiście sam efekt wykonanej pracy.
+                </blockquote>
+                <footer class="project-review-footer">
+                  <div class="project-review-author">
+                    <span class="project-review-avatar" aria-hidden="true">S</span>
+                    <div class="project-review-author-info">
+                      <strong>Serhii</strong>
+                      <span class="project-review-company">Autohouse.Dnepr</span>
+                      <span class="project-review-project">Landing page dla serwisu samochodowego</span>
+                    </div>
+                  </div>
+                  <div class="project-review-meta">
+                    <span class="project-review-type">Landing page</span>
+                    <a class="project-review-link" href="https://autohouse.dp.ua/" target="_blank" rel="noopener noreferrer">Zobacz projekt</a>
+                  </div>
+                </footer>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>

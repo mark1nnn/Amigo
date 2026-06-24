@@ -1,3 +1,9 @@
+document.documentElement.classList.add("js");
+
+const REVIEW_REVEAL_THRESHOLD = 0.15;
+const REVIEW_PARALLAX_MAX = 10;
+const REVIEW_MOBILE_BREAKPOINT = 768;
+
 const iconTemplates = {
   "arrow-right": '<path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>',
   "arrow-up": '<path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path>',
@@ -31,6 +37,51 @@ const iconTemplates = {
 const reviewsData = [
   // Do not publish fake reviews.
   // Add real client reviews only after approval and permission to publish.
+  {
+    id: "autohouse-serhii-pl",
+    status: "published",
+    lang: "pl",
+    name: "Serhii",
+    company: "Autohouse.Dnepr",
+    projectName: "Landing page dla serwisu samochodowego",
+    projectType: "Landing page",
+    websiteUrl: "https://autohouse.dp.ua/",
+    rating: "5 out of 5",
+    ratingLabel: "Ocena: 5 na 5",
+    initial: "S",
+    text: "Bardzo podobała mi się komunikacja, termin realizacji, cena oraz oczywiście sam efekt wykonanej pracy.",
+    permissionToPublish: true
+  },
+  {
+    id: "autohouse-serhii-en",
+    status: "published",
+    lang: "en",
+    name: "Serhii",
+    company: "Autohouse.Dnepr",
+    projectName: "Landing page for an auto service",
+    projectType: "Landing page",
+    websiteUrl: "https://autohouse.dp.ua/",
+    rating: "5 out of 5",
+    ratingLabel: "Rating: 5 out of 5",
+    initial: "S",
+    text: "I was very pleased with the communication, delivery time, price and, of course, the final result.",
+    permissionToPublish: true
+  },
+  {
+    id: "autohouse-serhii-uk",
+    status: "published",
+    lang: "uk",
+    name: "Сергій",
+    company: "Autohouse.Dnepr",
+    projectName: "Лендинг для СТО",
+    projectType: "Лендинг",
+    websiteUrl: "https://autohouse.dp.ua/",
+    rating: "5 out of 5",
+    ratingLabel: "Оцінка: 5 із 5",
+    initial: "С",
+    text: "Дуже сподобалися спілкування, терміни виконання, вартість роботи і, звичайно, сам результат.",
+    permissionToPublish: true
+  },
   // Example pending structure for future use:
   // {
   //   id: "autohouse",
@@ -52,23 +103,23 @@ const reviewsData = [
 const reviewUi = {
   pl: {
     verified: "Zweryfikowany klient",
-    projectLink: "Otwórz projekt",
+    projectLink: "Zobacz projekt",
     rating: "Ocena",
-    sourceLabel: "\u0179r\u00f3d\u0142o: Formularz Amigo",
+    sourceLabel: "Formularz Amigo",
     fallbackName: "Klient Amigo"
   },
   en: {
     verified: "Verified client",
-    projectLink: "Open project",
+    projectLink: "View project",
     rating: "Rating",
-    sourceLabel: "Source: Amigo form",
+    sourceLabel: "Amigo form",
     fallbackName: "Amigo client"
   },
   uk: {
-    sourceLabel: "\u0414\u0436\u0435\u0440\u0435\u043b\u043e: \u0444\u043e\u0440\u043c\u0430 Amigo",
+    sourceLabel: "Форма Amigo",
     fallbackName: "\u041a\u043b\u0456\u0454\u043d\u0442 Amigo",
     verified: "Перевірений клієнт",
-    projectLink: "Відкрити проєкт",
+    projectLink: "Переглянути проєкт",
     rating: "Оцінка"
   }
 };
@@ -78,24 +129,27 @@ const portfolioUi = {
     detailsLabel: "Zobacz projekt",
     featuresLabel: "Najważniejsze elementy",
     goalLabel: "Cel projektu",
+    technologyLabel: "Technologia",
     bestForLabel: "Dla kogo",
     closeLabel: "Zamknij okno projektu",
     placeholderLabel: "Podgląd wkrótce",
     emptyLabel: "Brak projektów dla wybranego filtra."
   },
   en: {
-    detailsLabel: "View case",
+    detailsLabel: "View project",
     featuresLabel: "Key features",
     goalLabel: "Project goal",
+    technologyLabel: "Technology",
     bestForLabel: "Best for",
     closeLabel: "Close project dialog",
     placeholderLabel: "Preview coming soon",
     emptyLabel: "No projects match this filter."
   },
   uk: {
-    detailsLabel: "Детальніше",
+    detailsLabel: "Переглянути проєкт",
     featuresLabel: "Ключові елементи",
     goalLabel: "Мета проєкту",
+    technologyLabel: "Технології",
     bestForLabel: "Для кого",
     closeLabel: "Закрити вікно проєкту",
     placeholderLabel: "Превʼю скоро буде додано",
@@ -106,10 +160,31 @@ const portfolioUi = {
 const portfolioProjects = {
   pl: [
     {
+      id: "1sto-dnipro-tir",
+      title: "1 СТО Dnipro TIR",
+      tags: ["Strona wielostronicowa", "Projekt realny"],
+      filters: ["multipage", "real"],
+      thumbnail: "portfolio-1sto-dnipro-tir-card.webp",
+      fullImage: "portfolio-1sto-dnipro-tir-modal.webp",
+      imageAlt: "Podgląd strony 1 СТО Dnipro TIR — serwis samochodów ciężarowych w Dnieprze",
+      url: "https://1stodniprotir.com.ua/",
+      shortDescription: "Wielostronicowa strona dla serwisu samochodów ciężarowych w Dnieprze. Prezentuje usługi naprawy ciężarówek, pomoc wyjazdową, części DAF Euro 2 oraz szybkie kanały kontaktu.",
+      description: "Statyczna, wielostronicowa strona internetowa dla serwisu samochodów ciężarowych w Dnieprze. Projekt przedstawia firmę zajmującą się naprawą ciężarówek, ciągników siodłowych, przyczep i naczep, wyjazdową pomocą techniczną oraz obsługą zapytań o części do DAF Euro 2.",
+      goalLabel: "Cel projektu",
+      goal: "Celem było stworzenie czytelnej strony, która szybko przedstawia zakres usług, pokazuje najważniejsze dane kontaktowe i prowadzi użytkownika do telefonu, Vibera lub Instagram Direct.",
+      featuresLabel: "Najważniejsze elementy",
+      features: ["responsywny interfejs wielostronicowy", "wersja desktopowa i mobilna", "sticky header i mobilne menu", "centralna konfiguracja danych kontaktowych", "szybkie przyciski telefonu i Vibera", "warunkowe wyświetlanie Instagram Direct", "galeria prawdziwych zdjęć z lightboxem", "sekcja FAQ", "osobna sekcja dotycząca części DAF Euro 2", "przygotowanie techniczne pod lokalne SEO", "sitemap.xml, robots.txt, canonical i JSON-LD"],
+      technologyLabel: "Technologia",
+      technology: "Czysty HTML, CSS i JavaScript ES Modules. Bez frameworków i bez procesu bundlowania.",
+      bestForLabel: "Strona pomaga firmie",
+      bestFor: ["prezentować specjalistyczny serwis dla pojazdów ciężarowych", "zbierać zapytania dotyczące napraw i pomocy wyjazdowej", "przedstawiać rzeczywiste kierunki prac", "pozyskiwać zapytania o części DAF Euro 2", "rozwijać lokalną widoczność w Dnieprze i regionie"],
+      actionLabel: "Otwórz stronę"
+    },
+    {
       id: "autohouse",
       title: "AutoHouse",
       tags: ["Landing page", "Projekt realny"],
-      filters: ["landing"],
+      filters: ["landing", "real"],
       thumbnail: "portfolio-autohouse-card.webp",
       fullImage: "portfolio-autohouse-modal.webp",
       imageAlt: "Preview of AutoHouse landing page project",
@@ -156,10 +231,31 @@ const portfolioProjects = {
   ],
   en: [
     {
+      id: "1sto-dnipro-tir",
+      title: "1 STO Dnipro TIR",
+      tags: ["Multipage website", "Real project"],
+      filters: ["multipage", "real"],
+      thumbnail: "portfolio-1sto-dnipro-tir-card.webp",
+      fullImage: "portfolio-1sto-dnipro-tir-modal.webp",
+      imageAlt: "Preview of the 1 STO Dnipro TIR commercial truck service website",
+      url: "https://1stodniprotir.com.ua/",
+      shortDescription: "A multipage website for a commercial truck repair service in Dnipro. It presents truck repair services, roadside assistance, DAF Euro 2 parts and fast contact options.",
+      description: "A static multipage website for a commercial truck repair service in Dnipro. The project presents a company that repairs trucks, tractor units, trailers and semi-trailers, provides roadside technical assistance and handles enquiries for DAF Euro 2 parts.",
+      goalLabel: "Project goal",
+      goal: "The goal was to create a clear website that quickly presents the service range, displays the most important contact details and guides visitors towards a phone call, Viber or Instagram Direct.",
+      featuresLabel: "Key features",
+      features: ["responsive multipage interface", "desktop and mobile layouts", "sticky header and mobile navigation", "centrally configured contact information", "quick phone and Viber actions", "conditional Instagram Direct display", "real-photo gallery with lightbox", "FAQ accordion", "dedicated DAF Euro 2 parts section", "technical preparation for local SEO", "sitemap.xml, robots.txt, canonical tags and JSON-LD"],
+      technologyLabel: "Technology",
+      technology: "Vanilla HTML, CSS and JavaScript ES Modules, without frameworks or a bundling process.",
+      bestForLabel: "The website helps the business",
+      bestFor: ["present a specialist commercial vehicle service", "collect truck repair and roadside assistance enquiries", "show real service areas and workshop photos", "provide a dedicated entry point for DAF Euro 2 parts", "develop local search visibility in Dnipro and the surrounding region"],
+      actionLabel: "Open website"
+    },
+    {
       id: "autohouse",
       title: "AutoHouse",
       tags: ["Landing page", "Real project"],
-      filters: ["landing"],
+      filters: ["landing", "real"],
       thumbnail: "portfolio-autohouse-card.webp",
       fullImage: "portfolio-autohouse-modal.webp",
       imageAlt: "Preview of AutoHouse landing page project",
@@ -206,10 +302,31 @@ const portfolioProjects = {
   ],
   uk: [
     {
+      id: "1sto-dnipro-tir",
+      title: "1 СТО Дніпро TIR",
+      tags: ["Багатосторінковий сайт", "Реальний проєкт"],
+      filters: ["multipage", "real"],
+      thumbnail: "portfolio-1sto-dnipro-tir-card.webp",
+      fullImage: "portfolio-1sto-dnipro-tir-modal.webp",
+      imageAlt: "Попередній перегляд сайту 1 СТО Дніпро TIR — сервісу вантажних автомобілів",
+      url: "https://1stodniprotir.com.ua/",
+      shortDescription: "Багатосторінковий сайт для сервісу вантажних автомобілів у Дніпрі. Представляє ремонт вантажівок, виїзну технічну допомогу, запчастини DAF Euro 2 та швидкі способи зв’язку.",
+      description: "Статичний багатосторінковий сайт для сервісу вантажних автомобілів у Дніпрі. Проєкт представляє компанію, яка ремонтує вантажівки, тягачі, причепи й напівпричепи, надає виїзну технічну допомогу та приймає запити на запчастини DAF Euro 2.",
+      goalLabel: "Мета проєкту",
+      goal: "Метою було створити зрозумілий сайт, який швидко показує перелік послуг, основні контактні дані та спрямовує користувача до дзвінка, Viber або Instagram Direct.",
+      featuresLabel: "Ключові можливості",
+      features: ["адаптивний багатосторінковий інтерфейс", "версії для комп’ютерів і мобільних пристроїв", "sticky header і мобільне меню", "централізована конфігурація контактних даних", "кнопки швидкого дзвінка та переходу у Viber", "умовне відображення Instagram Direct", "галерея реальних фотографій із lightbox", "FAQ-акордеон", "окремий розділ для запчастин DAF Euro 2", "технічна підготовка до локального SEO", "sitemap.xml, robots.txt, canonical і JSON-LD"],
+      technologyLabel: "Технології",
+      technology: "Чисті HTML, CSS і JavaScript ES Modules без фреймворків і процесу збірки.",
+      bestForLabel: "Сайт допомагає бізнесу",
+      bestFor: ["представляти спеціалізований сервіс вантажної техніки", "збирати звернення щодо ремонту та виїзної допомоги", "показувати реальні напрямки робіт і фотографії", "отримувати окремі запити на запчастини DAF Euro 2", "розвивати локальну видимість у Дніпрі та області"],
+      actionLabel: "Відкрити сайт"
+    },
+    {
       id: "autohouse",
       title: "AutoHouse",
       tags: ["Лендинг", "Реальний проєкт"],
-      filters: ["landing"],
+      filters: ["landing", "real"],
       thumbnail: "portfolio-autohouse-card.webp",
       fullImage: "portfolio-autohouse-modal.webp",
       imageAlt: "Preview of AutoHouse landing page project",
@@ -313,10 +430,17 @@ let portfolioModalActiveTrigger = null;
 const getPortfolioLanguage = () => document.body.dataset.language || "pl";
 const getPortfolioUi = () => portfolioUi[getPortfolioLanguage()] || portfolioUi.pl;
 const getPortfolioProjects = () => portfolioProjects[getPortfolioLanguage()] || portfolioProjects.pl;
-const getPortfolioAssetBase = () => (getPortfolioLanguage() === "pl" ? "assets/portfolio/" : "../assets/portfolio/");
+const getPortfolioAssetBase = () => "/assets/portfolio/";
 const getPortfolioContactPath = (projectId) => {
   const basePath = getPortfolioLanguage() === "pl" ? "/contact" : `/${getPortfolioLanguage()}/contact`;
   return `${basePath}?project=${encodeURIComponent(projectId)}`;
+};
+
+const renderPortfolioValue = (value) => {
+  if (Array.isArray(value)) {
+    return `<ul class="feature-list portfolio-modal__feature-list">${value.map((item) => `<li><i data-lucide="check" class="icon icon-check"></i><span>${escapeMarkup(item)}</span></li>`).join("")}</ul>`;
+  }
+  return `<p>${escapeMarkup(value || "")}</p>`;
 };
 
 const renderPortfolioImage = (project, extraClass = "") => {
@@ -329,7 +453,7 @@ const renderPortfolioImage = (project, extraClass = "") => {
 
 const renderPortfolioModalImage = (project) => {
   if (project.fullImage) {
-    return `<img src="${getPortfolioAssetBase()}${project.fullImage}" alt="${project.imageAlt}" width="1440" height="2400" loading="lazy" decoding="async">`;
+    return `<img src="${getPortfolioAssetBase()}${project.fullImage}" alt="${project.imageAlt}" loading="lazy" decoding="async">`;
   }
   return `<div class="portfolio-modal__placeholder">${getPortfolioUi().placeholderLabel}</div>`;
 };
@@ -366,19 +490,23 @@ const ensurePortfolioModal = () => {
           <h2 id="portfolio-modal-title" data-portfolio-modal-title></h2>
           <p class="portfolio-modal__description" data-portfolio-modal-description></p>
           <div class="portfolio-modal__meta">
-            <h3>${ui.goalLabel}</h3>
+            <h3 data-portfolio-modal-goal-label>${ui.goalLabel}</h3>
             <p data-portfolio-modal-goal></p>
           </div>
           <div class="portfolio-modal__features">
-            <h3>${ui.featuresLabel}</h3>
+            <h3 data-portfolio-modal-features-label>${ui.featuresLabel}</h3>
             <ul class="feature-list portfolio-modal__feature-list" data-portfolio-modal-features></ul>
           </div>
+          <div class="portfolio-modal__meta" data-portfolio-modal-technology-wrapper hidden>
+            <h3 data-portfolio-modal-technology-label>${ui.technologyLabel}</h3>
+            <p data-portfolio-modal-technology></p>
+          </div>
           <div class="portfolio-modal__meta">
-            <h3>${ui.bestForLabel}</h3>
-            <p data-portfolio-modal-best-for></p>
+            <h3 data-portfolio-modal-best-for-label>${ui.bestForLabel}</h3>
+            <div class="portfolio-modal__rich" data-portfolio-modal-best-for></div>
           </div>
           <div class="portfolio-modal__actions">
-            <a href="/" class="button button-primary portfolio-modal__action" data-portfolio-modal-link target="_blank" rel="noopener"></a>
+            <a href="/" class="button button-primary portfolio-modal__action" data-portfolio-modal-link target="_blank" rel="noopener noreferrer"></a>
             <a href="/" class="button button-ghost portfolio-modal__action portfolio-modal__action-secondary" data-portfolio-modal-contact></a>
           </div>
         </div>
@@ -409,26 +537,45 @@ const closePortfolioModal = () => {
 
 const openPortfolioModal = (project, trigger) => {
   ensurePortfolioModal();
+  const ui = getPortfolioUi();
   const tags = portfolioModal.querySelector("[data-portfolio-modal-tags]");
   const title = portfolioModal.querySelector("[data-portfolio-modal-title]");
   const description = portfolioModal.querySelector("[data-portfolio-modal-description]");
+  const goalLabel = portfolioModal.querySelector("[data-portfolio-modal-goal-label]");
   const goal = portfolioModal.querySelector("[data-portfolio-modal-goal]");
   const image = portfolioModal.querySelector("[data-portfolio-modal-image]");
+  const featuresLabel = portfolioModal.querySelector("[data-portfolio-modal-features-label]");
   const features = portfolioModal.querySelector("[data-portfolio-modal-features]");
+  const technologyWrapper = portfolioModal.querySelector("[data-portfolio-modal-technology-wrapper]");
+  const technologyLabel = portfolioModal.querySelector("[data-portfolio-modal-technology-label]");
+  const technology = portfolioModal.querySelector("[data-portfolio-modal-technology]");
+  const bestForLabel = portfolioModal.querySelector("[data-portfolio-modal-best-for-label]");
   const bestFor = portfolioModal.querySelector("[data-portfolio-modal-best-for]");
   const link = portfolioModal.querySelector("[data-portfolio-modal-link]");
   const contact = portfolioModal.querySelector("[data-portfolio-modal-contact]");
 
-  if (!tags || !title || !description || !goal || !image || !features || !bestFor || !link || !contact) return;
+  if (!tags || !title || !description || !goalLabel || !goal || !image || !featuresLabel || !features || !technologyWrapper || !technologyLabel || !technology || !bestForLabel || !bestFor || !link || !contact) return;
 
   tags.innerHTML = project.tags.map((tag, index) => `<span class="project-tag ${index === 0 ? "project-tag-blue" : "project-tag-muted"}">${tag}</span>`).join("");
   title.textContent = project.title;
   description.textContent = project.description;
+  goalLabel.textContent = project.goalLabel || ui.goalLabel;
   goal.textContent = project.goal;
   image.innerHTML = renderPortfolioModalImage(project);
-  features.innerHTML = project.features.map((feature) => `<li><i data-lucide="check" class="icon icon-check"></i><span>${feature}</span></li>`).join("");
-  bestFor.textContent = project.bestFor;
+  featuresLabel.textContent = project.featuresLabel || ui.featuresLabel;
+  features.innerHTML = project.features.map((feature) => `<li><i data-lucide="check" class="icon icon-check"></i><span>${escapeMarkup(feature)}</span></li>`).join("");
+  if (project.technology) {
+    technologyWrapper.hidden = false;
+    technologyLabel.textContent = project.technologyLabel || ui.technologyLabel;
+    technology.textContent = project.technology;
+  } else {
+    technologyWrapper.hidden = true;
+    technology.textContent = "";
+  }
+  bestForLabel.textContent = project.bestForLabel || ui.bestForLabel;
+  bestFor.innerHTML = renderPortfolioValue(project.bestFor);
   link.href = project.url;
+  link.rel = "noopener noreferrer";
   link.textContent = project.actionLabel;
   contact.href = getPortfolioContactPath(project.id);
   contact.textContent = getPortfolioLanguage() === "pl"
@@ -957,10 +1104,74 @@ document.querySelectorAll(".contact-form").forEach((form) => {
   });
 });
 
+const renderProjectReviewStars = (label) => `
+  <div class="project-review-stars" role="img" aria-label="${escapeMarkup(label)}">
+    <span aria-hidden="true">&#9733;</span>
+    <span aria-hidden="true">&#9733;</span>
+    <span aria-hidden="true">&#9733;</span>
+    <span aria-hidden="true">&#9733;</span>
+    <span aria-hidden="true">&#9733;</span>
+  </div>
+`;
+
+const getReviewInitial = (review, ui) => {
+  const source = String(review.initial || review.name || review.projectName || ui.fallbackName || "A").trim();
+  return source ? source.charAt(0).toUpperCase() : "A";
+};
+
+const renderProjectReviewCard = (review, ui) => {
+  const projectName = String(review.projectName || "").trim();
+  const company = String(review.company || "").trim();
+  const projectType = String(review.projectType || "").trim();
+  const safeUrl = isValidUrl(review.websiteUrl || "") ? review.websiteUrl : "";
+  const displayName = review.name || projectName || ui.fallbackName;
+  const ratingLabel = review.ratingLabel || (review.rating ? `${ui.rating}: ${review.rating}` : "");
+  const sourceLabel = review.sourceLabel || ui.sourceLabel;
+  const project = safeUrl
+    ? `<a class="project-review-link" href="${escapeMarkup(safeUrl)}" target="_blank" rel="noopener noreferrer">${escapeMarkup(ui.projectLink)}</a>`
+    : "";
+
+  return `
+    <article class="project-review-card" data-review-card>
+      <div class="project-review-card__surface">
+        <div class="project-review-card__glow" data-review-parallax aria-hidden="true"></div>
+        <header class="project-review-card__top">
+          ${renderProjectReviewStars(ratingLabel)}
+          <span class="project-review-source">${escapeMarkup(sourceLabel)}</span>
+        </header>
+        <span class="project-review-quote" data-review-parallax aria-hidden="true">&ldquo;</span>
+        <blockquote class="project-review-text">${escapeMarkup(review.text)}</blockquote>
+        <footer class="project-review-footer">
+          <div class="project-review-author">
+            <span class="project-review-avatar" aria-hidden="true">${escapeMarkup(getReviewInitial(review, ui))}</span>
+            <div class="project-review-author-info">
+              <strong>${escapeMarkup(displayName)}</strong>
+              ${company ? `<span class="project-review-company">${escapeMarkup(company)}</span>` : ""}
+              ${projectName ? `<span class="project-review-project">${escapeMarkup(projectName)}</span>` : ""}
+            </div>
+          </div>
+          <div class="project-review-meta">
+            ${projectType ? `<span class="project-review-type">${escapeMarkup(projectType)}</span>` : ""}
+            ${project}
+          </div>
+        </footer>
+      </div>
+    </article>
+  `;
+};
+
 const initReviewsPage = () => {
   const list = document.querySelector("[data-reviews-list]");
   const empty = document.querySelector("[data-reviews-empty]");
-  if (!list || !empty) return;
+  if (!list) return;
+
+  const staticCards = list.querySelectorAll("[data-review-card]");
+  if (staticCards.length) {
+    list.dataset.reviewCount = String(staticCards.length);
+    list.hidden = false;
+    if (empty) empty.hidden = true;
+    return;
+  }
 
   const language = document.body.dataset.language || "pl";
   const ui = reviewUi[language] || reviewUi.pl;
@@ -974,44 +1185,113 @@ const initReviewsPage = () => {
 
   if (!visibleReviews.length) {
     list.hidden = true;
-    empty.hidden = false;
+    if (empty) empty.hidden = false;
     return;
   }
 
-  empty.hidden = true;
+  if (empty) empty.hidden = true;
   list.hidden = false;
-  list.innerHTML = visibleReviews.map((review) => {
-    const allowProjectDetails = review.allowProjectName === true;
-    const projectName = allowProjectDetails ? String(review.projectName || "").trim() : "";
-    const company = allowProjectDetails ? String(review.company || "").trim() : "";
-    const meta = [review.projectType, review.verified ? ui.verified : "", ui.sourceLabel].filter(Boolean).join(" · ");
-    const safeUrl = isValidUrl(review.websiteUrl || "") ? review.websiteUrl : "";
-    const project = allowProjectDetails && safeUrl
-      ? `<a href="${escapeMarkup(safeUrl)}" target="_blank" rel="noopener" class="review-card__link">${escapeMarkup(ui.projectLink)}</a>`
-      : "";
-    const date = review.date ? `<span>${escapeMarkup(review.date)}</span>` : "";
-    const rating = review.rating ? `<span>${escapeMarkup(ui.rating)}: ${escapeMarkup(review.rating)}</span>` : "";
-    const displayName = review.name || projectName || ui.fallbackName;
-    const visibleDetail = [company, projectName].filter(Boolean).join(" · ");
+  list.classList.remove("reviews-grid");
+  list.classList.add("project-reviews-grid");
+  list.dataset.reviewCount = String(visibleReviews.length);
+  list.innerHTML = visibleReviews.map((review) => renderProjectReviewCard(review, ui)).join("");
+};
 
-    return `
-      <article class="review-card">
-        <p class="review-card__text">“${escapeMarkup(review.text)}”</p>
-        <div class="review-card__footer">
-          <div>
-            <h2>${escapeMarkup(displayName)}</h2>
-            ${visibleDetail ? `<p>${escapeMarkup(visibleDetail)}</p>` : ""}
-            ${meta ? `<p class="review-card__meta">${escapeMarkup(meta)}</p>` : ""}
-          </div>
-          <div class="review-card__actions">
-            ${rating}
-            ${date}
-            ${project}
-          </div>
-        </div>
-      </article>
-    `;
-  }).join("");
+const initProjectReviewCards = () => {
+  const cards = Array.from(document.querySelectorAll("[data-review-card]"));
+  if (!cards.length) return;
+
+  const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const mobileQuery = window.matchMedia(`(max-width: ${REVIEW_MOBILE_BREAKPOINT - 1}px)`);
+
+  if (reduceMotionQuery.matches) {
+    cards.forEach((card) => card.classList.add("is-visible"));
+    return;
+  }
+
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: REVIEW_REVEAL_THRESHOLD });
+
+    cards.forEach((card, index) => {
+      card.style.setProperty("--review-stagger-delay", `${Math.min(index * 90, 240)}ms`);
+      revealObserver.observe(card);
+    });
+  } else {
+    cards.forEach((card) => card.classList.add("is-visible"));
+  }
+
+  if (mobileQuery.matches || !("IntersectionObserver" in window)) return;
+
+  const parallaxItems = cards
+    .map((card) => ({
+      card,
+      targets: Array.from(card.querySelectorAll("[data-review-parallax]"))
+    }))
+    .filter((item) => item.targets.length);
+
+  if (!parallaxItems.length) return;
+
+  const itemByCard = new Map(parallaxItems.map((item) => [item.card, item]));
+  const activeItems = new Set();
+  let frameRequested = false;
+
+  const resetParallax = (item) => {
+    item.card.style.setProperty("--review-parallax-x", "0px");
+    item.card.style.setProperty("--review-parallax-y", "0px");
+  };
+
+  const updateParallax = () => {
+    frameRequested = false;
+    if (!activeItems.size) return;
+
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    activeItems.forEach((item) => {
+      const rect = item.card.getBoundingClientRect();
+      if (rect.bottom < -160 || rect.top > viewportHeight + 160) return;
+
+      const cardCenter = rect.top + rect.height / 2;
+      const viewportCenter = viewportHeight / 2;
+      const progress = (cardCenter - viewportCenter) / viewportCenter;
+      const y = Math.max(-REVIEW_PARALLAX_MAX, Math.min(REVIEW_PARALLAX_MAX, progress * -REVIEW_PARALLAX_MAX));
+      const x = Math.max(-4, Math.min(4, progress * 4));
+
+      item.card.style.setProperty("--review-parallax-x", `${x.toFixed(2)}px`);
+      item.card.style.setProperty("--review-parallax-y", `${y.toFixed(2)}px`);
+    });
+  };
+
+  const requestParallaxUpdate = () => {
+    if (!activeItems.size || frameRequested) return;
+    frameRequested = true;
+    window.requestAnimationFrame(updateParallax);
+  };
+
+  const activeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const item = itemByCard.get(entry.target);
+      if (!item) return;
+
+      if (entry.isIntersecting) {
+        activeItems.add(item);
+      } else {
+        activeItems.delete(item);
+        resetParallax(item);
+      }
+    });
+
+    requestParallaxUpdate();
+  }, { rootMargin: "160px 0px", threshold: 0 });
+
+  parallaxItems.forEach((item) => activeObserver.observe(item.card));
+  window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
+  window.addEventListener("resize", requestParallaxUpdate, { passive: true });
+  requestParallaxUpdate();
 };
 
 function initHeroFrameScroll() {
@@ -1245,6 +1525,7 @@ document.querySelectorAll("[data-year]").forEach((element) => {
 
 initPortfolioSections();
 initReviewsPage();
+initProjectReviewCards();
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initHeroFrameScroll);
 } else {
