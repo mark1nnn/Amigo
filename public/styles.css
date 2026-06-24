@@ -3032,7 +3032,7 @@ textarea:focus {
   color: #09130f;
   border-color: rgba(52, 211, 153, 0.54);
   background: linear-gradient(135deg, rgba(52, 211, 153, 0.94), rgba(56, 189, 248, 0.88));
-  box-shadow: 0 14px 34px rgba(45, 212, 191, 0.14);
+  box-shadow: 0 0 24px rgba(45, 212, 191, 0.14);
 }
 
 .nav-cta:hover,

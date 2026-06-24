@@ -459,7 +459,7 @@ const renderPortfolioModalImage = (project) => {
 };
 
 const renderPortfolioCard = (project) => `
-  <article class="portfolio-card portfolio-card-compact" data-project-id="${project.id}" data-project-filters="${project.filters.join(" ")}" tabindex="0" role="button" aria-haspopup="dialog">
+  <article class="portfolio-card portfolio-card-compact reveal" data-project-id="${project.id}" data-project-filters="${project.filters.join(" ")}" tabindex="0" role="button" aria-haspopup="dialog">
     ${renderPortfolioImage(project, "portfolio-card__image")}
     <div class="card-body portfolio-card__body">
       <div class="portfolio-tags portfolio-card__tags">
@@ -625,6 +625,7 @@ const renderPortfolioSection = (grid, projects, filter = "all") => {
   grid.innerHTML = visibleProjects.map((project) => renderPortfolioCard(project)).join("");
   const projectMap = new Map(visibleProjects.map((project) => [project.id, project]));
   bindPortfolioCards(grid, projectMap);
+  revealPortfolioCards(grid);
   return projectMap;
 };
 
@@ -724,23 +725,46 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+let pageRevealObserver = null;
+
+const queueRevealElements = (elements, options = {}) => {
+  const items = Array.from(elements).filter((element) => element instanceof HTMLElement);
+  const delayStep = options.delayStep ?? 35;
+  const maxDelay = options.maxDelay ?? 220;
+
+  items.forEach((element, index) => {
+    element.style.transitionDelay = `${Math.min(index * delayStep, maxDelay)}ms`;
+
+    if (pageRevealObserver) {
+      pageRevealObserver.observe(element);
+      return;
+    }
+
+    element.classList.add("is-visible");
+  });
+};
+
+const revealPortfolioCards = (grid) => {
+  queueRevealElements(grid.querySelectorAll(".portfolio-card.reveal"), {
+    delayStep: 70,
+    maxDelay: 240
+  });
+};
+
 const revealElements = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver((entries) => {
+  pageRevealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
+        pageRevealObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12 });
 
-  revealElements.forEach((element, index) => {
-    element.style.transitionDelay = `${Math.min(index * 35, 220)}ms`;
-    revealObserver.observe(element);
-  });
+  queueRevealElements(revealElements);
 } else {
-  revealElements.forEach((element) => element.classList.add("is-visible"));
+  queueRevealElements(revealElements);
 }
 
 const getField = (form, name) => {
