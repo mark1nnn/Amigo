@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 
 const rootDir = __dirname;
 const srcPagesDir = path.join(rootDir, "src", "pages");
@@ -7,6 +8,7 @@ const srcComponentsDir = path.join(rootDir, "src", "components");
 const publicDir = path.join(rootDir, "public");
 const siteOrigin = "https://amigostudio.pl";
 const languages = ["pl", "uk", "en"];
+const cacheBustedAssets = ["/styles.css", "/script.js"];
 
 const readUtf8 = (filePath) => fs.readFileSync(filePath, "utf8");
 const writeUtf8 = (filePath, contents) => fs.writeFileSync(filePath, contents, "utf8");
@@ -119,6 +121,32 @@ const getAlternatePaths = (html, relativePath) => {
 
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
+const getAssetHash = (assetPath) => {
+  const fullPath = path.join(publicDir, ...assetPath.split("/").filter(Boolean));
+
+  if (!fs.existsSync(fullPath)) {
+    throw new Error(`Missing cache-busted asset: public${assetPath}`);
+  }
+
+  return crypto.createHash("sha256").update(fs.readFileSync(fullPath)).digest("hex").slice(0, 10);
+};
+
+const getVersionedAssets = () => Object.fromEntries(
+  cacheBustedAssets.map((assetPath) => [assetPath, `${assetPath}?v=${getAssetHash(assetPath)}`])
+);
+
+const applyAssetVersions = (html, versionedAssets) => {
+  let output = html;
+
+  Object.entries(versionedAssets).forEach(([assetPath, versionedPath]) => {
+    const assetPattern = escapeRegExp(assetPath);
+    const referencePattern = new RegExp(`(\\b(?:href|src)=["'])${assetPattern}(?:\\?v=[^"']*)?(["'])`, "g");
+    output = output.replace(referencePattern, `$1${versionedPath}$2`);
+  });
+
+  return output;
+};
+
 const markActiveNavigation = (componentHtml, pageKey) => {
   if (!pageKey) return componentHtml;
 
@@ -151,7 +179,7 @@ const renderComponent = (componentName, context) => {
   return markActiveNavigation(componentHtml, context.pageKey);
 };
 
-const renderPage = (sourcePath) => {
+const renderPage = (sourcePath, versionedAssets) => {
   const relativePath = toPosix(path.relative(srcPagesDir, sourcePath));
   const sourceHtml = readUtf8(sourcePath);
   const context = {
@@ -161,7 +189,7 @@ const renderPage = (sourcePath) => {
   };
 
   let includeCount = 0;
-  const renderedHtml = sourceHtml.replace(/<!--\s*@include\s+([a-z0-9._-]+\.html)\s*-->/gi, (_match, componentName) => {
+  let renderedHtml = sourceHtml.replace(/<!--\s*@include\s+([a-z0-9._-]+\.html)\s*-->/gi, (_match, componentName) => {
     includeCount += 1;
     return renderComponent(componentName, context);
   });
@@ -173,6 +201,8 @@ const renderPage = (sourcePath) => {
   if (/@include/i.test(renderedHtml)) {
     throw new Error(`Unresolved include comment in ${path.relative(rootDir, sourcePath)}`);
   }
+
+  renderedHtml = applyAssetVersions(renderedHtml, versionedAssets);
 
   return { relativePath, renderedHtml };
 };
@@ -197,11 +227,13 @@ const build = () => {
     throw new Error("No HTML templates found in src/pages.");
   }
 
+  const versionedAssets = getVersionedAssets();
+
   fs.mkdirSync(publicDir, { recursive: true });
   removeGeneratedHtml();
 
   pages.forEach((pagePath) => {
-    const { relativePath, renderedHtml } = renderPage(pagePath);
+    const { relativePath, renderedHtml } = renderPage(pagePath, versionedAssets);
     const outputPath = path.join(publicDir, relativePath);
 
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
